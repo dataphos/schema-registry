@@ -8,7 +8,7 @@ env:
   GO111MODULE: on
   GO_VERSION: 1.21
   NODE_VERSION: 22
-  LINT_ARGS: -v --skip-files .*_test.go --timeout 5m0s --out-${NO_FUTURE}format colored-line-number
+  LINT_ARGS: -v --skip-files .*_test.go --timeout 5m0s --out-format colored-line-number
   GOLANGCI_LINT_VERSION: v1.50
   TEST_ARGS: -v -short -coverprofile=coverage.out
 
