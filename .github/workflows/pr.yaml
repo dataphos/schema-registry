@@ -122,8 +122,8 @@ jobs:
         with:
           version: v1.50.0
           args: ${{env.LINT_ARGS}}
-          skip-pkg-cache: true
-          skip-build-cache: true
+          skip-cache: true
+          skip-save-cache: true
           working-directory: ${{ matrix.component }}
 
   licenses_check:
