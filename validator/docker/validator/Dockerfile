@@ -1,4 +1,4 @@
-FROM golang:alpine3.16 as build
+FROM golang:1.21-alpine3.16 as build
 
 LABEL maintainer="Syntio Inc."
 
