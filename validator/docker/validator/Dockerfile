@@ -11,7 +11,7 @@ RUN apk add --no-cache git
 
 WORKDIR /src
 
-COPY ./validator/go.mod ./validator/go.sum .
+COPY ./validator/go.mod ./validator/go.sum ./
 RUN go mod download
 
 COPY ./validator .

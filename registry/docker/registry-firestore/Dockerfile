@@ -11,7 +11,7 @@ RUN apk add --no-cache git
 
 WORKDIR /src
 
-COPY ./registry/go.mod ./registry/go.sum .
+COPY ./registry/go.mod ./registry/go.sum ./
 RUN go mod download
 
 COPY ./schema-registry .
