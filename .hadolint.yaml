@@ -1,0 +1,19 @@
+# name of threshold level (error | warning | info | style | ignore | none)
+failure-threshold: error
+
+# list of rules you want to ignore
+ignored: [ ]
+
+# override the severity of specific rules by writing the error code into the list
+override:
+  error: [ ]
+  warning: [ ]
+  info: [ ]
+  style: [ ]
+
+# do not permit labels other than specified in `label-schema`
+strict-labels: false
+
+# hadolint can warn you when images from untrusted repositories are being used in Dockerfiles,
+# you can append the trustedRegistries keys to the configuration file
+# trustedRegistries: [ ]

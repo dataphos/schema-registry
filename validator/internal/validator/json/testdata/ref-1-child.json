@@ -1,0 +1,48 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema",
+  "$id": "http://schema.my-site.org/geometry.json",
+  "type": "object",
+  "title": "The Address Schema",
+  "description": "Reusable Address schema",
+  "default": {},
+  "additionalProperties": false,
+  "required": [
+    "street",
+    "zip",
+    "city",
+    "country"
+  ],
+  "properties": {
+    "street": {
+      "type": "string",
+      "title": "Street name"
+    },
+    "streetNo": {
+      "type": "string",
+      "title": "House/Apartment number"
+    },
+    "place": {
+      "type": "string",
+      "title": "Place name",
+      "default": ""
+    },
+    "zip": {
+      "type": "string",
+      "title": "Zip code",
+      "default": ""
+    },
+    "city": {
+      "type": "string",
+      "title": "City name",
+      "default": ""
+    },
+    "region": {
+      "type": "string",
+      "title": "Region name"
+    },
+    "country": {
+      "type": "string",
+      "title": "Country name"
+    }
+  }
+}

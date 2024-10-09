@@ -1,0 +1,26 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "allOf": [
+    { "$ref": "./testdata/ref-2-child.json" },
+    {
+      "type": "object",
+      "properties": {
+        "gender": {
+          "id": "gender",
+          "type": "string",
+          "enum": ["F", "M"]
+        },
+        "nationality": {
+          "id": "nationality",
+          "type": "string"
+        },
+        "birthDate": {
+          "id": "birthDate",
+          "type": "string",
+          "format": "date-time"
+        }
+      },
+      "required": ["gender"]
+    }
+  ]
+}
