@@ -128,7 +128,8 @@ linters-settings:
       - all
       - '-SA9003' # disable the rule SA9003
       - '-SA4009' # disable the rule SA4009
-      - '-SA4004'
+      disable:
+        - SA4004
   whitespace:
     multi-if: false   # Enforces newlines (or comments) after every multi-line if statement
     multi-func: false # Enforces newlines (or comments) after every multi-line function signature
