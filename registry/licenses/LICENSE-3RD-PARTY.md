@@ -1,76 +1,67 @@
-# Licenses list
-
-Dependencies sometimes change licenses between versions, please keep this up to date with every new library use.
-
-| software                                                        | license link                                                                                                            | license      | 
-|-----------------------------------------------------------------|-------------------------------------------------------------------------------------------------------------------------|--------------|
-| cloud.google.com/go/compute/metadata                            | https://github.com/googleapis/google-cloud-go/blob/compute/v1.5.0/compute/LICENSE                                       | Apache-2.0   |
-| cloud.google.com/go/functions/metadata                          | https://github.com/googleapis/google-cloud-go/blob/functions/v1.3.0/functions/LICENSE                                   | Apache-2.0   |
-| cloud.google.com/go/iam                                         | https://github.com/googleapis/google-cloud-go/blob/iam/v0.3.0/iam/LICENSE                                               | Apache-2.0   |
-| cloud.google.com/go/internal                                    | https://github.com/googleapis/google-cloud-go/blob/v0.100.2/LICENSE                                                     | Apache-2.0   |
-| cloud.google.com/go/pubsub                                      | https://github.com/googleapis/google-cloud-go/blob/pubsub/v1.20.0/pubsub/LICENSE                                        | Apache-2.0   |
-| cloud.google.com/go/storage                                     | https://github.com/googleapis/google-cloud-go/blob/storage/v1.22.0/storage/LICENSE                                      | Apache-2.0   |
-| github.com/Azure/azure-sdk-for-go/sdk/azcore                    | https://github.com/Azure/azure-sdk-for-go/blob/sdk/azcore/v0.21.1/sdk/azcore/LICENSE.txt                                | MIT          |
-| github.com/Azure/azure-sdk-for-go/sdk/azidentity                | https://github.com/Azure/azure-sdk-for-go/blob/sdk/azidentity/v0.13.2/sdk/azidentity/LICENSE.txt                        | MIT          |
-| github.com/Azure/azure-sdk-for-go/sdk/internal                  | https://github.com/Azure/azure-sdk-for-go/blob/sdk/internal/v0.9.1/sdk/internal/LICENSE.txt                             | MIT          |
-| github.com/Azure/azure-sdk-for-go/sdk/messaging/azservicebus    | https://github.com/Azure/azure-sdk-for-go/blob/sdk/messaging/azservicebus/v0.3.6/sdk/messaging/azservicebus/LICENSE.txt | MIT          |
-| github.com/Azure/azure-sdk-for-go/sdk/messaging/internal        | https://github.com/Azure/azure-sdk-for-go/blob/2b10e91d237e/sdk/messaging/internal/LICENSE.txt                          | MIT          |
-| github.com/Azure/azure-sdk-for-go/sdk/storage/azblob            | https://github.com/Azure/azure-sdk-for-go/blob/sdk/storage/azblob/v0.3.0/sdk/storage/azblob/LICENSE.txt                 | MIT          |
-| github.com/Azure/go-amqp                                        | https://github.com/Azure/go-amqp/blob/v0.17.4/LICENSE                                                                   | MIT          |
-| github.com/AzureAD/microsoft-authentication-library-for-go/apps | https://github.com/AzureAD/microsoft-authentication-library-for-go/blob/v0.4.0/LICENSE                                  | MIT          |
-| github.com/devigned/tab                                         | https://github.com/devigned/tab/blob/v0.1.1/LICENSE                                                                     | MIT          |
-| github.com/go-stack/stack                                       | https://github.com/go-stack/stack/blob/v1.8.0/LICENSE.md                                                                | MIT          |
-| github.com/gogo/protobuf                                        | https://github.com/gogo/protobuf/blob/v1.3.2/LICENSE                                                                    | BSD-3-Clause |
-| github.com/golang-jwt/jwt                                       | https://github.com/golang-jwt/jwt/blob/v3.2.1/LICENSE                                                                   | MIT          |
-| github.com/golang/groupcache/lru                                | https://github.com/golang/groupcache/blob/8c9f03a8e57e/LICENSE                                                          | Apache-2.0   |
-| github.com/golang/mock/gomock                                   | https://github.com/golang/mock/blob/v1.6.0/LICENSE                                                                      | Apache-2.0   |
-| github.com/golang/protobuf                                      | https://github.com/golang/protobuf/blob/v1.5.2/LICENSE                                                                  | BSD-3-Clause |
-| github.com/golang/snappy                                        | https://github.com/golang/snappy/blob/v0.0.4/LICENSE                                                                    | BSD-3-Clause |
-| github.com/google/go-cmp/cmp                                    | https://github.com/google/go-cmp/blob/v0.5.7/LICENSE                                                                    | BSD-3-Clause |
-| github.com/google/uuid                                          | https://github.com/google/uuid/blob/v1.1.2/LICENSE                                                                      | BSD-3-Clause |
-| github.com/googleapis/gax-go/v2                                 | https://github.com/googleapis/gax-go/blob/v2.2.0/v2/LICENSE                                                             | BSD-3-Clause |
-| github.com/googleapis/go-type-adapters/adapters                 | https://github.com/googleapis/go-type-adapters/blob/v1.0.0/LICENSE                                                      | Apache-2.0   |
-| github.com/gorilla/mux                                          | https://github.com/gorilla/mux/blob/v1.8.0/LICENSE                                                                      | BSD-3-Clause |
-| github.com/hamba/avro                                           | https://github.com/hamba/avro/blob/v1.6.6/LICENCE                                                                       | MIT          |
-| github.com/json-iterator/go                                     | https://github.com/json-iterator/go/blob/v1.1.12/LICENSE                                                                | MIT          |
-| github.com/klauspost/compress                                   | https://github.com/klauspost/compress/blob/v1.14.4/LICENSE                                                              | Apache-2.0   |
-| github.com/klauspost/compress/internal/snapref                  | https://github.com/klauspost/compress/blob/v1.14.4/internal\snapref\LICENSE                                             | BSD-3-Clause |
-| github.com/klauspost/compress/s2                                | https://github.com/klauspost/compress/blob/v1.14.4/s2\LICENSE                                                           | BSD-3-Clause |
-| github.com/klauspost/compress/snappy                            | https://github.com/klauspost/compress/blob/v1.14.4/snappy\LICENSE                                                       | BSD-3-Clause |
-| github.com/klauspost/compress/zstd/internal/xxhash              | https://github.com/klauspost/compress/blob/v1.14.4/zstd\internal\xxhash\LICENSE.txt                                     | MIT          |
-| github.com/kylelemons/godebug                                   | https://github.com/kylelemons/godebug/blob/v1.1.0/LICENSE                                                               | Apache-2.0   |
-| github.com/modern-go/concurrent                                 | https://github.com/modern-go/concurrent/blob/bacd9c7ef1dd/LICENSE                                                       | Apache-2.0   |
-| github.com/modern-go/reflect2                                   | https://github.com/modern-go/reflect2/blob/v1.0.2/LICENSE                                                               | Apache-2.0   |
-| github.com/nats-io/nats.go                                      | https://github.com/nats-io/nats.go/blob/v1.15.0/LICENSE                                                                 | Apache-2.0   |
-| github.com/nats-io/nkeys                                        | https://github.com/nats-io/nkeys/blob/v0.3.0/LICENSE                                                                    | Apache-2.0   |
-| github.com/nats-io/nuid                                         | https://github.com/nats-io/nuid/blob/v1.0.1/LICENSE                                                                     | Apache-2.0   |
-| github.com/nats-io/stan.go                                      | https://github.com/nats-io/stan.go/blob/v0.10.2/LICENSE                                                                 | Apache-2.0   |
-| github.com/pierrec/lz4/v4                                       | https://github.com/pierrec/lz4/blob/v4.1.14/LICENSE                                                                     | BSD-3-Clause |
-| github.com/pkg/browser                                          | https://github.com/pkg/browser/blob/ce105d075bb4/LICENSE                                                                | BSD-2-Clause |
-| github.com/pkg/errors                                           | https://github.com/pkg/errors/blob/v0.9.1/LICENSE                                                                       | BSD-2-Clause |
-| github.com/robfig/cron/v3                                       | https://github.com/robfig/cron/blob/v3.0.1/LICENSE                                                                      | MIT          |
-| github.com/segmentio/kafka-go                                   | https://github.com/segmentio/kafka-go/blob/v0.4.31/LICENSE                                                              | MIT          |
-| github.com/xdg-go/pbkdf2                                        | https://github.com/xdg-go/pbkdf2/blob/v1.0.0/LICENSE                                                                    | Apache-2.0   |
-| github.com/xdg-go/scram                                         | https://github.com/xdg-go/scram/blob/v1.0.2/LICENSE                                                                     | Apache-2.0   |
-| github.com/xdg-go/stringprep                                    | https://github.com/xdg-go/stringprep/blob/v1.0.2/LICENSE                                                                | Apache-2.0   |
-| github.com/youmark/pkcs8                                        | https://github.com/youmark/pkcs8/blob/1be2e3e5546d/LICENSE                                                              | MIT          |
-| github.com/hashicorp/golang-lru                                 | https://github.com/hashicorp/golang-lru/blob/v0.5.1/LICENSE                                                             | MPL-2.0      |
-| github.com/spf13/cast                                           | https://github.com/spf13/cast/blob/master/LICENSE                                                                       | MIT          |
-| github.com/swaggo/swag                                          | https://github.com/swaggo/swag/blob/master/license                                                                      | MIT          |
-| go.mongodb.org/mongo-driver                                     | https://github.com/mongodb/mongo-go-driver/blob/v1.9.0/LICENSE                                                          | Apache-2.0   |
-| go.opencensus.io                                                | https://github.com/census-instrumentation/opencensus-go/blob/v0.23.0/LICENSE                                            | Apache-2.0   |
-| go.uber.org/atomic                                              | https://github.com/uber-go/atomic/blob/v1.7.0/LICENSE.txt                                                               | MIT          |
-| go.uber.org/multierr                                            | https://github.com/uber-go/multierr/blob/v1.6.0/LICENSE.txt                                                             | MIT          |
-| go.uber.org/zap                                                 | https://github.com/uber-go/zap/blob/v1.16.0/LICENSE.txt                                                                 | MIT          |
-| golang.org/x/crypto                                             | https://cs.opensource.google/go/x/crypto/+/3147a52a:LICENSE                                                             | BSD-3-Clause |
-| golang.org/x/net                                                | https://cs.opensource.google/go/x/net/+/de3da570:LICENSE                                                                | BSD-3-Clause |
-| golang.org/x/oauth2                                             | https://cs.opensource.google/go/x/oauth2/+/6242fa91:LICENSE                                                             | BSD-3-Clause |
-| golang.org/x/sync                                               | https://cs.opensource.google/go/x/sync/+/036812b2:LICENSE                                                               | BSD-3-Clause |
-| golang.org/x/sys                                                | https://cs.opensource.google/go/x/sys/+/33da011f:LICENSE                                                                | BSD-3-Clause |
-| golang.org/x/text                                               | https://cs.opensource.google/go/x/text/+/v0.3.7:LICENSE                                                                 | BSD-3-Clause |
-| golang.org/x/xerrors                                            | https://cs.opensource.google/go/x/xerrors/+/5ec99f83:LICENSE                                                            | BSD-3-Clause |
-| google.golang.org/api                                           | https://github.com/googleapis/google-api-go-client/blob/v0.74.0/LICENSE                                                 | BSD-3-Clause |
-| google.golang.org/api/internal/third_party/uritemplates         | https://github.com/googleapis/google-api-go-client/blob/v0.74.0/internal\third_party\uritemplates\LICENSE               | BSD-3-Clause |
-| google.golang.org/genproto                                      | https://github.com/googleapis/go-genproto/blob/9d709892a2bf/LICENSE                                                     | Apache-2.0   |
-| google.golang.org/grpc                                          | https://github.com/grpc/grpc-go/blob/v1.45.0/LICENSE                                                                    | Apache-2.0   |
-| google.golang.org/protobuf                                      | https://github.com/protocolbuffers/protobuf-go/blob/v1.28.0/LICENSE                                                     | BSD-3-Clause |
+| Module                                                                                  | License      |
+|:----------------------------------------------------------------------------------------|:-------------|
+| cloud.google.com/go/compute/metadata v0.2.3 (indirect)                                  | Apache-2.0   |
+| cloud.google.com/go/firestore v1.13.0                                                   | Apache-2.0   |
+| cloud.google.com/go/internal                                                            | Apache-2.0   |
+| cloud.google.com/go/longrunning/autogen/longrunningpb                                   | Apache-2.0   |
+| github.com/KyleBanks/depth v1.2.1 (indirect)                                            | MIT          |
+| github.com/beorn7/perks/quantile                                                        | MIT          |
+| github.com/cespare/xxhash/v2 v2.2.0 (indirect)                                          | MIT          |
+| github.com/cyberphone/json-canonicalization/go/src/webpki.org/jsoncanonicalizer         | Apache-2.0   |
+| github.com/go-chi/chi/v5 v5.0.10                                                        | MIT          |
+| github.com/go-openapi/jsonpointer v0.20.0 (indirect)                                    | Apache-2.0   |
+| github.com/go-openapi/jsonreference v0.20.2 (indirect)                                  | Apache-2.0   |
+| github.com/go-openapi/spec v0.20.9 (indirect)                                           | Apache-2.0   |
+| github.com/go-openapi/swag v0.22.4 (indirect)                                           | Apache-2.0   |
+| github.com/golang/groupcache/lru                                                        | Apache-2.0   |
+| github.com/golang/protobuf v1.5.3 (indirect)                                            | BSD-3-Clause |
+| github.com/google/go-cmp/cmp                                                            | BSD-3-Clause |
+| github.com/google/s2a-go v0.1.7 (indirect)                                              | Apache-2.0   |
+| github.com/googleapis/enterprise-certificate-proxy/client                               | Apache-2.0   |
+| github.com/googleapis/gax-go/v2 v2.12.0 (indirect)                                      | BSD-3-Clause |
+| github.com/hamba/avro/v2 v2.16.0                                                        | MIT          |
+| github.com/hashicorp/golang-lru v1.0.2                                                  | MPL-2.0      |
+| github.com/jackc/pgpassfile v1.0.0 (indirect)                                           | MIT          |
+| github.com/jackc/pgservicefile v0.0.0-20221227161230-091c0ba34f0a (indirect)            | MIT          |
+| github.com/jackc/pgx/v5 v5.4.3 (indirect)                                               | MIT          |
+| github.com/jinzhu/inflection v1.0.0 (indirect)                                          | MIT          |
+| github.com/jinzhu/now v1.1.5 (indirect)                                                 | MIT          |
+| github.com/josharian/intern v1.0.0 (indirect)                                           | MIT          |
+| github.com/json-iterator/go v1.1.12 (indirect)                                          | MIT          |
+| github.com/mailru/easyjson v0.7.7 (indirect)                                            | MIT          |
+| github.com/matttproud/golang_protobuf_extensions/pbutil                                 | Apache-2.0   |
+| github.com/mitchellh/mapstructure v1.5.0 (indirect)                                     | MIT          |
+| github.com/modern-go/concurrent v0.0.0-20180306012644-bacd9c7ef1dd (indirect)           | Apache-2.0   |
+| github.com/modern-go/reflect2 v1.0.2 (indirect)                                         | Apache-2.0   |
+| github.com/pkg/errors v0.9.1                                                            | BSD-2-Clause |
+| github.com/prometheus/client_golang/prometheus                                          | Apache-2.0   |
+| github.com/prometheus/client_model/go                                                   | Apache-2.0   |
+| github.com/prometheus/common v0.44.0 (indirect)                                         | Apache-2.0   |
+| github.com/prometheus/common/internal/bitbucket.org/ww/goautoneg                        | BSD-3-Clause |
+| github.com/prometheus/procfs v0.12.0 (indirect)                                         | Apache-2.0   |
+| github.com/spf13/cast v1.5.1                                                            | MIT          |
+| github.com/swaggo/files v1.0.1 (indirect)                                               | MIT          |
+| github.com/swaggo/http-swagger v1.3.4                                                   | MIT          |
+| github.com/swaggo/swag v1.16.2                                                          | MIT          |
+| go.opencensus.io v0.24.0 (indirect)                                                     | Apache-2.0   |
+| go.uber.org/multierr v1.11.0 (indirect)                                                 | MIT          |
+| go.uber.org/zap v1.26.0 (indirect)                                                      | MIT          |
+| golang.org/x/crypto v0.13.0 (indirect)                                                  | BSD-3-Clause |
+| golang.org/x/net v0.15.0 (indirect)                                                     | BSD-3-Clause |
+| golang.org/x/oauth2 v0.12.0 (indirect)                                                  | BSD-3-Clause |
+| golang.org/x/sync v0.3.0                                                                | BSD-3-Clause |
+| golang.org/x/sys v0.12.0 (indirect)                                                     | BSD-3-Clause |
+| golang.org/x/text v0.13.0 (indirect)                                                    | BSD-3-Clause |
+| golang.org/x/time/rate                                                                  | BSD-3-Clause |
+| golang.org/x/tools v0.13.0 (indirect)                                                   | BSD-3-Clause |
+| golang.org/x/xerrors v0.0.0-20220907171357-04be3eba64a2 (indirect)                      | BSD-3-Clause |
+| google.golang.org/api v0.143.0                                                          | BSD-3-Clause |
+| google.golang.org/api/internal/third_party/uritemplates                                 | BSD-3-Clause |
+| google.golang.org/genproto/googleapis/api v0.0.0-20231002182017-d307bd883b97 (indirect) | Apache-2.0   |
+| google.golang.org/genproto/googleapis/rpc v0.0.0-20231002182017-d307bd883b97 (indirect) | Apache-2.0   |
+| google.golang.org/genproto/googleapis/type/latlng                                       | Apache-2.0   |
+| google.golang.org/grpc v1.58.2 (indirect)                                               | Apache-2.0   |
+| google.golang.org/protobuf v1.31.0 (indirect)                                           | BSD-3-Clause |
+| gopkg.in/yaml.v3 v3.0.1 (indirect)                                                      | MIT          |
+| gorm.io/driver/postgres v1.5.2                                                          | MIT          |
+| gorm.io/gorm v1.25.4                                                                    | MIT          |
