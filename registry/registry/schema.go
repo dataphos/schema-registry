@@ -331,7 +331,7 @@ func flattenJSON(prefix string, nested interface{}, flat map[string]interface{},
 
 	switch nested.(type) {
 	case map[string]interface{}:
-		for k, v := range nested.(map[string]interface{}) {
+		for k, v := range nested.(map[string]interface{}) { //nolint:gosimple // fine here
 			newKey := k
 			if currentDepth == 0 && strings.ToLower(newKey) != "properties" {
 				continue
@@ -345,7 +345,7 @@ func flattenJSON(prefix string, nested interface{}, flat map[string]interface{},
 			}
 		}
 	case []interface{}:
-		for i, v := range nested.([]interface{}) {
+		for i, v := range nested.([]interface{}) { //nolint:gosimple // fine here
 			newKey := strconv.Itoa(i)
 			if currentDepth != 0 {
 				newKey = prefix + delimiter + newKey

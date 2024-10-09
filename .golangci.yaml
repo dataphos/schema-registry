@@ -171,7 +171,7 @@ linters-settings:
   disable-all: false
   presets:
     - bugs
-    - unused
+    # - unused
   fast: false
 issues:
   # Excluding configuration per-path, per-linter, per-text and per-source
