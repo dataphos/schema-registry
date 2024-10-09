@@ -14,7 +14,7 @@ WORKDIR /src
 COPY ./registry/go.mod ./registry/go.sum ./
 RUN go mod download
 
-COPY ./schema-registry .
+COPY ./registry .
 COPY LICENSE ./licenses/
 
 RUN go mod tidy
