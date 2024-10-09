@@ -120,7 +120,7 @@ jobs:
         if: steps.check_changed_files.outputs.any_changed == 'true'
         uses: golangci/golangci-lint-action@v6
         with:
-          version: v1.50.0
+          version: v1.61.0
           args: ${{env.LINT_ARGS}}
           skip-cache: true
           skip-save-cache: true
