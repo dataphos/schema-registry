@@ -1,0 +1,546 @@
+{
+  "$schema": "http://json-schema.org/schema#",
+  "additionalProperties": false,
+  "type": "object",
+  "properties": {
+    "servers": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer"
+          },
+          "name": {
+            "type": "string"
+          },
+          "status": {
+            "type": "string"
+          },
+          "created": {
+            "type": "string"
+          },
+          "public_net": {
+            "type": "object",
+            "properties": {
+              "ipv4": {
+                "type": "object",
+                "properties": {
+                  "ip": {
+                    "type": "string"
+                  },
+                  "blocked": {
+                    "type": "boolean"
+                  },
+                  "dns_ptr": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "blocked",
+                  "dns_ptr",
+                  "ip"
+                ]
+              },
+              "ipv6": {
+                "type": "object",
+                "properties": {
+                  "ip": {
+                    "type": "string"
+                  },
+                  "blocked": {
+                    "type": "boolean"
+                  },
+                  "dns_ptr": {
+                    "type": "array"
+                  }
+                },
+                "required": [
+                  "blocked",
+                  "dns_ptr",
+                  "ip"
+                ]
+              },
+              "floating_ips": {
+                "type": "array"
+              },
+              "firewalls": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "type": "integer"
+                    },
+                    "status": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "id",
+                    "status"
+                  ]
+                }
+              }
+            },
+            "required": [
+              "firewalls",
+              "floating_ips",
+              "ipv4",
+              "ipv6"
+            ]
+          },
+          "private_net": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "network": {
+                  "type": "integer"
+                },
+                "ip": {
+                  "type": "string"
+                },
+                "alias_ips": {
+                  "type": "array"
+                },
+                "mac_address": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "alias_ips",
+                "ip",
+                "mac_address",
+                "network"
+              ]
+            }
+          },
+          "server_type": {
+            "type": "object",
+            "properties": {
+              "id": {
+                "type": "integer"
+              },
+              "name": {
+                "type": "string"
+              },
+              "description": {
+                "type": "string"
+              },
+              "cores": {
+                "type": "integer"
+              },
+              "memory": {
+                "type": "number"
+              },
+              "disk": {
+                "type": "integer"
+              },
+              "deprecated": {
+                "type": [
+                  "boolean",
+                  "null"
+                ]
+              },
+              "prices": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "location": {
+                      "type": "string"
+                    },
+                    "price_hourly": {
+                      "type": "object",
+                      "properties": {
+                        "net": {
+                          "type": "string"
+                        },
+                        "gross": {
+                          "type": "string"
+                        }
+                      },
+                      "required": [
+                        "gross",
+                        "net"
+                      ]
+                    },
+                    "price_monthly": {
+                      "type": "object",
+                      "properties": {
+                        "net": {
+                          "type": "string"
+                        },
+                        "gross": {
+                          "type": "string"
+                        }
+                      },
+                      "required": [
+                        "gross",
+                        "net"
+                      ]
+                    }
+                  },
+                  "required": [
+                    "location",
+                    "price_hourly",
+                    "price_monthly"
+                  ]
+                }
+              },
+              "storage_type": {
+                "type": "string"
+              },
+              "cpu_type": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "cores",
+              "cpu_type",
+              "deprecated",
+              "description",
+              "disk",
+              "id",
+              "memory",
+              "name",
+              "prices",
+              "storage_type"
+            ]
+          },
+          "datacenter": {
+            "type": "object",
+            "properties": {
+              "id": {
+                "type": "integer"
+              },
+              "name": {
+                "type": "string"
+              },
+              "description": {
+                "type": "string"
+              },
+              "location": {
+                "type": "object",
+                "properties": {
+                  "id": {
+                    "type": "integer"
+                  },
+                  "name": {
+                    "type": "string"
+                  },
+                  "description": {
+                    "type": "string"
+                  },
+                  "country": {
+                    "type": "string"
+                  },
+                  "city": {
+                    "type": "string"
+                  },
+                  "latitude": {
+                    "type": "number"
+                  },
+                  "longitude": {
+                    "type": "number"
+                  },
+                  "network_zone": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "city",
+                  "country",
+                  "description",
+                  "id",
+                  "latitude",
+                  "longitude",
+                  "name",
+                  "network_zone"
+                ]
+              },
+              "server_types": {
+                "type": "object",
+                "properties": {
+                  "supported": {
+                    "type": "array",
+                    "items": {
+                      "type": "integer"
+                    }
+                  },
+                  "available": {
+                    "type": "array",
+                    "items": {
+                      "type": "integer"
+                    }
+                  },
+                  "available_for_migration": {
+                    "type": "array",
+                    "items": {
+                      "type": "integer"
+                    }
+                  }
+                },
+                "required": [
+                  "available",
+                  "available_for_migration",
+                  "supported"
+                ]
+              }
+            },
+            "required": [
+              "description",
+              "id",
+              "location",
+              "name",
+              "server_types"
+            ]
+          },
+          "image": {
+            "anyOf": [
+              {
+                "type": "null"
+              },
+              {
+                "type": "object",
+                "properties": {
+                  "id": {
+                    "type": "integer"
+                  },
+                  "type": {
+                    "type": "string"
+                  },
+                  "status": {
+                    "type": "string"
+                  },
+                  "name": {
+                    "type": [
+                      "null",
+                      "string"
+                    ]
+                  },
+                  "description": {
+                    "type": "string"
+                  },
+                  "image_size": {
+                    "type": [
+                      "null",
+                      "number"
+                    ]
+                  },
+                  "disk_size": {
+                    "type": "integer"
+                  },
+                  "created": {
+                    "type": "string"
+                  },
+                  "created_from": {
+                    "anyOf": [
+                      {
+                        "type": "null"
+                      },
+                      {
+                        "type": "object",
+                        "properties": {
+                          "id": {
+                            "type": "integer"
+                          },
+                          "name": {
+                            "type": "string"
+                          }
+                        },
+                        "required": [
+                          "id",
+                          "name"
+                        ]
+                      }
+                    ]
+                  },
+                  "bound_to": {
+                    "type": "null"
+                  },
+                  "os_flavor": {
+                    "type": "string"
+                  },
+                  "os_version": {
+                    "type": [
+                      "null",
+                      "string"
+                    ]
+                  },
+                  "rapid_deploy": {
+                    "type": "boolean"
+                  },
+                  "protection": {
+                    "type": "object",
+                    "properties": {
+                      "delete": {
+                        "type": "boolean"
+                      }
+                    },
+                    "required": [
+                      "delete"
+                    ]
+                  },
+                  "deprecated": {
+                    "type": "null"
+                  },
+                  "labels": {
+                    "type": "object"
+                  },
+                  "deleted": {
+                    "type": "null"
+                  }
+                },
+                "required": [
+                  "bound_to",
+                  "created",
+                  "created_from",
+                  "deleted",
+                  "deprecated",
+                  "description",
+                  "disk_size",
+                  "id",
+                  "image_size",
+                  "labels",
+                  "name",
+                  "os_flavor",
+                  "os_version",
+                  "protection",
+                  "rapid_deploy",
+                  "status",
+                  "type"
+                ]
+              }
+            ]
+          },
+          "iso": {
+            "type": "null"
+          },
+          "rescue_enabled": {
+            "type": "boolean"
+          },
+          "locked": {
+            "type": "boolean"
+          },
+          "backup_window": {
+            "type": "null"
+          },
+          "outgoing_traffic": {
+            "type": "integer"
+          },
+          "ingoing_traffic": {
+            "type": "integer"
+          },
+          "included_traffic": {
+            "type": "integer"
+          },
+          "protection": {
+            "type": "object",
+            "properties": {
+              "delete": {
+                "type": "boolean"
+              },
+              "rebuild": {
+                "type": "boolean"
+              }
+            },
+            "required": [
+              "delete",
+              "rebuild"
+            ]
+          },
+          "labels": {
+            "type": "object"
+          },
+          "volumes": {
+            "type": "array",
+            "items": {
+              "type": "integer"
+            }
+          },
+          "load_balancers": {
+            "type": "array",
+            "items": {
+              "type": "integer"
+            }
+          },
+          "primary_disk_size": {
+            "type": "integer"
+          },
+          "placement_group": {
+            "type": "null"
+          }
+        },
+        "required": [
+          "backup_window",
+          "created",
+          "datacenter",
+          "id",
+          "image",
+          "included_traffic",
+          "ingoing_traffic",
+          "iso",
+          "labels",
+          "load_balancers",
+          "locked",
+          "name",
+          "outgoing_traffic",
+          "placement_group",
+          "primary_disk_size",
+          "private_net",
+          "protection",
+          "public_net",
+          "rescue_enabled",
+          "server_type",
+          "status",
+          "volumes"
+        ]
+      }
+    },
+    "meta": {
+      "type": "object",
+      "properties": {
+        "pagination": {
+          "type": "object",
+          "properties": {
+            "page": {
+              "type": "integer"
+            },
+            "per_page": {
+              "type": "integer"
+            },
+            "previous_page": {
+              "type": "null"
+            },
+            "next_page": {
+              "type": "integer"
+            },
+            "last_page": {
+              "type": "integer"
+            },
+            "total_entries": {
+              "type": "integer"
+            }
+          },
+          "required": [
+            "last_page",
+            "next_page",
+            "page",
+            "per_page",
+            "previous_page",
+            "total_entries"
+          ]
+        }
+      },
+      "required": [
+        "pagination"
+      ]
+    }
+  },
+  "required": [
+    "meta",
+    "servers"
+  ]
+}

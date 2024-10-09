@@ -1,0 +1,16 @@
+{
+  "data": {
+    "id": 101,
+    "first_name": "name",
+    "last_name": "surname",
+    "email": "businessEmail@company.net",
+    "phone": "090 111 222 33",
+    "address": "Company Building, Town",
+    "home number": "33a"
+  },
+  "attributes": {
+    "schemaId": "ShZjhdu76jjstre",
+    "versionId": 2,
+    "format": "json"
+  }
+}

@@ -1,0 +1,7505 @@
+{
+  "$schema": "http://json-schema.org/schema#",
+  "additionalProperties": false,
+  "type": "object",
+  "properties": {
+    "+1": {
+      "type": "string"
+    },
+    "-1": {
+      "type": "string"
+    },
+    "100": {
+      "type": "string"
+    },
+    "1234": {
+      "type": "string"
+    },
+    "1st_place_medal": {
+      "type": "string"
+    },
+    "2nd_place_medal": {
+      "type": "string"
+    },
+    "3rd_place_medal": {
+      "type": "string"
+    },
+    "8ball": {
+      "type": "string"
+    },
+    "a": {
+      "type": "string"
+    },
+    "ab": {
+      "type": "string"
+    },
+    "abacus": {
+      "type": "string"
+    },
+    "abc": {
+      "type": "string"
+    },
+    "abcd": {
+      "type": "string"
+    },
+    "accept": {
+      "type": "string"
+    },
+    "accordion": {
+      "type": "string"
+    },
+    "adhesive_bandage": {
+      "type": "string"
+    },
+    "adult": {
+      "type": "string"
+    },
+    "aerial_tramway": {
+      "type": "string"
+    },
+    "afghanistan": {
+      "type": "string"
+    },
+    "airplane": {
+      "type": "string"
+    },
+    "aland_islands": {
+      "type": "string"
+    },
+    "alarm_clock": {
+      "type": "string"
+    },
+    "albania": {
+      "type": "string"
+    },
+    "alembic": {
+      "type": "string"
+    },
+    "algeria": {
+      "type": "string"
+    },
+    "alien": {
+      "type": "string"
+    },
+    "ambulance": {
+      "type": "string"
+    },
+    "american_samoa": {
+      "type": "string"
+    },
+    "amphora": {
+      "type": "string"
+    },
+    "anatomical_heart": {
+      "type": "string"
+    },
+    "anchor": {
+      "type": "string"
+    },
+    "andorra": {
+      "type": "string"
+    },
+    "angel": {
+      "type": "string"
+    },
+    "anger": {
+      "type": "string"
+    },
+    "angola": {
+      "type": "string"
+    },
+    "angry": {
+      "type": "string"
+    },
+    "anguilla": {
+      "type": "string"
+    },
+    "anguished": {
+      "type": "string"
+    },
+    "ant": {
+      "type": "string"
+    },
+    "antarctica": {
+      "type": "string"
+    },
+    "antigua_barbuda": {
+      "type": "string"
+    },
+    "apple": {
+      "type": "string"
+    },
+    "aquarius": {
+      "type": "string"
+    },
+    "argentina": {
+      "type": "string"
+    },
+    "aries": {
+      "type": "string"
+    },
+    "armenia": {
+      "type": "string"
+    },
+    "arrow_backward": {
+      "type": "string"
+    },
+    "arrow_double_down": {
+      "type": "string"
+    },
+    "arrow_double_up": {
+      "type": "string"
+    },
+    "arrow_down": {
+      "type": "string"
+    },
+    "arrow_down_small": {
+      "type": "string"
+    },
+    "arrow_forward": {
+      "type": "string"
+    },
+    "arrow_heading_down": {
+      "type": "string"
+    },
+    "arrow_heading_up": {
+      "type": "string"
+    },
+    "arrow_left": {
+      "type": "string"
+    },
+    "arrow_lower_left": {
+      "type": "string"
+    },
+    "arrow_lower_right": {
+      "type": "string"
+    },
+    "arrow_right": {
+      "type": "string"
+    },
+    "arrow_right_hook": {
+      "type": "string"
+    },
+    "arrow_up": {
+      "type": "string"
+    },
+    "arrow_up_down": {
+      "type": "string"
+    },
+    "arrow_up_small": {
+      "type": "string"
+    },
+    "arrow_upper_left": {
+      "type": "string"
+    },
+    "arrow_upper_right": {
+      "type": "string"
+    },
+    "arrows_clockwise": {
+      "type": "string"
+    },
+    "arrows_counterclockwise": {
+      "type": "string"
+    },
+    "art": {
+      "type": "string"
+    },
+    "articulated_lorry": {
+      "type": "string"
+    },
+    "artificial_satellite": {
+      "type": "string"
+    },
+    "artist": {
+      "type": "string"
+    },
+    "aruba": {
+      "type": "string"
+    },
+    "ascension_island": {
+      "type": "string"
+    },
+    "asterisk": {
+      "type": "string"
+    },
+    "astonished": {
+      "type": "string"
+    },
+    "astronaut": {
+      "type": "string"
+    },
+    "athletic_shoe": {
+      "type": "string"
+    },
+    "atm": {
+      "type": "string"
+    },
+    "atom": {
+      "type": "string"
+    },
+    "atom_symbol": {
+      "type": "string"
+    },
+    "australia": {
+      "type": "string"
+    },
+    "austria": {
+      "type": "string"
+    },
+    "auto_rickshaw": {
+      "type": "string"
+    },
+    "avocado": {
+      "type": "string"
+    },
+    "axe": {
+      "type": "string"
+    },
+    "azerbaijan": {
+      "type": "string"
+    },
+    "b": {
+      "type": "string"
+    },
+    "baby": {
+      "type": "string"
+    },
+    "baby_bottle": {
+      "type": "string"
+    },
+    "baby_chick": {
+      "type": "string"
+    },
+    "baby_symbol": {
+      "type": "string"
+    },
+    "back": {
+      "type": "string"
+    },
+    "bacon": {
+      "type": "string"
+    },
+    "badger": {
+      "type": "string"
+    },
+    "badminton": {
+      "type": "string"
+    },
+    "bagel": {
+      "type": "string"
+    },
+    "baggage_claim": {
+      "type": "string"
+    },
+    "baguette_bread": {
+      "type": "string"
+    },
+    "bahamas": {
+      "type": "string"
+    },
+    "bahrain": {
+      "type": "string"
+    },
+    "balance_scale": {
+      "type": "string"
+    },
+    "bald_man": {
+      "type": "string"
+    },
+    "bald_woman": {
+      "type": "string"
+    },
+    "ballet_shoes": {
+      "type": "string"
+    },
+    "balloon": {
+      "type": "string"
+    },
+    "ballot_box": {
+      "type": "string"
+    },
+    "ballot_box_with_check": {
+      "type": "string"
+    },
+    "bamboo": {
+      "type": "string"
+    },
+    "banana": {
+      "type": "string"
+    },
+    "bangbang": {
+      "type": "string"
+    },
+    "bangladesh": {
+      "type": "string"
+    },
+    "banjo": {
+      "type": "string"
+    },
+    "bank": {
+      "type": "string"
+    },
+    "bar_chart": {
+      "type": "string"
+    },
+    "barbados": {
+      "type": "string"
+    },
+    "barber": {
+      "type": "string"
+    },
+    "baseball": {
+      "type": "string"
+    },
+    "basecamp": {
+      "type": "string"
+    },
+    "basecampy": {
+      "type": "string"
+    },
+    "basket": {
+      "type": "string"
+    },
+    "basketball": {
+      "type": "string"
+    },
+    "basketball_man": {
+      "type": "string"
+    },
+    "basketball_woman": {
+      "type": "string"
+    },
+    "bat": {
+      "type": "string"
+    },
+    "bath": {
+      "type": "string"
+    },
+    "bathtub": {
+      "type": "string"
+    },
+    "battery": {
+      "type": "string"
+    },
+    "beach_umbrella": {
+      "type": "string"
+    },
+    "bear": {
+      "type": "string"
+    },
+    "bearded_person": {
+      "type": "string"
+    },
+    "beaver": {
+      "type": "string"
+    },
+    "bed": {
+      "type": "string"
+    },
+    "bee": {
+      "type": "string"
+    },
+    "beer": {
+      "type": "string"
+    },
+    "beers": {
+      "type": "string"
+    },
+    "beetle": {
+      "type": "string"
+    },
+    "beginner": {
+      "type": "string"
+    },
+    "belarus": {
+      "type": "string"
+    },
+    "belgium": {
+      "type": "string"
+    },
+    "belize": {
+      "type": "string"
+    },
+    "bell": {
+      "type": "string"
+    },
+    "bell_pepper": {
+      "type": "string"
+    },
+    "bellhop_bell": {
+      "type": "string"
+    },
+    "benin": {
+      "type": "string"
+    },
+    "bento": {
+      "type": "string"
+    },
+    "bermuda": {
+      "type": "string"
+    },
+    "beverage_box": {
+      "type": "string"
+    },
+    "bhutan": {
+      "type": "string"
+    },
+    "bicyclist": {
+      "type": "string"
+    },
+    "bike": {
+      "type": "string"
+    },
+    "biking_man": {
+      "type": "string"
+    },
+    "biking_woman": {
+      "type": "string"
+    },
+    "bikini": {
+      "type": "string"
+    },
+    "billed_cap": {
+      "type": "string"
+    },
+    "biohazard": {
+      "type": "string"
+    },
+    "bird": {
+      "type": "string"
+    },
+    "birthday": {
+      "type": "string"
+    },
+    "bison": {
+      "type": "string"
+    },
+    "black_cat": {
+      "type": "string"
+    },
+    "black_circle": {
+      "type": "string"
+    },
+    "black_flag": {
+      "type": "string"
+    },
+    "black_heart": {
+      "type": "string"
+    },
+    "black_joker": {
+      "type": "string"
+    },
+    "black_large_square": {
+      "type": "string"
+    },
+    "black_medium_small_square": {
+      "type": "string"
+    },
+    "black_medium_square": {
+      "type": "string"
+    },
+    "black_nib": {
+      "type": "string"
+    },
+    "black_small_square": {
+      "type": "string"
+    },
+    "black_square_button": {
+      "type": "string"
+    },
+    "blond_haired_man": {
+      "type": "string"
+    },
+    "blond_haired_person": {
+      "type": "string"
+    },
+    "blond_haired_woman": {
+      "type": "string"
+    },
+    "blonde_woman": {
+      "type": "string"
+    },
+    "blossom": {
+      "type": "string"
+    },
+    "blowfish": {
+      "type": "string"
+    },
+    "blue_book": {
+      "type": "string"
+    },
+    "blue_car": {
+      "type": "string"
+    },
+    "blue_heart": {
+      "type": "string"
+    },
+    "blue_square": {
+      "type": "string"
+    },
+    "blueberries": {
+      "type": "string"
+    },
+    "blush": {
+      "type": "string"
+    },
+    "boar": {
+      "type": "string"
+    },
+    "boat": {
+      "type": "string"
+    },
+    "bolivia": {
+      "type": "string"
+    },
+    "bomb": {
+      "type": "string"
+    },
+    "bone": {
+      "type": "string"
+    },
+    "book": {
+      "type": "string"
+    },
+    "bookmark": {
+      "type": "string"
+    },
+    "bookmark_tabs": {
+      "type": "string"
+    },
+    "books": {
+      "type": "string"
+    },
+    "boom": {
+      "type": "string"
+    },
+    "boomerang": {
+      "type": "string"
+    },
+    "boot": {
+      "type": "string"
+    },
+    "bosnia_herzegovina": {
+      "type": "string"
+    },
+    "botswana": {
+      "type": "string"
+    },
+    "bouncing_ball_man": {
+      "type": "string"
+    },
+    "bouncing_ball_person": {
+      "type": "string"
+    },
+    "bouncing_ball_woman": {
+      "type": "string"
+    },
+    "bouquet": {
+      "type": "string"
+    },
+    "bouvet_island": {
+      "type": "string"
+    },
+    "bow": {
+      "type": "string"
+    },
+    "bow_and_arrow": {
+      "type": "string"
+    },
+    "bowing_man": {
+      "type": "string"
+    },
+    "bowing_woman": {
+      "type": "string"
+    },
+    "bowl_with_spoon": {
+      "type": "string"
+    },
+    "bowling": {
+      "type": "string"
+    },
+    "bowtie": {
+      "type": "string"
+    },
+    "boxing_glove": {
+      "type": "string"
+    },
+    "boy": {
+      "type": "string"
+    },
+    "brain": {
+      "type": "string"
+    },
+    "brazil": {
+      "type": "string"
+    },
+    "bread": {
+      "type": "string"
+    },
+    "breast_feeding": {
+      "type": "string"
+    },
+    "bricks": {
+      "type": "string"
+    },
+    "bride_with_veil": {
+      "type": "string"
+    },
+    "bridge_at_night": {
+      "type": "string"
+    },
+    "briefcase": {
+      "type": "string"
+    },
+    "british_indian_ocean_territory": {
+      "type": "string"
+    },
+    "british_virgin_islands": {
+      "type": "string"
+    },
+    "broccoli": {
+      "type": "string"
+    },
+    "broken_heart": {
+      "type": "string"
+    },
+    "broom": {
+      "type": "string"
+    },
+    "brown_circle": {
+      "type": "string"
+    },
+    "brown_heart": {
+      "type": "string"
+    },
+    "brown_square": {
+      "type": "string"
+    },
+    "brunei": {
+      "type": "string"
+    },
+    "bubble_tea": {
+      "type": "string"
+    },
+    "bucket": {
+      "type": "string"
+    },
+    "bug": {
+      "type": "string"
+    },
+    "building_construction": {
+      "type": "string"
+    },
+    "bulb": {
+      "type": "string"
+    },
+    "bulgaria": {
+      "type": "string"
+    },
+    "bullettrain_front": {
+      "type": "string"
+    },
+    "bullettrain_side": {
+      "type": "string"
+    },
+    "burkina_faso": {
+      "type": "string"
+    },
+    "burrito": {
+      "type": "string"
+    },
+    "burundi": {
+      "type": "string"
+    },
+    "bus": {
+      "type": "string"
+    },
+    "business_suit_levitating": {
+      "type": "string"
+    },
+    "busstop": {
+      "type": "string"
+    },
+    "bust_in_silhouette": {
+      "type": "string"
+    },
+    "busts_in_silhouette": {
+      "type": "string"
+    },
+    "butter": {
+      "type": "string"
+    },
+    "butterfly": {
+      "type": "string"
+    },
+    "cactus": {
+      "type": "string"
+    },
+    "cake": {
+      "type": "string"
+    },
+    "calendar": {
+      "type": "string"
+    },
+    "call_me_hand": {
+      "type": "string"
+    },
+    "calling": {
+      "type": "string"
+    },
+    "cambodia": {
+      "type": "string"
+    },
+    "camel": {
+      "type": "string"
+    },
+    "camera": {
+      "type": "string"
+    },
+    "camera_flash": {
+      "type": "string"
+    },
+    "cameroon": {
+      "type": "string"
+    },
+    "camping": {
+      "type": "string"
+    },
+    "canada": {
+      "type": "string"
+    },
+    "canary_islands": {
+      "type": "string"
+    },
+    "cancer": {
+      "type": "string"
+    },
+    "candle": {
+      "type": "string"
+    },
+    "candy": {
+      "type": "string"
+    },
+    "canned_food": {
+      "type": "string"
+    },
+    "canoe": {
+      "type": "string"
+    },
+    "cape_verde": {
+      "type": "string"
+    },
+    "capital_abcd": {
+      "type": "string"
+    },
+    "capricorn": {
+      "type": "string"
+    },
+    "car": {
+      "type": "string"
+    },
+    "card_file_box": {
+      "type": "string"
+    },
+    "card_index": {
+      "type": "string"
+    },
+    "card_index_dividers": {
+      "type": "string"
+    },
+    "caribbean_netherlands": {
+      "type": "string"
+    },
+    "carousel_horse": {
+      "type": "string"
+    },
+    "carpentry_saw": {
+      "type": "string"
+    },
+    "carrot": {
+      "type": "string"
+    },
+    "cartwheeling": {
+      "type": "string"
+    },
+    "cat": {
+      "type": "string"
+    },
+    "cat2": {
+      "type": "string"
+    },
+    "cayman_islands": {
+      "type": "string"
+    },
+    "cd": {
+      "type": "string"
+    },
+    "central_african_republic": {
+      "type": "string"
+    },
+    "ceuta_melilla": {
+      "type": "string"
+    },
+    "chad": {
+      "type": "string"
+    },
+    "chains": {
+      "type": "string"
+    },
+    "chair": {
+      "type": "string"
+    },
+    "champagne": {
+      "type": "string"
+    },
+    "chart": {
+      "type": "string"
+    },
+    "chart_with_downwards_trend": {
+      "type": "string"
+    },
+    "chart_with_upwards_trend": {
+      "type": "string"
+    },
+    "checkered_flag": {
+      "type": "string"
+    },
+    "cheese": {
+      "type": "string"
+    },
+    "cherries": {
+      "type": "string"
+    },
+    "cherry_blossom": {
+      "type": "string"
+    },
+    "chess_pawn": {
+      "type": "string"
+    },
+    "chestnut": {
+      "type": "string"
+    },
+    "chicken": {
+      "type": "string"
+    },
+    "child": {
+      "type": "string"
+    },
+    "children_crossing": {
+      "type": "string"
+    },
+    "chile": {
+      "type": "string"
+    },
+    "chipmunk": {
+      "type": "string"
+    },
+    "chocolate_bar": {
+      "type": "string"
+    },
+    "chopsticks": {
+      "type": "string"
+    },
+    "christmas_island": {
+      "type": "string"
+    },
+    "christmas_tree": {
+      "type": "string"
+    },
+    "church": {
+      "type": "string"
+    },
+    "cinema": {
+      "type": "string"
+    },
+    "circus_tent": {
+      "type": "string"
+    },
+    "city_sunrise": {
+      "type": "string"
+    },
+    "city_sunset": {
+      "type": "string"
+    },
+    "cityscape": {
+      "type": "string"
+    },
+    "cl": {
+      "type": "string"
+    },
+    "clamp": {
+      "type": "string"
+    },
+    "clap": {
+      "type": "string"
+    },
+    "clapper": {
+      "type": "string"
+    },
+    "classical_building": {
+      "type": "string"
+    },
+    "climbing": {
+      "type": "string"
+    },
+    "climbing_man": {
+      "type": "string"
+    },
+    "climbing_woman": {
+      "type": "string"
+    },
+    "clinking_glasses": {
+      "type": "string"
+    },
+    "clipboard": {
+      "type": "string"
+    },
+    "clipperton_island": {
+      "type": "string"
+    },
+    "clock1": {
+      "type": "string"
+    },
+    "clock10": {
+      "type": "string"
+    },
+    "clock1030": {
+      "type": "string"
+    },
+    "clock11": {
+      "type": "string"
+    },
+    "clock1130": {
+      "type": "string"
+    },
+    "clock12": {
+      "type": "string"
+    },
+    "clock1230": {
+      "type": "string"
+    },
+    "clock130": {
+      "type": "string"
+    },
+    "clock2": {
+      "type": "string"
+    },
+    "clock230": {
+      "type": "string"
+    },
+    "clock3": {
+      "type": "string"
+    },
+    "clock330": {
+      "type": "string"
+    },
+    "clock4": {
+      "type": "string"
+    },
+    "clock430": {
+      "type": "string"
+    },
+    "clock5": {
+      "type": "string"
+    },
+    "clock530": {
+      "type": "string"
+    },
+    "clock6": {
+      "type": "string"
+    },
+    "clock630": {
+      "type": "string"
+    },
+    "clock7": {
+      "type": "string"
+    },
+    "clock730": {
+      "type": "string"
+    },
+    "clock8": {
+      "type": "string"
+    },
+    "clock830": {
+      "type": "string"
+    },
+    "clock9": {
+      "type": "string"
+    },
+    "clock930": {
+      "type": "string"
+    },
+    "closed_book": {
+      "type": "string"
+    },
+    "closed_lock_with_key": {
+      "type": "string"
+    },
+    "closed_umbrella": {
+      "type": "string"
+    },
+    "cloud": {
+      "type": "string"
+    },
+    "cloud_with_lightning": {
+      "type": "string"
+    },
+    "cloud_with_lightning_and_rain": {
+      "type": "string"
+    },
+    "cloud_with_rain": {
+      "type": "string"
+    },
+    "cloud_with_snow": {
+      "type": "string"
+    },
+    "clown_face": {
+      "type": "string"
+    },
+    "clubs": {
+      "type": "string"
+    },
+    "cn": {
+      "type": "string"
+    },
+    "coat": {
+      "type": "string"
+    },
+    "cockroach": {
+      "type": "string"
+    },
+    "cocktail": {
+      "type": "string"
+    },
+    "coconut": {
+      "type": "string"
+    },
+    "cocos_islands": {
+      "type": "string"
+    },
+    "coffee": {
+      "type": "string"
+    },
+    "coffin": {
+      "type": "string"
+    },
+    "coin": {
+      "type": "string"
+    },
+    "cold_face": {
+      "type": "string"
+    },
+    "cold_sweat": {
+      "type": "string"
+    },
+    "collision": {
+      "type": "string"
+    },
+    "colombia": {
+      "type": "string"
+    },
+    "comet": {
+      "type": "string"
+    },
+    "comoros": {
+      "type": "string"
+    },
+    "compass": {
+      "type": "string"
+    },
+    "computer": {
+      "type": "string"
+    },
+    "computer_mouse": {
+      "type": "string"
+    },
+    "confetti_ball": {
+      "type": "string"
+    },
+    "confounded": {
+      "type": "string"
+    },
+    "confused": {
+      "type": "string"
+    },
+    "congo_brazzaville": {
+      "type": "string"
+    },
+    "congo_kinshasa": {
+      "type": "string"
+    },
+    "congratulations": {
+      "type": "string"
+    },
+    "construction": {
+      "type": "string"
+    },
+    "construction_worker": {
+      "type": "string"
+    },
+    "construction_worker_man": {
+      "type": "string"
+    },
+    "construction_worker_woman": {
+      "type": "string"
+    },
+    "control_knobs": {
+      "type": "string"
+    },
+    "convenience_store": {
+      "type": "string"
+    },
+    "cook": {
+      "type": "string"
+    },
+    "cook_islands": {
+      "type": "string"
+    },
+    "cookie": {
+      "type": "string"
+    },
+    "cool": {
+      "type": "string"
+    },
+    "cop": {
+      "type": "string"
+    },
+    "copyright": {
+      "type": "string"
+    },
+    "corn": {
+      "type": "string"
+    },
+    "costa_rica": {
+      "type": "string"
+    },
+    "cote_divoire": {
+      "type": "string"
+    },
+    "couch_and_lamp": {
+      "type": "string"
+    },
+    "couple": {
+      "type": "string"
+    },
+    "couple_with_heart": {
+      "type": "string"
+    },
+    "couple_with_heart_man_man": {
+      "type": "string"
+    },
+    "couple_with_heart_woman_man": {
+      "type": "string"
+    },
+    "couple_with_heart_woman_woman": {
+      "type": "string"
+    },
+    "couplekiss": {
+      "type": "string"
+    },
+    "couplekiss_man_man": {
+      "type": "string"
+    },
+    "couplekiss_man_woman": {
+      "type": "string"
+    },
+    "couplekiss_woman_woman": {
+      "type": "string"
+    },
+    "cow": {
+      "type": "string"
+    },
+    "cow2": {
+      "type": "string"
+    },
+    "cowboy_hat_face": {
+      "type": "string"
+    },
+    "crab": {
+      "type": "string"
+    },
+    "crayon": {
+      "type": "string"
+    },
+    "credit_card": {
+      "type": "string"
+    },
+    "crescent_moon": {
+      "type": "string"
+    },
+    "cricket": {
+      "type": "string"
+    },
+    "cricket_game": {
+      "type": "string"
+    },
+    "croatia": {
+      "type": "string"
+    },
+    "crocodile": {
+      "type": "string"
+    },
+    "croissant": {
+      "type": "string"
+    },
+    "crossed_fingers": {
+      "type": "string"
+    },
+    "crossed_flags": {
+      "type": "string"
+    },
+    "crossed_swords": {
+      "type": "string"
+    },
+    "crown": {
+      "type": "string"
+    },
+    "cry": {
+      "type": "string"
+    },
+    "crying_cat_face": {
+      "type": "string"
+    },
+    "crystal_ball": {
+      "type": "string"
+    },
+    "cuba": {
+      "type": "string"
+    },
+    "cucumber": {
+      "type": "string"
+    },
+    "cup_with_straw": {
+      "type": "string"
+    },
+    "cupcake": {
+      "type": "string"
+    },
+    "cupid": {
+      "type": "string"
+    },
+    "curacao": {
+      "type": "string"
+    },
+    "curling_stone": {
+      "type": "string"
+    },
+    "curly_haired_man": {
+      "type": "string"
+    },
+    "curly_haired_woman": {
+      "type": "string"
+    },
+    "curly_loop": {
+      "type": "string"
+    },
+    "currency_exchange": {
+      "type": "string"
+    },
+    "curry": {
+      "type": "string"
+    },
+    "cursing_face": {
+      "type": "string"
+    },
+    "custard": {
+      "type": "string"
+    },
+    "customs": {
+      "type": "string"
+    },
+    "cut_of_meat": {
+      "type": "string"
+    },
+    "cyclone": {
+      "type": "string"
+    },
+    "cyprus": {
+      "type": "string"
+    },
+    "czech_republic": {
+      "type": "string"
+    },
+    "dagger": {
+      "type": "string"
+    },
+    "dancer": {
+      "type": "string"
+    },
+    "dancers": {
+      "type": "string"
+    },
+    "dancing_men": {
+      "type": "string"
+    },
+    "dancing_women": {
+      "type": "string"
+    },
+    "dango": {
+      "type": "string"
+    },
+    "dark_sunglasses": {
+      "type": "string"
+    },
+    "dart": {
+      "type": "string"
+    },
+    "dash": {
+      "type": "string"
+    },
+    "date": {
+      "type": "string"
+    },
+    "de": {
+      "type": "string"
+    },
+    "deaf_man": {
+      "type": "string"
+    },
+    "deaf_person": {
+      "type": "string"
+    },
+    "deaf_woman": {
+      "type": "string"
+    },
+    "deciduous_tree": {
+      "type": "string"
+    },
+    "deer": {
+      "type": "string"
+    },
+    "denmark": {
+      "type": "string"
+    },
+    "department_store": {
+      "type": "string"
+    },
+    "derelict_house": {
+      "type": "string"
+    },
+    "desert": {
+      "type": "string"
+    },
+    "desert_island": {
+      "type": "string"
+    },
+    "desktop_computer": {
+      "type": "string"
+    },
+    "detective": {
+      "type": "string"
+    },
+    "diamond_shape_with_a_dot_inside": {
+      "type": "string"
+    },
+    "diamonds": {
+      "type": "string"
+    },
+    "diego_garcia": {
+      "type": "string"
+    },
+    "disappointed": {
+      "type": "string"
+    },
+    "disappointed_relieved": {
+      "type": "string"
+    },
+    "disguised_face": {
+      "type": "string"
+    },
+    "diving_mask": {
+      "type": "string"
+    },
+    "diya_lamp": {
+      "type": "string"
+    },
+    "dizzy": {
+      "type": "string"
+    },
+    "dizzy_face": {
+      "type": "string"
+    },
+    "djibouti": {
+      "type": "string"
+    },
+    "dna": {
+      "type": "string"
+    },
+    "do_not_litter": {
+      "type": "string"
+    },
+    "dodo": {
+      "type": "string"
+    },
+    "dog": {
+      "type": "string"
+    },
+    "dog2": {
+      "type": "string"
+    },
+    "dollar": {
+      "type": "string"
+    },
+    "dolls": {
+      "type": "string"
+    },
+    "dolphin": {
+      "type": "string"
+    },
+    "dominica": {
+      "type": "string"
+    },
+    "dominican_republic": {
+      "type": "string"
+    },
+    "door": {
+      "type": "string"
+    },
+    "doughnut": {
+      "type": "string"
+    },
+    "dove": {
+      "type": "string"
+    },
+    "dragon": {
+      "type": "string"
+    },
+    "dragon_face": {
+      "type": "string"
+    },
+    "dress": {
+      "type": "string"
+    },
+    "dromedary_camel": {
+      "type": "string"
+    },
+    "drooling_face": {
+      "type": "string"
+    },
+    "drop_of_blood": {
+      "type": "string"
+    },
+    "droplet": {
+      "type": "string"
+    },
+    "drum": {
+      "type": "string"
+    },
+    "duck": {
+      "type": "string"
+    },
+    "dumpling": {
+      "type": "string"
+    },
+    "dvd": {
+      "type": "string"
+    },
+    "e-mail": {
+      "type": "string"
+    },
+    "eagle": {
+      "type": "string"
+    },
+    "ear": {
+      "type": "string"
+    },
+    "ear_of_rice": {
+      "type": "string"
+    },
+    "ear_with_hearing_aid": {
+      "type": "string"
+    },
+    "earth_africa": {
+      "type": "string"
+    },
+    "earth_americas": {
+      "type": "string"
+    },
+    "earth_asia": {
+      "type": "string"
+    },
+    "ecuador": {
+      "type": "string"
+    },
+    "egg": {
+      "type": "string"
+    },
+    "eggplant": {
+      "type": "string"
+    },
+    "egypt": {
+      "type": "string"
+    },
+    "eight": {
+      "type": "string"
+    },
+    "eight_pointed_black_star": {
+      "type": "string"
+    },
+    "eight_spoked_asterisk": {
+      "type": "string"
+    },
+    "eject_button": {
+      "type": "string"
+    },
+    "el_salvador": {
+      "type": "string"
+    },
+    "electric_plug": {
+      "type": "string"
+    },
+    "electron": {
+      "type": "string"
+    },
+    "elephant": {
+      "type": "string"
+    },
+    "elevator": {
+      "type": "string"
+    },
+    "elf": {
+      "type": "string"
+    },
+    "elf_man": {
+      "type": "string"
+    },
+    "elf_woman": {
+      "type": "string"
+    },
+    "email": {
+      "type": "string"
+    },
+    "end": {
+      "type": "string"
+    },
+    "england": {
+      "type": "string"
+    },
+    "envelope": {
+      "type": "string"
+    },
+    "envelope_with_arrow": {
+      "type": "string"
+    },
+    "equatorial_guinea": {
+      "type": "string"
+    },
+    "eritrea": {
+      "type": "string"
+    },
+    "es": {
+      "type": "string"
+    },
+    "estonia": {
+      "type": "string"
+    },
+    "ethiopia": {
+      "type": "string"
+    },
+    "eu": {
+      "type": "string"
+    },
+    "euro": {
+      "type": "string"
+    },
+    "european_castle": {
+      "type": "string"
+    },
+    "european_post_office": {
+      "type": "string"
+    },
+    "european_union": {
+      "type": "string"
+    },
+    "evergreen_tree": {
+      "type": "string"
+    },
+    "exclamation": {
+      "type": "string"
+    },
+    "exploding_head": {
+      "type": "string"
+    },
+    "expressionless": {
+      "type": "string"
+    },
+    "eye": {
+      "type": "string"
+    },
+    "eye_speech_bubble": {
+      "type": "string"
+    },
+    "eyeglasses": {
+      "type": "string"
+    },
+    "eyes": {
+      "type": "string"
+    },
+    "face_exhaling": {
+      "type": "string"
+    },
+    "face_in_clouds": {
+      "type": "string"
+    },
+    "face_with_head_bandage": {
+      "type": "string"
+    },
+    "face_with_spiral_eyes": {
+      "type": "string"
+    },
+    "face_with_thermometer": {
+      "type": "string"
+    },
+    "facepalm": {
+      "type": "string"
+    },
+    "facepunch": {
+      "type": "string"
+    },
+    "factory": {
+      "type": "string"
+    },
+    "factory_worker": {
+      "type": "string"
+    },
+    "fairy": {
+      "type": "string"
+    },
+    "fairy_man": {
+      "type": "string"
+    },
+    "fairy_woman": {
+      "type": "string"
+    },
+    "falafel": {
+      "type": "string"
+    },
+    "falkland_islands": {
+      "type": "string"
+    },
+    "fallen_leaf": {
+      "type": "string"
+    },
+    "family": {
+      "type": "string"
+    },
+    "family_man_boy": {
+      "type": "string"
+    },
+    "family_man_boy_boy": {
+      "type": "string"
+    },
+    "family_man_girl": {
+      "type": "string"
+    },
+    "family_man_girl_boy": {
+      "type": "string"
+    },
+    "family_man_girl_girl": {
+      "type": "string"
+    },
+    "family_man_man_boy": {
+      "type": "string"
+    },
+    "family_man_man_boy_boy": {
+      "type": "string"
+    },
+    "family_man_man_girl": {
+      "type": "string"
+    },
+    "family_man_man_girl_boy": {
+      "type": "string"
+    },
+    "family_man_man_girl_girl": {
+      "type": "string"
+    },
+    "family_man_woman_boy": {
+      "type": "string"
+    },
+    "family_man_woman_boy_boy": {
+      "type": "string"
+    },
+    "family_man_woman_girl": {
+      "type": "string"
+    },
+    "family_man_woman_girl_boy": {
+      "type": "string"
+    },
+    "family_man_woman_girl_girl": {
+      "type": "string"
+    },
+    "family_woman_boy": {
+      "type": "string"
+    },
+    "family_woman_boy_boy": {
+      "type": "string"
+    },
+    "family_woman_girl": {
+      "type": "string"
+    },
+    "family_woman_girl_boy": {
+      "type": "string"
+    },
+    "family_woman_girl_girl": {
+      "type": "string"
+    },
+    "family_woman_woman_boy": {
+      "type": "string"
+    },
+    "family_woman_woman_boy_boy": {
+      "type": "string"
+    },
+    "family_woman_woman_girl": {
+      "type": "string"
+    },
+    "family_woman_woman_girl_boy": {
+      "type": "string"
+    },
+    "family_woman_woman_girl_girl": {
+      "type": "string"
+    },
+    "farmer": {
+      "type": "string"
+    },
+    "faroe_islands": {
+      "type": "string"
+    },
+    "fast_forward": {
+      "type": "string"
+    },
+    "fax": {
+      "type": "string"
+    },
+    "fearful": {
+      "type": "string"
+    },
+    "feather": {
+      "type": "string"
+    },
+    "feelsgood": {
+      "type": "string"
+    },
+    "feet": {
+      "type": "string"
+    },
+    "female_detective": {
+      "type": "string"
+    },
+    "female_sign": {
+      "type": "string"
+    },
+    "ferris_wheel": {
+      "type": "string"
+    },
+    "ferry": {
+      "type": "string"
+    },
+    "field_hockey": {
+      "type": "string"
+    },
+    "fiji": {
+      "type": "string"
+    },
+    "file_cabinet": {
+      "type": "string"
+    },
+    "file_folder": {
+      "type": "string"
+    },
+    "film_projector": {
+      "type": "string"
+    },
+    "film_strip": {
+      "type": "string"
+    },
+    "finland": {
+      "type": "string"
+    },
+    "finnadie": {
+      "type": "string"
+    },
+    "fire": {
+      "type": "string"
+    },
+    "fire_engine": {
+      "type": "string"
+    },
+    "fire_extinguisher": {
+      "type": "string"
+    },
+    "firecracker": {
+      "type": "string"
+    },
+    "firefighter": {
+      "type": "string"
+    },
+    "fireworks": {
+      "type": "string"
+    },
+    "first_quarter_moon": {
+      "type": "string"
+    },
+    "first_quarter_moon_with_face": {
+      "type": "string"
+    },
+    "fish": {
+      "type": "string"
+    },
+    "fish_cake": {
+      "type": "string"
+    },
+    "fishing_pole_and_fish": {
+      "type": "string"
+    },
+    "fist": {
+      "type": "string"
+    },
+    "fist_left": {
+      "type": "string"
+    },
+    "fist_oncoming": {
+      "type": "string"
+    },
+    "fist_raised": {
+      "type": "string"
+    },
+    "fist_right": {
+      "type": "string"
+    },
+    "five": {
+      "type": "string"
+    },
+    "flags": {
+      "type": "string"
+    },
+    "flamingo": {
+      "type": "string"
+    },
+    "flashlight": {
+      "type": "string"
+    },
+    "flat_shoe": {
+      "type": "string"
+    },
+    "flatbread": {
+      "type": "string"
+    },
+    "fleur_de_lis": {
+      "type": "string"
+    },
+    "flight_arrival": {
+      "type": "string"
+    },
+    "flight_departure": {
+      "type": "string"
+    },
+    "flipper": {
+      "type": "string"
+    },
+    "floppy_disk": {
+      "type": "string"
+    },
+    "flower_playing_cards": {
+      "type": "string"
+    },
+    "flushed": {
+      "type": "string"
+    },
+    "fly": {
+      "type": "string"
+    },
+    "flying_disc": {
+      "type": "string"
+    },
+    "flying_saucer": {
+      "type": "string"
+    },
+    "fog": {
+      "type": "string"
+    },
+    "foggy": {
+      "type": "string"
+    },
+    "fondue": {
+      "type": "string"
+    },
+    "foot": {
+      "type": "string"
+    },
+    "football": {
+      "type": "string"
+    },
+    "footprints": {
+      "type": "string"
+    },
+    "fork_and_knife": {
+      "type": "string"
+    },
+    "fortune_cookie": {
+      "type": "string"
+    },
+    "fountain": {
+      "type": "string"
+    },
+    "fountain_pen": {
+      "type": "string"
+    },
+    "four": {
+      "type": "string"
+    },
+    "four_leaf_clover": {
+      "type": "string"
+    },
+    "fox_face": {
+      "type": "string"
+    },
+    "fr": {
+      "type": "string"
+    },
+    "framed_picture": {
+      "type": "string"
+    },
+    "free": {
+      "type": "string"
+    },
+    "french_guiana": {
+      "type": "string"
+    },
+    "french_polynesia": {
+      "type": "string"
+    },
+    "french_southern_territories": {
+      "type": "string"
+    },
+    "fried_egg": {
+      "type": "string"
+    },
+    "fried_shrimp": {
+      "type": "string"
+    },
+    "fries": {
+      "type": "string"
+    },
+    "frog": {
+      "type": "string"
+    },
+    "frowning": {
+      "type": "string"
+    },
+    "frowning_face": {
+      "type": "string"
+    },
+    "frowning_man": {
+      "type": "string"
+    },
+    "frowning_person": {
+      "type": "string"
+    },
+    "frowning_woman": {
+      "type": "string"
+    },
+    "fu": {
+      "type": "string"
+    },
+    "fuelpump": {
+      "type": "string"
+    },
+    "full_moon": {
+      "type": "string"
+    },
+    "full_moon_with_face": {
+      "type": "string"
+    },
+    "funeral_urn": {
+      "type": "string"
+    },
+    "gabon": {
+      "type": "string"
+    },
+    "gambia": {
+      "type": "string"
+    },
+    "game_die": {
+      "type": "string"
+    },
+    "garlic": {
+      "type": "string"
+    },
+    "gb": {
+      "type": "string"
+    },
+    "gear": {
+      "type": "string"
+    },
+    "gem": {
+      "type": "string"
+    },
+    "gemini": {
+      "type": "string"
+    },
+    "genie": {
+      "type": "string"
+    },
+    "genie_man": {
+      "type": "string"
+    },
+    "genie_woman": {
+      "type": "string"
+    },
+    "georgia": {
+      "type": "string"
+    },
+    "ghana": {
+      "type": "string"
+    },
+    "ghost": {
+      "type": "string"
+    },
+    "gibraltar": {
+      "type": "string"
+    },
+    "gift": {
+      "type": "string"
+    },
+    "gift_heart": {
+      "type": "string"
+    },
+    "giraffe": {
+      "type": "string"
+    },
+    "girl": {
+      "type": "string"
+    },
+    "globe_with_meridians": {
+      "type": "string"
+    },
+    "gloves": {
+      "type": "string"
+    },
+    "goal_net": {
+      "type": "string"
+    },
+    "goat": {
+      "type": "string"
+    },
+    "goberserk": {
+      "type": "string"
+    },
+    "godmode": {
+      "type": "string"
+    },
+    "goggles": {
+      "type": "string"
+    },
+    "golf": {
+      "type": "string"
+    },
+    "golfing": {
+      "type": "string"
+    },
+    "golfing_man": {
+      "type": "string"
+    },
+    "golfing_woman": {
+      "type": "string"
+    },
+    "gorilla": {
+      "type": "string"
+    },
+    "grapes": {
+      "type": "string"
+    },
+    "greece": {
+      "type": "string"
+    },
+    "green_apple": {
+      "type": "string"
+    },
+    "green_book": {
+      "type": "string"
+    },
+    "green_circle": {
+      "type": "string"
+    },
+    "green_heart": {
+      "type": "string"
+    },
+    "green_salad": {
+      "type": "string"
+    },
+    "green_square": {
+      "type": "string"
+    },
+    "greenland": {
+      "type": "string"
+    },
+    "grenada": {
+      "type": "string"
+    },
+    "grey_exclamation": {
+      "type": "string"
+    },
+    "grey_question": {
+      "type": "string"
+    },
+    "grimacing": {
+      "type": "string"
+    },
+    "grin": {
+      "type": "string"
+    },
+    "grinning": {
+      "type": "string"
+    },
+    "guadeloupe": {
+      "type": "string"
+    },
+    "guam": {
+      "type": "string"
+    },
+    "guard": {
+      "type": "string"
+    },
+    "guardsman": {
+      "type": "string"
+    },
+    "guardswoman": {
+      "type": "string"
+    },
+    "guatemala": {
+      "type": "string"
+    },
+    "guernsey": {
+      "type": "string"
+    },
+    "guide_dog": {
+      "type": "string"
+    },
+    "guinea": {
+      "type": "string"
+    },
+    "guinea_bissau": {
+      "type": "string"
+    },
+    "guitar": {
+      "type": "string"
+    },
+    "gun": {
+      "type": "string"
+    },
+    "guyana": {
+      "type": "string"
+    },
+    "haircut": {
+      "type": "string"
+    },
+    "haircut_man": {
+      "type": "string"
+    },
+    "haircut_woman": {
+      "type": "string"
+    },
+    "haiti": {
+      "type": "string"
+    },
+    "hamburger": {
+      "type": "string"
+    },
+    "hammer": {
+      "type": "string"
+    },
+    "hammer_and_pick": {
+      "type": "string"
+    },
+    "hammer_and_wrench": {
+      "type": "string"
+    },
+    "hamster": {
+      "type": "string"
+    },
+    "hand": {
+      "type": "string"
+    },
+    "hand_over_mouth": {
+      "type": "string"
+    },
+    "handbag": {
+      "type": "string"
+    },
+    "handball_person": {
+      "type": "string"
+    },
+    "handshake": {
+      "type": "string"
+    },
+    "hankey": {
+      "type": "string"
+    },
+    "hash": {
+      "type": "string"
+    },
+    "hatched_chick": {
+      "type": "string"
+    },
+    "hatching_chick": {
+      "type": "string"
+    },
+    "headphones": {
+      "type": "string"
+    },
+    "headstone": {
+      "type": "string"
+    },
+    "health_worker": {
+      "type": "string"
+    },
+    "hear_no_evil": {
+      "type": "string"
+    },
+    "heard_mcdonald_islands": {
+      "type": "string"
+    },
+    "heart": {
+      "type": "string"
+    },
+    "heart_decoration": {
+      "type": "string"
+    },
+    "heart_eyes": {
+      "type": "string"
+    },
+    "heart_eyes_cat": {
+      "type": "string"
+    },
+    "heart_on_fire": {
+      "type": "string"
+    },
+    "heartbeat": {
+      "type": "string"
+    },
+    "heartpulse": {
+      "type": "string"
+    },
+    "hearts": {
+      "type": "string"
+    },
+    "heavy_check_mark": {
+      "type": "string"
+    },
+    "heavy_division_sign": {
+      "type": "string"
+    },
+    "heavy_dollar_sign": {
+      "type": "string"
+    },
+    "heavy_exclamation_mark": {
+      "type": "string"
+    },
+    "heavy_heart_exclamation": {
+      "type": "string"
+    },
+    "heavy_minus_sign": {
+      "type": "string"
+    },
+    "heavy_multiplication_x": {
+      "type": "string"
+    },
+    "heavy_plus_sign": {
+      "type": "string"
+    },
+    "hedgehog": {
+      "type": "string"
+    },
+    "helicopter": {
+      "type": "string"
+    },
+    "herb": {
+      "type": "string"
+    },
+    "hibiscus": {
+      "type": "string"
+    },
+    "high_brightness": {
+      "type": "string"
+    },
+    "high_heel": {
+      "type": "string"
+    },
+    "hiking_boot": {
+      "type": "string"
+    },
+    "hindu_temple": {
+      "type": "string"
+    },
+    "hippopotamus": {
+      "type": "string"
+    },
+    "hocho": {
+      "type": "string"
+    },
+    "hole": {
+      "type": "string"
+    },
+    "honduras": {
+      "type": "string"
+    },
+    "honey_pot": {
+      "type": "string"
+    },
+    "honeybee": {
+      "type": "string"
+    },
+    "hong_kong": {
+      "type": "string"
+    },
+    "hook": {
+      "type": "string"
+    },
+    "horse": {
+      "type": "string"
+    },
+    "horse_racing": {
+      "type": "string"
+    },
+    "hospital": {
+      "type": "string"
+    },
+    "hot_face": {
+      "type": "string"
+    },
+    "hot_pepper": {
+      "type": "string"
+    },
+    "hotdog": {
+      "type": "string"
+    },
+    "hotel": {
+      "type": "string"
+    },
+    "hotsprings": {
+      "type": "string"
+    },
+    "hourglass": {
+      "type": "string"
+    },
+    "hourglass_flowing_sand": {
+      "type": "string"
+    },
+    "house": {
+      "type": "string"
+    },
+    "house_with_garden": {
+      "type": "string"
+    },
+    "houses": {
+      "type": "string"
+    },
+    "hugs": {
+      "type": "string"
+    },
+    "hungary": {
+      "type": "string"
+    },
+    "hurtrealbad": {
+      "type": "string"
+    },
+    "hushed": {
+      "type": "string"
+    },
+    "hut": {
+      "type": "string"
+    },
+    "ice_cream": {
+      "type": "string"
+    },
+    "ice_cube": {
+      "type": "string"
+    },
+    "ice_hockey": {
+      "type": "string"
+    },
+    "ice_skate": {
+      "type": "string"
+    },
+    "icecream": {
+      "type": "string"
+    },
+    "iceland": {
+      "type": "string"
+    },
+    "id": {
+      "type": "string"
+    },
+    "ideograph_advantage": {
+      "type": "string"
+    },
+    "imp": {
+      "type": "string"
+    },
+    "inbox_tray": {
+      "type": "string"
+    },
+    "incoming_envelope": {
+      "type": "string"
+    },
+    "india": {
+      "type": "string"
+    },
+    "indonesia": {
+      "type": "string"
+    },
+    "infinity": {
+      "type": "string"
+    },
+    "information_desk_person": {
+      "type": "string"
+    },
+    "information_source": {
+      "type": "string"
+    },
+    "innocent": {
+      "type": "string"
+    },
+    "interrobang": {
+      "type": "string"
+    },
+    "iphone": {
+      "type": "string"
+    },
+    "iran": {
+      "type": "string"
+    },
+    "iraq": {
+      "type": "string"
+    },
+    "ireland": {
+      "type": "string"
+    },
+    "isle_of_man": {
+      "type": "string"
+    },
+    "israel": {
+      "type": "string"
+    },
+    "it": {
+      "type": "string"
+    },
+    "izakaya_lantern": {
+      "type": "string"
+    },
+    "jack_o_lantern": {
+      "type": "string"
+    },
+    "jamaica": {
+      "type": "string"
+    },
+    "japan": {
+      "type": "string"
+    },
+    "japanese_castle": {
+      "type": "string"
+    },
+    "japanese_goblin": {
+      "type": "string"
+    },
+    "japanese_ogre": {
+      "type": "string"
+    },
+    "jeans": {
+      "type": "string"
+    },
+    "jersey": {
+      "type": "string"
+    },
+    "jigsaw": {
+      "type": "string"
+    },
+    "jordan": {
+      "type": "string"
+    },
+    "joy": {
+      "type": "string"
+    },
+    "joy_cat": {
+      "type": "string"
+    },
+    "joystick": {
+      "type": "string"
+    },
+    "jp": {
+      "type": "string"
+    },
+    "judge": {
+      "type": "string"
+    },
+    "juggling_person": {
+      "type": "string"
+    },
+    "kaaba": {
+      "type": "string"
+    },
+    "kangaroo": {
+      "type": "string"
+    },
+    "kazakhstan": {
+      "type": "string"
+    },
+    "kenya": {
+      "type": "string"
+    },
+    "key": {
+      "type": "string"
+    },
+    "keyboard": {
+      "type": "string"
+    },
+    "keycap_ten": {
+      "type": "string"
+    },
+    "kick_scooter": {
+      "type": "string"
+    },
+    "kimono": {
+      "type": "string"
+    },
+    "kiribati": {
+      "type": "string"
+    },
+    "kiss": {
+      "type": "string"
+    },
+    "kissing": {
+      "type": "string"
+    },
+    "kissing_cat": {
+      "type": "string"
+    },
+    "kissing_closed_eyes": {
+      "type": "string"
+    },
+    "kissing_heart": {
+      "type": "string"
+    },
+    "kissing_smiling_eyes": {
+      "type": "string"
+    },
+    "kite": {
+      "type": "string"
+    },
+    "kiwi_fruit": {
+      "type": "string"
+    },
+    "kneeling_man": {
+      "type": "string"
+    },
+    "kneeling_person": {
+      "type": "string"
+    },
+    "kneeling_woman": {
+      "type": "string"
+    },
+    "knife": {
+      "type": "string"
+    },
+    "knot": {
+      "type": "string"
+    },
+    "koala": {
+      "type": "string"
+    },
+    "koko": {
+      "type": "string"
+    },
+    "kosovo": {
+      "type": "string"
+    },
+    "kr": {
+      "type": "string"
+    },
+    "kuwait": {
+      "type": "string"
+    },
+    "kyrgyzstan": {
+      "type": "string"
+    },
+    "lab_coat": {
+      "type": "string"
+    },
+    "label": {
+      "type": "string"
+    },
+    "lacrosse": {
+      "type": "string"
+    },
+    "ladder": {
+      "type": "string"
+    },
+    "lady_beetle": {
+      "type": "string"
+    },
+    "lantern": {
+      "type": "string"
+    },
+    "laos": {
+      "type": "string"
+    },
+    "large_blue_circle": {
+      "type": "string"
+    },
+    "large_blue_diamond": {
+      "type": "string"
+    },
+    "large_orange_diamond": {
+      "type": "string"
+    },
+    "last_quarter_moon": {
+      "type": "string"
+    },
+    "last_quarter_moon_with_face": {
+      "type": "string"
+    },
+    "latin_cross": {
+      "type": "string"
+    },
+    "latvia": {
+      "type": "string"
+    },
+    "laughing": {
+      "type": "string"
+    },
+    "leafy_green": {
+      "type": "string"
+    },
+    "leaves": {
+      "type": "string"
+    },
+    "lebanon": {
+      "type": "string"
+    },
+    "ledger": {
+      "type": "string"
+    },
+    "left_luggage": {
+      "type": "string"
+    },
+    "left_right_arrow": {
+      "type": "string"
+    },
+    "left_speech_bubble": {
+      "type": "string"
+    },
+    "leftwards_arrow_with_hook": {
+      "type": "string"
+    },
+    "leg": {
+      "type": "string"
+    },
+    "lemon": {
+      "type": "string"
+    },
+    "leo": {
+      "type": "string"
+    },
+    "leopard": {
+      "type": "string"
+    },
+    "lesotho": {
+      "type": "string"
+    },
+    "level_slider": {
+      "type": "string"
+    },
+    "liberia": {
+      "type": "string"
+    },
+    "libra": {
+      "type": "string"
+    },
+    "libya": {
+      "type": "string"
+    },
+    "liechtenstein": {
+      "type": "string"
+    },
+    "light_rail": {
+      "type": "string"
+    },
+    "link": {
+      "type": "string"
+    },
+    "lion": {
+      "type": "string"
+    },
+    "lips": {
+      "type": "string"
+    },
+    "lipstick": {
+      "type": "string"
+    },
+    "lithuania": {
+      "type": "string"
+    },
+    "lizard": {
+      "type": "string"
+    },
+    "llama": {
+      "type": "string"
+    },
+    "lobster": {
+      "type": "string"
+    },
+    "lock": {
+      "type": "string"
+    },
+    "lock_with_ink_pen": {
+      "type": "string"
+    },
+    "lollipop": {
+      "type": "string"
+    },
+    "long_drum": {
+      "type": "string"
+    },
+    "loop": {
+      "type": "string"
+    },
+    "lotion_bottle": {
+      "type": "string"
+    },
+    "lotus_position": {
+      "type": "string"
+    },
+    "lotus_position_man": {
+      "type": "string"
+    },
+    "lotus_position_woman": {
+      "type": "string"
+    },
+    "loud_sound": {
+      "type": "string"
+    },
+    "loudspeaker": {
+      "type": "string"
+    },
+    "love_hotel": {
+      "type": "string"
+    },
+    "love_letter": {
+      "type": "string"
+    },
+    "love_you_gesture": {
+      "type": "string"
+    },
+    "low_brightness": {
+      "type": "string"
+    },
+    "luggage": {
+      "type": "string"
+    },
+    "lungs": {
+      "type": "string"
+    },
+    "luxembourg": {
+      "type": "string"
+    },
+    "lying_face": {
+      "type": "string"
+    },
+    "m": {
+      "type": "string"
+    },
+    "macau": {
+      "type": "string"
+    },
+    "macedonia": {
+      "type": "string"
+    },
+    "madagascar": {
+      "type": "string"
+    },
+    "mag": {
+      "type": "string"
+    },
+    "mag_right": {
+      "type": "string"
+    },
+    "mage": {
+      "type": "string"
+    },
+    "mage_man": {
+      "type": "string"
+    },
+    "mage_woman": {
+      "type": "string"
+    },
+    "magic_wand": {
+      "type": "string"
+    },
+    "magnet": {
+      "type": "string"
+    },
+    "mahjong": {
+      "type": "string"
+    },
+    "mailbox": {
+      "type": "string"
+    },
+    "mailbox_closed": {
+      "type": "string"
+    },
+    "mailbox_with_mail": {
+      "type": "string"
+    },
+    "mailbox_with_no_mail": {
+      "type": "string"
+    },
+    "malawi": {
+      "type": "string"
+    },
+    "malaysia": {
+      "type": "string"
+    },
+    "maldives": {
+      "type": "string"
+    },
+    "male_detective": {
+      "type": "string"
+    },
+    "male_sign": {
+      "type": "string"
+    },
+    "mali": {
+      "type": "string"
+    },
+    "malta": {
+      "type": "string"
+    },
+    "mammoth": {
+      "type": "string"
+    },
+    "man": {
+      "type": "string"
+    },
+    "man_artist": {
+      "type": "string"
+    },
+    "man_astronaut": {
+      "type": "string"
+    },
+    "man_beard": {
+      "type": "string"
+    },
+    "man_cartwheeling": {
+      "type": "string"
+    },
+    "man_cook": {
+      "type": "string"
+    },
+    "man_dancing": {
+      "type": "string"
+    },
+    "man_facepalming": {
+      "type": "string"
+    },
+    "man_factory_worker": {
+      "type": "string"
+    },
+    "man_farmer": {
+      "type": "string"
+    },
+    "man_feeding_baby": {
+      "type": "string"
+    },
+    "man_firefighter": {
+      "type": "string"
+    },
+    "man_health_worker": {
+      "type": "string"
+    },
+    "man_in_manual_wheelchair": {
+      "type": "string"
+    },
+    "man_in_motorized_wheelchair": {
+      "type": "string"
+    },
+    "man_in_tuxedo": {
+      "type": "string"
+    },
+    "man_judge": {
+      "type": "string"
+    },
+    "man_juggling": {
+      "type": "string"
+    },
+    "man_mechanic": {
+      "type": "string"
+    },
+    "man_office_worker": {
+      "type": "string"
+    },
+    "man_pilot": {
+      "type": "string"
+    },
+    "man_playing_handball": {
+      "type": "string"
+    },
+    "man_playing_water_polo": {
+      "type": "string"
+    },
+    "man_scientist": {
+      "type": "string"
+    },
+    "man_shrugging": {
+      "type": "string"
+    },
+    "man_singer": {
+      "type": "string"
+    },
+    "man_student": {
+      "type": "string"
+    },
+    "man_teacher": {
+      "type": "string"
+    },
+    "man_technologist": {
+      "type": "string"
+    },
+    "man_with_gua_pi_mao": {
+      "type": "string"
+    },
+    "man_with_probing_cane": {
+      "type": "string"
+    },
+    "man_with_turban": {
+      "type": "string"
+    },
+    "man_with_veil": {
+      "type": "string"
+    },
+    "mandarin": {
+      "type": "string"
+    },
+    "mango": {
+      "type": "string"
+    },
+    "mans_shoe": {
+      "type": "string"
+    },
+    "mantelpiece_clock": {
+      "type": "string"
+    },
+    "manual_wheelchair": {
+      "type": "string"
+    },
+    "maple_leaf": {
+      "type": "string"
+    },
+    "marshall_islands": {
+      "type": "string"
+    },
+    "martial_arts_uniform": {
+      "type": "string"
+    },
+    "martinique": {
+      "type": "string"
+    },
+    "mask": {
+      "type": "string"
+    },
+    "massage": {
+      "type": "string"
+    },
+    "massage_man": {
+      "type": "string"
+    },
+    "massage_woman": {
+      "type": "string"
+    },
+    "mate": {
+      "type": "string"
+    },
+    "mauritania": {
+      "type": "string"
+    },
+    "mauritius": {
+      "type": "string"
+    },
+    "mayotte": {
+      "type": "string"
+    },
+    "meat_on_bone": {
+      "type": "string"
+    },
+    "mechanic": {
+      "type": "string"
+    },
+    "mechanical_arm": {
+      "type": "string"
+    },
+    "mechanical_leg": {
+      "type": "string"
+    },
+    "medal_military": {
+      "type": "string"
+    },
+    "medal_sports": {
+      "type": "string"
+    },
+    "medical_symbol": {
+      "type": "string"
+    },
+    "mega": {
+      "type": "string"
+    },
+    "melon": {
+      "type": "string"
+    },
+    "memo": {
+      "type": "string"
+    },
+    "men_wrestling": {
+      "type": "string"
+    },
+    "mending_heart": {
+      "type": "string"
+    },
+    "menorah": {
+      "type": "string"
+    },
+    "mens": {
+      "type": "string"
+    },
+    "mermaid": {
+      "type": "string"
+    },
+    "merman": {
+      "type": "string"
+    },
+    "merperson": {
+      "type": "string"
+    },
+    "metal": {
+      "type": "string"
+    },
+    "metro": {
+      "type": "string"
+    },
+    "mexico": {
+      "type": "string"
+    },
+    "microbe": {
+      "type": "string"
+    },
+    "micronesia": {
+      "type": "string"
+    },
+    "microphone": {
+      "type": "string"
+    },
+    "microscope": {
+      "type": "string"
+    },
+    "middle_finger": {
+      "type": "string"
+    },
+    "military_helmet": {
+      "type": "string"
+    },
+    "milk_glass": {
+      "type": "string"
+    },
+    "milky_way": {
+      "type": "string"
+    },
+    "minibus": {
+      "type": "string"
+    },
+    "minidisc": {
+      "type": "string"
+    },
+    "mirror": {
+      "type": "string"
+    },
+    "mobile_phone_off": {
+      "type": "string"
+    },
+    "moldova": {
+      "type": "string"
+    },
+    "monaco": {
+      "type": "string"
+    },
+    "money_mouth_face": {
+      "type": "string"
+    },
+    "money_with_wings": {
+      "type": "string"
+    },
+    "moneybag": {
+      "type": "string"
+    },
+    "mongolia": {
+      "type": "string"
+    },
+    "monkey": {
+      "type": "string"
+    },
+    "monkey_face": {
+      "type": "string"
+    },
+    "monocle_face": {
+      "type": "string"
+    },
+    "monorail": {
+      "type": "string"
+    },
+    "montenegro": {
+      "type": "string"
+    },
+    "montserrat": {
+      "type": "string"
+    },
+    "moon": {
+      "type": "string"
+    },
+    "moon_cake": {
+      "type": "string"
+    },
+    "morocco": {
+      "type": "string"
+    },
+    "mortar_board": {
+      "type": "string"
+    },
+    "mosque": {
+      "type": "string"
+    },
+    "mosquito": {
+      "type": "string"
+    },
+    "motor_boat": {
+      "type": "string"
+    },
+    "motor_scooter": {
+      "type": "string"
+    },
+    "motorcycle": {
+      "type": "string"
+    },
+    "motorized_wheelchair": {
+      "type": "string"
+    },
+    "motorway": {
+      "type": "string"
+    },
+    "mount_fuji": {
+      "type": "string"
+    },
+    "mountain": {
+      "type": "string"
+    },
+    "mountain_bicyclist": {
+      "type": "string"
+    },
+    "mountain_biking_man": {
+      "type": "string"
+    },
+    "mountain_biking_woman": {
+      "type": "string"
+    },
+    "mountain_cableway": {
+      "type": "string"
+    },
+    "mountain_railway": {
+      "type": "string"
+    },
+    "mountain_snow": {
+      "type": "string"
+    },
+    "mouse": {
+      "type": "string"
+    },
+    "mouse2": {
+      "type": "string"
+    },
+    "mouse_trap": {
+      "type": "string"
+    },
+    "movie_camera": {
+      "type": "string"
+    },
+    "moyai": {
+      "type": "string"
+    },
+    "mozambique": {
+      "type": "string"
+    },
+    "mrs_claus": {
+      "type": "string"
+    },
+    "muscle": {
+      "type": "string"
+    },
+    "mushroom": {
+      "type": "string"
+    },
+    "musical_keyboard": {
+      "type": "string"
+    },
+    "musical_note": {
+      "type": "string"
+    },
+    "musical_score": {
+      "type": "string"
+    },
+    "mute": {
+      "type": "string"
+    },
+    "mx_claus": {
+      "type": "string"
+    },
+    "myanmar": {
+      "type": "string"
+    },
+    "nail_care": {
+      "type": "string"
+    },
+    "name_badge": {
+      "type": "string"
+    },
+    "namibia": {
+      "type": "string"
+    },
+    "national_park": {
+      "type": "string"
+    },
+    "nauru": {
+      "type": "string"
+    },
+    "nauseated_face": {
+      "type": "string"
+    },
+    "nazar_amulet": {
+      "type": "string"
+    },
+    "neckbeard": {
+      "type": "string"
+    },
+    "necktie": {
+      "type": "string"
+    },
+    "negative_squared_cross_mark": {
+      "type": "string"
+    },
+    "nepal": {
+      "type": "string"
+    },
+    "nerd_face": {
+      "type": "string"
+    },
+    "nesting_dolls": {
+      "type": "string"
+    },
+    "netherlands": {
+      "type": "string"
+    },
+    "neutral_face": {
+      "type": "string"
+    },
+    "new": {
+      "type": "string"
+    },
+    "new_caledonia": {
+      "type": "string"
+    },
+    "new_moon": {
+      "type": "string"
+    },
+    "new_moon_with_face": {
+      "type": "string"
+    },
+    "new_zealand": {
+      "type": "string"
+    },
+    "newspaper": {
+      "type": "string"
+    },
+    "newspaper_roll": {
+      "type": "string"
+    },
+    "next_track_button": {
+      "type": "string"
+    },
+    "ng": {
+      "type": "string"
+    },
+    "ng_man": {
+      "type": "string"
+    },
+    "ng_woman": {
+      "type": "string"
+    },
+    "nicaragua": {
+      "type": "string"
+    },
+    "niger": {
+      "type": "string"
+    },
+    "nigeria": {
+      "type": "string"
+    },
+    "night_with_stars": {
+      "type": "string"
+    },
+    "nine": {
+      "type": "string"
+    },
+    "ninja": {
+      "type": "string"
+    },
+    "niue": {
+      "type": "string"
+    },
+    "no_bell": {
+      "type": "string"
+    },
+    "no_bicycles": {
+      "type": "string"
+    },
+    "no_entry": {
+      "type": "string"
+    },
+    "no_entry_sign": {
+      "type": "string"
+    },
+    "no_good": {
+      "type": "string"
+    },
+    "no_good_man": {
+      "type": "string"
+    },
+    "no_good_woman": {
+      "type": "string"
+    },
+    "no_mobile_phones": {
+      "type": "string"
+    },
+    "no_mouth": {
+      "type": "string"
+    },
+    "no_pedestrians": {
+      "type": "string"
+    },
+    "no_smoking": {
+      "type": "string"
+    },
+    "non-potable_water": {
+      "type": "string"
+    },
+    "norfolk_island": {
+      "type": "string"
+    },
+    "north_korea": {
+      "type": "string"
+    },
+    "northern_mariana_islands": {
+      "type": "string"
+    },
+    "norway": {
+      "type": "string"
+    },
+    "nose": {
+      "type": "string"
+    },
+    "notebook": {
+      "type": "string"
+    },
+    "notebook_with_decorative_cover": {
+      "type": "string"
+    },
+    "notes": {
+      "type": "string"
+    },
+    "nut_and_bolt": {
+      "type": "string"
+    },
+    "o": {
+      "type": "string"
+    },
+    "o2": {
+      "type": "string"
+    },
+    "ocean": {
+      "type": "string"
+    },
+    "octocat": {
+      "type": "string"
+    },
+    "octopus": {
+      "type": "string"
+    },
+    "oden": {
+      "type": "string"
+    },
+    "office": {
+      "type": "string"
+    },
+    "office_worker": {
+      "type": "string"
+    },
+    "oil_drum": {
+      "type": "string"
+    },
+    "ok": {
+      "type": "string"
+    },
+    "ok_hand": {
+      "type": "string"
+    },
+    "ok_man": {
+      "type": "string"
+    },
+    "ok_person": {
+      "type": "string"
+    },
+    "ok_woman": {
+      "type": "string"
+    },
+    "old_key": {
+      "type": "string"
+    },
+    "older_adult": {
+      "type": "string"
+    },
+    "older_man": {
+      "type": "string"
+    },
+    "older_woman": {
+      "type": "string"
+    },
+    "olive": {
+      "type": "string"
+    },
+    "om": {
+      "type": "string"
+    },
+    "oman": {
+      "type": "string"
+    },
+    "on": {
+      "type": "string"
+    },
+    "oncoming_automobile": {
+      "type": "string"
+    },
+    "oncoming_bus": {
+      "type": "string"
+    },
+    "oncoming_police_car": {
+      "type": "string"
+    },
+    "oncoming_taxi": {
+      "type": "string"
+    },
+    "one": {
+      "type": "string"
+    },
+    "one_piece_swimsuit": {
+      "type": "string"
+    },
+    "onion": {
+      "type": "string"
+    },
+    "open_book": {
+      "type": "string"
+    },
+    "open_file_folder": {
+      "type": "string"
+    },
+    "open_hands": {
+      "type": "string"
+    },
+    "open_mouth": {
+      "type": "string"
+    },
+    "open_umbrella": {
+      "type": "string"
+    },
+    "ophiuchus": {
+      "type": "string"
+    },
+    "orange": {
+      "type": "string"
+    },
+    "orange_book": {
+      "type": "string"
+    },
+    "orange_circle": {
+      "type": "string"
+    },
+    "orange_heart": {
+      "type": "string"
+    },
+    "orange_square": {
+      "type": "string"
+    },
+    "orangutan": {
+      "type": "string"
+    },
+    "orthodox_cross": {
+      "type": "string"
+    },
+    "otter": {
+      "type": "string"
+    },
+    "outbox_tray": {
+      "type": "string"
+    },
+    "owl": {
+      "type": "string"
+    },
+    "ox": {
+      "type": "string"
+    },
+    "oyster": {
+      "type": "string"
+    },
+    "package": {
+      "type": "string"
+    },
+    "page_facing_up": {
+      "type": "string"
+    },
+    "page_with_curl": {
+      "type": "string"
+    },
+    "pager": {
+      "type": "string"
+    },
+    "paintbrush": {
+      "type": "string"
+    },
+    "pakistan": {
+      "type": "string"
+    },
+    "palau": {
+      "type": "string"
+    },
+    "palestinian_territories": {
+      "type": "string"
+    },
+    "palm_tree": {
+      "type": "string"
+    },
+    "palms_up_together": {
+      "type": "string"
+    },
+    "panama": {
+      "type": "string"
+    },
+    "pancakes": {
+      "type": "string"
+    },
+    "panda_face": {
+      "type": "string"
+    },
+    "paperclip": {
+      "type": "string"
+    },
+    "paperclips": {
+      "type": "string"
+    },
+    "papua_new_guinea": {
+      "type": "string"
+    },
+    "parachute": {
+      "type": "string"
+    },
+    "paraguay": {
+      "type": "string"
+    },
+    "parasol_on_ground": {
+      "type": "string"
+    },
+    "parking": {
+      "type": "string"
+    },
+    "parrot": {
+      "type": "string"
+    },
+    "part_alternation_mark": {
+      "type": "string"
+    },
+    "partly_sunny": {
+      "type": "string"
+    },
+    "partying_face": {
+      "type": "string"
+    },
+    "passenger_ship": {
+      "type": "string"
+    },
+    "passport_control": {
+      "type": "string"
+    },
+    "pause_button": {
+      "type": "string"
+    },
+    "paw_prints": {
+      "type": "string"
+    },
+    "peace_symbol": {
+      "type": "string"
+    },
+    "peach": {
+      "type": "string"
+    },
+    "peacock": {
+      "type": "string"
+    },
+    "peanuts": {
+      "type": "string"
+    },
+    "pear": {
+      "type": "string"
+    },
+    "pen": {
+      "type": "string"
+    },
+    "pencil": {
+      "type": "string"
+    },
+    "pencil2": {
+      "type": "string"
+    },
+    "penguin": {
+      "type": "string"
+    },
+    "pensive": {
+      "type": "string"
+    },
+    "people_holding_hands": {
+      "type": "string"
+    },
+    "people_hugging": {
+      "type": "string"
+    },
+    "performing_arts": {
+      "type": "string"
+    },
+    "persevere": {
+      "type": "string"
+    },
+    "person_bald": {
+      "type": "string"
+    },
+    "person_curly_hair": {
+      "type": "string"
+    },
+    "person_feeding_baby": {
+      "type": "string"
+    },
+    "person_fencing": {
+      "type": "string"
+    },
+    "person_in_manual_wheelchair": {
+      "type": "string"
+    },
+    "person_in_motorized_wheelchair": {
+      "type": "string"
+    },
+    "person_in_tuxedo": {
+      "type": "string"
+    },
+    "person_red_hair": {
+      "type": "string"
+    },
+    "person_white_hair": {
+      "type": "string"
+    },
+    "person_with_probing_cane": {
+      "type": "string"
+    },
+    "person_with_turban": {
+      "type": "string"
+    },
+    "person_with_veil": {
+      "type": "string"
+    },
+    "peru": {
+      "type": "string"
+    },
+    "petri_dish": {
+      "type": "string"
+    },
+    "philippines": {
+      "type": "string"
+    },
+    "phone": {
+      "type": "string"
+    },
+    "pick": {
+      "type": "string"
+    },
+    "pickup_truck": {
+      "type": "string"
+    },
+    "pie": {
+      "type": "string"
+    },
+    "pig": {
+      "type": "string"
+    },
+    "pig2": {
+      "type": "string"
+    },
+    "pig_nose": {
+      "type": "string"
+    },
+    "pill": {
+      "type": "string"
+    },
+    "pilot": {
+      "type": "string"
+    },
+    "pinata": {
+      "type": "string"
+    },
+    "pinched_fingers": {
+      "type": "string"
+    },
+    "pinching_hand": {
+      "type": "string"
+    },
+    "pineapple": {
+      "type": "string"
+    },
+    "ping_pong": {
+      "type": "string"
+    },
+    "pirate_flag": {
+      "type": "string"
+    },
+    "pisces": {
+      "type": "string"
+    },
+    "pitcairn_islands": {
+      "type": "string"
+    },
+    "pizza": {
+      "type": "string"
+    },
+    "placard": {
+      "type": "string"
+    },
+    "place_of_worship": {
+      "type": "string"
+    },
+    "plate_with_cutlery": {
+      "type": "string"
+    },
+    "play_or_pause_button": {
+      "type": "string"
+    },
+    "pleading_face": {
+      "type": "string"
+    },
+    "plunger": {
+      "type": "string"
+    },
+    "point_down": {
+      "type": "string"
+    },
+    "point_left": {
+      "type": "string"
+    },
+    "point_right": {
+      "type": "string"
+    },
+    "point_up": {
+      "type": "string"
+    },
+    "point_up_2": {
+      "type": "string"
+    },
+    "poland": {
+      "type": "string"
+    },
+    "polar_bear": {
+      "type": "string"
+    },
+    "police_car": {
+      "type": "string"
+    },
+    "police_officer": {
+      "type": "string"
+    },
+    "policeman": {
+      "type": "string"
+    },
+    "policewoman": {
+      "type": "string"
+    },
+    "poodle": {
+      "type": "string"
+    },
+    "poop": {
+      "type": "string"
+    },
+    "popcorn": {
+      "type": "string"
+    },
+    "portugal": {
+      "type": "string"
+    },
+    "post_office": {
+      "type": "string"
+    },
+    "postal_horn": {
+      "type": "string"
+    },
+    "postbox": {
+      "type": "string"
+    },
+    "potable_water": {
+      "type": "string"
+    },
+    "potato": {
+      "type": "string"
+    },
+    "potted_plant": {
+      "type": "string"
+    },
+    "pouch": {
+      "type": "string"
+    },
+    "poultry_leg": {
+      "type": "string"
+    },
+    "pound": {
+      "type": "string"
+    },
+    "pout": {
+      "type": "string"
+    },
+    "pouting_cat": {
+      "type": "string"
+    },
+    "pouting_face": {
+      "type": "string"
+    },
+    "pouting_man": {
+      "type": "string"
+    },
+    "pouting_woman": {
+      "type": "string"
+    },
+    "pray": {
+      "type": "string"
+    },
+    "prayer_beads": {
+      "type": "string"
+    },
+    "pregnant_woman": {
+      "type": "string"
+    },
+    "pretzel": {
+      "type": "string"
+    },
+    "previous_track_button": {
+      "type": "string"
+    },
+    "prince": {
+      "type": "string"
+    },
+    "princess": {
+      "type": "string"
+    },
+    "printer": {
+      "type": "string"
+    },
+    "probing_cane": {
+      "type": "string"
+    },
+    "puerto_rico": {
+      "type": "string"
+    },
+    "punch": {
+      "type": "string"
+    },
+    "purple_circle": {
+      "type": "string"
+    },
+    "purple_heart": {
+      "type": "string"
+    },
+    "purple_square": {
+      "type": "string"
+    },
+    "purse": {
+      "type": "string"
+    },
+    "pushpin": {
+      "type": "string"
+    },
+    "put_litter_in_its_place": {
+      "type": "string"
+    },
+    "qatar": {
+      "type": "string"
+    },
+    "question": {
+      "type": "string"
+    },
+    "rabbit": {
+      "type": "string"
+    },
+    "rabbit2": {
+      "type": "string"
+    },
+    "raccoon": {
+      "type": "string"
+    },
+    "racehorse": {
+      "type": "string"
+    },
+    "racing_car": {
+      "type": "string"
+    },
+    "radio": {
+      "type": "string"
+    },
+    "radio_button": {
+      "type": "string"
+    },
+    "radioactive": {
+      "type": "string"
+    },
+    "rage": {
+      "type": "string"
+    },
+    "rage1": {
+      "type": "string"
+    },
+    "rage2": {
+      "type": "string"
+    },
+    "rage3": {
+      "type": "string"
+    },
+    "rage4": {
+      "type": "string"
+    },
+    "railway_car": {
+      "type": "string"
+    },
+    "railway_track": {
+      "type": "string"
+    },
+    "rainbow": {
+      "type": "string"
+    },
+    "rainbow_flag": {
+      "type": "string"
+    },
+    "raised_back_of_hand": {
+      "type": "string"
+    },
+    "raised_eyebrow": {
+      "type": "string"
+    },
+    "raised_hand": {
+      "type": "string"
+    },
+    "raised_hand_with_fingers_splayed": {
+      "type": "string"
+    },
+    "raised_hands": {
+      "type": "string"
+    },
+    "raising_hand": {
+      "type": "string"
+    },
+    "raising_hand_man": {
+      "type": "string"
+    },
+    "raising_hand_woman": {
+      "type": "string"
+    },
+    "ram": {
+      "type": "string"
+    },
+    "ramen": {
+      "type": "string"
+    },
+    "rat": {
+      "type": "string"
+    },
+    "razor": {
+      "type": "string"
+    },
+    "receipt": {
+      "type": "string"
+    },
+    "record_button": {
+      "type": "string"
+    },
+    "recycle": {
+      "type": "string"
+    },
+    "red_car": {
+      "type": "string"
+    },
+    "red_circle": {
+      "type": "string"
+    },
+    "red_envelope": {
+      "type": "string"
+    },
+    "red_haired_man": {
+      "type": "string"
+    },
+    "red_haired_woman": {
+      "type": "string"
+    },
+    "red_square": {
+      "type": "string"
+    },
+    "registered": {
+      "type": "string"
+    },
+    "relaxed": {
+      "type": "string"
+    },
+    "relieved": {
+      "type": "string"
+    },
+    "reminder_ribbon": {
+      "type": "string"
+    },
+    "repeat": {
+      "type": "string"
+    },
+    "repeat_one": {
+      "type": "string"
+    },
+    "rescue_worker_helmet": {
+      "type": "string"
+    },
+    "restroom": {
+      "type": "string"
+    },
+    "reunion": {
+      "type": "string"
+    },
+    "revolving_hearts": {
+      "type": "string"
+    },
+    "rewind": {
+      "type": "string"
+    },
+    "rhinoceros": {
+      "type": "string"
+    },
+    "ribbon": {
+      "type": "string"
+    },
+    "rice": {
+      "type": "string"
+    },
+    "rice_ball": {
+      "type": "string"
+    },
+    "rice_cracker": {
+      "type": "string"
+    },
+    "rice_scene": {
+      "type": "string"
+    },
+    "right_anger_bubble": {
+      "type": "string"
+    },
+    "ring": {
+      "type": "string"
+    },
+    "ringed_planet": {
+      "type": "string"
+    },
+    "robot": {
+      "type": "string"
+    },
+    "rock": {
+      "type": "string"
+    },
+    "rocket": {
+      "type": "string"
+    },
+    "rofl": {
+      "type": "string"
+    },
+    "roll_eyes": {
+      "type": "string"
+    },
+    "roll_of_paper": {
+      "type": "string"
+    },
+    "roller_coaster": {
+      "type": "string"
+    },
+    "roller_skate": {
+      "type": "string"
+    },
+    "romania": {
+      "type": "string"
+    },
+    "rooster": {
+      "type": "string"
+    },
+    "rose": {
+      "type": "string"
+    },
+    "rosette": {
+      "type": "string"
+    },
+    "rotating_light": {
+      "type": "string"
+    },
+    "round_pushpin": {
+      "type": "string"
+    },
+    "rowboat": {
+      "type": "string"
+    },
+    "rowing_man": {
+      "type": "string"
+    },
+    "rowing_woman": {
+      "type": "string"
+    },
+    "ru": {
+      "type": "string"
+    },
+    "rugby_football": {
+      "type": "string"
+    },
+    "runner": {
+      "type": "string"
+    },
+    "running": {
+      "type": "string"
+    },
+    "running_man": {
+      "type": "string"
+    },
+    "running_shirt_with_sash": {
+      "type": "string"
+    },
+    "running_woman": {
+      "type": "string"
+    },
+    "rwanda": {
+      "type": "string"
+    },
+    "sa": {
+      "type": "string"
+    },
+    "safety_pin": {
+      "type": "string"
+    },
+    "safety_vest": {
+      "type": "string"
+    },
+    "sagittarius": {
+      "type": "string"
+    },
+    "sailboat": {
+      "type": "string"
+    },
+    "sake": {
+      "type": "string"
+    },
+    "salt": {
+      "type": "string"
+    },
+    "samoa": {
+      "type": "string"
+    },
+    "san_marino": {
+      "type": "string"
+    },
+    "sandal": {
+      "type": "string"
+    },
+    "sandwich": {
+      "type": "string"
+    },
+    "santa": {
+      "type": "string"
+    },
+    "sao_tome_principe": {
+      "type": "string"
+    },
+    "sari": {
+      "type": "string"
+    },
+    "sassy_man": {
+      "type": "string"
+    },
+    "sassy_woman": {
+      "type": "string"
+    },
+    "satellite": {
+      "type": "string"
+    },
+    "satisfied": {
+      "type": "string"
+    },
+    "saudi_arabia": {
+      "type": "string"
+    },
+    "sauna_man": {
+      "type": "string"
+    },
+    "sauna_person": {
+      "type": "string"
+    },
+    "sauna_woman": {
+      "type": "string"
+    },
+    "sauropod": {
+      "type": "string"
+    },
+    "saxophone": {
+      "type": "string"
+    },
+    "scarf": {
+      "type": "string"
+    },
+    "school": {
+      "type": "string"
+    },
+    "school_satchel": {
+      "type": "string"
+    },
+    "scientist": {
+      "type": "string"
+    },
+    "scissors": {
+      "type": "string"
+    },
+    "scorpion": {
+      "type": "string"
+    },
+    "scorpius": {
+      "type": "string"
+    },
+    "scotland": {
+      "type": "string"
+    },
+    "scream": {
+      "type": "string"
+    },
+    "scream_cat": {
+      "type": "string"
+    },
+    "screwdriver": {
+      "type": "string"
+    },
+    "scroll": {
+      "type": "string"
+    },
+    "seal": {
+      "type": "string"
+    },
+    "seat": {
+      "type": "string"
+    },
+    "secret": {
+      "type": "string"
+    },
+    "see_no_evil": {
+      "type": "string"
+    },
+    "seedling": {
+      "type": "string"
+    },
+    "selfie": {
+      "type": "string"
+    },
+    "senegal": {
+      "type": "string"
+    },
+    "serbia": {
+      "type": "string"
+    },
+    "service_dog": {
+      "type": "string"
+    },
+    "seven": {
+      "type": "string"
+    },
+    "sewing_needle": {
+      "type": "string"
+    },
+    "seychelles": {
+      "type": "string"
+    },
+    "shallow_pan_of_food": {
+      "type": "string"
+    },
+    "shamrock": {
+      "type": "string"
+    },
+    "shark": {
+      "type": "string"
+    },
+    "shaved_ice": {
+      "type": "string"
+    },
+    "sheep": {
+      "type": "string"
+    },
+    "shell": {
+      "type": "string"
+    },
+    "shield": {
+      "type": "string"
+    },
+    "shinto_shrine": {
+      "type": "string"
+    },
+    "ship": {
+      "type": "string"
+    },
+    "shipit": {
+      "type": "string"
+    },
+    "shirt": {
+      "type": "string"
+    },
+    "shit": {
+      "type": "string"
+    },
+    "shoe": {
+      "type": "string"
+    },
+    "shopping": {
+      "type": "string"
+    },
+    "shopping_cart": {
+      "type": "string"
+    },
+    "shorts": {
+      "type": "string"
+    },
+    "shower": {
+      "type": "string"
+    },
+    "shrimp": {
+      "type": "string"
+    },
+    "shrug": {
+      "type": "string"
+    },
+    "shushing_face": {
+      "type": "string"
+    },
+    "sierra_leone": {
+      "type": "string"
+    },
+    "signal_strength": {
+      "type": "string"
+    },
+    "singapore": {
+      "type": "string"
+    },
+    "singer": {
+      "type": "string"
+    },
+    "sint_maarten": {
+      "type": "string"
+    },
+    "six": {
+      "type": "string"
+    },
+    "six_pointed_star": {
+      "type": "string"
+    },
+    "skateboard": {
+      "type": "string"
+    },
+    "ski": {
+      "type": "string"
+    },
+    "skier": {
+      "type": "string"
+    },
+    "skull": {
+      "type": "string"
+    },
+    "skull_and_crossbones": {
+      "type": "string"
+    },
+    "skunk": {
+      "type": "string"
+    },
+    "sled": {
+      "type": "string"
+    },
+    "sleeping": {
+      "type": "string"
+    },
+    "sleeping_bed": {
+      "type": "string"
+    },
+    "sleepy": {
+      "type": "string"
+    },
+    "slightly_frowning_face": {
+      "type": "string"
+    },
+    "slightly_smiling_face": {
+      "type": "string"
+    },
+    "slot_machine": {
+      "type": "string"
+    },
+    "sloth": {
+      "type": "string"
+    },
+    "slovakia": {
+      "type": "string"
+    },
+    "slovenia": {
+      "type": "string"
+    },
+    "small_airplane": {
+      "type": "string"
+    },
+    "small_blue_diamond": {
+      "type": "string"
+    },
+    "small_orange_diamond": {
+      "type": "string"
+    },
+    "small_red_triangle": {
+      "type": "string"
+    },
+    "small_red_triangle_down": {
+      "type": "string"
+    },
+    "smile": {
+      "type": "string"
+    },
+    "smile_cat": {
+      "type": "string"
+    },
+    "smiley": {
+      "type": "string"
+    },
+    "smiley_cat": {
+      "type": "string"
+    },
+    "smiling_face_with_tear": {
+      "type": "string"
+    },
+    "smiling_face_with_three_hearts": {
+      "type": "string"
+    },
+    "smiling_imp": {
+      "type": "string"
+    },
+    "smirk": {
+      "type": "string"
+    },
+    "smirk_cat": {
+      "type": "string"
+    },
+    "smoking": {
+      "type": "string"
+    },
+    "snail": {
+      "type": "string"
+    },
+    "snake": {
+      "type": "string"
+    },
+    "sneezing_face": {
+      "type": "string"
+    },
+    "snowboarder": {
+      "type": "string"
+    },
+    "snowflake": {
+      "type": "string"
+    },
+    "snowman": {
+      "type": "string"
+    },
+    "snowman_with_snow": {
+      "type": "string"
+    },
+    "soap": {
+      "type": "string"
+    },
+    "sob": {
+      "type": "string"
+    },
+    "soccer": {
+      "type": "string"
+    },
+    "socks": {
+      "type": "string"
+    },
+    "softball": {
+      "type": "string"
+    },
+    "solomon_islands": {
+      "type": "string"
+    },
+    "somalia": {
+      "type": "string"
+    },
+    "soon": {
+      "type": "string"
+    },
+    "sos": {
+      "type": "string"
+    },
+    "sound": {
+      "type": "string"
+    },
+    "south_africa": {
+      "type": "string"
+    },
+    "south_georgia_south_sandwich_islands": {
+      "type": "string"
+    },
+    "south_sudan": {
+      "type": "string"
+    },
+    "space_invader": {
+      "type": "string"
+    },
+    "spades": {
+      "type": "string"
+    },
+    "spaghetti": {
+      "type": "string"
+    },
+    "sparkle": {
+      "type": "string"
+    },
+    "sparkler": {
+      "type": "string"
+    },
+    "sparkles": {
+      "type": "string"
+    },
+    "sparkling_heart": {
+      "type": "string"
+    },
+    "speak_no_evil": {
+      "type": "string"
+    },
+    "speaker": {
+      "type": "string"
+    },
+    "speaking_head": {
+      "type": "string"
+    },
+    "speech_balloon": {
+      "type": "string"
+    },
+    "speedboat": {
+      "type": "string"
+    },
+    "spider": {
+      "type": "string"
+    },
+    "spider_web": {
+      "type": "string"
+    },
+    "spiral_calendar": {
+      "type": "string"
+    },
+    "spiral_notepad": {
+      "type": "string"
+    },
+    "sponge": {
+      "type": "string"
+    },
+    "spoon": {
+      "type": "string"
+    },
+    "squid": {
+      "type": "string"
+    },
+    "sri_lanka": {
+      "type": "string"
+    },
+    "st_barthelemy": {
+      "type": "string"
+    },
+    "st_helena": {
+      "type": "string"
+    },
+    "st_kitts_nevis": {
+      "type": "string"
+    },
+    "st_lucia": {
+      "type": "string"
+    },
+    "st_martin": {
+      "type": "string"
+    },
+    "st_pierre_miquelon": {
+      "type": "string"
+    },
+    "st_vincent_grenadines": {
+      "type": "string"
+    },
+    "stadium": {
+      "type": "string"
+    },
+    "standing_man": {
+      "type": "string"
+    },
+    "standing_person": {
+      "type": "string"
+    },
+    "standing_woman": {
+      "type": "string"
+    },
+    "star": {
+      "type": "string"
+    },
+    "star2": {
+      "type": "string"
+    },
+    "star_and_crescent": {
+      "type": "string"
+    },
+    "star_of_david": {
+      "type": "string"
+    },
+    "star_struck": {
+      "type": "string"
+    },
+    "stars": {
+      "type": "string"
+    },
+    "station": {
+      "type": "string"
+    },
+    "statue_of_liberty": {
+      "type": "string"
+    },
+    "steam_locomotive": {
+      "type": "string"
+    },
+    "stethoscope": {
+      "type": "string"
+    },
+    "stew": {
+      "type": "string"
+    },
+    "stop_button": {
+      "type": "string"
+    },
+    "stop_sign": {
+      "type": "string"
+    },
+    "stopwatch": {
+      "type": "string"
+    },
+    "straight_ruler": {
+      "type": "string"
+    },
+    "strawberry": {
+      "type": "string"
+    },
+    "stuck_out_tongue": {
+      "type": "string"
+    },
+    "stuck_out_tongue_closed_eyes": {
+      "type": "string"
+    },
+    "stuck_out_tongue_winking_eye": {
+      "type": "string"
+    },
+    "student": {
+      "type": "string"
+    },
+    "studio_microphone": {
+      "type": "string"
+    },
+    "stuffed_flatbread": {
+      "type": "string"
+    },
+    "sudan": {
+      "type": "string"
+    },
+    "sun_behind_large_cloud": {
+      "type": "string"
+    },
+    "sun_behind_rain_cloud": {
+      "type": "string"
+    },
+    "sun_behind_small_cloud": {
+      "type": "string"
+    },
+    "sun_with_face": {
+      "type": "string"
+    },
+    "sunflower": {
+      "type": "string"
+    },
+    "sunglasses": {
+      "type": "string"
+    },
+    "sunny": {
+      "type": "string"
+    },
+    "sunrise": {
+      "type": "string"
+    },
+    "sunrise_over_mountains": {
+      "type": "string"
+    },
+    "superhero": {
+      "type": "string"
+    },
+    "superhero_man": {
+      "type": "string"
+    },
+    "superhero_woman": {
+      "type": "string"
+    },
+    "supervillain": {
+      "type": "string"
+    },
+    "supervillain_man": {
+      "type": "string"
+    },
+    "supervillain_woman": {
+      "type": "string"
+    },
+    "surfer": {
+      "type": "string"
+    },
+    "surfing_man": {
+      "type": "string"
+    },
+    "surfing_woman": {
+      "type": "string"
+    },
+    "suriname": {
+      "type": "string"
+    },
+    "sushi": {
+      "type": "string"
+    },
+    "suspect": {
+      "type": "string"
+    },
+    "suspension_railway": {
+      "type": "string"
+    },
+    "svalbard_jan_mayen": {
+      "type": "string"
+    },
+    "swan": {
+      "type": "string"
+    },
+    "swaziland": {
+      "type": "string"
+    },
+    "sweat": {
+      "type": "string"
+    },
+    "sweat_drops": {
+      "type": "string"
+    },
+    "sweat_smile": {
+      "type": "string"
+    },
+    "sweden": {
+      "type": "string"
+    },
+    "sweet_potato": {
+      "type": "string"
+    },
+    "swim_brief": {
+      "type": "string"
+    },
+    "swimmer": {
+      "type": "string"
+    },
+    "swimming_man": {
+      "type": "string"
+    },
+    "swimming_woman": {
+      "type": "string"
+    },
+    "switzerland": {
+      "type": "string"
+    },
+    "symbols": {
+      "type": "string"
+    },
+    "synagogue": {
+      "type": "string"
+    },
+    "syria": {
+      "type": "string"
+    },
+    "syringe": {
+      "type": "string"
+    },
+    "t-rex": {
+      "type": "string"
+    },
+    "taco": {
+      "type": "string"
+    },
+    "tada": {
+      "type": "string"
+    },
+    "taiwan": {
+      "type": "string"
+    },
+    "tajikistan": {
+      "type": "string"
+    },
+    "takeout_box": {
+      "type": "string"
+    },
+    "tamale": {
+      "type": "string"
+    },
+    "tanabata_tree": {
+      "type": "string"
+    },
+    "tangerine": {
+      "type": "string"
+    },
+    "tanzania": {
+      "type": "string"
+    },
+    "taurus": {
+      "type": "string"
+    },
+    "taxi": {
+      "type": "string"
+    },
+    "tea": {
+      "type": "string"
+    },
+    "teacher": {
+      "type": "string"
+    },
+    "teapot": {
+      "type": "string"
+    },
+    "technologist": {
+      "type": "string"
+    },
+    "teddy_bear": {
+      "type": "string"
+    },
+    "telephone": {
+      "type": "string"
+    },
+    "telephone_receiver": {
+      "type": "string"
+    },
+    "telescope": {
+      "type": "string"
+    },
+    "tennis": {
+      "type": "string"
+    },
+    "tent": {
+      "type": "string"
+    },
+    "test_tube": {
+      "type": "string"
+    },
+    "thailand": {
+      "type": "string"
+    },
+    "thermometer": {
+      "type": "string"
+    },
+    "thinking": {
+      "type": "string"
+    },
+    "thong_sandal": {
+      "type": "string"
+    },
+    "thought_balloon": {
+      "type": "string"
+    },
+    "thread": {
+      "type": "string"
+    },
+    "three": {
+      "type": "string"
+    },
+    "thumbsdown": {
+      "type": "string"
+    },
+    "thumbsup": {
+      "type": "string"
+    },
+    "ticket": {
+      "type": "string"
+    },
+    "tickets": {
+      "type": "string"
+    },
+    "tiger": {
+      "type": "string"
+    },
+    "tiger2": {
+      "type": "string"
+    },
+    "timer_clock": {
+      "type": "string"
+    },
+    "timor_leste": {
+      "type": "string"
+    },
+    "tipping_hand_man": {
+      "type": "string"
+    },
+    "tipping_hand_person": {
+      "type": "string"
+    },
+    "tipping_hand_woman": {
+      "type": "string"
+    },
+    "tired_face": {
+      "type": "string"
+    },
+    "tm": {
+      "type": "string"
+    },
+    "togo": {
+      "type": "string"
+    },
+    "toilet": {
+      "type": "string"
+    },
+    "tokelau": {
+      "type": "string"
+    },
+    "tokyo_tower": {
+      "type": "string"
+    },
+    "tomato": {
+      "type": "string"
+    },
+    "tonga": {
+      "type": "string"
+    },
+    "tongue": {
+      "type": "string"
+    },
+    "toolbox": {
+      "type": "string"
+    },
+    "tooth": {
+      "type": "string"
+    },
+    "toothbrush": {
+      "type": "string"
+    },
+    "top": {
+      "type": "string"
+    },
+    "tophat": {
+      "type": "string"
+    },
+    "tornado": {
+      "type": "string"
+    },
+    "tr": {
+      "type": "string"
+    },
+    "trackball": {
+      "type": "string"
+    },
+    "tractor": {
+      "type": "string"
+    },
+    "traffic_light": {
+      "type": "string"
+    },
+    "train": {
+      "type": "string"
+    },
+    "train2": {
+      "type": "string"
+    },
+    "tram": {
+      "type": "string"
+    },
+    "transgender_flag": {
+      "type": "string"
+    },
+    "transgender_symbol": {
+      "type": "string"
+    },
+    "triangular_flag_on_post": {
+      "type": "string"
+    },
+    "triangular_ruler": {
+      "type": "string"
+    },
+    "trident": {
+      "type": "string"
+    },
+    "trinidad_tobago": {
+      "type": "string"
+    },
+    "tristan_da_cunha": {
+      "type": "string"
+    },
+    "triumph": {
+      "type": "string"
+    },
+    "trolleybus": {
+      "type": "string"
+    },
+    "trollface": {
+      "type": "string"
+    },
+    "trophy": {
+      "type": "string"
+    },
+    "tropical_drink": {
+      "type": "string"
+    },
+    "tropical_fish": {
+      "type": "string"
+    },
+    "truck": {
+      "type": "string"
+    },
+    "trumpet": {
+      "type": "string"
+    },
+    "tshirt": {
+      "type": "string"
+    },
+    "tulip": {
+      "type": "string"
+    },
+    "tumbler_glass": {
+      "type": "string"
+    },
+    "tunisia": {
+      "type": "string"
+    },
+    "turkey": {
+      "type": "string"
+    },
+    "turkmenistan": {
+      "type": "string"
+    },
+    "turks_caicos_islands": {
+      "type": "string"
+    },
+    "turtle": {
+      "type": "string"
+    },
+    "tuvalu": {
+      "type": "string"
+    },
+    "tv": {
+      "type": "string"
+    },
+    "twisted_rightwards_arrows": {
+      "type": "string"
+    },
+    "two": {
+      "type": "string"
+    },
+    "two_hearts": {
+      "type": "string"
+    },
+    "two_men_holding_hands": {
+      "type": "string"
+    },
+    "two_women_holding_hands": {
+      "type": "string"
+    },
+    "u5272": {
+      "type": "string"
+    },
+    "u5408": {
+      "type": "string"
+    },
+    "u55b6": {
+      "type": "string"
+    },
+    "u6307": {
+      "type": "string"
+    },
+    "u6708": {
+      "type": "string"
+    },
+    "u6709": {
+      "type": "string"
+    },
+    "u6e80": {
+      "type": "string"
+    },
+    "u7121": {
+      "type": "string"
+    },
+    "u7533": {
+      "type": "string"
+    },
+    "u7981": {
+      "type": "string"
+    },
+    "u7a7a": {
+      "type": "string"
+    },
+    "uganda": {
+      "type": "string"
+    },
+    "uk": {
+      "type": "string"
+    },
+    "ukraine": {
+      "type": "string"
+    },
+    "umbrella": {
+      "type": "string"
+    },
+    "unamused": {
+      "type": "string"
+    },
+    "underage": {
+      "type": "string"
+    },
+    "unicorn": {
+      "type": "string"
+    },
+    "united_arab_emirates": {
+      "type": "string"
+    },
+    "united_nations": {
+      "type": "string"
+    },
+    "unlock": {
+      "type": "string"
+    },
+    "up": {
+      "type": "string"
+    },
+    "upside_down_face": {
+      "type": "string"
+    },
+    "uruguay": {
+      "type": "string"
+    },
+    "us": {
+      "type": "string"
+    },
+    "us_outlying_islands": {
+      "type": "string"
+    },
+    "us_virgin_islands": {
+      "type": "string"
+    },
+    "uzbekistan": {
+      "type": "string"
+    },
+    "v": {
+      "type": "string"
+    },
+    "vampire": {
+      "type": "string"
+    },
+    "vampire_man": {
+      "type": "string"
+    },
+    "vampire_woman": {
+      "type": "string"
+    },
+    "vanuatu": {
+      "type": "string"
+    },
+    "vatican_city": {
+      "type": "string"
+    },
+    "venezuela": {
+      "type": "string"
+    },
+    "vertical_traffic_light": {
+      "type": "string"
+    },
+    "vhs": {
+      "type": "string"
+    },
+    "vibration_mode": {
+      "type": "string"
+    },
+    "video_camera": {
+      "type": "string"
+    },
+    "video_game": {
+      "type": "string"
+    },
+    "vietnam": {
+      "type": "string"
+    },
+    "violin": {
+      "type": "string"
+    },
+    "virgo": {
+      "type": "string"
+    },
+    "volcano": {
+      "type": "string"
+    },
+    "volleyball": {
+      "type": "string"
+    },
+    "vomiting_face": {
+      "type": "string"
+    },
+    "vs": {
+      "type": "string"
+    },
+    "vulcan_salute": {
+      "type": "string"
+    },
+    "waffle": {
+      "type": "string"
+    },
+    "wales": {
+      "type": "string"
+    },
+    "walking": {
+      "type": "string"
+    },
+    "walking_man": {
+      "type": "string"
+    },
+    "walking_woman": {
+      "type": "string"
+    },
+    "wallis_futuna": {
+      "type": "string"
+    },
+    "waning_crescent_moon": {
+      "type": "string"
+    },
+    "waning_gibbous_moon": {
+      "type": "string"
+    },
+    "warning": {
+      "type": "string"
+    },
+    "wastebasket": {
+      "type": "string"
+    },
+    "watch": {
+      "type": "string"
+    },
+    "water_buffalo": {
+      "type": "string"
+    },
+    "water_polo": {
+      "type": "string"
+    },
+    "watermelon": {
+      "type": "string"
+    },
+    "wave": {
+      "type": "string"
+    },
+    "wavy_dash": {
+      "type": "string"
+    },
+    "waxing_crescent_moon": {
+      "type": "string"
+    },
+    "waxing_gibbous_moon": {
+      "type": "string"
+    },
+    "wc": {
+      "type": "string"
+    },
+    "weary": {
+      "type": "string"
+    },
+    "wedding": {
+      "type": "string"
+    },
+    "weight_lifting": {
+      "type": "string"
+    },
+    "weight_lifting_man": {
+      "type": "string"
+    },
+    "weight_lifting_woman": {
+      "type": "string"
+    },
+    "western_sahara": {
+      "type": "string"
+    },
+    "whale": {
+      "type": "string"
+    },
+    "whale2": {
+      "type": "string"
+    },
+    "wheel_of_dharma": {
+      "type": "string"
+    },
+    "wheelchair": {
+      "type": "string"
+    },
+    "white_check_mark": {
+      "type": "string"
+    },
+    "white_circle": {
+      "type": "string"
+    },
+    "white_flag": {
+      "type": "string"
+    },
+    "white_flower": {
+      "type": "string"
+    },
+    "white_haired_man": {
+      "type": "string"
+    },
+    "white_haired_woman": {
+      "type": "string"
+    },
+    "white_heart": {
+      "type": "string"
+    },
+    "white_large_square": {
+      "type": "string"
+    },
+    "white_medium_small_square": {
+      "type": "string"
+    },
+    "white_medium_square": {
+      "type": "string"
+    },
+    "white_small_square": {
+      "type": "string"
+    },
+    "white_square_button": {
+      "type": "string"
+    },
+    "wilted_flower": {
+      "type": "string"
+    },
+    "wind_chime": {
+      "type": "string"
+    },
+    "wind_face": {
+      "type": "string"
+    },
+    "window": {
+      "type": "string"
+    },
+    "wine_glass": {
+      "type": "string"
+    },
+    "wink": {
+      "type": "string"
+    },
+    "wolf": {
+      "type": "string"
+    },
+    "woman": {
+      "type": "string"
+    },
+    "woman_artist": {
+      "type": "string"
+    },
+    "woman_astronaut": {
+      "type": "string"
+    },
+    "woman_beard": {
+      "type": "string"
+    },
+    "woman_cartwheeling": {
+      "type": "string"
+    },
+    "woman_cook": {
+      "type": "string"
+    },
+    "woman_dancing": {
+      "type": "string"
+    },
+    "woman_facepalming": {
+      "type": "string"
+    },
+    "woman_factory_worker": {
+      "type": "string"
+    },
+    "woman_farmer": {
+      "type": "string"
+    },
+    "woman_feeding_baby": {
+      "type": "string"
+    },
+    "woman_firefighter": {
+      "type": "string"
+    },
+    "woman_health_worker": {
+      "type": "string"
+    },
+    "woman_in_manual_wheelchair": {
+      "type": "string"
+    },
+    "woman_in_motorized_wheelchair": {
+      "type": "string"
+    },
+    "woman_in_tuxedo": {
+      "type": "string"
+    },
+    "woman_judge": {
+      "type": "string"
+    },
+    "woman_juggling": {
+      "type": "string"
+    },
+    "woman_mechanic": {
+      "type": "string"
+    },
+    "woman_office_worker": {
+      "type": "string"
+    },
+    "woman_pilot": {
+      "type": "string"
+    },
+    "woman_playing_handball": {
+      "type": "string"
+    },
+    "woman_playing_water_polo": {
+      "type": "string"
+    },
+    "woman_scientist": {
+      "type": "string"
+    },
+    "woman_shrugging": {
+      "type": "string"
+    },
+    "woman_singer": {
+      "type": "string"
+    },
+    "woman_student": {
+      "type": "string"
+    },
+    "woman_teacher": {
+      "type": "string"
+    },
+    "woman_technologist": {
+      "type": "string"
+    },
+    "woman_with_headscarf": {
+      "type": "string"
+    },
+    "woman_with_probing_cane": {
+      "type": "string"
+    },
+    "woman_with_turban": {
+      "type": "string"
+    },
+    "woman_with_veil": {
+      "type": "string"
+    },
+    "womans_clothes": {
+      "type": "string"
+    },
+    "womans_hat": {
+      "type": "string"
+    },
+    "women_wrestling": {
+      "type": "string"
+    },
+    "womens": {
+      "type": "string"
+    },
+    "wood": {
+      "type": "string"
+    },
+    "woozy_face": {
+      "type": "string"
+    },
+    "world_map": {
+      "type": "string"
+    },
+    "worm": {
+      "type": "string"
+    },
+    "worried": {
+      "type": "string"
+    },
+    "wrench": {
+      "type": "string"
+    },
+    "wrestling": {
+      "type": "string"
+    },
+    "writing_hand": {
+      "type": "string"
+    },
+    "x": {
+      "type": "string"
+    },
+    "yarn": {
+      "type": "string"
+    },
+    "yawning_face": {
+      "type": "string"
+    },
+    "yellow_circle": {
+      "type": "string"
+    },
+    "yellow_heart": {
+      "type": "string"
+    },
+    "yellow_square": {
+      "type": "string"
+    },
+    "yemen": {
+      "type": "string"
+    },
+    "yen": {
+      "type": "string"
+    },
+    "yin_yang": {
+      "type": "string"
+    },
+    "yo_yo": {
+      "type": "string"
+    },
+    "yum": {
+      "type": "string"
+    },
+    "zambia": {
+      "type": "string"
+    },
+    "zany_face": {
+      "type": "string"
+    },
+    "zap": {
+      "type": "string"
+    },
+    "zebra": {
+      "type": "string"
+    },
+    "zero": {
+      "type": "string"
+    },
+    "zimbabwe": {
+      "type": "string"
+    },
+    "zipper_mouth_face": {
+      "type": "string"
+    },
+    "zombie": {
+      "type": "string"
+    },
+    "zombie_man": {
+      "type": "string"
+    },
+    "zombie_woman": {
+      "type": "string"
+    },
+    "zzz": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "+1",
+    "-1",
+    "100",
+    "1234",
+    "1st_place_medal",
+    "2nd_place_medal",
+    "3rd_place_medal",
+    "8ball",
+    "a",
+    "ab",
+    "abacus",
+    "abc",
+    "abcd",
+    "accept",
+    "accordion",
+    "adhesive_bandage",
+    "adult",
+    "aerial_tramway",
+    "afghanistan",
+    "airplane",
+    "aland_islands",
+    "alarm_clock",
+    "albania",
+    "alembic",
+    "algeria",
+    "alien",
+    "ambulance",
+    "american_samoa",
+    "amphora",
+    "anatomical_heart",
+    "anchor",
+    "andorra",
+    "angel",
+    "anger",
+    "angola",
+    "angry",
+    "anguilla",
+    "anguished",
+    "ant",
+    "antarctica",
+    "antigua_barbuda",
+    "apple",
+    "aquarius",
+    "argentina",
+    "aries",
+    "armenia",
+    "arrow_backward",
+    "arrow_double_down",
+    "arrow_double_up",
+    "arrow_down",
+    "arrow_down_small",
+    "arrow_forward",
+    "arrow_heading_down",
+    "arrow_heading_up",
+    "arrow_left",
+    "arrow_lower_left",
+    "arrow_lower_right",
+    "arrow_right",
+    "arrow_right_hook",
+    "arrow_up",
+    "arrow_up_down",
+    "arrow_up_small",
+    "arrow_upper_left",
+    "arrow_upper_right",
+    "arrows_clockwise",
+    "arrows_counterclockwise",
+    "art",
+    "articulated_lorry",
+    "artificial_satellite",
+    "artist",
+    "aruba",
+    "ascension_island",
+    "asterisk",
+    "astonished",
+    "astronaut",
+    "athletic_shoe",
+    "atm",
+    "atom",
+    "atom_symbol",
+    "australia",
+    "austria",
+    "auto_rickshaw",
+    "avocado",
+    "axe",
+    "azerbaijan",
+    "b",
+    "baby",
+    "baby_bottle",
+    "baby_chick",
+    "baby_symbol",
+    "back",
+    "bacon",
+    "badger",
+    "badminton",
+    "bagel",
+    "baggage_claim",
+    "baguette_bread",
+    "bahamas",
+    "bahrain",
+    "balance_scale",
+    "bald_man",
+    "bald_woman",
+    "ballet_shoes",
+    "balloon",
+    "ballot_box",
+    "ballot_box_with_check",
+    "bamboo",
+    "banana",
+    "bangbang",
+    "bangladesh",
+    "banjo",
+    "bank",
+    "bar_chart",
+    "barbados",
+    "barber",
+    "baseball",
+    "basecamp",
+    "basecampy",
+    "basket",
+    "basketball",
+    "basketball_man",
+    "basketball_woman",
+    "bat",
+    "bath",
+    "bathtub",
+    "battery",
+    "beach_umbrella",
+    "bear",
+    "bearded_person",
+    "beaver",
+    "bed",
+    "bee",
+    "beer",
+    "beers",
+    "beetle",
+    "beginner",
+    "belarus",
+    "belgium",
+    "belize",
+    "bell",
+    "bell_pepper",
+    "bellhop_bell",
+    "benin",
+    "bento",
+    "bermuda",
+    "beverage_box",
+    "bhutan",
+    "bicyclist",
+    "bike",
+    "biking_man",
+    "biking_woman",
+    "bikini",
+    "billed_cap",
+    "biohazard",
+    "bird",
+    "birthday",
+    "bison",
+    "black_cat",
+    "black_circle",
+    "black_flag",
+    "black_heart",
+    "black_joker",
+    "black_large_square",
+    "black_medium_small_square",
+    "black_medium_square",
+    "black_nib",
+    "black_small_square",
+    "black_square_button",
+    "blond_haired_man",
+    "blond_haired_person",
+    "blond_haired_woman",
+    "blonde_woman",
+    "blossom",
+    "blowfish",
+    "blue_book",
+    "blue_car",
+    "blue_heart",
+    "blue_square",
+    "blueberries",
+    "blush",
+    "boar",
+    "boat",
+    "bolivia",
+    "bomb",
+    "bone",
+    "book",
+    "bookmark",
+    "bookmark_tabs",
+    "books",
+    "boom",
+    "boomerang",
+    "boot",
+    "bosnia_herzegovina",
+    "botswana",
+    "bouncing_ball_man",
+    "bouncing_ball_person",
+    "bouncing_ball_woman",
+    "bouquet",
+    "bouvet_island",
+    "bow",
+    "bow_and_arrow",
+    "bowing_man",
+    "bowing_woman",
+    "bowl_with_spoon",
+    "bowling",
+    "bowtie",
+    "boxing_glove",
+    "boy",
+    "brain",
+    "brazil",
+    "bread",
+    "breast_feeding",
+    "bricks",
+    "bride_with_veil",
+    "bridge_at_night",
+    "briefcase",
+    "british_indian_ocean_territory",
+    "british_virgin_islands",
+    "broccoli",
+    "broken_heart",
+    "broom",
+    "brown_circle",
+    "brown_heart",
+    "brown_square",
+    "brunei",
+    "bubble_tea",
+    "bucket",
+    "bug",
+    "building_construction",
+    "bulb",
+    "bulgaria",
+    "bullettrain_front",
+    "bullettrain_side",
+    "burkina_faso",
+    "burrito",
+    "burundi",
+    "bus",
+    "business_suit_levitating",
+    "busstop",
+    "bust_in_silhouette",
+    "busts_in_silhouette",
+    "butter",
+    "butterfly",
+    "cactus",
+    "cake",
+    "calendar",
+    "call_me_hand",
+    "calling",
+    "cambodia",
+    "camel",
+    "camera",
+    "camera_flash",
+    "cameroon",
+    "camping",
+    "canada",
+    "canary_islands",
+    "cancer",
+    "candle",
+    "candy",
+    "canned_food",
+    "canoe",
+    "cape_verde",
+    "capital_abcd",
+    "capricorn",
+    "car",
+    "card_file_box",
+    "card_index",
+    "card_index_dividers",
+    "caribbean_netherlands",
+    "carousel_horse",
+    "carpentry_saw",
+    "carrot",
+    "cartwheeling",
+    "cat",
+    "cat2",
+    "cayman_islands",
+    "cd",
+    "central_african_republic",
+    "ceuta_melilla",
+    "chad",
+    "chains",
+    "chair",
+    "champagne",
+    "chart",
+    "chart_with_downwards_trend",
+    "chart_with_upwards_trend",
+    "checkered_flag",
+    "cheese",
+    "cherries",
+    "cherry_blossom",
+    "chess_pawn",
+    "chestnut",
+    "chicken",
+    "child",
+    "children_crossing",
+    "chile",
+    "chipmunk",
+    "chocolate_bar",
+    "chopsticks",
+    "christmas_island",
+    "christmas_tree",
+    "church",
+    "cinema",
+    "circus_tent",
+    "city_sunrise",
+    "city_sunset",
+    "cityscape",
+    "cl",
+    "clamp",
+    "clap",
+    "clapper",
+    "classical_building",
+    "climbing",
+    "climbing_man",
+    "climbing_woman",
+    "clinking_glasses",
+    "clipboard",
+    "clipperton_island",
+    "clock1",
+    "clock10",
+    "clock1030",
+    "clock11",
+    "clock1130",
+    "clock12",
+    "clock1230",
+    "clock130",
+    "clock2",
+    "clock230",
+    "clock3",
+    "clock330",
+    "clock4",
+    "clock430",
+    "clock5",
+    "clock530",
+    "clock6",
+    "clock630",
+    "clock7",
+    "clock730",
+    "clock8",
+    "clock830",
+    "clock9",
+    "clock930",
+    "closed_book",
+    "closed_lock_with_key",
+    "closed_umbrella",
+    "cloud",
+    "cloud_with_lightning",
+    "cloud_with_lightning_and_rain",
+    "cloud_with_rain",
+    "cloud_with_snow",
+    "clown_face",
+    "clubs",
+    "cn",
+    "coat",
+    "cockroach",
+    "cocktail",
+    "coconut",
+    "cocos_islands",
+    "coffee",
+    "coffin",
+    "coin",
+    "cold_face",
+    "cold_sweat",
+    "collision",
+    "colombia",
+    "comet",
+    "comoros",
+    "compass",
+    "computer",
+    "computer_mouse",
+    "confetti_ball",
+    "confounded",
+    "confused",
+    "congo_brazzaville",
+    "congo_kinshasa",
+    "congratulations",
+    "construction",
+    "construction_worker",
+    "construction_worker_man",
+    "construction_worker_woman",
+    "control_knobs",
+    "convenience_store",
+    "cook",
+    "cook_islands",
+    "cookie",
+    "cool",
+    "cop",
+    "copyright",
+    "corn",
+    "costa_rica",
+    "cote_divoire",
+    "couch_and_lamp",
+    "couple",
+    "couple_with_heart",
+    "couple_with_heart_man_man",
+    "couple_with_heart_woman_man",
+    "couple_with_heart_woman_woman",
+    "couplekiss",
+    "couplekiss_man_man",
+    "couplekiss_man_woman",
+    "couplekiss_woman_woman",
+    "cow",
+    "cow2",
+    "cowboy_hat_face",
+    "crab",
+    "crayon",
+    "credit_card",
+    "crescent_moon",
+    "cricket",
+    "cricket_game",
+    "croatia",
+    "crocodile",
+    "croissant",
+    "crossed_fingers",
+    "crossed_flags",
+    "crossed_swords",
+    "crown",
+    "cry",
+    "crying_cat_face",
+    "crystal_ball",
+    "cuba",
+    "cucumber",
+    "cup_with_straw",
+    "cupcake",
+    "cupid",
+    "curacao",
+    "curling_stone",
+    "curly_haired_man",
+    "curly_haired_woman",
+    "curly_loop",
+    "currency_exchange",
+    "curry",
+    "cursing_face",
+    "custard",
+    "customs",
+    "cut_of_meat",
+    "cyclone",
+    "cyprus",
+    "czech_republic",
+    "dagger",
+    "dancer",
+    "dancers",
+    "dancing_men",
+    "dancing_women",
+    "dango",
+    "dark_sunglasses",
+    "dart",
+    "dash",
+    "date",
+    "de",
+    "deaf_man",
+    "deaf_person",
+    "deaf_woman",
+    "deciduous_tree",
+    "deer",
+    "denmark",
+    "department_store",
+    "derelict_house",
+    "desert",
+    "desert_island",
+    "desktop_computer",
+    "detective",
+    "diamond_shape_with_a_dot_inside",
+    "diamonds",
+    "diego_garcia",
+    "disappointed",
+    "disappointed_relieved",
+    "disguised_face",
+    "diving_mask",
+    "diya_lamp",
+    "dizzy",
+    "dizzy_face",
+    "djibouti",
+    "dna",
+    "do_not_litter",
+    "dodo",
+    "dog",
+    "dog2",
+    "dollar",
+    "dolls",
+    "dolphin",
+    "dominica",
+    "dominican_republic",
+    "door",
+    "doughnut",
+    "dove",
+    "dragon",
+    "dragon_face",
+    "dress",
+    "dromedary_camel",
+    "drooling_face",
+    "drop_of_blood",
+    "droplet",
+    "drum",
+    "duck",
+    "dumpling",
+    "dvd",
+    "e-mail",
+    "eagle",
+    "ear",
+    "ear_of_rice",
+    "ear_with_hearing_aid",
+    "earth_africa",
+    "earth_americas",
+    "earth_asia",
+    "ecuador",
+    "egg",
+    "eggplant",
+    "egypt",
+    "eight",
+    "eight_pointed_black_star",
+    "eight_spoked_asterisk",
+    "eject_button",
+    "el_salvador",
+    "electric_plug",
+    "electron",
+    "elephant",
+    "elevator",
+    "elf",
+    "elf_man",
+    "elf_woman",
+    "email",
+    "end",
+    "england",
+    "envelope",
+    "envelope_with_arrow",
+    "equatorial_guinea",
+    "eritrea",
+    "es",
+    "estonia",
+    "ethiopia",
+    "eu",
+    "euro",
+    "european_castle",
+    "european_post_office",
+    "european_union",
+    "evergreen_tree",
+    "exclamation",
+    "exploding_head",
+    "expressionless",
+    "eye",
+    "eye_speech_bubble",
+    "eyeglasses",
+    "eyes",
+    "face_exhaling",
+    "face_in_clouds",
+    "face_with_head_bandage",
+    "face_with_spiral_eyes",
+    "face_with_thermometer",
+    "facepalm",
+    "facepunch",
+    "factory",
+    "factory_worker",
+    "fairy",
+    "fairy_man",
+    "fairy_woman",
+    "falafel",
+    "falkland_islands",
+    "fallen_leaf",
+    "family",
+    "family_man_boy",
+    "family_man_boy_boy",
+    "family_man_girl",
+    "family_man_girl_boy",
+    "family_man_girl_girl",
+    "family_man_man_boy",
+    "family_man_man_boy_boy",
+    "family_man_man_girl",
+    "family_man_man_girl_boy",
+    "family_man_man_girl_girl",
+    "family_man_woman_boy",
+    "family_man_woman_boy_boy",
+    "family_man_woman_girl",
+    "family_man_woman_girl_boy",
+    "family_man_woman_girl_girl",
+    "family_woman_boy",
+    "family_woman_boy_boy",
+    "family_woman_girl",
+    "family_woman_girl_boy",
+    "family_woman_girl_girl",
+    "family_woman_woman_boy",
+    "family_woman_woman_boy_boy",
+    "family_woman_woman_girl",
+    "family_woman_woman_girl_boy",
+    "family_woman_woman_girl_girl",
+    "farmer",
+    "faroe_islands",
+    "fast_forward",
+    "fax",
+    "fearful",
+    "feather",
+    "feelsgood",
+    "feet",
+    "female_detective",
+    "female_sign",
+    "ferris_wheel",
+    "ferry",
+    "field_hockey",
+    "fiji",
+    "file_cabinet",
+    "file_folder",
+    "film_projector",
+    "film_strip",
+    "finland",
+    "finnadie",
+    "fire",
+    "fire_engine",
+    "fire_extinguisher",
+    "firecracker",
+    "firefighter",
+    "fireworks",
+    "first_quarter_moon",
+    "first_quarter_moon_with_face",
+    "fish",
+    "fish_cake",
+    "fishing_pole_and_fish",
+    "fist",
+    "fist_left",
+    "fist_oncoming",
+    "fist_raised",
+    "fist_right",
+    "five",
+    "flags",
+    "flamingo",
+    "flashlight",
+    "flat_shoe",
+    "flatbread",
+    "fleur_de_lis",
+    "flight_arrival",
+    "flight_departure",
+    "flipper",
+    "floppy_disk",
+    "flower_playing_cards",
+    "flushed",
+    "fly",
+    "flying_disc",
+    "flying_saucer",
+    "fog",
+    "foggy",
+    "fondue",
+    "foot",
+    "football",
+    "footprints",
+    "fork_and_knife",
+    "fortune_cookie",
+    "fountain",
+    "fountain_pen",
+    "four",
+    "four_leaf_clover",
+    "fox_face",
+    "fr",
+    "framed_picture",
+    "free",
+    "french_guiana",
+    "french_polynesia",
+    "french_southern_territories",
+    "fried_egg",
+    "fried_shrimp",
+    "fries",
+    "frog",
+    "frowning",
+    "frowning_face",
+    "frowning_man",
+    "frowning_person",
+    "frowning_woman",
+    "fu",
+    "fuelpump",
+    "full_moon",
+    "full_moon_with_face",
+    "funeral_urn",
+    "gabon",
+    "gambia",
+    "game_die",
+    "garlic",
+    "gb",
+    "gear",
+    "gem",
+    "gemini",
+    "genie",
+    "genie_man",
+    "genie_woman",
+    "georgia",
+    "ghana",
+    "ghost",
+    "gibraltar",
+    "gift",
+    "gift_heart",
+    "giraffe",
+    "girl",
+    "globe_with_meridians",
+    "gloves",
+    "goal_net",
+    "goat",
+    "goberserk",
+    "godmode",
+    "goggles",
+    "golf",
+    "golfing",
+    "golfing_man",
+    "golfing_woman",
+    "gorilla",
+    "grapes",
+    "greece",
+    "green_apple",
+    "green_book",
+    "green_circle",
+    "green_heart",
+    "green_salad",
+    "green_square",
+    "greenland",
+    "grenada",
+    "grey_exclamation",
+    "grey_question",
+    "grimacing",
+    "grin",
+    "grinning",
+    "guadeloupe",
+    "guam",
+    "guard",
+    "guardsman",
+    "guardswoman",
+    "guatemala",
+    "guernsey",
+    "guide_dog",
+    "guinea",
+    "guinea_bissau",
+    "guitar",
+    "gun",
+    "guyana",
+    "haircut",
+    "haircut_man",
+    "haircut_woman",
+    "haiti",
+    "hamburger",
+    "hammer",
+    "hammer_and_pick",
+    "hammer_and_wrench",
+    "hamster",
+    "hand",
+    "hand_over_mouth",
+    "handbag",
+    "handball_person",
+    "handshake",
+    "hankey",
+    "hash",
+    "hatched_chick",
+    "hatching_chick",
+    "headphones",
+    "headstone",
+    "health_worker",
+    "hear_no_evil",
+    "heard_mcdonald_islands",
+    "heart",
+    "heart_decoration",
+    "heart_eyes",
+    "heart_eyes_cat",
+    "heart_on_fire",
+    "heartbeat",
+    "heartpulse",
+    "hearts",
+    "heavy_check_mark",
+    "heavy_division_sign",
+    "heavy_dollar_sign",
+    "heavy_exclamation_mark",
+    "heavy_heart_exclamation",
+    "heavy_minus_sign",
+    "heavy_multiplication_x",
+    "heavy_plus_sign",
+    "hedgehog",
+    "helicopter",
+    "herb",
+    "hibiscus",
+    "high_brightness",
+    "high_heel",
+    "hiking_boot",
+    "hindu_temple",
+    "hippopotamus",
+    "hocho",
+    "hole",
+    "honduras",
+    "honey_pot",
+    "honeybee",
+    "hong_kong",
+    "hook",
+    "horse",
+    "horse_racing",
+    "hospital",
+    "hot_face",
+    "hot_pepper",
+    "hotdog",
+    "hotel",
+    "hotsprings",
+    "hourglass",
+    "hourglass_flowing_sand",
+    "house",
+    "house_with_garden",
+    "houses",
+    "hugs",
+    "hungary",
+    "hurtrealbad",
+    "hushed",
+    "hut",
+    "ice_cream",
+    "ice_cube",
+    "ice_hockey",
+    "ice_skate",
+    "icecream",
+    "iceland",
+    "id",
+    "ideograph_advantage",
+    "imp",
+    "inbox_tray",
+    "incoming_envelope",
+    "india",
+    "indonesia",
+    "infinity",
+    "information_desk_person",
+    "information_source",
+    "innocent",
+    "interrobang",
+    "iphone",
+    "iran",
+    "iraq",
+    "ireland",
+    "isle_of_man",
+    "israel",
+    "it",
+    "izakaya_lantern",
+    "jack_o_lantern",
+    "jamaica",
+    "japan",
+    "japanese_castle",
+    "japanese_goblin",
+    "japanese_ogre",
+    "jeans",
+    "jersey",
+    "jigsaw",
+    "jordan",
+    "joy",
+    "joy_cat",
+    "joystick",
+    "jp",
+    "judge",
+    "juggling_person",
+    "kaaba",
+    "kangaroo",
+    "kazakhstan",
+    "kenya",
+    "key",
+    "keyboard",
+    "keycap_ten",
+    "kick_scooter",
+    "kimono",
+    "kiribati",
+    "kiss",
+    "kissing",
+    "kissing_cat",
+    "kissing_closed_eyes",
+    "kissing_heart",
+    "kissing_smiling_eyes",
+    "kite",
+    "kiwi_fruit",
+    "kneeling_man",
+    "kneeling_person",
+    "kneeling_woman",
+    "knife",
+    "knot",
+    "koala",
+    "koko",
+    "kosovo",
+    "kr",
+    "kuwait",
+    "kyrgyzstan",
+    "lab_coat",
+    "label",
+    "lacrosse",
+    "ladder",
+    "lady_beetle",
+    "lantern",
+    "laos",
+    "large_blue_circle",
+    "large_blue_diamond",
+    "large_orange_diamond",
+    "last_quarter_moon",
+    "last_quarter_moon_with_face",
+    "latin_cross",
+    "latvia",
+    "laughing",
+    "leafy_green",
+    "leaves",
+    "lebanon",
+    "ledger",
+    "left_luggage",
+    "left_right_arrow",
+    "left_speech_bubble",
+    "leftwards_arrow_with_hook",
+    "leg",
+    "lemon",
+    "leo",
+    "leopard",
+    "lesotho",
+    "level_slider",
+    "liberia",
+    "libra",
+    "libya",
+    "liechtenstein",
+    "light_rail",
+    "link",
+    "lion",
+    "lips",
+    "lipstick",
+    "lithuania",
+    "lizard",
+    "llama",
+    "lobster",
+    "lock",
+    "lock_with_ink_pen",
+    "lollipop",
+    "long_drum",
+    "loop",
+    "lotion_bottle",
+    "lotus_position",
+    "lotus_position_man",
+    "lotus_position_woman",
+    "loud_sound",
+    "loudspeaker",
+    "love_hotel",
+    "love_letter",
+    "love_you_gesture",
+    "low_brightness",
+    "luggage",
+    "lungs",
+    "luxembourg",
+    "lying_face",
+    "m",
+    "macau",
+    "macedonia",
+    "madagascar",
+    "mag",
+    "mag_right",
+    "mage",
+    "mage_man",
+    "mage_woman",
+    "magic_wand",
+    "magnet",
+    "mahjong",
+    "mailbox",
+    "mailbox_closed",
+    "mailbox_with_mail",
+    "mailbox_with_no_mail",
+    "malawi",
+    "malaysia",
+    "maldives",
+    "male_detective",
+    "male_sign",
+    "mali",
+    "malta",
+    "mammoth",
+    "man",
+    "man_artist",
+    "man_astronaut",
+    "man_beard",
+    "man_cartwheeling",
+    "man_cook",
+    "man_dancing",
+    "man_facepalming",
+    "man_factory_worker",
+    "man_farmer",
+    "man_feeding_baby",
+    "man_firefighter",
+    "man_health_worker",
+    "man_in_manual_wheelchair",
+    "man_in_motorized_wheelchair",
+    "man_in_tuxedo",
+    "man_judge",
+    "man_juggling",
+    "man_mechanic",
+    "man_office_worker",
+    "man_pilot",
+    "man_playing_handball",
+    "man_playing_water_polo",
+    "man_scientist",
+    "man_shrugging",
+    "man_singer",
+    "man_student",
+    "man_teacher",
+    "man_technologist",
+    "man_with_gua_pi_mao",
+    "man_with_probing_cane",
+    "man_with_turban",
+    "man_with_veil",
+    "mandarin",
+    "mango",
+    "mans_shoe",
+    "mantelpiece_clock",
+    "manual_wheelchair",
+    "maple_leaf",
+    "marshall_islands",
+    "martial_arts_uniform",
+    "martinique",
+    "mask",
+    "massage",
+    "massage_man",
+    "massage_woman",
+    "mate",
+    "mauritania",
+    "mauritius",
+    "mayotte",
+    "meat_on_bone",
+    "mechanic",
+    "mechanical_arm",
+    "mechanical_leg",
+    "medal_military",
+    "medal_sports",
+    "medical_symbol",
+    "mega",
+    "melon",
+    "memo",
+    "men_wrestling",
+    "mending_heart",
+    "menorah",
+    "mens",
+    "mermaid",
+    "merman",
+    "merperson",
+    "metal",
+    "metro",
+    "mexico",
+    "microbe",
+    "micronesia",
+    "microphone",
+    "microscope",
+    "middle_finger",
+    "military_helmet",
+    "milk_glass",
+    "milky_way",
+    "minibus",
+    "minidisc",
+    "mirror",
+    "mobile_phone_off",
+    "moldova",
+    "monaco",
+    "money_mouth_face",
+    "money_with_wings",
+    "moneybag",
+    "mongolia",
+    "monkey",
+    "monkey_face",
+    "monocle_face",
+    "monorail",
+    "montenegro",
+    "montserrat",
+    "moon",
+    "moon_cake",
+    "morocco",
+    "mortar_board",
+    "mosque",
+    "mosquito",
+    "motor_boat",
+    "motor_scooter",
+    "motorcycle",
+    "motorized_wheelchair",
+    "motorway",
+    "mount_fuji",
+    "mountain",
+    "mountain_bicyclist",
+    "mountain_biking_man",
+    "mountain_biking_woman",
+    "mountain_cableway",
+    "mountain_railway",
+    "mountain_snow",
+    "mouse",
+    "mouse2",
+    "mouse_trap",
+    "movie_camera",
+    "moyai",
+    "mozambique",
+    "mrs_claus",
+    "muscle",
+    "mushroom",
+    "musical_keyboard",
+    "musical_note",
+    "musical_score",
+    "mute",
+    "mx_claus",
+    "myanmar",
+    "nail_care",
+    "name_badge",
+    "namibia",
+    "national_park",
+    "nauru",
+    "nauseated_face",
+    "nazar_amulet",
+    "neckbeard",
+    "necktie",
+    "negative_squared_cross_mark",
+    "nepal",
+    "nerd_face",
+    "nesting_dolls",
+    "netherlands",
+    "neutral_face",
+    "new",
+    "new_caledonia",
+    "new_moon",
+    "new_moon_with_face",
+    "new_zealand",
+    "newspaper",
+    "newspaper_roll",
+    "next_track_button",
+    "ng",
+    "ng_man",
+    "ng_woman",
+    "nicaragua",
+    "niger",
+    "nigeria",
+    "night_with_stars",
+    "nine",
+    "ninja",
+    "niue",
+    "no_bell",
+    "no_bicycles",
+    "no_entry",
+    "no_entry_sign",
+    "no_good",
+    "no_good_man",
+    "no_good_woman",
+    "no_mobile_phones",
+    "no_mouth",
+    "no_pedestrians",
+    "no_smoking",
+    "non-potable_water",
+    "norfolk_island",
+    "north_korea",
+    "northern_mariana_islands",
+    "norway",
+    "nose",
+    "notebook",
+    "notebook_with_decorative_cover",
+    "notes",
+    "nut_and_bolt",
+    "o",
+    "o2",
+    "ocean",
+    "octocat",
+    "octopus",
+    "oden",
+    "office",
+    "office_worker",
+    "oil_drum",
+    "ok",
+    "ok_hand",
+    "ok_man",
+    "ok_person",
+    "ok_woman",
+    "old_key",
+    "older_adult",
+    "older_man",
+    "older_woman",
+    "olive",
+    "om",
+    "oman",
+    "on",
+    "oncoming_automobile",
+    "oncoming_bus",
+    "oncoming_police_car",
+    "oncoming_taxi",
+    "one",
+    "one_piece_swimsuit",
+    "onion",
+    "open_book",
+    "open_file_folder",
+    "open_hands",
+    "open_mouth",
+    "open_umbrella",
+    "ophiuchus",
+    "orange",
+    "orange_book",
+    "orange_circle",
+    "orange_heart",
+    "orange_square",
+    "orangutan",
+    "orthodox_cross",
+    "otter",
+    "outbox_tray",
+    "owl",
+    "ox",
+    "oyster",
+    "package",
+    "page_facing_up",
+    "page_with_curl",
+    "pager",
+    "paintbrush",
+    "pakistan",
+    "palau",
+    "palestinian_territories",
+    "palm_tree",
+    "palms_up_together",
+    "panama",
+    "pancakes",
+    "panda_face",
+    "paperclip",
+    "paperclips",
+    "papua_new_guinea",
+    "parachute",
+    "paraguay",
+    "parasol_on_ground",
+    "parking",
+    "parrot",
+    "part_alternation_mark",
+    "partly_sunny",
+    "partying_face",
+    "passenger_ship",
+    "passport_control",
+    "pause_button",
+    "paw_prints",
+    "peace_symbol",
+    "peach",
+    "peacock",
+    "peanuts",
+    "pear",
+    "pen",
+    "pencil",
+    "pencil2",
+    "penguin",
+    "pensive",
+    "people_holding_hands",
+    "people_hugging",
+    "performing_arts",
+    "persevere",
+    "person_bald",
+    "person_curly_hair",
+    "person_feeding_baby",
+    "person_fencing",
+    "person_in_manual_wheelchair",
+    "person_in_motorized_wheelchair",
+    "person_in_tuxedo",
+    "person_red_hair",
+    "person_white_hair",
+    "person_with_probing_cane",
+    "person_with_turban",
+    "person_with_veil",
+    "peru",
+    "petri_dish",
+    "philippines",
+    "phone",
+    "pick",
+    "pickup_truck",
+    "pie",
+    "pig",
+    "pig2",
+    "pig_nose",
+    "pill",
+    "pilot",
+    "pinata",
+    "pinched_fingers",
+    "pinching_hand",
+    "pineapple",
+    "ping_pong",
+    "pirate_flag",
+    "pisces",
+    "pitcairn_islands",
+    "pizza",
+    "placard",
+    "place_of_worship",
+    "plate_with_cutlery",
+    "play_or_pause_button",
+    "pleading_face",
+    "plunger",
+    "point_down",
+    "point_left",
+    "point_right",
+    "point_up",
+    "point_up_2",
+    "poland",
+    "polar_bear",
+    "police_car",
+    "police_officer",
+    "policeman",
+    "policewoman",
+    "poodle",
+    "poop",
+    "popcorn",
+    "portugal",
+    "post_office",
+    "postal_horn",
+    "postbox",
+    "potable_water",
+    "potato",
+    "potted_plant",
+    "pouch",
+    "poultry_leg",
+    "pound",
+    "pout",
+    "pouting_cat",
+    "pouting_face",
+    "pouting_man",
+    "pouting_woman",
+    "pray",
+    "prayer_beads",
+    "pregnant_woman",
+    "pretzel",
+    "previous_track_button",
+    "prince",
+    "princess",
+    "printer",
+    "probing_cane",
+    "puerto_rico",
+    "punch",
+    "purple_circle",
+    "purple_heart",
+    "purple_square",
+    "purse",
+    "pushpin",
+    "put_litter_in_its_place",
+    "qatar",
+    "question",
+    "rabbit",
+    "rabbit2",
+    "raccoon",
+    "racehorse",
+    "racing_car",
+    "radio",
+    "radio_button",
+    "radioactive",
+    "rage",
+    "rage1",
+    "rage2",
+    "rage3",
+    "rage4",
+    "railway_car",
+    "railway_track",
+    "rainbow",
+    "rainbow_flag",
+    "raised_back_of_hand",
+    "raised_eyebrow",
+    "raised_hand",
+    "raised_hand_with_fingers_splayed",
+    "raised_hands",
+    "raising_hand",
+    "raising_hand_man",
+    "raising_hand_woman",
+    "ram",
+    "ramen",
+    "rat",
+    "razor",
+    "receipt",
+    "record_button",
+    "recycle",
+    "red_car",
+    "red_circle",
+    "red_envelope",
+    "red_haired_man",
+    "red_haired_woman",
+    "red_square",
+    "registered",
+    "relaxed",
+    "relieved",
+    "reminder_ribbon",
+    "repeat",
+    "repeat_one",
+    "rescue_worker_helmet",
+    "restroom",
+    "reunion",
+    "revolving_hearts",
+    "rewind",
+    "rhinoceros",
+    "ribbon",
+    "rice",
+    "rice_ball",
+    "rice_cracker",
+    "rice_scene",
+    "right_anger_bubble",
+    "ring",
+    "ringed_planet",
+    "robot",
+    "rock",
+    "rocket",
+    "rofl",
+    "roll_eyes",
+    "roll_of_paper",
+    "roller_coaster",
+    "roller_skate",
+    "romania",
+    "rooster",
+    "rose",
+    "rosette",
+    "rotating_light",
+    "round_pushpin",
+    "rowboat",
+    "rowing_man",
+    "rowing_woman",
+    "ru",
+    "rugby_football",
+    "runner",
+    "running",
+    "running_man",
+    "running_shirt_with_sash",
+    "running_woman",
+    "rwanda",
+    "sa",
+    "safety_pin",
+    "safety_vest",
+    "sagittarius",
+    "sailboat",
+    "sake",
+    "salt",
+    "samoa",
+    "san_marino",
+    "sandal",
+    "sandwich",
+    "santa",
+    "sao_tome_principe",
+    "sari",
+    "sassy_man",
+    "sassy_woman",
+    "satellite",
+    "satisfied",
+    "saudi_arabia",
+    "sauna_man",
+    "sauna_person",
+    "sauna_woman",
+    "sauropod",
+    "saxophone",
+    "scarf",
+    "school",
+    "school_satchel",
+    "scientist",
+    "scissors",
+    "scorpion",
+    "scorpius",
+    "scotland",
+    "scream",
+    "scream_cat",
+    "screwdriver",
+    "scroll",
+    "seal",
+    "seat",
+    "secret",
+    "see_no_evil",
+    "seedling",
+    "selfie",
+    "senegal",
+    "serbia",
+    "service_dog",
+    "seven",
+    "sewing_needle",
+    "seychelles",
+    "shallow_pan_of_food",
+    "shamrock",
+    "shark",
+    "shaved_ice",
+    "sheep",
+    "shell",
+    "shield",
+    "shinto_shrine",
+    "ship",
+    "shipit",
+    "shirt",
+    "shit",
+    "shoe",
+    "shopping",
+    "shopping_cart",
+    "shorts",
+    "shower",
+    "shrimp",
+    "shrug",
+    "shushing_face",
+    "sierra_leone",
+    "signal_strength",
+    "singapore",
+    "singer",
+    "sint_maarten",
+    "six",
+    "six_pointed_star",
+    "skateboard",
+    "ski",
+    "skier",
+    "skull",
+    "skull_and_crossbones",
+    "skunk",
+    "sled",
+    "sleeping",
+    "sleeping_bed",
+    "sleepy",
+    "slightly_frowning_face",
+    "slightly_smiling_face",
+    "slot_machine",
+    "sloth",
+    "slovakia",
+    "slovenia",
+    "small_airplane",
+    "small_blue_diamond",
+    "small_orange_diamond",
+    "small_red_triangle",
+    "small_red_triangle_down",
+    "smile",
+    "smile_cat",
+    "smiley",
+    "smiley_cat",
+    "smiling_face_with_tear",
+    "smiling_face_with_three_hearts",
+    "smiling_imp",
+    "smirk",
+    "smirk_cat",
+    "smoking",
+    "snail",
+    "snake",
+    "sneezing_face",
+    "snowboarder",
+    "snowflake",
+    "snowman",
+    "snowman_with_snow",
+    "soap",
+    "sob",
+    "soccer",
+    "socks",
+    "softball",
+    "solomon_islands",
+    "somalia",
+    "soon",
+    "sos",
+    "sound",
+    "south_africa",
+    "south_georgia_south_sandwich_islands",
+    "south_sudan",
+    "space_invader",
+    "spades",
+    "spaghetti",
+    "sparkle",
+    "sparkler",
+    "sparkles",
+    "sparkling_heart",
+    "speak_no_evil",
+    "speaker",
+    "speaking_head",
+    "speech_balloon",
+    "speedboat",
+    "spider",
+    "spider_web",
+    "spiral_calendar",
+    "spiral_notepad",
+    "sponge",
+    "spoon",
+    "squid",
+    "sri_lanka",
+    "st_barthelemy",
+    "st_helena",
+    "st_kitts_nevis",
+    "st_lucia",
+    "st_martin",
+    "st_pierre_miquelon",
+    "st_vincent_grenadines",
+    "stadium",
+    "standing_man",
+    "standing_person",
+    "standing_woman",
+    "star",
+    "star2",
+    "star_and_crescent",
+    "star_of_david",
+    "star_struck",
+    "stars",
+    "station",
+    "statue_of_liberty",
+    "steam_locomotive",
+    "stethoscope",
+    "stew",
+    "stop_button",
+    "stop_sign",
+    "stopwatch",
+    "straight_ruler",
+    "strawberry",
+    "stuck_out_tongue",
+    "stuck_out_tongue_closed_eyes",
+    "stuck_out_tongue_winking_eye",
+    "student",
+    "studio_microphone",
+    "stuffed_flatbread",
+    "sudan",
+    "sun_behind_large_cloud",
+    "sun_behind_rain_cloud",
+    "sun_behind_small_cloud",
+    "sun_with_face",
+    "sunflower",
+    "sunglasses",
+    "sunny",
+    "sunrise",
+    "sunrise_over_mountains",
+    "superhero",
+    "superhero_man",
+    "superhero_woman",
+    "supervillain",
+    "supervillain_man",
+    "supervillain_woman",
+    "surfer",
+    "surfing_man",
+    "surfing_woman",
+    "suriname",
+    "sushi",
+    "suspect",
+    "suspension_railway",
+    "svalbard_jan_mayen",
+    "swan",
+    "swaziland",
+    "sweat",
+    "sweat_drops",
+    "sweat_smile",
+    "sweden",
+    "sweet_potato",
+    "swim_brief",
+    "swimmer",
+    "swimming_man",
+    "swimming_woman",
+    "switzerland",
+    "symbols",
+    "synagogue",
+    "syria",
+    "syringe",
+    "t-rex",
+    "taco",
+    "tada",
+    "taiwan",
+    "tajikistan",
+    "takeout_box",
+    "tamale",
+    "tanabata_tree",
+    "tangerine",
+    "tanzania",
+    "taurus",
+    "taxi",
+    "tea",
+    "teacher",
+    "teapot",
+    "technologist",
+    "teddy_bear",
+    "telephone",
+    "telephone_receiver",
+    "telescope",
+    "tennis",
+    "tent",
+    "test_tube",
+    "thailand",
+    "thermometer",
+    "thinking",
+    "thong_sandal",
+    "thought_balloon",
+    "thread",
+    "three",
+    "thumbsdown",
+    "thumbsup",
+    "ticket",
+    "tickets",
+    "tiger",
+    "tiger2",
+    "timer_clock",
+    "timor_leste",
+    "tipping_hand_man",
+    "tipping_hand_person",
+    "tipping_hand_woman",
+    "tired_face",
+    "tm",
+    "togo",
+    "toilet",
+    "tokelau",
+    "tokyo_tower",
+    "tomato",
+    "tonga",
+    "tongue",
+    "toolbox",
+    "tooth",
+    "toothbrush",
+    "top",
+    "tophat",
+    "tornado",
+    "tr",
+    "trackball",
+    "tractor",
+    "traffic_light",
+    "train",
+    "train2",
+    "tram",
+    "transgender_flag",
+    "transgender_symbol",
+    "triangular_flag_on_post",
+    "triangular_ruler",
+    "trident",
+    "trinidad_tobago",
+    "tristan_da_cunha",
+    "triumph",
+    "trolleybus",
+    "trollface",
+    "trophy",
+    "tropical_drink",
+    "tropical_fish",
+    "truck",
+    "trumpet",
+    "tshirt",
+    "tulip",
+    "tumbler_glass",
+    "tunisia",
+    "turkey",
+    "turkmenistan",
+    "turks_caicos_islands",
+    "turtle",
+    "tuvalu",
+    "tv",
+    "twisted_rightwards_arrows",
+    "two",
+    "two_hearts",
+    "two_men_holding_hands",
+    "two_women_holding_hands",
+    "u5272",
+    "u5408",
+    "u55b6",
+    "u6307",
+    "u6708",
+    "u6709",
+    "u6e80",
+    "u7121",
+    "u7533",
+    "u7981",
+    "u7a7a",
+    "uganda",
+    "uk",
+    "ukraine",
+    "umbrella",
+    "unamused",
+    "underage",
+    "unicorn",
+    "united_arab_emirates",
+    "united_nations",
+    "unlock",
+    "up",
+    "upside_down_face",
+    "uruguay",
+    "us",
+    "us_outlying_islands",
+    "us_virgin_islands",
+    "uzbekistan",
+    "v",
+    "vampire",
+    "vampire_man",
+    "vampire_woman",
+    "vanuatu",
+    "vatican_city",
+    "venezuela",
+    "vertical_traffic_light",
+    "vhs",
+    "vibration_mode",
+    "video_camera",
+    "video_game",
+    "vietnam",
+    "violin",
+    "virgo",
+    "volcano",
+    "volleyball",
+    "vomiting_face",
+    "vs",
+    "vulcan_salute",
+    "waffle",
+    "wales",
+    "walking",
+    "walking_man",
+    "walking_woman",
+    "wallis_futuna",
+    "waning_crescent_moon",
+    "waning_gibbous_moon",
+    "warning",
+    "wastebasket",
+    "watch",
+    "water_buffalo",
+    "water_polo",
+    "watermelon",
+    "wave",
+    "wavy_dash",
+    "waxing_crescent_moon",
+    "waxing_gibbous_moon",
+    "wc",
+    "weary",
+    "wedding",
+    "weight_lifting",
+    "weight_lifting_man",
+    "weight_lifting_woman",
+    "western_sahara",
+    "whale",
+    "whale2",
+    "wheel_of_dharma",
+    "wheelchair",
+    "white_check_mark",
+    "white_circle",
+    "white_flag",
+    "white_flower",
+    "white_haired_man",
+    "white_haired_woman",
+    "white_heart",
+    "white_large_square",
+    "white_medium_small_square",
+    "white_medium_square",
+    "white_small_square",
+    "white_square_button",
+    "wilted_flower",
+    "wind_chime",
+    "wind_face",
+    "window",
+    "wine_glass",
+    "wink",
+    "wolf",
+    "woman",
+    "woman_artist",
+    "woman_astronaut",
+    "woman_beard",
+    "woman_cartwheeling",
+    "woman_cook",
+    "woman_dancing",
+    "woman_facepalming",
+    "woman_factory_worker",
+    "woman_farmer",
+    "woman_feeding_baby",
+    "woman_firefighter",
+    "woman_health_worker",
+    "woman_in_manual_wheelchair",
+    "woman_in_motorized_wheelchair",
+    "woman_in_tuxedo",
+    "woman_judge",
+    "woman_juggling",
+    "woman_mechanic",
+    "woman_office_worker",
+    "woman_pilot",
+    "woman_playing_handball",
+    "woman_playing_water_polo",
+    "woman_scientist",
+    "woman_shrugging",
+    "woman_singer",
+    "woman_student",
+    "woman_teacher",
+    "woman_technologist",
+    "woman_with_headscarf",
+    "woman_with_probing_cane",
+    "woman_with_turban",
+    "woman_with_veil",
+    "womans_clothes",
+    "womans_hat",
+    "women_wrestling",
+    "womens",
+    "wood",
+    "woozy_face",
+    "world_map",
+    "worm",
+    "worried",
+    "wrench",
+    "wrestling",
+    "writing_hand",
+    "x",
+    "yarn",
+    "yawning_face",
+    "yellow_circle",
+    "yellow_heart",
+    "yellow_square",
+    "yemen",
+    "yen",
+    "yin_yang",
+    "yo_yo",
+    "yum",
+    "zambia",
+    "zany_face",
+    "zap",
+    "zebra",
+    "zero",
+    "zimbabwe",
+    "zipper_mouth_face",
+    "zombie",
+    "zombie_man",
+    "zombie_woman",
+    "zzz"
+  ]
+}

@@ -1,0 +1,62 @@
+{
+  "type": "record",
+  "name": "mySchema",
+  "fields": [
+    {
+      "name": "MERCHANT_NAME",
+      "type": "string"
+    },
+    {
+      "name": "rows",
+      "type": {
+        "type": "array",
+        "items": {
+          "type": "record",
+          "name": "rows",
+          "fields": [
+            {
+              "name": "AMOUNT",
+              "type": "string"
+            },
+            {
+              "name": "CARD_NUMBER",
+              "type": "string"
+            },
+            {
+              "name": "CARD_TYPE",
+              "type": "string"
+            },
+            {
+              "name": "IS_FRAUD",
+              "type": "string"
+            },
+            {
+              "name": "MCC",
+              "type": "string"
+            },
+            {
+              "name": "MERCHANT_CITY",
+              "type": "string"
+            },
+            {
+              "name": "TRANSACTION_DATE",
+              "type": "string"
+            },
+            {
+              "name": "TRANSACTION_ID",
+              "type": "string"
+            },
+            {
+              "name": "USE_CHIP",
+              "type": "string"
+            },
+            {
+              "name": "YEAR",
+              "type": "string"
+            }
+          ]
+        }
+      }
+    }
+  ]
+}

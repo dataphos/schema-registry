@@ -1,0 +1,127 @@
+{
+  "$schema": "http://json-schema.org/schema#",
+  "additionalProperties": false,
+  "type": "object",
+  "properties": {
+    "type": {
+      "type": "string"
+    },
+    "features": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "type": {
+            "type": "string"
+          },
+          "id": {
+            "type": "string"
+          },
+          "geometry": {
+            "type": "object",
+            "properties": {
+              "type": {
+                "type": "string"
+              },
+              "coordinates": {
+                "type": "array",
+                "items": {
+                  "type": "number"
+                }
+              }
+            },
+            "required": [
+              "coordinates",
+              "type"
+            ]
+          },
+          "geometry_name": {
+            "type": "string"
+          },
+          "properties": {
+            "type": "object",
+            "properties": {
+              "name": {
+                "type": "string"
+              },
+              "streetaddress": {
+                "type": "string"
+              },
+              "twitteraccount": {
+                "type": "string"
+              },
+              "facebookaccount": {
+                "type": "string"
+              },
+              "siteurl": {
+                "type": "string"
+              },
+              "frequencyfinderurl": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "facebookaccount",
+              "frequencyfinderurl",
+              "name",
+              "siteurl",
+              "streetaddress",
+              "twitteraccount"
+            ]
+          }
+        },
+        "required": [
+          "geometry",
+          "geometry_name",
+          "id",
+          "properties",
+          "type"
+        ]
+      }
+    },
+    "totalFeatures": {
+      "type": "integer"
+    },
+    "numberMatched": {
+      "type": "integer"
+    },
+    "numberReturned": {
+      "type": "integer"
+    },
+    "timeStamp": {
+      "type": "string"
+    },
+    "crs": {
+      "type": "object",
+      "properties": {
+        "type": {
+          "type": "string"
+        },
+        "properties": {
+          "type": "object",
+          "properties": {
+            "name": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "name"
+          ]
+        }
+      },
+      "required": [
+        "properties",
+        "type"
+      ]
+    }
+  },
+  "required": [
+    "crs",
+    "features",
+    "numberMatched",
+    "numberReturned",
+    "timeStamp",
+    "totalFeatures",
+    "type"
+  ]
+}
