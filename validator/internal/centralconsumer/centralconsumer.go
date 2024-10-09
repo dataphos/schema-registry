@@ -362,7 +362,7 @@ func (cc *CentralConsumer) getMessageTopicPair(messageSchemaPair janitor.Message
 	acquireIfSet(cc.validatorsSem)
 	var err error
 	if cc.encryptionKey != "" {
-		encryptedMessageData = messageSchemaPair.Message.Payload //nolint:ineffassign // fine for now
+		encryptedMessageData = messageSchemaPair.Message.Payload //nolint:ineffassign,staticcheck // fine for now
 		messageSchemaPair.Message.Payload, err = janitor.Decrypt(messageSchemaPair.Message.Payload, cc.encryptionKey)
 		if err != nil {
 			messageSchemaPair.Message.RawAttributes["deadLetterErrorCategory"] = "Failure to decrypt"
