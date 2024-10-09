@@ -2,8 +2,6 @@ module github.com/dataphos/aquarium-janitor-standalone-internal
 
 go 1.21
 
-toolchain go1.22.2
-
 require (
 	github.com/dataphos/lib-batchproc v1.0.0
 	github.com/dataphos/lib-brokers v1.0.0
