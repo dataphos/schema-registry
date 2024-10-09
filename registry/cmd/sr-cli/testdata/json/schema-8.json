@@ -1,0 +1,57 @@
+{
+  "$schema": "http://json-schema.org/schema#",
+  "additionalProperties": false,
+  "type": "object",
+  "properties": {
+    "args": {
+      "type": "object"
+    },
+    "headers": {
+      "type": "object",
+      "properties": {
+        "Accept": {
+          "type": "string"
+        },
+        "Accept-Encoding": {
+          "type": "string"
+        },
+        "Accept-Language": {
+          "type": "string"
+        },
+        "Host": {
+          "type": "string"
+        },
+        "Upgrade-Insecure-Requests": {
+          "type": "string"
+        },
+        "User-Agent": {
+          "type": "string"
+        },
+        "X-Amzn-Trace-Id": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "Accept",
+        "Accept-Encoding",
+        "Accept-Language",
+        "Host",
+        "Upgrade-Insecure-Requests",
+        "User-Agent",
+        "X-Amzn-Trace-Id"
+      ]
+    },
+    "origin": {
+      "type": "string"
+    },
+    "url": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "args",
+    "headers",
+    "origin",
+    "url"
+  ]
+}

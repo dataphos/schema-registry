@@ -1,0 +1,300 @@
+definitions:
+  registry.SchemaRegistrationRequest:
+    properties:
+      attributes:
+        type: string
+      compatibility_mode:
+        type: string
+      description:
+        type: string
+      last_created:
+        type: string
+      name:
+        type: string
+      publisher_id:
+        type: string
+      schema_type:
+        type: string
+      specification:
+        type: string
+      validity_mode:
+        type: string
+    type: object
+  registry.SchemaUpdateRequest:
+    properties:
+      attributes:
+        type: string
+      description:
+        type: string
+      specification:
+        type: string
+    type: object
+info:
+  contact: {}
+  title: Schema Registry API
+  version: "1.0"
+paths:
+  /schemas:
+    get:
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+        "404":
+          description: Not Found
+        "500":
+          description: Internal Server Error
+      summary: Get all active schemas
+    post:
+      consumes:
+      - application/json
+      parameters:
+      - description: schema registration request
+        in: body
+        name: data
+        schema:
+          $ref: '#/definitions/registry.SchemaRegistrationRequest'
+      produces:
+      - application/json
+      responses:
+        "201":
+          description: Created
+        "400":
+          description: Bad Request
+        "409":
+          description: Conflict
+        "500":
+          description: Internal Server Error
+      summary: Post new schema
+  /schemas/{id}:
+    delete:
+      parameters:
+      - description: schema id
+        in: path
+        name: id
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+        "400":
+          description: Bad Request
+        "404":
+          description: Not Found
+      summary: Delete schema by schema id
+    put:
+      consumes:
+      - application/json
+      parameters:
+      - description: schema id
+        in: path
+        name: id
+        required: true
+        type: string
+      - description: schema update request
+        in: body
+        name: data
+        required: true
+        schema:
+          $ref: '#/definitions/registry.SchemaUpdateRequest'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+        "400":
+          description: Bad Request
+        "404":
+          description: Not Found
+        "409":
+          description: Conflict
+        "500":
+          description: Internal Server Error
+      summary: Put new schema version
+  /schemas/{id}/versions:
+    get:
+      parameters:
+      - description: schema id
+        in: path
+        name: id
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+        "404":
+          description: Not Found
+        "500":
+          description: Internal Server Error
+      summary: Get all active schema versions by schema id
+  /schemas/{id}/versions/{version}:
+    delete:
+      consumes:
+      - application/json
+      parameters:
+      - description: schema id
+        in: path
+        name: id
+        required: true
+        type: string
+      - description: version
+        in: path
+        name: version
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+        "400":
+          description: Bad Request
+        "404":
+          description: Not Found
+      summary: Delete schema version by schema id and version
+    get:
+      parameters:
+      - description: schema id
+        in: path
+        name: id
+        required: true
+        type: string
+      - description: version
+        in: path
+        name: version
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+        "404":
+          description: Not Found
+        "500":
+          description: Internal Server Error
+      summary: Get schema version by schema id and version
+  /schemas/{id}/versions/{version}/spec:
+    get:
+      parameters:
+      - description: schema id
+        in: path
+        name: id
+        required: true
+        type: string
+      - description: version
+        in: path
+        name: version
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+        "404":
+          description: Not Found
+        "500":
+          description: Internal Server Error
+      summary: Get schema specification by schema id and version
+  /schemas/{id}/versions/all:
+    get:
+      parameters:
+      - description: schema id
+        in: path
+        name: id
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+        "404":
+          description: Not Found
+        "500":
+          description: Internal Server Error
+      summary: Get schema by schema id
+  /schemas/{id}/versions/latest:
+    get:
+      parameters:
+      - description: schema id
+        in: path
+        name: id
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+        "404":
+          description: Not Found
+        "500":
+          description: Internal Server Error
+      summary: Get the latest schema version by schema id
+  /schemas/all:
+    get:
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+        "404":
+          description: Not Found
+        "500":
+          description: Internal Server Error
+      summary: Get all schemas
+  /schemas/search:
+    get:
+      parameters:
+      - description: schema id
+        in: query
+        name: id
+        type: string
+      - description: schema version
+        in: query
+        name: version
+        type: string
+      - description: schema type
+        in: query
+        name: type
+        type: string
+      - description: schema name
+        in: query
+        name: name
+        type: string
+      - description: order by name, type, id or version
+        in: query
+        name: orderBy
+        type: string
+      - description: sort schemas either asc or desc
+        in: query
+        name: sort
+        type: string
+      - description: maximum number of retrieved schemas matching the criteria
+        in: query
+        name: limit
+        type: string
+      - description: schema attributes
+        in: query
+        name: attributes
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+        "400":
+          description: Bad Request
+        "404":
+          description: Not Found
+        "500":
+          description: Internal Server Error
+      summary: Search schemas
+swagger: "2.0"

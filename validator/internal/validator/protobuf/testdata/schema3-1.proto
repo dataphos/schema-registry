@@ -1,0 +1,16 @@
+syntax = "proto3";
+package testdata3;
+
+option go_package = "./testpb3";
+
+message Record {
+  string name = 1;
+  int32 age = 2;
+  repeated string collection = 3;
+
+  message Foo {
+    string bar = 1;
+  }
+
+  Foo foo = 4;
+}

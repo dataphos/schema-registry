@@ -1,0 +1,39 @@
+{
+  "name" : "my.example.userInfo",
+  "type" : "record",
+  "fields" : [{"name" : "username",
+    "type" : "string"},
+
+    {"name" : "age",
+      "type" : "int",
+      "default" : -1},
+
+    {"name" : "phone",
+      "type" : "string"},
+
+    {"name" : "housenum",
+      "type" : "string"},
+
+    {"name" : "address",
+      "type" : {
+        "type" : "record",
+        "name" : "my.example.mailing_address",
+        "fields" : [
+          {"name" : "street",
+            "type" : "string"},
+
+          {"name" : "city",
+            "type" : "string"},
+
+          {"name" : "state_prov",
+            "type" : "string"},
+
+          {"name" : "country",
+            "type" : "string"},
+
+          {"name" : "zip",
+            "type" : "string"}
+        ]}
+    }
+  ]
+}

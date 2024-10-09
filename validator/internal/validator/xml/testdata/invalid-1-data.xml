@@ -1,0 +1,9 @@
+<?xml version="1.0"?>
+<beginnersbook>
+  <to>All</to>
+  <cc>my boss</cc>
+  <from>Me</from>
+  <bcc>my boss</bcc>
+  <subject>A new message xml format</subject>
+  <message>lalalalalala</message>
+</beginnersbook>

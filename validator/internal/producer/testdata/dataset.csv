@@ -1,0 +1,2 @@
+internal/producer/testdata/data-1.json,internal/producer/testdata/schema-1.json,true,json,none,none,
+internal/producer/testdata/data-2.json,internal/producer/testdata/schema-2.json,false,json,none,none,
