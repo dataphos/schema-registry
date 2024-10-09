@@ -52,7 +52,7 @@ jobs:
         run: go install github.com/B1NARY-GR0UP/nwa@latest
 
       - name: Add missing license headers
-        run: nwa add -c "Syntio Ltd." ./registry ./validator
+        run: nwa add -c "Syntio Ltd." ./registry ./validator -s **.xml
 
       - name: Check and Commit changes
         id: check_commit
