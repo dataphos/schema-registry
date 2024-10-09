@@ -12,6 +12,10 @@ type MockPublisher struct {
 type MockTopic struct {
 }
 
+func (t *MockTopic) BatchPublish(context.Context, ...broker.OutboundMessage) error {
+	return nil
+}
+
 func (*MockTopic) Publish(context.Context, broker.OutboundMessage) error {
 	return nil
 }
