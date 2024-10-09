@@ -91,14 +91,20 @@ jobs:
     strategy:
       matrix:
         component:
-          - dockerfile-path: ./persistor/docker/persistor/Dockerfile
-            image-name: persistor-core
-          - dockerfile-path: ./persistor/docker/indexer/Dockerfile
-            image-name: persistor-indexer
-          - dockerfile-path: ./indexer-api/Dockerfile
-            image-name: persistor-indexer-api
-          - dockerfile-path: ./resubmitter-api/Dockerfile
-            image-name: persistor-resubmitter
+          - dockerfile-path: ./validator/docker/csv-validator/Dockerfile
+            image-name: schema-registry-csv-val
+          - dockerfile-path: ./validator/docker/validator/Dockerfile
+            image-name: schema-registry-worker
+          - dockerfile-path: ./validator/docker/xml-validator/Dockerfile
+            image-name: schema-registry-xml-val
+          - dockerfile-path: ./registry/docker/compatibility-checker/Dockerfile
+            image-name: schema-registry-compatibility
+          - dockerfile-path: ./registry/docker/initdb/Dockerfile
+            image-name: schema-registry-initdb
+          - dockerfile-path: ./registry/docker/registry/Dockerfile
+            image-name: schema-registry-api
+          - dockerfile-path: ./registry/docker/validity-checker/Dockerfile
+            image-name: schema-registry-validity
 
     steps:
       - name: Check out code
