@@ -1,0 +1,157 @@
+{
+  "$schema": "http://json-schema.org/schema#",
+  "additionalProperties": false,
+  "type": "object",
+  "properties": {
+    "GroupDefinitions": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "Type": {
+            "type": "string"
+          },
+          "Key": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "Key",
+          "Type"
+        ]
+      }
+    },
+    "ResultsByTime": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "TimePeriod": {
+            "type": "object",
+            "properties": {
+              "Start": {
+                "type": "string"
+              },
+              "End": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "End",
+              "Start"
+            ]
+          },
+          "Total": {
+            "type": "object"
+          },
+          "Groups": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "Keys": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                "Metrics": {
+                  "type": "object",
+                  "properties": {
+                    "UnblendedCost": {
+                      "type": "object",
+                      "properties": {
+                        "Amount": {
+                          "type": "string"
+                        },
+                        "Unit": {
+                          "type": "string"
+                        }
+                      },
+                      "required": [
+                        "Amount",
+                        "Unit"
+                      ]
+                    }
+                  },
+                  "required": [
+                    "UnblendedCost"
+                  ]
+                }
+              },
+              "required": [
+                "Keys",
+                "Metrics"
+              ]
+            }
+          },
+          "Estimated": {
+            "type": "boolean"
+          }
+        },
+        "required": [
+          "Estimated",
+          "Groups",
+          "TimePeriod",
+          "Total"
+        ]
+      }
+    },
+    "ResponseMetadata": {
+      "type": "object",
+      "properties": {
+        "RequestId": {
+          "type": "string"
+        },
+        "HTTPStatusCode": {
+          "type": "integer"
+        },
+        "HTTPHeaders": {
+          "type": "object",
+          "properties": {
+            "date": {
+              "type": "string"
+            },
+            "content-type": {
+              "type": "string"
+            },
+            "content-length": {
+              "type": "string"
+            },
+            "connection": {
+              "type": "string"
+            },
+            "x-amzn-requestid": {
+              "type": "string"
+            },
+            "cache-control": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "cache-control",
+            "connection",
+            "content-length",
+            "content-type",
+            "date",
+            "x-amzn-requestid"
+          ]
+        },
+        "RetryAttempts": {
+          "type": "integer"
+        }
+      },
+      "required": [
+        "HTTPHeaders",
+        "HTTPStatusCode",
+        "RequestId",
+        "RetryAttempts"
+      ]
+    }
+  },
+  "required": [
+    "GroupDefinitions",
+    "ResponseMetadata",
+    "ResultsByTime"
+  ]
+}

@@ -1,0 +1,32 @@
+{
+  "$schema": "http://json-schema.org/draft-080/schema",
+  "type": "object",
+  "title222": "The Root Schema",
+  "description": "The root schema comprises the entire JSON document.",
+  "default": {},
+  "additionalProperties": true,
+  "required": [
+    "room",
+    "phone"
+  ],
+  "properties": {
+    "phone": {
+      "type": "integer",
+      "title": "The Phone Schema",
+      "description": "An explanation about the purpose of this instance.",
+      "default": "",
+      "examples": [
+        23541
+      ]
+    },
+    "room": {
+      "type": "integer",
+      "title": "The Room Schema",
+      "description": "An explanation about the purpose of this instance.",
+      "default": "",
+      "examples": [
+        18
+      ]
+    }
+  }
+}

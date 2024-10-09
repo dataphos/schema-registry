@@ -1,0 +1,19 @@
+{
+  "name": "Test",
+  "type": "record",
+  "namespace": "hr.syntio",
+  "fields": [
+    {
+      "name": "age",
+      "type": "int"
+    },
+    {
+      "name": "grade",
+      "type": "int"
+    },
+    {
+      "name": "height",
+      "type": "int"
+    }
+  ]
+}

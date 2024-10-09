@@ -1,0 +1,5 @@
+{
+  "id": "2",
+  "format": "json",
+  "schema": "{\r\n    \"$id\": \"https:\/\/example.com\/person.schema.json\",\r\n    \"$schema\": \"https:\/\/json-schema.org\/draft-07\/schema\",\r\n    \"title\": \"Person\",\r\n    \"type\": \"object\",\r\n    \"properties\": {\r\n      \"firstName\": {\r\n        \"type\": \"string\",\r\n        \"description\": \"The person's first name.\"\r\n      },\r\n      \"lastName\": {\r\n        \"type\": \"string\",\r\n        \"description\": \"The person's last name.\"\r\n      },\r\n      \"age\": {\r\n        \"description\": \"Age in years which must be equal to or greater than zero.\",\r\n        \"type\": \"integer\",\r\n        \"minimum\": 0\r\n      },\r\n      \"phoneNumber\": {\r\n        \"type\": \"string\",\r\n        \"description\": \"The person's phone number.\"\r\n      }\r\n    },\r\n    \"additionalProperties\": true\r\n}"
+}

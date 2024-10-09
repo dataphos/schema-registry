@@ -1,0 +1,35 @@
+{
+  "name": "Test",
+  "type": "record",
+  "namespace": "hr.syntio",
+  "fields": [
+    {
+      "name": "name",
+      "type": "string"
+    },
+    {
+      "name": "age",
+      "type": "int"
+    },
+    {
+      "name": "collection",
+      "type": {
+        "type": "array",
+        "items": "string"
+      }
+    },
+    {
+      "name": "foo",
+      "type": {
+        "name": "foo",
+        "type": "record",
+        "fields": [
+          {
+            "name": "bar",
+            "type": "string"
+          }
+        ]
+      }
+    }
+  ]
+}

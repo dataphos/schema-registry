@@ -1,0 +1,60 @@
+# configuration for central consumer
+mode = ""
+schema_id = ""
+schema_version = ""
+schema_type = ""
+
+[consumer]
+type = "" # insert "kafka", "pubsub", "servicebus" or "jetstream"
+encryption_key = ""
+
+[consumer.kafka]
+address = "" # insert
+topic = "" # insert
+group_id = "" # insert
+
+[consumer.pubsub]
+project_id = "" # insert
+subscription_id = "" # insert
+
+[consumer.servicebus]
+connection_string = "" # insert
+topic = "" # insert
+subscription = "" # insert
+
+[consumer.jetstream]
+url = "" # insert
+subject = "" # insert
+consumer_name = "" # insert
+
+[producer]
+type = "" # insert "kafka", "eventhubs", "pubsub", "servicebus" or "jetstream"
+
+[producer.kafka]
+address = "" # insert
+
+[producer.pubsub]
+project_id = "" # insert
+
+[producer.servicebus]
+connection_string = "" # insert
+
+[producer.jetstream]
+url = "" # insert
+
+[topics]
+valid = "" # insert
+dead_letter = "" # insert
+
+[registry]
+url = ""
+type = "janitor" # insert "janitor" or "apicurio"
+groupID = "default"
+
+[validators]
+enable_json = "true"
+enable_csv = "false"
+enable_xml = "false"
+enable_protobuf = "false"
+csv_url = "http://csv-validator-svc:8080"
+xml_url = "http://xml-validator-svc:8081"

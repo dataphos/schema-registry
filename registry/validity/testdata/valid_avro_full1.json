@@ -1,0 +1,3 @@
+{
+  "schema": "{\n   \"type\" : \"enum\",\n   \"name\" : \"Numbers\", \n   \"namespace\": \"data\", \n   \"symbols\" : [ \"ONE\", \"TWO\", \"THREE\", \"FOUR\" ]\n}"
+}

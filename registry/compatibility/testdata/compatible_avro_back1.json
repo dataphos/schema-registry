@@ -1,0 +1,4 @@
+{
+  "schema": "{\n   \"type\" : \"record\",\n   \"namespace\" : \"Tutorialspoint\",\n   \"name\" : \"Employee\",\n   \"fields\" : [\n      { \"name\" : \"Name\" , \"type\" : \"string\" },\n      { \"name\" : \"Age\" , \"type\" : \"int\" }\n   ]\n}",
+  "history": ["{\n   \"type\" : \"record\",\n   \"namespace\" : \"Tutorialspoint\",\n   \"name\" : \"Employee\",\n   \"fields\" : [\n      { \"name\" : \"Name\" , \"type\" : \"string\" },\n      { \"name\" : \"Age\" , \"type\" : \"int\" }\n   ]\n}"]
+}

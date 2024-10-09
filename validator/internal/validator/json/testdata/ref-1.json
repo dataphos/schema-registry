@@ -1,0 +1,26 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema",
+  "type": "object",
+  "title": "The Customer master data",
+  "description": "Customer MDM schema",
+  "default": {},
+  "additionalProperties": true,
+  "required": [
+    "name",
+    "personalid",
+    "address"
+  ],
+  "properties": {
+    "name": {
+      "type": "string",
+      "title": "Customer name"
+    },
+    "personalid": {
+      "type": "string",
+      "title": "Personal document ID number"
+    },
+    "address": {
+      "$ref": "./testdata/ref-1-child.json"
+    }
+  }
+}

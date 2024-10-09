@@ -1,0 +1,11 @@
+{
+  "name": "Test",
+  "type": "record",
+  "namespace": "hr.syntio",
+  "fields": [
+    {
+      "name": "message",
+      "type": "string"
+    }
+  ]
+}

@@ -1,0 +1,31 @@
+{
+  "name": "Test",
+  "type": "record",
+  "namespace": "hr.syntio",
+  "fields": [
+    {
+      "name": "age",
+      "type": "int"
+    },
+    {
+      "name": "pos0",
+      "type": "int"
+    },
+    {
+      "name": "pos1",
+      "type": "int"
+    },
+    {
+      "name": "pos2",
+      "type": "int"
+    },
+    {
+      "name": "pos3",
+      "type": "int"
+    },
+    {
+      "name": "pos4",
+      "type": "int"
+    }
+  ]
+}
