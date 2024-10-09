@@ -72,3 +72,5 @@ indent_size = unset
 [**/LICENSE-3RD-PARTY.md]
 insert_final_newline = unset
 
+[**/docs.go]
+indent_style = unset

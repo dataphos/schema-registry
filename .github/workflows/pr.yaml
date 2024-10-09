@@ -271,6 +271,7 @@ jobs:
     runs-on: ubuntu-latest
 
     strategy:
+      fail-fast: false
       matrix:
         component:
           - dockerfile-path: ./validator/docker/csv-validator/Dockerfile
