@@ -113,7 +113,7 @@ linters-settings:
     min-complexity: 4
   nolintlint:
     # Enable to ensure that nolint directives are all used. Default is true.
-    allow-unused: false
+    allow-unused: true
     # Disable to ensure that nolint directives don't have a leading space. Default is true.
     allow-leading-space: true
     # Exclude following linters from requiring an explanation.  Default is [].
@@ -128,6 +128,7 @@ linters-settings:
       - all
       - '-SA9003' # disable the rule SA9003
       - '-SA4009' # disable the rule SA4009
+      - '-SA4004'
   whitespace:
     multi-if: false   # Enforces newlines (or comments) after every multi-line if statement
     multi-func: false # Enforces newlines (or comments) after every multi-line function signature

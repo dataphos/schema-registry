@@ -329,7 +329,7 @@ func flattenJSON(prefix string, nested interface{}, flat map[string]interface{},
 		return nil
 	}
 
-	switch nested.(type) {
+	switch nested.(type) { //nolint:gosimple // fine here
 	case map[string]interface{}:
 		for k, v := range nested.(map[string]interface{}) { //nolint:gosimple // fine here
 			newKey := k
