@@ -22,8 +22,8 @@ requests.
 
 The worker component communicates with the REST API by sending the HTTP GET request that retrieves a message schema from
 the Registry by using the necessary parameters. The message schemas themselves can be stored in any type of database (
-Schema History), whether in tables like in standard SQL databases, such as Oracle or PostgreSQL, or NoSQL databases like
-Firestore, MongoDB etc. The component itself has an interface with the database connector that can be easily modified to
+Schema History), whether in tables like in standard SQL databases, such as Oracle or PostgreSQL, or NoSQL databases like 
+MongoDB. The component itself has an interface with the database connector that can be easily modified to
 work with databases that fit the client’s needs.
 
 

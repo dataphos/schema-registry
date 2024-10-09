@@ -94,7 +94,7 @@ jobs:
           - dockerfile-path: ./validator/docker/csv-validator/Dockerfile
             image-name: schema-registry-csv-val
           - dockerfile-path: ./validator/docker/validator/Dockerfile
-            image-name: schema-registry-worker
+            image-name: schema-registry-validator
           - dockerfile-path: ./validator/docker/xml-validator/Dockerfile
             image-name: schema-registry-xml-val
           - dockerfile-path: ./registry/docker/compatibility-checker/Dockerfile

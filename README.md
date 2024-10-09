@@ -28,7 +28,7 @@ All of the other requirements for the product to fully-function (message broker 
 ### Registry
 - Takes care of everything related to the schemas themselves - registration, updates, retrieval, deletion of an entire schema or its particular version, as well as performing schema checks for validity and compatibility (backwards, forwards and transitively).
 - Its REST API provides handles for clients and communicates via HTTP requests.
-- With regards to the message schemas themselves, the Schema History database where they get stored in can be anything from a standard SQL database like Oracle or PostgreSQL, to a NoSQL database like Firestore or MongoDB.
+- With regards to the message schemas themselves, the Schema History database where they get stored in can be anything from a standard SQL database like Oracle or PostgreSQL, to a NoSQL database like MongoDB.
 
 ### Validator
 - In order for the Validator to work, the message schema needs to be registered in the Schema History database.
