@@ -61,21 +61,21 @@ type mockGetSchemaVersionsById struct {
 
 type mockGetAllSchemaVersions struct {
 	//schema Schema
-	err error
+	//err error
 }
 
 type mockGetLatestSchemaVersion struct {
 	//schema Schema
-	err error
+	//err error
 }
 
 type mockDeleteSchema struct {
 	//ok  bool
-	err error
+	//err error
 }
 
 type mockDeleteSchemaVersion struct {
-	ok  bool
+	//ok  bool
 	err error
 }
 

@@ -56,7 +56,7 @@ func (db *DB) DeleteSchemaVersion(id, version string) (bool, error) {
 	ctx := context.Background()
 	deleted := false // flag to track if the version exists
 
-	document, err := db.Client.Collection(db.Collection).Doc(id).Get(ctx) //nolint:ineffassign
+	document, err := db.Client.Collection(db.Collection).Doc(id).Get(ctx) //nolint:ineffassign,staticcheck
 	// remove the one that has the version==version
 	var result *Schema
 	if err = document.DataTo(&result); err != nil {
