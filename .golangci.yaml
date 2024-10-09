@@ -122,12 +122,12 @@ linters-settings:
     require-explanation: true
     # Enable to require nolint directives to mention the specific linter being suppressed. Default is false.
     require-specific: true
-#  staticcheck:
-#    # ignore some false positives for this project
-#    checks:
-#      - all
-#      - '-SA9003' # disable the rule SA9003
-#      - '-SA4009' # disable the rule SA4009
+  staticcheck:
+    # ignore some false positives for this project
+    checks:
+      - all
+      - '-SA9003' # disable the rule SA9003
+      - '-SA4009' # disable the rule SA4009
   whitespace:
     multi-if: false   # Enforces newlines (or comments) after every multi-line if statement
     multi-func: false # Enforces newlines (or comments) after every multi-line function signature

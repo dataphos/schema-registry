@@ -1,4 +1,4 @@
-//nolint:unused
+//nolint:staticcheck,unused
 
 package registry
 
