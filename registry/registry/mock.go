@@ -20,38 +20,38 @@ type mockRepository struct {
 }
 
 type mockCompChecker struct {
-	checkCompResponse map[string]mockCheckComp
+	// checkCompResponse map[string]mockCheckComp
 }
 
 type mockValChecker struct {
-	checkValResponse map[string]mockValComp
+	// checkValResponse map[string]mockValComp
 }
 
-type mockCheckComp struct {
-	ok  bool
-	err error
-}
+//type mockCheckComp struct {
+//	ok  bool
+//	err error
+//}
 
-type mockValComp struct {
-	ok  bool
-	err error
-}
+//type mockValComp struct {
+//	ok  bool
+//	err error
+//}
 
 type mockCreateSchema struct {
 	VersionDetails VersionDetails
-	ok             bool
-	err            error
+	//ok             bool
+	//err            error
 }
 
 type mockGetSchemaVersionByIdAndVersion struct {
 	VersionDetails VersionDetails
-	err            error
+	//err            error
 }
 
 type mockUpdateSchemaById struct {
 	VersionDetails VersionDetails
-	ok             bool
-	err            error
+	//ok             bool
+	//err            error
 }
 
 type mockGetSchemaVersionsById struct {
@@ -60,17 +60,17 @@ type mockGetSchemaVersionsById struct {
 }
 
 type mockGetAllSchemaVersions struct {
-	schema Schema
-	err    error
+	//schema Schema
+	err error
 }
 
 type mockGetLatestSchemaVersion struct {
-	schema Schema
-	err    error
+	//schema Schema
+	err error
 }
 
 type mockDeleteSchema struct {
-	ok  bool
+	//ok  bool
 	err error
 }
 
@@ -80,13 +80,13 @@ type mockDeleteSchemaVersion struct {
 }
 
 type mockGetSchemas struct {
-	schemas []Schema
-	err     error
+	//schemas []Schema
+	err error
 }
 
 type mockGetAllSchemas struct {
-	schemas []Schema
-	err     error
+	//schemas []Schema
+	err error
 }
 
 func MockSchema(id string) Schema {
