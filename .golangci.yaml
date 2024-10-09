@@ -169,6 +169,7 @@ linters-settings:
     - asciicheck
     - maligned
     - prealloc
+    - unused
   disable-all: false
   presets:
     - bugs
