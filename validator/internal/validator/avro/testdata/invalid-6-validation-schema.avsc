@@ -1,0 +1,15 @@
+{
+  "name": "Test",
+  "type": "record",
+  "namespace": "hr.syntio",
+  "fields": [
+    {
+      "name": "pos0",
+      "type": "string"
+    },
+    {
+      "name": "pos1",
+      "type": "string"
+    }
+  ]
+}

@@ -1,0 +1,10 @@
+{
+  "name": "Pero",
+  "personalid": "123",
+  "address": {
+    "street": "123",
+    "zip": "123",
+    "city": "asd",
+    "country": "asd"
+  }
+}

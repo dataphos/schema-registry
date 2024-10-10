@@ -1,0 +1,243 @@
+{
+  "$schema": "http://json-schema.org/schema#",
+  "additionalProperties": false,
+  "type": "object",
+  "properties": {
+    "effect_changes": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "effect_entries": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "effect": {
+                  "type": "string"
+                },
+                "language": {
+                  "type": "object",
+                  "properties": {
+                    "name": {
+                      "type": "string"
+                    },
+                    "url": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "name",
+                    "url"
+                  ]
+                }
+              },
+              "required": [
+                "effect",
+                "language"
+              ]
+            }
+          },
+          "version_group": {
+            "type": "object",
+            "properties": {
+              "name": {
+                "type": "string"
+              },
+              "url": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "name",
+              "url"
+            ]
+          }
+        },
+        "required": [
+          "effect_entries",
+          "version_group"
+        ]
+      }
+    },
+    "effect_entries": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "effect": {
+            "type": "string"
+          },
+          "language": {
+            "type": "object",
+            "properties": {
+              "name": {
+                "type": "string"
+              },
+              "url": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "name",
+              "url"
+            ]
+          },
+          "short_effect": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "effect",
+          "language",
+          "short_effect"
+        ]
+      }
+    },
+    "flavor_text_entries": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "flavor_text": {
+            "type": "string"
+          },
+          "language": {
+            "type": "object",
+            "properties": {
+              "name": {
+                "type": "string"
+              },
+              "url": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "name",
+              "url"
+            ]
+          },
+          "version_group": {
+            "type": "object",
+            "properties": {
+              "name": {
+                "type": "string"
+              },
+              "url": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "name",
+              "url"
+            ]
+          }
+        },
+        "required": [
+          "flavor_text",
+          "language",
+          "version_group"
+        ]
+      }
+    },
+    "generation": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "url": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "name",
+        "url"
+      ]
+    },
+    "id": {
+      "type": "integer"
+    },
+    "is_main_series": {
+      "type": "boolean"
+    },
+    "name": {
+      "type": "string"
+    },
+    "names": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "language": {
+            "type": "object",
+            "properties": {
+              "name": {
+                "type": "string"
+              },
+              "url": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "name",
+              "url"
+            ]
+          },
+          "name": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "language",
+          "name"
+        ]
+      }
+    },
+    "pokemon": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "is_hidden": {
+            "type": "boolean"
+          },
+          "pokemon": {
+            "type": "object",
+            "properties": {
+              "name": {
+                "type": "string"
+              },
+              "url": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "name",
+              "url"
+            ]
+          },
+          "slot": {
+            "type": "integer"
+          }
+        },
+        "required": [
+          "is_hidden",
+          "pokemon",
+          "slot"
+        ]
+      }
+    }
+  },
+  "required": [
+    "effect_changes",
+    "effect_entries",
+    "flavor_text_entries",
+    "generation",
+    "id",
+    "is_main_series",
+    "name",
+    "names",
+    "pokemon"
+  ]
+}

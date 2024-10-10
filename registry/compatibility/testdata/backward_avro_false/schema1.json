@@ -1,0 +1,5 @@
+{
+  "id": "1",
+  "format": "avro",
+  "schema": "{\r\n  \"namespace\": \"example.avro\",\r\n  \"type\": \"record\",\r\n  \"name\": \"user\",\r\n  \"fields\": [\r\n    {\"name\": \"name\", \"type\": \"string\"},\r\n    {\"name\": \"favorite_animal\",  \"type\": \"string\"},\r\n    {\"name\": \"favorite_color\", \"type\": \"string\", \"default\": \"green\"}\r\n  ]\r\n}"
+}

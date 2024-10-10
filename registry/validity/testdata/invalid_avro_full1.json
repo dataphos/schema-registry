@@ -1,0 +1,3 @@
+{
+  "schema": "{\n   \"type\" : \"enu\",\n   \"name\" : \"Numbers\", \n   \"namspace\": \"data\", \n   \"symbols\" : [ \"ONE\", \"TWO\", \"THREE\", \"FOUR\" ]\n}"
+}
