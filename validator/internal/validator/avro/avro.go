@@ -17,7 +17,7 @@ package avro
 import (
 	"bytes"
 
-	"github.com/dataphos/aquarium-janitor-standalone-internal/internal/validator"
+	"github.com/dataphos/schema-registry-validator/internal/validator"
 
 	"github.com/hamba/avro"
 )

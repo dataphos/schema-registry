@@ -20,7 +20,7 @@ import (
 	"net/http"
 	"time"
 
-	_ "github.com/dataphos/aquarium-janitor-standalone-sr/docs"
+	_ "github.com/dataphos/schema-registry/docs"
 	"github.com/go-chi/chi/v5"
 	"github.com/go-chi/chi/v5/middleware"
 )

@@ -16,7 +16,7 @@ package main
 
 import (
 	"flag"
-	"github.com/dataphos/aquarium-janitor-standalone-internal/internal/janitorctl"
+	"github.com/dataphos/schema-registry-validator/internal/janitorctl"
 )
 
 func main() {
