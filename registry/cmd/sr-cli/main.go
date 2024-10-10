@@ -21,11 +21,11 @@ import (
 	"os"
 	"time"
 
-	"github.com/dataphos/aquarium-janitor-standalone-sr/compatibility"
-	"github.com/dataphos/aquarium-janitor-standalone-sr/internal/errcodes"
-	"github.com/dataphos/aquarium-janitor-standalone-sr/registry"
-	"github.com/dataphos/aquarium-janitor-standalone-sr/registry/repository/postgres"
-	"github.com/dataphos/aquarium-janitor-standalone-sr/validity"
+	"github.com/dataphos/schema-registry/compatibility"
+	"github.com/dataphos/schema-registry/internal/errcodes"
+	"github.com/dataphos/schema-registry/registry"
+	"github.com/dataphos/schema-registry/registry/repository/postgres"
+	"github.com/dataphos/schema-registry/validity"
 )
 
 func main() {

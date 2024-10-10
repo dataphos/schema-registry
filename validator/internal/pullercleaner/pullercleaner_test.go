@@ -17,7 +17,7 @@ package pullercleaner
 import (
 	"testing"
 
-	"github.com/dataphos/aquarium-janitor-standalone-internal/internal/janitor"
+	"github.com/dataphos/schema-registry-validator/internal/janitor"
 )
 
 func TestTopicsIntoRoutingFunc(t *testing.T) {

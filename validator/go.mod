@@ -1,4 +1,4 @@
-module github.com/dataphos/aquarium-janitor-standalone-internal
+module github.com/dataphos/schema-registry-validator
 
 go 1.21
 

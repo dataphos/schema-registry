@@ -17,7 +17,7 @@ package json
 import (
 	"os/exec"
 
-	"github.com/dataphos/aquarium-janitor-standalone-internal/internal/schemagen"
+	"github.com/dataphos/schema-registry-validator/internal/schemagen"
 )
 
 func New(filename string) schemagen.Generator {

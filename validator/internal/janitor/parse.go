@@ -15,7 +15,7 @@
 package janitor
 
 import (
-	"github.com/dataphos/aquarium-janitor-standalone-internal/internal/errtemplates"
+	"github.com/dataphos/schema-registry-validator/internal/errtemplates"
 	"github.com/dataphos/lib-streamproc/pkg/streamproc"
 )
 

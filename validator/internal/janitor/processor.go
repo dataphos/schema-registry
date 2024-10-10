@@ -19,7 +19,7 @@ import (
 
 	"golang.org/x/sync/errgroup"
 
-	"github.com/dataphos/aquarium-janitor-standalone-internal/internal/errcodes"
+	"github.com/dataphos/schema-registry-validator/internal/errcodes"
 	"github.com/dataphos/lib-batchproc/pkg/batchproc"
 	"github.com/dataphos/lib-brokers/pkg/broker"
 	"github.com/dataphos/lib-logger/logger"

@@ -27,8 +27,8 @@ import (
 	"github.com/go-chi/chi/v5"
 	"github.com/pkg/errors"
 
-	"github.com/dataphos/aquarium-janitor-standalone-sr/internal/metrics"
-	"github.com/dataphos/aquarium-janitor-standalone-sr/registry"
+	"github.com/dataphos/schema-registry/internal/metrics"
+	"github.com/dataphos/schema-registry/registry"
 	"github.com/dataphos/lib-logger/logger"
 )
 

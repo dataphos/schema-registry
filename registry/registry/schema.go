@@ -27,8 +27,8 @@ import (
 	"github.com/hamba/avro/v2"
 	"github.com/pkg/errors"
 
-	"github.com/dataphos/aquarium-janitor-standalone-sr/compatibility"
-	"github.com/dataphos/aquarium-janitor-standalone-sr/validity"
+	"github.com/dataphos/schema-registry/compatibility"
+	"github.com/dataphos/schema-registry/validity"
 )
 
 type Service struct {

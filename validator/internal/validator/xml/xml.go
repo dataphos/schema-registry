@@ -21,7 +21,7 @@ import (
 	"io"
 	"time"
 
-	"github.com/dataphos/aquarium-janitor-standalone-internal/internal/validator"
+	"github.com/dataphos/schema-registry-validator/internal/validator"
 	"github.com/dataphos/lib-httputil/pkg/httputil"
 	"github.com/dataphos/lib-retry/pkg/retry"
 

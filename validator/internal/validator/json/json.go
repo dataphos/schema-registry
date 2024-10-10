@@ -19,7 +19,7 @@ import (
 	"encoding/json"
 	"github.com/pkg/errors"
 
-	"github.com/dataphos/aquarium-janitor-standalone-internal/internal/validator"
+	"github.com/dataphos/schema-registry-validator/internal/validator"
 
 	lru "github.com/hashicorp/golang-lru"
 	"github.com/santhosh-tekuri/jsonschema/v5"

@@ -16,14 +16,14 @@ package producer
 
 import (
 	"context"
-	"github.com/dataphos/aquarium-janitor-standalone-internal/internal/janitor"
+	"github.com/dataphos/schema-registry-validator/internal/janitor"
 	"github.com/pkg/errors"
 	"go.uber.org/ratelimit"
 	"log"
 	"math"
 	"time"
 
-	"github.com/dataphos/aquarium-janitor-standalone-internal/internal/registry"
+	"github.com/dataphos/schema-registry-validator/internal/registry"
 	"github.com/dataphos/lib-brokers/pkg/broker"
 
 	"golang.org/x/sync/errgroup"
