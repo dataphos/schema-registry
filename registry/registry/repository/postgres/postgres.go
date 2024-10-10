@@ -23,8 +23,8 @@ import (
 
 	"github.com/pkg/errors"
 
-	"github.com/dataphos/aquarium-janitor-standalone-sr/registry"
-	"github.com/dataphos/aquarium-janitor-standalone-sr/registry/internal/hashutils"
+	"github.com/dataphos/schema-registry/registry"
+	"github.com/dataphos/schema-registry/registry/internal/hashutils"
 )
 
 type Repository struct {

@@ -17,7 +17,7 @@ package janitor
 import (
 	"github.com/pkg/errors"
 
-	"github.com/dataphos/aquarium-janitor-standalone-internal/internal/errcodes"
+	"github.com/dataphos/schema-registry-validator/internal/errcodes"
 	"github.com/dataphos/lib-logger/logger"
 	"github.com/dataphos/lib-streamproc/pkg/streamproc"
 )

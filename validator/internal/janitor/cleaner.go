@@ -18,8 +18,8 @@ import (
 	"context"
 	"sync"
 
-	"github.com/dataphos/aquarium-janitor-standalone-internal/internal/errcodes"
-	"github.com/dataphos/aquarium-janitor-standalone-internal/internal/registry"
+	"github.com/dataphos/schema-registry-validator/internal/errcodes"
+	"github.com/dataphos/schema-registry-validator/internal/registry"
 
 	"github.com/pkg/errors"
 )

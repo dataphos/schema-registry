@@ -24,8 +24,8 @@ import (
 
 	"github.com/pkg/errors"
 
-	"github.com/dataphos/aquarium-janitor-standalone-sr/compatibility/http"
-	"github.com/dataphos/aquarium-janitor-standalone-sr/internal/errtemplates"
+	"github.com/dataphos/schema-registry/compatibility/http"
+	"github.com/dataphos/schema-registry/internal/errtemplates"
 	"github.com/dataphos/lib-httputil/pkg/httputil"
 	"github.com/dataphos/lib-retry/pkg/retry"
 )

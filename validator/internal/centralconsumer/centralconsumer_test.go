@@ -22,11 +22,11 @@ import (
 	"testing"
 	"time"
 
-	"github.com/dataphos/aquarium-janitor-standalone-internal/internal/janitor"
-	"github.com/dataphos/aquarium-janitor-standalone-internal/internal/publisher"
-	"github.com/dataphos/aquarium-janitor-standalone-internal/internal/registry"
-	"github.com/dataphos/aquarium-janitor-standalone-internal/internal/validator"
-	localjson "github.com/dataphos/aquarium-janitor-standalone-internal/internal/validator/json"
+	"github.com/dataphos/schema-registry-validator/internal/janitor"
+	"github.com/dataphos/schema-registry-validator/internal/publisher"
+	"github.com/dataphos/schema-registry-validator/internal/registry"
+	"github.com/dataphos/schema-registry-validator/internal/validator"
+	localjson "github.com/dataphos/schema-registry-validator/internal/validator/json"
 )
 
 func TestTopicsIntoRoutingFunc(t *testing.T) {

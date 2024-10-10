@@ -21,8 +21,8 @@ import (
 	"runtime"
 	"testing"
 
-	"github.com/dataphos/aquarium-janitor-standalone-internal/internal/validator/protobuf/testdata/person"
-	"github.com/dataphos/aquarium-janitor-standalone-internal/internal/validator/protobuf/testdata/testpb3"
+	"github.com/dataphos/schema-registry-validator/internal/validator/protobuf/testdata/person"
+	"github.com/dataphos/schema-registry-validator/internal/validator/protobuf/testdata/testpb3"
 
 	"google.golang.org/protobuf/proto"
 	"google.golang.org/protobuf/types/known/timestamppb"

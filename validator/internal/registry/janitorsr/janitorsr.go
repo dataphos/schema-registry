@@ -25,8 +25,8 @@ import (
 	"net/http"
 	"time"
 
-	"github.com/dataphos/aquarium-janitor-standalone-internal/internal/errtemplates"
-	"github.com/dataphos/aquarium-janitor-standalone-internal/internal/registry"
+	"github.com/dataphos/schema-registry-validator/internal/errtemplates"
+	"github.com/dataphos/schema-registry-validator/internal/registry"
 	"github.com/dataphos/lib-httputil/pkg/httputil"
 	"github.com/dataphos/lib-retry/pkg/retry"
 

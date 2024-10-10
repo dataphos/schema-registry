@@ -20,7 +20,7 @@ import (
 	"runtime"
 	"testing"
 
-	"github.com/dataphos/aquarium-janitor-standalone-internal/internal/validator"
+	"github.com/dataphos/schema-registry-validator/internal/validator"
 
 	"github.com/pkg/errors"
 )

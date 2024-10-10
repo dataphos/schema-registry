@@ -15,7 +15,7 @@
 package csv
 
 import (
-	"github.com/dataphos/aquarium-janitor-standalone-internal/internal/schemagen"
+	"github.com/dataphos/schema-registry-validator/internal/schemagen"
 	"github.com/pkg/errors"
 	"os"
 	"path/filepath"
