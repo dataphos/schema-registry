@@ -19,7 +19,7 @@ import (
 	"strings"
 	"time"
 
-	"github.com/dataphos/aquarium-janitor-standalone-internal/internal/errtemplates"
+	"github.com/dataphos/schema-registry-validator/internal/errtemplates"
 	"github.com/go-playground/validator/v10"
 	"github.com/kkyr/fig"
 	"go.uber.org/multierr"

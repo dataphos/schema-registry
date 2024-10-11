@@ -18,7 +18,7 @@ import (
 	"strconv"
 	"time"
 
-	"github.com/dataphos/aquarium-janitor-standalone-sr/registry"
+	"github.com/dataphos/schema-registry/registry"
 )
 
 // Schema is a structure that defines the parent entity in the schema registry.

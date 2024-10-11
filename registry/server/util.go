@@ -19,7 +19,7 @@ import (
 	"io"
 	"net/http"
 
-	"github.com/dataphos/aquarium-janitor-standalone-sr/registry"
+	"github.com/dataphos/schema-registry/registry"
 )
 
 type responseBodyAndCode struct {

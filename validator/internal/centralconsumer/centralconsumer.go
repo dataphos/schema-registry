@@ -19,9 +19,9 @@ import (
 	"encoding/json"
 	"strconv"
 
-	"github.com/dataphos/aquarium-janitor-standalone-internal/internal/errtemplates"
-	"github.com/dataphos/aquarium-janitor-standalone-internal/internal/janitor"
-	"github.com/dataphos/aquarium-janitor-standalone-internal/internal/registry"
+	"github.com/dataphos/schema-registry-validator/internal/errtemplates"
+	"github.com/dataphos/schema-registry-validator/internal/janitor"
+	"github.com/dataphos/schema-registry-validator/internal/registry"
 	"github.com/dataphos/lib-brokers/pkg/broker"
 	"github.com/dataphos/lib-logger/logger"
 	"github.com/pkg/errors"

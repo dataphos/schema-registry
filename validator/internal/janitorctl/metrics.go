@@ -20,7 +20,7 @@ import (
 
 	"github.com/prometheus/client_golang/prometheus/promhttp"
 
-	"github.com/dataphos/aquarium-janitor-standalone-internal/internal/errcodes"
+	"github.com/dataphos/schema-registry-validator/internal/errcodes"
 	"github.com/dataphos/lib-logger/logger"
 )
 

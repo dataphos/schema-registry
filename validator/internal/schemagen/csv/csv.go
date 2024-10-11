@@ -17,7 +17,7 @@ package csv
 import (
 	"bytes"
 	"encoding/csv"
-	"github.com/dataphos/aquarium-janitor-standalone-internal/internal/schemagen"
+	"github.com/dataphos/schema-registry-validator/internal/schemagen"
 	"io"
 	"strconv"
 	"strings"

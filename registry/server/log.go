@@ -21,7 +21,7 @@ import (
 
 	"github.com/go-chi/chi/v5/middleware"
 
-	"github.com/dataphos/aquarium-janitor-standalone-sr/internal/errcodes"
+	"github.com/dataphos/schema-registry/internal/errcodes"
 	"github.com/dataphos/lib-logger/logger"
 )
 

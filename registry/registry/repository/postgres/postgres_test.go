@@ -23,7 +23,7 @@ import (
 	"github.com/DATA-DOG/go-sqlmock"
 	"github.com/stretchr/testify/assert"
 
-	"github.com/dataphos/aquarium-janitor-standalone-sr/registry/internal/hashutils"
+	"github.com/dataphos/schema-registry/registry/internal/hashutils"
 )
 
 func TestGetSchemaVersionByIdAndVersion(t *testing.T) {

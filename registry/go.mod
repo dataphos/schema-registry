@@ -1,4 +1,4 @@
-module github.com/dataphos/aquarium-janitor-standalone-sr
+module github.com/dataphos/schema-registry
 
 go 1.17
 

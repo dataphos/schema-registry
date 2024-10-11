@@ -18,9 +18,9 @@ import (
 	"syscall"
 	"testing"
 
-	"github.com/dataphos/aquarium-janitor-standalone-internal/internal/registry"
-	"github.com/dataphos/aquarium-janitor-standalone-internal/internal/schemagen"
-	"github.com/dataphos/aquarium-janitor-standalone-internal/internal/validator"
+	"github.com/dataphos/schema-registry-validator/internal/registry"
+	"github.com/dataphos/schema-registry-validator/internal/schemagen"
+	"github.com/dataphos/schema-registry-validator/internal/validator"
 
 	"github.com/pkg/errors"
 )

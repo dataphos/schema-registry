@@ -19,7 +19,7 @@ import (
 	"strconv"
 	"testing"
 
-	"github.com/dataphos/aquarium-janitor-standalone-internal/internal/validator"
+	"github.com/dataphos/schema-registry-validator/internal/validator"
 	"github.com/dataphos/lib-streamproc/pkg/streamproc"
 
 	"github.com/pkg/errors"

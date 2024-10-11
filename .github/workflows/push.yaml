@@ -132,23 +132,23 @@ jobs:
           fi
 
       - name: Tag and Push Docker image
-        if: ${{ env.TAG_EXISTS }} == 'false'
+        if: ${{ env.TAG_EXISTS == 'false' }}
         run: |
           docker tag ${{ matrix.component.image-name }}:${{ env.TAG }} syntioinc/dataphos-${{ matrix.component.image-name }}:${{ env.TAG }}
           docker push syntioinc/dataphos-${{ matrix.component.image-name }}:${{ env.TAG }}
 
       - name: Install cosign
-        if: ${{ env.TAG_EXISTS }} == 'false'
+        if: ${{ env.TAG_EXISTS == 'false' }}
         uses: sigstore/cosign-installer@v3.6.0
 
       - name: Sign the Docker image
-        if: ${{ env.TAG_EXISTS }} == 'false'
+        if: ${{ env.TAG_EXISTS == 'false' }}
         run: |
           digest=$(docker inspect --format='{{index .RepoDigests 0}}' syntioinc/dataphos-${{ matrix.component.image-name }}:${{ env.TAG }})
           cosign sign --yes "$digest"
 
       - name: Image already exists
-        if: ${{ env.TAG_EXISTS }} == 'true'
+        if: ${{ env.TAG_EXISTS == 'true' }}
         run: echo "Docker image syntioinc/dataphos-${{ matrix.component.image-name }}:${{ env.TAG }} already exists. Skipping push."
 
   release-please:

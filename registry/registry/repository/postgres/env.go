@@ -17,7 +17,7 @@ package postgres
 import (
 	"os"
 
-	"github.com/dataphos/aquarium-janitor-standalone-sr/internal/errtemplates"
+	"github.com/dataphos/schema-registry/internal/errtemplates"
 )
 
 type DatabaseConfig struct {

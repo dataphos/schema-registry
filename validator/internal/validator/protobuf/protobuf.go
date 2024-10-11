@@ -19,7 +19,7 @@ import (
 	"os"
 	"path/filepath"
 
-	"github.com/dataphos/aquarium-janitor-standalone-internal/internal/validator"
+	"github.com/dataphos/schema-registry-validator/internal/validator"
 
 	lru "github.com/hashicorp/golang-lru"
 	"github.com/jhump/protoreflect/desc"
