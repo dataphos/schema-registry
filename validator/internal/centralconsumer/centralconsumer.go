@@ -127,7 +127,7 @@ func New(registry registry.SchemaRegistry, publisher broker.Publisher, validator
 	if settings.NumInferrers > 0 {
 		validatorsSem = make(chan struct{}, settings.NumInferrers)
 	}
-	if settings.ValidateHeaders == true {
+	if settings.ValidateHeaders {
 		_, ok := validators["json"]
 		if !ok {
 			// if json validation is turned off, this version of json validator is used by default for validating message header
@@ -310,7 +310,7 @@ func (cc *CentralConsumer) Handle(ctx context.Context, message janitor.Message) 
 	// header validation is turned on if a message specifies so in the header OR if validateHeaders flag is set
 	// on the Validator level
 	if message.RawAttributes[janitor.HeaderValidation] == "true" ||
-		(cc.validateHeaders == true && message.RawAttributes[janitor.HeaderValidation] != "false") {
+		(cc.validateHeaders && message.RawAttributes[janitor.HeaderValidation] != "false") {
 		_, ok := cc.Validators["json"]
 		// it is possible json validator isn't initialized by this point so we are checking it just in case
 		if !ok {
@@ -334,7 +334,6 @@ func (cc *CentralConsumer) Handle(ctx context.Context, message janitor.Message) 
 			return janitor.MessageTopicPair{Message: message, Topic: cc.Router.Route(janitor.Deadletter, message)}, err
 		}
 		releaseIfSet(cc.registrySem)
-		messageSchemaPair = janitor.MessageSchemaPair{Message: message, Schema: headerSchema}
 
 		var isValid bool
 		isValid, err = janitor.ValidateHeader(message, headerSchema, cc.Validators)
