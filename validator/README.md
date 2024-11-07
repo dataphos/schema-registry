@@ -2,7 +2,7 @@
 
 Repository of the Dataphos Schema Registry Worker.
 
-## Worker
+## Worker 
 
 The Worker is deployed as a deployment on a Kubernetes cluster and performs the following:
 
