@@ -77,6 +77,9 @@ const (
 	// CompletedWithErrors marks that the process has completed but errors occurred.
 	CompletedWithErrors = 904
 
+	// MissingHeader declares that something in the header is missing
+	MissingHeader = 906
+
 	// Miscellaneous is used when no other available error code is fitting.
 	Miscellaneous = 999
 )

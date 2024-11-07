@@ -15,8 +15,8 @@
 package janitor
 
 import (
-	"github.com/dataphos/schema-registry-validator/internal/errtemplates"
 	"github.com/dataphos/lib-streamproc/pkg/streamproc"
+	"github.com/dataphos/schema-registry-validator/internal/errtemplates"
 )
 
 // ParseMessage parses a given broker.Message into Message, by setting Message.Payload to the value of the data field of the given
