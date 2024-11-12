@@ -17,6 +17,7 @@ package json
 import (
 	"bytes"
 	"encoding/json"
+	_errors "errors"
 	"github.com/pkg/errors"
 
 	"github.com/dataphos/schema-registry-validator/internal/validator"
@@ -29,8 +30,8 @@ import (
 
 func New() validator.Validator {
 	return validator.Func(func(message, schema []byte, _, _ string) (bool, error) {
-		var v interface{}
-		if err := json.Unmarshal(message, &v); err != nil {
+		var parsedMessage interface{}
+		if err := json.Unmarshal(message, &parsedMessage); err != nil {
 			errBroken := errors.WithMessage(validator.ErrBrokenMessage, "Message is not in a valid format - "+err.Error())
 			return false, errBroken
 		}
@@ -41,10 +42,17 @@ func New() validator.Validator {
 			return false, errCompile
 		}
 
-		if err = compiledSchema.Validate(v); err != nil {
-			errValidation := errors.WithMessage(validator.ErrFailedValidation, err.Error())
-			return false, errValidation
-
+		if err = compiledSchema.Validate(parsedMessage); err != nil {
+			var validationError *jsonschema.ValidationError
+			ok := _errors.As(err, &validationError)
+			if !ok {
+				return false, errors.New("impossible to cast error to *jsonschema.ValidationError")
+			}
+			errMessage, err := createErrorMessage(validationError)
+			if err != nil {
+				return false, errors.New("couldn't create error message")
+			}
+			return false, errors.WithMessage(validator.ErrFailedValidation, errMessage)
 		}
 		return true, nil
 	})
@@ -76,11 +84,31 @@ func NewCached(size int) validator.Validator {
 		}
 
 		if err := compiledSchema.Validate(parsedMessage); err != nil {
-			errValidation := errors.WithMessage(validator.ErrFailedValidation, err.Error())
-			return false, errValidation
+			var validationError *jsonschema.ValidationError
+			ok := _errors.As(err, &validationError)
+			if !ok {
+				return false, errors.New("impossible to cast error to *jsonschema.ValidationError")
+			}
+			errMessage, err := createErrorMessage(validationError)
+			if err != nil {
+				return false, errors.New("couldn't create error message")
+			}
+			return false, errors.WithMessagef(validator.ErrFailedValidation, errMessage)
 		}
 		return true, nil
 	})
+}
+
+func createErrorMessage(validationError *jsonschema.ValidationError) (string, error) {
+	errorMap := make(map[string]string)
+	for _, cause := range validationError.Causes {
+		errorMap[cause.KeywordLocation] = cause.Message
+	}
+	errMessage, err := json.Marshal(errorMap)
+	if err != nil {
+		return "", err
+	}
+	return string(errMessage), nil
 }
 
 func compileSchema(schema []byte) (*jsonschema.Schema, error) {
@@ -109,6 +137,13 @@ func NewGoJsonSchemaValidator() validator.Validator {
 		result, err := schemaValidator.Validate(gojsonschema.NewBytesLoader(message))
 		if err != nil {
 			return false, err
+		}
+		if !result.Valid() {
+			errMessage, err := createErrorMessageAlt(result.Errors())
+			if err != nil {
+				return false, err
+			}
+			return false, errors.WithMessage(validator.ErrFailedValidation, errMessage)
 		}
 
 		return result.Valid(), nil
@@ -141,7 +176,38 @@ func NewCachedGoJsonSchemaValidator(size int) validator.Validator {
 		if err != nil {
 			return false, err
 		}
+		if !result.Valid() {
+			errMessage, err := createErrorMessageAlt(result.Errors())
+			if err != nil {
+				return false, err
+			}
+			return false, errors.WithMessage(validator.ErrFailedValidation, errMessage)
+		}
 
 		return result.Valid(), nil
 	})
+}
+
+func createErrorMessageAlt(validationError []gojsonschema.ResultError) (string, error) {
+	errorMap := make(map[string]string)
+	for _, e := range validationError {
+		key := e.Details()["context"].(string)
+		var expected, given, value string
+		var ok1, ok2 bool
+		if expected, ok1 = e.Details()["expected"].(string); !ok1 {
+			value = "invalid value"
+		}
+		if given, ok2 = e.Details()["given"].(string); !ok2 {
+			value = "invalid value"
+		}
+		if ok1 && ok2 {
+			value = "expected " + expected + ", given " + given
+		}
+		errorMap[key] = value
+	}
+	errMessage, err := json.Marshal(errorMap)
+	if err != nil {
+		return "", err
+	}
+	return string(errMessage), nil
 }
