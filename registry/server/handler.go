@@ -27,9 +27,9 @@ import (
 	"github.com/go-chi/chi/v5"
 	"github.com/pkg/errors"
 
+	"github.com/dataphos/lib-logger/logger"
 	"github.com/dataphos/schema-registry/internal/metrics"
 	"github.com/dataphos/schema-registry/registry"
-	"github.com/dataphos/lib-logger/logger"
 )
 
 type Handler struct {
@@ -87,6 +87,15 @@ func (h Handler) GetSchemaVersionByIdAndVersion(w http.ResponseWriter, r *http.R
 			writeResponse(w, responseBodyAndCode{
 				Body: body,
 				Code: http.StatusNotFound,
+			})
+			return
+		} else if errors.Is(err, registry.ErrInvalidValueHeader) {
+			body, _ := json.Marshal(report{
+				Message: fmt.Sprintf("Id=%v and/or version=%v are not of supported data types", id, version),
+			})
+			writeResponse(w, responseBodyAndCode{
+				Body: body,
+				Code: http.StatusUnprocessableEntity,
 			})
 			return
 		}
