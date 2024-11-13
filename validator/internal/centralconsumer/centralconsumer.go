@@ -21,6 +21,7 @@ import (
 
 	"github.com/dataphos/lib-brokers/pkg/broker"
 	"github.com/dataphos/lib-logger/logger"
+	"github.com/dataphos/schema-registry-validator/internal/errcodes"
 	"github.com/dataphos/schema-registry-validator/internal/errtemplates"
 	"github.com/dataphos/schema-registry-validator/internal/janitor"
 	"github.com/dataphos/schema-registry-validator/internal/registry"
@@ -329,7 +330,7 @@ func (cc *CentralConsumer) Handle(ctx context.Context, message janitor.Message) 
 		acquireIfSet(cc.registrySem)
 		headerSchema, err = janitor.CollectSchema(ctx, headerId, headerVersion, cc.Registry)
 		if err != nil {
-			setMessageRawAttributes(message, err, "Wrong compile")
+			setMessageRawAttributes(message, "Wrong compile", err)
 			releaseIfSet(cc.registrySem)
 			return janitor.MessageTopicPair{Message: message, Topic: cc.Router.Route(janitor.Deadletter, message)}, err
 		}
@@ -349,7 +350,23 @@ func (cc *CentralConsumer) Handle(ctx context.Context, message janitor.Message) 
 		acquireIfSet(cc.registrySem)
 		schema, err = janitor.CollectSchema(ctx, message.SchemaID, message.Version, cc.Registry)
 		if err != nil {
-			setMessageRawAttributes(message, err, "Wrong compile")
+			opError := &janitor.OpError{}
+			if errors.As(err, &opError) {
+				if opError.Code == errcodes.RegistryUnresponsive {
+					setMessageRawAttributes(message, "Registry unresponsive", err)
+					releaseIfSet(cc.registrySem)
+					return janitor.MessageTopicPair{Message: message, Topic: cc.Router.Route(janitor.Deadletter, message)}, err
+				} else if opError.Code == errcodes.SchemaNotRegistered {
+					setMessageRawAttributes(message, "Schema error", err)
+					releaseIfSet(cc.registrySem)
+					return janitor.MessageTopicPair{Message: message, Topic: cc.Router.Route(janitor.Deadletter, message)}, nil
+				} else if opError.Code == errcodes.MissingHeader || opError.Code == errcodes.InvalidHeader {
+					setMessageRawAttributes(message, "Header error", err)
+					releaseIfSet(cc.registrySem)
+					return janitor.MessageTopicPair{Message: message, Topic: cc.Router.Route(janitor.Deadletter, message)}, nil
+				}
+			}
+			setMessageRawAttributes(message, "Wrong compile", err)
 			releaseIfSet(cc.registrySem)
 			return janitor.MessageTopicPair{Message: message, Topic: cc.Router.Route(janitor.Deadletter, message)}, err
 		}
@@ -393,9 +410,19 @@ func (cc *CentralConsumer) Handle(ctx context.Context, message janitor.Message) 
 				acquireIfSet(cc.registrySem)
 				specificSchemaVersionSpec, err := cc.Registry.Get(ctx, cc.schema.SchemaMetadata.ID, message.Version)
 				if err != nil {
-					setMessageRawAttributes(message, err, "Wrong compile")
-					releaseIfSet(cc.registrySem)
-					return janitor.MessageTopicPair{Message: message, Topic: cc.Router.Route(janitor.Deadletter, message)}, err
+					if errors.Is(err, registry.ErrNotFound) {
+						setMessageRawAttributes(message, "Schema error", err)
+						releaseIfSet(cc.registrySem)
+						return janitor.MessageTopicPair{Message: message, Topic: cc.Router.Route(janitor.Deadletter, message)}, nil
+					} else if errors.Is(err, registry.InvalidHeader) {
+						setMessageRawAttributes(message, "Header error", err)
+						releaseIfSet(cc.registrySem)
+						return janitor.MessageTopicPair{Message: message, Topic: cc.Router.Route(janitor.Deadletter, message)}, nil
+					} else {
+						setMessageRawAttributes(message, "Wrong compile", err)
+						releaseIfSet(cc.registrySem)
+						return janitor.MessageTopicPair{Message: message, Topic: cc.Router.Route(janitor.Deadletter, message)}, err
+					}
 				}
 				releaseIfSet(cc.registrySem)
 
@@ -404,7 +431,7 @@ func (cc *CentralConsumer) Handle(ctx context.Context, message janitor.Message) 
 					Specification: specificSchemaVersionSpec,
 				})
 				if err != nil {
-					setMessageRawAttributes(message, err, "Non number version")
+					setMessageRawAttributes(message, "Non number version", err)
 					return janitor.MessageTopicPair{Message: message, Topic: cc.Router.Route(janitor.Deadletter, message)}, err
 				}
 
@@ -420,7 +447,7 @@ func (cc *CentralConsumer) Handle(ctx context.Context, message janitor.Message) 
 		}
 	} else {
 		err = errors.New("unknown CC mode")
-		setMessageRawAttributes(message, err, "Unknown CC mode")
+		setMessageRawAttributes(message, "Unknown CC mode", err)
 		return janitor.MessageTopicPair{Message: message, Topic: cc.Router.Route(janitor.Deadletter, message)}, err
 	}
 }
@@ -474,12 +501,12 @@ func (cc *CentralConsumer) revalidatedAgainstLatest(ctx context.Context, specifi
 	acquireIfSet(cc.registrySem)
 	specificSchemaVersionBytes, err := cc.Registry.GetLatest(ctx, cc.schema.SchemaMetadata.ID)
 	if err != nil {
-		setMessageRawAttributes(message, err, "Wrong compile")
+		setMessageRawAttributes(message, "Wrong compile", err)
 		releaseIfSet(cc.registrySem)
 		return janitor.MessageTopicPair{Message: message, Topic: cc.Router.Route(janitor.Deadletter, message)}, err
 	}
 	if err = json.Unmarshal(specificSchemaVersionBytes, &specificSchemaVersion); err != nil {
-		setMessageRawAttributes(message, err, "Broken message")
+		setMessageRawAttributes(message, "Broken message", err)
 		releaseIfSet(cc.registrySem)
 		return janitor.MessageTopicPair{Message: message, Topic: cc.Router.Route(janitor.Deadletter, message)}, errors.Wrap(err, errtemplates.UnmarshallingJSONFailed)
 	}
@@ -487,7 +514,7 @@ func (cc *CentralConsumer) revalidatedAgainstLatest(ctx context.Context, specifi
 
 	err = cc.updateIfNewer(specificSchemaVersion)
 	if err != nil {
-		setMessageRawAttributes(message, err, "Non number version")
+		setMessageRawAttributes(message, "Non number version", err)
 		return janitor.MessageTopicPair{Message: message, Topic: cc.Router.Route(janitor.Deadletter, message)}, err
 	}
 
@@ -512,8 +539,8 @@ func (cc *CentralConsumer) updateIfNewer(versionDetails VersionDetails) error {
 	return nil
 }
 
-func setMessageRawAttributes(message janitor.Message, err error, errMessage string) {
-	message.RawAttributes["deadLetterErrorCategory"] = errMessage
+func setMessageRawAttributes(message janitor.Message, errCategory string, err error) {
+	message.RawAttributes["deadLetterErrorCategory"] = errCategory
 	message.RawAttributes["deadLetterErrorReason"] = err.Error()
 }
 

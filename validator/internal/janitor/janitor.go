@@ -112,7 +112,7 @@ type Validators map[string]validator.Validator
 func (vs Validators) Validate(message Message, schema []byte) (bool, error) {
 	v, ok := vs[strings.ToLower(message.Format)]
 	if !ok {
-		return false, errtemplates.UnsupportedMessageFormat(message.Format)
+		return false, errors.WithMessage(validator.ErrUnsupportedFormat, errtemplates.UnsupportedMessageFormat(message.Format).Error())
 	}
 	return v.Validate(message.Payload, schema, message.SchemaID, message.Version)
 }
@@ -268,6 +268,11 @@ func InferDestinationTopic(messageSchemaPair MessageSchemaPair, validators Valid
 		}
 		if errors.Is(err, validator.ErrFailedValidation) {
 			message.RawAttributes["deadLetterErrorCategory"] = "Validation error"
+			message.RawAttributes["deadLetterErrorReason"] = err.Error()
+			return MessageTopicPair{Message: message, Topic: router.Route(Deadletter, message)}, nil
+		}
+		if errors.Is(err, validator.ErrUnsupportedFormat) {
+			message.RawAttributes["deadLetterErrorCategory"] = "Unsupported format"
 			message.RawAttributes["deadLetterErrorReason"] = err.Error()
 			return MessageTopicPair{Message: message, Topic: router.Route(Deadletter, message)}, nil
 		}

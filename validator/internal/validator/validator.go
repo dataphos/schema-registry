@@ -38,6 +38,9 @@ var ErrFailedValidation = errors.New("An error occured while validating message"
 // ErrFailedHeaderValidation is a special error type to help distinguish messages' headers that have failed in validation.
 var ErrFailedHeaderValidation = errors.New("An error occured while validating message's header")
 
+// ErrUnsupportedFormat is a special error type to help distinguish messages that are in wrong format
+var ErrUnsupportedFormat = errors.New("Message is not in a supported format")
+
 // Validator is the interface used to model message validators.
 type Validator interface {
 	// Validate takes a message and a schema (along with schema id and version, in case they are needed for optimization purposes)

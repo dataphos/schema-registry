@@ -55,19 +55,21 @@ func ExtractAttributes(raw map[string]interface{}) (Attributes, error) {
 	var schemaIDStr, versionStr, formatStr string
 
 	schemaID, ok := raw[AttributeSchemaID]
-	if ok {
-		schemaIDStr, ok = schemaID.(string)
-		if !ok {
-			return Attributes{}, errtemplates.AttributeNotAString(AttributeSchemaID)
-		}
+	if !ok {
+		return Attributes{}, errtemplates.AttributeNotDefined(AttributeSchemaID)
+	}
+	schemaIDStr, ok = schemaID.(string)
+	if !ok {
+		return Attributes{}, errtemplates.AttributeNotAString(AttributeSchemaID)
 	}
 
 	version, ok := raw[AttributeSchemaVersion]
-	if ok {
-		versionStr, ok = version.(string)
-		if !ok {
-			return Attributes{}, errtemplates.AttributeNotAString(AttributeSchemaVersion)
-		}
+	if !ok {
+		return Attributes{}, errtemplates.AttributeNotDefined(AttributeSchemaVersion)
+	}
+	versionStr, ok = version.(string)
+	if !ok {
+		return Attributes{}, errtemplates.AttributeNotAString(AttributeSchemaVersion)
 	}
 	format, ok := raw[AttributeFormat]
 	if !ok {

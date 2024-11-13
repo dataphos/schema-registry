@@ -77,8 +77,14 @@ const (
 	// CompletedWithErrors marks that the process has completed but errors occurred.
 	CompletedWithErrors = 904
 
+	// SchemaNotRegistered declares no schema is registered under specified schemaId and versionId
+	SchemaNotRegistered = 905
+
 	// MissingHeader declares that something in the header is missing
 	MissingHeader = 906
+
+	// InvalidHeader declares that something in the header is broken
+	InvalidHeader = 907
 
 	// Miscellaneous is used when no other available error code is fitting.
 	Miscellaneous = 999
