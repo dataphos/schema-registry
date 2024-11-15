@@ -22,6 +22,7 @@ const (
 	ExternalCheckerInitialization    = 104
 	ServerShutdown                   = 200
 	BadRequest                       = 400
+	SchemaUndecodable                = 422
 	InternalServerError              = 500
 	Miscellaneous                    = 999
 )

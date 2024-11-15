@@ -666,9 +666,16 @@ func (h Handler) PutSchema(w http.ResponseWriter, r *http.Request) {
 				Code: http.StatusNotFound,
 			})
 			return
-		}
-
-		if errors.Is(err, registry.ErrNotComp) {
+		} else if errors.Is(err, registry.ErrNotValid) {
+			body, _ := json.Marshal(report{
+				Message: "Schema is not valid",
+			})
+			writeResponse(w, responseBodyAndCode{
+				Body: body,
+				Code: http.StatusBadRequest,
+			})
+			return
+		} else if errors.Is(err, registry.ErrNotComp) {
 			body, _ := json.Marshal(report{
 				Message: "Schemas are not compatible",
 			})

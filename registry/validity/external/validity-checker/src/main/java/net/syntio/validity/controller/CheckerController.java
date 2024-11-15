@@ -16,23 +16,26 @@
 
 package net.syntio.validity.controller;
 
+import io.apicurio.registry.rules.RuleViolation;
+import io.apicurio.registry.rules.RuleViolationException;
 import net.syntio.validity.Message;
 import net.syntio.validity.checker.Checker;
 import net.syntio.validity.dto.CheckRequestDto;
 import net.syntio.validity.dto.CheckResponseDto;
 
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 public class CheckerController {
+
     @PostMapping(value = "/")
     public ResponseEntity<CheckResponseDto> check(@RequestBody CheckRequestDto req) {
         Message payload = req.getMessage();
-
         try {
             String schemaType = payload.getSchemaType();
             String schema = payload.getSchema();
@@ -46,9 +49,17 @@ public class CheckerController {
             }
             res.setInfo("Schema is invalid");
             return ResponseEntity.ok(res);
-
+        } catch (RuleViolationException e) {
+            CheckResponseDto res = new CheckResponseDto(false);
+            StringBuilder reasons = new StringBuilder();
+            for (RuleViolation cause:e.getCauses()) {
+                reasons.append(cause.getDescription()).append(" at ").append(cause.getContext()).append(";");
+            }
+            res.setInfo(reasons.toString());
+            return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(res);
         } catch (Exception e) {
-            return ResponseEntity.badRequest().build();
+            CheckResponseDto res = new CheckResponseDto(false);
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(res);
         }
     }
 

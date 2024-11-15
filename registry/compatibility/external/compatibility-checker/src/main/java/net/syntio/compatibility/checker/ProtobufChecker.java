@@ -17,15 +17,26 @@
 package net.syntio.compatibility.checker;
 
 import io.apicurio.registry.content.ContentHandle;
+import io.apicurio.registry.rules.compatibility.CompatibilityDifference;
+import io.apicurio.registry.rules.compatibility.CompatibilityExecutionResult;
 import io.apicurio.registry.rules.compatibility.CompatibilityLevel;
 import io.apicurio.registry.rules.compatibility.ProtobufCompatibilityChecker;
 
+import java.util.ArrayList;
 import java.util.List;
+import java.util.Set;
 
 public class ProtobufChecker implements CompatibilityChecker {
+
     @Override
-    public boolean testCompatibility(CompatibilityLevel level, List<ContentHandle> history, ContentHandle currentSchema) {
-        ProtobufCompatibilityChecker cc =  new ProtobufCompatibilityChecker();
-        return cc.testCompatibility(level, history, currentSchema).isCompatible();
+    public List<String> testCompatibility(CompatibilityLevel level, List<ContentHandle> history, ContentHandle currentSchema) {
+        ProtobufCompatibilityChecker cc = new ProtobufCompatibilityChecker();
+        CompatibilityExecutionResult res = cc.testCompatibility(level, history, currentSchema);
+        Set<CompatibilityDifference> diffs = res.getIncompatibleDifferences();
+        List<String> issues = new ArrayList<>();
+        for (CompatibilityDifference diff : diffs) {
+            issues.add(diff.asRuleViolation().getDescription());
+        }
+        return issues;
     }
 }

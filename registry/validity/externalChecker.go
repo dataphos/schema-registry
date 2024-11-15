@@ -16,20 +16,19 @@ package validity
 
 import (
 	"context"
-	"encoding/json"
-	"encoding/xml"
-	"fmt"
-	"io"
 	"os"
 	"strings"
 	"time"
 
 	"github.com/pkg/errors"
 
+	"github.com/dataphos/lib-httputil/pkg/httputil"
+	"github.com/dataphos/lib-logger/logger"
+	"github.com/dataphos/lib-logger/standardlogger"
+	"github.com/dataphos/lib-retry/pkg/retry"
+	"github.com/dataphos/schema-registry/internal/config"
 	"github.com/dataphos/schema-registry/internal/errtemplates"
 	"github.com/dataphos/schema-registry/validity/http"
-	"github.com/dataphos/lib-httputil/pkg/httputil"
-	"github.com/dataphos/lib-retry/pkg/retry"
 )
 
 const (
@@ -44,8 +43,9 @@ const (
 )
 
 type ExternalChecker struct {
-	url         string
+	Url         string
 	TimeoutBase time.Duration
+	Log         logger.Log
 }
 
 // NewExternalCheckerFromEnv loads the needed environment variables and calls NewExternalChecker.
@@ -74,8 +74,18 @@ func NewExternalChecker(ctx context.Context, url string, timeoutBase time.Durati
 		return nil, errors.Wrapf(err, "attempting to reach validity checker at %s failed", url)
 	}
 
+	labels := logger.Labels{
+		"product":   "Schema Registry",
+		"component": "validity_checker",
+	}
+	logLevel, logConfigWarnings := config.GetLogLevel()
+	log := standardlogger.New(labels, standardlogger.WithLogLevel(logLevel))
+	for _, w := range logConfigWarnings {
+		log.Warn(w)
+	}
+
 	return &ExternalChecker{
-		url:         url,
+		Url:         url,
 		TimeoutBase: timeoutBase,
 	}, nil
 }
@@ -86,21 +96,16 @@ func (c *ExternalChecker) Check(schema, schemaType, mode string) (bool, error) {
 		return true, nil
 	}
 	if strings.ToLower(mode) == "syntax-only" || strings.ToLower(mode) == "full" {
-		internalCheck, err := internalCheck(schema, schemaType)
-		if err != nil {
-			return false, err
-		}
-		if !internalCheck {
-			return false, nil
-		}
+		size := []byte(schema + schemaType + mode)
+		ctx, cancel := context.WithTimeout(context.Background(), http.EstimateHTTPTimeout(len(size), c.TimeoutBase))
+		defer cancel()
+
+		valid, info, err := http.CheckOverHTTP(ctx, schemaType, schema, mode, c.Url+"/")
+		c.Log.Info(info)
+		return valid, err
 	}
 
-	size := []byte(schema + schemaType + mode)
-
-	ctx, cancel := context.WithTimeout(context.Background(), http.EstimateHTTPTimeout(len(size), c.TimeoutBase))
-	defer cancel()
-
-	return http.CheckOverHTTP(ctx, schemaType, schema, mode, c.url+"/")
+	return false, errors.Errorf("")
 }
 
 func InitExternalValidityChecker(ctx context.Context) (*ExternalChecker, string, error) {
@@ -116,29 +121,6 @@ func InitExternalValidityChecker(ctx context.Context) (*ExternalChecker, string,
 		return valChecker, globalValMode, nil
 	}
 	return nil, "", errors.Errorf("unsupported validity mode")
-}
-
-func internalCheck(schema, schemaType string) (bool, error) {
-	switch schemaType {
-	case "json", "avro":
-		return json.Valid([]byte(schema)), nil
-	case "xml":
-		return IsValidXML(schema), nil
-	case "protobuf": //since there is no builtin protobuf validator, we assume schema is valid and propagate validation to external checker
-		return true, nil
-	default:
-		return false, fmt.Errorf("the schemaType is unavailiable")
-	}
-}
-
-func IsValidXML(input string) bool {
-	decoder := xml.NewDecoder(strings.NewReader(input))
-	for {
-		err := decoder.Decode(new(interface{}))
-		if err != nil {
-			return err == io.EOF
-		}
-	}
 }
 
 func CheckIfValidMode(mode *string) bool {

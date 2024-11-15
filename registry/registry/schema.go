@@ -403,7 +403,6 @@ func (service *Service) UpdateSchema(id string, schemaUpdateRequest SchemaUpdate
 			return VersionDetails{}, false, err
 		}
 		schemaUpdateRequest.Specification = canonicalSpec
-
 	}
 
 	attributes, err := extractAttributes(schemaUpdateRequest.Specification, schemas.SchemaType, attSearchDepth)
