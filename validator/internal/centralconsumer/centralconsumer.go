@@ -325,7 +325,7 @@ func (cc *CentralConsumer) Handle(ctx context.Context, message janitor.Message) 
 
 		headerId, headerVersion, err = janitor.GetHeaderIdAndVersion(message)
 		if err != nil {
-			return janitor.MessageTopicPair{Message: message, Topic: cc.Router.Route(janitor.Deadletter, message)}, err
+			return janitor.MessageTopicPair{Message: message, Topic: cc.Router.Route(janitor.Deadletter, message)}, nil
 		}
 		acquireIfSet(cc.registrySem)
 		headerSchema, err = janitor.CollectSchema(ctx, headerId, headerVersion, cc.Registry)

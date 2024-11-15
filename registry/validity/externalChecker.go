@@ -87,6 +87,7 @@ func NewExternalChecker(ctx context.Context, url string, timeoutBase time.Durati
 	return &ExternalChecker{
 		Url:         url,
 		TimeoutBase: timeoutBase,
+		Log:         log,
 	}, nil
 }
 
