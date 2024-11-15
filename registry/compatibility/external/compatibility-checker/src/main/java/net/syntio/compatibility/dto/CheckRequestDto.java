@@ -32,7 +32,6 @@ public class CheckRequestDto {
             this.message = transformStringToMessage(payload);
         } catch (Exception e) {
             this.message = new Message("", "", "");
-            System.err.println("Cannot read message");
         }
         this.history = history;
         this.mode = mode;

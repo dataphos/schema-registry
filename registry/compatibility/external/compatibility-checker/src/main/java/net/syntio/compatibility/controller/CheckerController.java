@@ -50,9 +50,6 @@ public class CheckerController {
               issues = Checker.checkCompatibility(latestSchema, schemaHistory, cl);
             }
 
-            for (String issue:issues) {
-                System.out.println(issue);
-            }
             res = new CheckResponseDto(issues.isEmpty());
             if (issues.isEmpty()) {
                 res.setInfo("Schema is compatible");
