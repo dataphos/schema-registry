@@ -93,7 +93,7 @@ func NewCached(size int) validator.Validator {
 			if err != nil {
 				return false, errors.New("couldn't create error message")
 			}
-			return false, errors.WithMessagef(validator.ErrFailedValidation, errMessage)
+			return false, errors.WithMessage(validator.ErrFailedValidation, errMessage)
 		}
 		return true, nil
 	})
