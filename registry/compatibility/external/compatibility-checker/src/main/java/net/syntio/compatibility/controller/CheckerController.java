@@ -52,10 +52,10 @@ public class CheckerController {
 
             res = new CheckResponseDto(issues.isEmpty());
             if (issues.isEmpty()) {
-                res.setInfo("Schema is compatible");
+                res.setInfo("schema is compatible");
                 return ResponseEntity.ok(res);
             }
-            res.setInfo("Schema is incompatible: " + String.join("; ", issues));
+            res.setInfo("schema is incompatible: " + String.join("; ", issues));
             return ResponseEntity.ok(res);
         } catch (NullPointerException e) {
             res = new CheckResponseDto(false);

@@ -80,11 +80,11 @@ const (
 	// SchemaNotRegistered declares no schema is registered under specified schemaId and versionId
 	SchemaNotRegistered = 905
 
-	// MissingHeader declares that something in the header is missing
-	MissingHeader = 906
+	// MissingDataInHeader declares that something in the header is missing
+	MissingDataInHeader = 906
 
-	// InvalidHeader declares that something in the header is broken
-	InvalidHeader = 907
+	// InvalidDataInHeader declares that something in the header is broken
+	InvalidDataInHeader = 907
 
 	// Miscellaneous is used when no other available error code is fitting.
 	Miscellaneous = 999

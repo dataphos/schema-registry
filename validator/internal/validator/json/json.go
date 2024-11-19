@@ -18,11 +18,12 @@ import (
 	"bytes"
 	"encoding/json"
 	_errors "errors"
-	"github.com/pkg/errors"
+	"strconv"
 
 	"github.com/dataphos/schema-registry-validator/internal/validator"
 
 	lru "github.com/hashicorp/golang-lru"
+	"github.com/pkg/errors"
 	"github.com/santhosh-tekuri/jsonschema/v5"
 	_ "github.com/santhosh-tekuri/jsonschema/v5/httploader"
 	"github.com/xeipuuv/gojsonschema"
@@ -190,20 +191,10 @@ func NewCachedGoJsonSchemaValidator(size int) validator.Validator {
 
 func createErrorMessageAlt(validationError []gojsonschema.ResultError) (string, error) {
 	errorMap := make(map[string]string)
-	for _, e := range validationError {
-		key := e.Details()["context"].(string)
-		var expected, given, value string
-		var ok1, ok2 bool
-		if expected, ok1 = e.Details()["expected"].(string); !ok1 {
-			value = "invalid value"
-		}
-		if given, ok2 = e.Details()["given"].(string); !ok2 {
-			value = "invalid value"
-		}
-		if ok1 && ok2 {
-			value = "expected " + expected + ", given " + given
-		}
-		errorMap[key] = value
+	for index, e := range validationError {
+		key := "error_" + strconv.Itoa(index+1)
+		reason := e.Description()
+		errorMap[key] = reason
 	}
 	errMessage, err := json.Marshal(errorMap)
 	if err != nil {

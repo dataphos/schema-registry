@@ -360,7 +360,7 @@ func (cc *CentralConsumer) Handle(ctx context.Context, message janitor.Message) 
 					setMessageRawAttributes(message, "Schema error", err)
 					releaseIfSet(cc.registrySem)
 					return janitor.MessageTopicPair{Message: message, Topic: cc.Router.Route(janitor.Deadletter, message)}, nil
-				} else if opError.Code == errcodes.MissingHeader || opError.Code == errcodes.InvalidHeader {
+				} else if opError.Code == errcodes.MissingDataInHeader || opError.Code == errcodes.InvalidDataInHeader {
 					setMessageRawAttributes(message, "Header error", err)
 					releaseIfSet(cc.registrySem)
 					return janitor.MessageTopicPair{Message: message, Topic: cc.Router.Route(janitor.Deadletter, message)}, nil

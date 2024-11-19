@@ -96,7 +96,7 @@ func CollectSchema(ctx context.Context, id string, version string, schemaRegistr
 		if errors.Is(err, registry.ErrNotFound) {
 			return nil, intoOpErr(id, errcodes.SchemaNotRegistered, err)
 		} else if errors.Is(err, registry.InvalidHeader) {
-			return nil, intoOpErr(id, errcodes.InvalidHeader, err)
+			return nil, intoOpErr(id, errcodes.InvalidDataInHeader, err)
 		}
 		return nil, intoOpErr(id, errcodes.RegistryUnresponsive, err)
 	}
@@ -125,16 +125,16 @@ func GetHeaderIdAndVersion(message Message) (string, string, error) {
 	var ok bool
 
 	if id, ok = message.RawAttributes[AttributeHeaderID].(string); !ok {
-		err := errors.New("missing header ID")
-		message.RawAttributes["deadLetterErrorCategory"] = "Missing header ID"
+		err := errors.New("missing header: ID")
+		message.RawAttributes["deadLetterErrorCategory"] = "Missing header: ID"
 		message.RawAttributes["deadLetterErrorReason"] = err
-		return "", "", intoOpErr(message.ID, errcodes.MissingHeader, err)
+		return "", "", intoOpErr(message.ID, errcodes.MissingDataInHeader, err)
 	}
 	if version, ok = message.RawAttributes[AttributeHeaderVersion].(string); !ok {
-		err := errors.New("missing header version")
-		message.RawAttributes["deadLetterErrorCategory"] = "Missing header version"
+		err := errors.New("missing header: version")
+		message.RawAttributes["deadLetterErrorCategory"] = "Missing header: version"
 		message.RawAttributes["deadLetterErrorReason"] = err
-		return "", "", intoOpErr(message.ID, errcodes.MissingHeader, err)
+		return "", "", intoOpErr(message.ID, errcodes.MissingDataInHeader, err)
 	}
 	return id, version, nil
 }
