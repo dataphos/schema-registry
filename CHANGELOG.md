@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.1.0](https://github.com/dataphos/schema-registry/compare/v1.0.0...v1.1.0) (2024-11-20)
+
+
+### Features
+
+* custom header validation ([#19](https://github.com/dataphos/schema-registry/issues/19)) ([4b787c6](https://github.com/dataphos/schema-registry/commit/4b787c6cad26a2bad1009f44028950e299f45dc6))
+
 ## 1.0.0 (2024-10-10)
 
 **Contributors:** 
