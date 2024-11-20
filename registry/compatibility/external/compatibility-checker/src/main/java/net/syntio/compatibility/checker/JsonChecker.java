@@ -17,15 +17,26 @@
 package net.syntio.compatibility.checker;
 
 import io.apicurio.registry.content.ContentHandle;
+import io.apicurio.registry.rules.compatibility.CompatibilityDifference;
+import io.apicurio.registry.rules.compatibility.CompatibilityExecutionResult;
 import io.apicurio.registry.rules.compatibility.CompatibilityLevel;
 import io.apicurio.registry.rules.compatibility.JsonSchemaCompatibilityChecker;
 
+import java.util.ArrayList;
 import java.util.List;
+import java.util.Set;
 
 public class JsonChecker implements CompatibilityChecker {
+
     @Override
-    public boolean testCompatibility(CompatibilityLevel level, List<ContentHandle> history, ContentHandle currentSchema) {
+    public List<String> testCompatibility(CompatibilityLevel level, List<ContentHandle> history, ContentHandle currentSchema) {
         JsonSchemaCompatibilityChecker cc =  new JsonSchemaCompatibilityChecker();
-        return cc.testCompatibility(level, history, currentSchema).isCompatible();
+        CompatibilityExecutionResult res = cc.testCompatibility(level, history, currentSchema);
+        Set<CompatibilityDifference> resSet = res.getIncompatibleDifferences();
+        List<String> issuesList = new ArrayList<>();
+        for (CompatibilityDifference dif : resSet) {
+            issuesList.add(dif.asRuleViolation().getDescription());
+        }
+        return issuesList;
     }
 }

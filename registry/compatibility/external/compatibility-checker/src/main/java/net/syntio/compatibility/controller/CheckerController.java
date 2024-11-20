@@ -21,12 +21,14 @@ import net.syntio.compatibility.Message;
 import net.syntio.compatibility.checker.Checker;
 import net.syntio.compatibility.dto.CheckRequestDto;
 import net.syntio.compatibility.dto.CheckResponseDto;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RestController;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @RestController
@@ -35,32 +37,38 @@ public class CheckerController {
     public ResponseEntity<CheckResponseDto> check(@RequestBody CheckRequestDto req) {
         Message latestSchema = req.getMessage();
         List<String> schemaHistory = req.getHistory();
+        CheckResponseDto res;
         try {
-            for (int i = 0; i < schemaHistory.size(); i++) {
-                schemaHistory.set(i, schemaHistory.get(i).replaceAll("\r\n", "\n"));
-            }
+            schemaHistory.replaceAll(s -> s.replaceAll("\r\n", "\n"));
             String mode = req.getMode();
 
             CompatibilityLevel cl = getCompatibilityLevel(mode);
-            boolean result;
+            List<String> issues;
             if (cl.equals(CompatibilityLevel.NONE)) {
-                result = true;
+              issues = new ArrayList<>();
             } else {
-                result = Checker.checkCompatibility(latestSchema, schemaHistory, cl);
+              issues = Checker.checkCompatibility(latestSchema, schemaHistory, cl);
             }
 
-            CheckResponseDto res = new CheckResponseDto(result);
-            if (result) {
-                res.setInfo("Schema is compatible");
+            res = new CheckResponseDto(issues.isEmpty());
+            if (issues.isEmpty()) {
+                res.setInfo("schema is compatible");
                 return ResponseEntity.ok(res);
             }
-            res.setInfo("Schema is incompatible");
+            res.setInfo("schema is incompatible: " + String.join("; ", issues));
             return ResponseEntity.ok(res);
         } catch (NullPointerException e) {
-            System.err.println("Schema history is null.");
-            return ResponseEntity.badRequest().build();
+            res = new CheckResponseDto(false);
+            res.setInfo("schema history is null");
+            return ResponseEntity.status(HttpStatus.PRECONDITION_FAILED).body(res);
+        } catch (org.everit.json.schema.SchemaException e) {
+            res = new CheckResponseDto(false);
+            res.setInfo("schema version unknown or unsupported");
+            return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(res);
         } catch (Exception e) {
-            return ResponseEntity.badRequest().build();
+            res = new CheckResponseDto(false);
+            res.setInfo("unknown error");
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(res);
         }
     }
 

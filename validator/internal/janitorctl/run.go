@@ -18,16 +18,16 @@ import (
 	"context"
 	"runtime/debug"
 
+	"github.com/dataphos/lib-brokers/pkg/broker"
+	"github.com/dataphos/lib-logger/logger"
+	"github.com/dataphos/lib-logger/standardlogger"
+	"github.com/dataphos/lib-shutdown/pkg/graceful"
 	"github.com/dataphos/schema-registry-validator/internal/centralconsumer"
 	"github.com/dataphos/schema-registry-validator/internal/config"
 	"github.com/dataphos/schema-registry-validator/internal/errcodes"
 	"github.com/dataphos/schema-registry-validator/internal/janitor"
 	"github.com/dataphos/schema-registry-validator/internal/pullercleaner"
 	"github.com/dataphos/schema-registry-validator/internal/registry"
-	"github.com/dataphos/lib-brokers/pkg/broker"
-	"github.com/dataphos/lib-logger/logger"
-	"github.com/dataphos/lib-logger/standardlogger"
-	"github.com/dataphos/lib-shutdown/pkg/graceful"
 )
 
 type ProcessorInitFunc func(context.Context, registry.SchemaRegistry, broker.Publisher) (*janitor.Processor, error)
@@ -86,6 +86,7 @@ func RunCentralConsumer(configFile string) {
 			centralconsumer.Settings{
 				NumSchemaCollectors: cfg.NumSchemaCollectors,
 				NumInferrers:        cfg.NumInferrers,
+				ValidateHeaders:     cfg.ValidateHeaders,
 			},
 			log,
 			centralconsumer.RouterFlags{

@@ -76,6 +76,7 @@ type KafkaPublisherSettings struct {
 	BatchSize  int           `toml:"batch_size" default:"40"`
 	BatchBytes int64         `toml:"batch_bytes" default:"5242880"`
 	Linger     time.Duration `toml:"linger" default:"10ms"`
+	Acks       int           `toml:"kafka_acks" default:"1"`
 }
 
 type EventhubsPublisherSettings struct {

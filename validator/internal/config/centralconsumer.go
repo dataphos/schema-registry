@@ -30,6 +30,7 @@ type CentralConsumer struct {
 	ShouldLog              CentralConsumerShouldLog  `toml:"should_log"`
 	NumSchemaCollectors    int                       `toml:"num_schema_collectors" default:"-1"`
 	NumInferrers           int                       `toml:"num_inferrers" default:"-1"`
+	ValidateHeaders        bool                      `toml:"validate_headers"`
 	MetricsLoggingInterval time.Duration             `toml:"metrics_logging_interval" default:"5s"`
 	RunOptions             RunOptions                `toml:"run_option"`
 	Mode                   int                       `toml:"mode"`

@@ -23,6 +23,7 @@ import io.apicurio.registry.rules.validity.ProtobufContentValidator;
 import io.apicurio.registry.rules.validity.XsdContentValidator;
 
 public class ValidatorFactory {
+
     public static ContentValidator createValidator(String schema) {
         return switch (schema) {
             case SchemaTypes.JSON -> new JsonSchemaContentValidator();

@@ -203,6 +203,11 @@
       <artifactId>lombok</artifactId>
       <version>1.18.22</version>
     </dependency>
+    <dependency>
+      <groupId>org.apache.avro</groupId>
+      <artifactId>avro</artifactId>
+      <version>1.11.1</version>
+    </dependency>
 
     <dependency>
       <groupId>io.apicurio</groupId>

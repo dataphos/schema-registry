@@ -25,8 +25,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class AvroChecker implements net.syntio.compatibility.checker.CompatibilityChecker {
+
     @Override
-    public boolean testCompatibility(CompatibilityLevel level, List<ContentHandle> history, ContentHandle currentSchema) {
+    public List<String> testCompatibility(CompatibilityLevel level, List<ContentHandle> history, ContentHandle currentSchema) {
         io.confluent.kafka.schemaregistry.CompatibilityLevel avroCompatibilityLevel = switch (level) {
             case NONE -> io.confluent.kafka.schemaregistry.CompatibilityLevel.NONE;
             case BACKWARD -> io.confluent.kafka.schemaregistry.CompatibilityLevel.BACKWARD;
@@ -42,7 +43,7 @@ public class AvroChecker implements net.syntio.compatibility.checker.Compatibili
         }
         AvroSchema newSchema = new AvroSchema(currentSchema.content());
 
-        List<String> issues = switch (avroCompatibilityLevel) {
+      return switch (avroCompatibilityLevel) {
             case BACKWARD -> CompatibilityChecker.BACKWARD_CHECKER.isCompatible(newSchema, newHistory);
             case BACKWARD_TRANSITIVE -> CompatibilityChecker.BACKWARD_TRANSITIVE_CHECKER.isCompatible(newSchema, newHistory);
             case FORWARD -> CompatibilityChecker.FORWARD_CHECKER.isCompatible(newSchema, newHistory);
@@ -51,6 +52,5 @@ public class AvroChecker implements net.syntio.compatibility.checker.Compatibili
             case FULL_TRANSITIVE -> CompatibilityChecker.FULL_TRANSITIVE_CHECKER.isCompatible(newSchema, newHistory);
             case NONE -> CompatibilityChecker.NO_OP_CHECKER.isCompatible(newSchema, newHistory);
         };
-        return issues.isEmpty();
     }
 }

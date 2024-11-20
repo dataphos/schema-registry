@@ -19,11 +19,11 @@ import (
 
 	"golang.org/x/sync/errgroup"
 
-	"github.com/dataphos/schema-registry-validator/internal/errcodes"
 	"github.com/dataphos/lib-batchproc/pkg/batchproc"
 	"github.com/dataphos/lib-brokers/pkg/broker"
 	"github.com/dataphos/lib-logger/logger"
 	"github.com/dataphos/lib-streamproc/pkg/streamproc"
+	"github.com/dataphos/schema-registry-validator/internal/errcodes"
 )
 
 type Processor struct {
@@ -84,6 +84,9 @@ func (p *Processor) parseOrSendToDeadletter(ctx context.Context, message streamp
 		p.log.Errorw(err.Error(), errcodes.ParsingMessage, logger.F{
 			"id": message.ID,
 		})
+		if parsed.RawAttributes == nil {
+			parsed.RawAttributes = make(map[string]interface{})
+		}
 		parsed.RawAttributes["deadLetterErrorCategory"] = "Parsing error"
 		parsed.RawAttributes["deadLetterErrorReason"] = err.Error()
 		if err = PublishToTopic(ctx, parsed, p.Topics[p.Deadletter]); err != nil {

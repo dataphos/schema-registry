@@ -25,10 +25,10 @@ import (
 	"net/http"
 	"time"
 
-	"github.com/dataphos/schema-registry-validator/internal/errtemplates"
-	"github.com/dataphos/schema-registry-validator/internal/registry"
 	"github.com/dataphos/lib-httputil/pkg/httputil"
 	"github.com/dataphos/lib-retry/pkg/retry"
+	"github.com/dataphos/schema-registry-validator/internal/errtemplates"
+	"github.com/dataphos/schema-registry-validator/internal/registry"
 
 	"github.com/pkg/errors"
 )
@@ -97,6 +97,8 @@ func (sr *SchemaRegistry) Get(ctx context.Context, id, version string) ([]byte, 
 	if response.StatusCode != http.StatusOK {
 		if response.StatusCode == http.StatusNotFound {
 			return nil, errors.Wrapf(registry.ErrNotFound, "fetching schema %s/%s failed", id, version)
+		} else if response.StatusCode == http.StatusUnprocessableEntity {
+			return nil, errors.Wrapf(registry.InvalidHeader, "fetching schema %s/%s failed due to invalid type", id, version)
 		}
 		return nil, errors.Wrapf(errtemplates.BadHttpStatusCode(response.StatusCode), "fetching schema %s/%s resulted in a bad status code", id, version)
 	}
