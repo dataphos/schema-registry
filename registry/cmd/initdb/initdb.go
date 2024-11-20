@@ -17,11 +17,11 @@ package main
 import (
 	"runtime/debug"
 
+	"github.com/dataphos/lib-logger/logger"
+	"github.com/dataphos/lib-logger/standardlogger"
 	"github.com/dataphos/schema-registry/internal/config"
 	"github.com/dataphos/schema-registry/internal/errcodes"
 	"github.com/dataphos/schema-registry/registry/repository/postgres"
-	"github.com/dataphos/lib-logger/logger"
-	"github.com/dataphos/lib-logger/standardlogger"
 )
 
 func main() {

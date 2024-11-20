@@ -18,7 +18,6 @@ import (
 	"context"
 	"encoding/base64"
 	"encoding/json"
-	"fmt"
 	"os"
 	"path/filepath"
 	"runtime"
@@ -34,9 +33,7 @@ func TestNew(t *testing.T) {
 	ctx, cancel := context.WithTimeout(context.Background(), 10*time.Second)
 	defer cancel()
 
-	v, err := New(ctx, "http://localhost:8088", 2*time.Second)
-
-	fmt.Println(v.url)
+	_, err := New(ctx, "http://localhost:8088", 2*time.Second)
 
 	if err != nil {
 		t.Fatal(err)

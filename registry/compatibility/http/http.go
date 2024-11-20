@@ -59,10 +59,10 @@ func EstimateHTTPTimeout(size int, base time.Duration) time.Duration {
 
 // CheckOverHTTP requests a schema check over HTTP.
 // Function returns false if schema isn't compatible.
-func CheckOverHTTP(ctx context.Context, schema string, history []string, mode, url string) (bool, error) {
+func CheckOverHTTP(ctx context.Context, schema string, history []string, mode, url string) (bool, string, error) {
 	response, err := sendCheckRequest(ctx, schema, history, mode, url)
 	if err != nil {
-		return false, err
+		return false, "error sending compatibility check request", err
 	}
 	defer func(Body io.ReadCloser) {
 		err := Body.Close()
@@ -73,23 +73,23 @@ func CheckOverHTTP(ctx context.Context, schema string, history []string, mode, u
 
 	body, err := io.ReadAll(response.Body)
 	if err != nil {
-		return false, err
+		return false, "error reading compatibility check response", err
 	}
 
 	var parsedBody checkResponse
 	if err = json.Unmarshal(body, &parsedBody); err != nil {
-		return false, err
+		return false, "error unmarshalling compatibility check body", err
 	}
 
 	compatible := parsedBody.Result
 
 	switch response.StatusCode {
 	case http.StatusOK:
-		return compatible, nil
+		return compatible, parsedBody.Info, nil
 	case http.StatusBadRequest:
-		return compatible, nil
+		return compatible, parsedBody.Info, nil
 	default:
-		return compatible, errors.Errorf("error: status code [%v]", response.StatusCode)
+		return compatible, parsedBody.Info, errors.Errorf("error: status code [%v]", response.StatusCode)
 	}
 }
 

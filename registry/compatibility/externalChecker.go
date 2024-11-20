@@ -17,17 +17,20 @@ package compatibility
 import (
 	"context"
 	"encoding/base64"
-	"fmt"
 	"os"
 	"strings"
 	"time"
 
 	"github.com/pkg/errors"
 
-	"github.com/dataphos/schema-registry/compatibility/http"
-	"github.com/dataphos/schema-registry/internal/errtemplates"
 	"github.com/dataphos/lib-httputil/pkg/httputil"
+	"github.com/dataphos/lib-logger/logger"
+	"github.com/dataphos/lib-logger/standardlogger"
 	"github.com/dataphos/lib-retry/pkg/retry"
+	"github.com/dataphos/schema-registry/compatibility/http"
+	"github.com/dataphos/schema-registry/internal/config"
+	"github.com/dataphos/schema-registry/internal/errcodes"
+	"github.com/dataphos/schema-registry/internal/errtemplates"
 )
 
 const (
@@ -42,8 +45,9 @@ const (
 )
 
 type ExternalChecker struct {
-	url         string
+	Url         string
 	TimeoutBase time.Duration
+	Log         logger.Log
 }
 
 // NewFromEnv loads the needed environment variables and calls New.
@@ -73,9 +77,20 @@ func New(ctx context.Context, url string, timeoutBase time.Duration) (*ExternalC
 		return nil, errors.Wrapf(err, "attempting to reach compatibility checker at %s failed", url)
 	}
 
+	labels := logger.Labels{
+		"product":   "Schema Registry",
+		"component": "compatibility_checker",
+	}
+	logLevel, logConfigWarnings := config.GetLogLevel()
+	log := standardlogger.New(labels, standardlogger.WithLogLevel(logLevel))
+	for _, w := range logConfigWarnings {
+		log.Warn(w)
+	}
+
 	return &ExternalChecker{
-		url:         url,
+		Url:         url,
 		TimeoutBase: timeoutBase,
+		Log:         log,
 	}, nil
 }
 
@@ -90,9 +105,12 @@ func (c *ExternalChecker) Check(schemaInfo string, history []string, mode string
 
 	decodedHistory, err := c.DecodeHistory(history)
 	if err != nil {
+		c.Log.Error("could not decode", errcodes.SchemaUndecodable)
 		return false, err
 	}
-	return http.CheckOverHTTP(ctx, schemaInfo, decodedHistory, mode, c.url+"/")
+	compatible, info, err := http.CheckOverHTTP(ctx, schemaInfo, decodedHistory, mode, c.Url+"/")
+	c.Log.Info(info)
+	return compatible, err
 }
 
 func (c *ExternalChecker) DecodeHistory(history []string) ([]string, error) {
@@ -100,7 +118,6 @@ func (c *ExternalChecker) DecodeHistory(history []string) ([]string, error) {
 	for i := 0; i < len(history); i++ {
 		decoded, err := base64.StdEncoding.DecodeString(history[i])
 		if err != nil {
-			fmt.Println(fmt.Errorf("could not decode").Error())
 			return nil, err
 		}
 		decodedHistory = append(decodedHistory, string(decoded))

@@ -18,6 +18,7 @@ package janitor
 
 import (
 	"context"
+	"encoding/json"
 	"strings"
 	"time"
 
@@ -35,18 +36,19 @@ import (
 // Message defines a Message used for processing broker messages.
 // Essentially, Message decorates broker messages with additional, extracted information.
 type Message struct {
-	ID            string
-	Key           string
-	RawAttributes map[string]interface{}
-	Payload       []byte
-	IngestionTime time.Time
-	SchemaID      string
-	Version       string
-	Format        string
+	ID               string
+	Key              string
+	RawAttributes    map[string]interface{}
+	Payload          []byte
+	IngestionTime    time.Time
+	SchemaID         string
+	Version          string
+	Format           string
+	HeaderValidation bool
 }
 
 const (
-	// AttributeSchemaID is one of the keys expected to beł found in the attributes field of the message.
+	// AttributeSchemaID is one of the keys expected to be found in the attributes field of the message.
 	// It holds the schema id information concerning the data field of the message
 	AttributeSchemaID = "schemaId"
 
@@ -57,6 +59,18 @@ const (
 	// AttributeFormat is one of the keys expected to be found in the attributes field of the message.
 	// It holds the format of the data field of the message.
 	AttributeFormat = "format"
+
+	// HeaderValidation is one of the keys that can occur in raw attributes section of header.
+	// It determines if the header will be validated
+	HeaderValidation = "headerValidation"
+
+	// AttributeHeaderID is one of the keys expected in raw attributes section of header, but only if HeaderValidation is true.
+	// It holds the header's schema id that is used to check header validity
+	AttributeHeaderID = "headerSchemaId"
+
+	// AttributeHeaderVersion is one of the keys expected in raw attributes section of header, but only if HeaderValidation is true.
+	// It holds the header's schema version that is used to check header validity
+	AttributeHeaderVersion = "headerVersionId"
 )
 
 // MessageSchemaPair wraps a Message with the Schema relating to this Message.
@@ -65,27 +79,29 @@ type MessageSchemaPair struct {
 	Schema  []byte
 }
 
-// CollectSchema retrieves the schema of the given Message from registry.SchemaRegistry.
+// CollectSchema retrieves the schema with the given id and version from registry.SchemaRegistry.
 //
-// If schema retrieval results in registry.ErrNotFound, or Message.SchemaID or Message.Version is an empty string,
+// If schema retrieval results in registry.ErrNotFound, or id or version are an empty string,
 // the Message is put on the results channel with MessageSchemaPair.Schema set to nil.
 //
 // The returned error is an instance of OpError for improved error handling (so that the source of this error is identifiable
 // even if combined with other errors).
-func CollectSchema(ctx context.Context, message Message, schemaRegistry registry.SchemaRegistry) (MessageSchemaPair, error) {
-	if message.SchemaID == "" || message.Version == "" {
-		return MessageSchemaPair{Message: message, Schema: nil}, nil
+func CollectSchema(ctx context.Context, id string, version string, schemaRegistry registry.SchemaRegistry) ([]byte, error) {
+	if id == "" || version == "" {
+		return nil, nil
 	}
 
-	schema, err := schemaRegistry.Get(ctx, message.SchemaID, message.Version)
+	schema, err := schemaRegistry.Get(ctx, id, version)
 	if err != nil {
 		if errors.Is(err, registry.ErrNotFound) {
-			return MessageSchemaPair{Message: message, Schema: nil}, nil
+			return nil, intoOpErr(id, errcodes.SchemaNotRegistered, err)
+		} else if errors.Is(err, registry.InvalidHeader) {
+			return nil, intoOpErr(id, errcodes.InvalidDataInHeader, err)
 		}
-		return MessageSchemaPair{}, intoOpErr(message.ID, errcodes.RegistryUnresponsive, err)
+		return nil, intoOpErr(id, errcodes.RegistryUnresponsive, err)
 	}
 
-	return MessageSchemaPair{Message: message, Schema: schema}, nil
+	return schema, nil
 }
 
 // Validators is a convenience type for a map containing validator.Validator instances for available message formats.
@@ -98,9 +114,87 @@ type Validators map[string]validator.Validator
 func (vs Validators) Validate(message Message, schema []byte) (bool, error) {
 	v, ok := vs[strings.ToLower(message.Format)]
 	if !ok {
-		return false, errtemplates.UnsupportedMessageFormat(message.Format)
+		return false, errors.WithMessage(validator.ErrUnsupportedFormat, errtemplates.UnsupportedMessageFormat(message.Format).Error())
 	}
 	return v.Validate(message.Payload, schema, message.SchemaID, message.Version)
+}
+
+func GetHeaderIdAndVersion(message Message) (string, string, error) {
+	var id string
+	var version string
+	var ok bool
+
+	if id, ok = message.RawAttributes[AttributeHeaderID].(string); !ok {
+		err := errors.New("missing header: ID")
+		message.RawAttributes["deadLetterErrorCategory"] = "Missing header: ID"
+		message.RawAttributes["deadLetterErrorReason"] = err
+		return "", "", intoOpErr(message.ID, errcodes.MissingDataInHeader, err)
+	}
+	if version, ok = message.RawAttributes[AttributeHeaderVersion].(string); !ok {
+		err := errors.New("missing header: version")
+		message.RawAttributes["deadLetterErrorCategory"] = "Missing header: version"
+		message.RawAttributes["deadLetterErrorReason"] = err
+		return "", "", intoOpErr(message.ID, errcodes.MissingDataInHeader, err)
+	}
+	return id, version, nil
+}
+
+func ValidateHeader(message Message, schema []byte, validators Validators) (bool, error) {
+	if len(schema) == 0 {
+		errMissingHeaderSchema := errors.WithMessage(validator.ErrMissingHeaderSchema, "")
+		message.RawAttributes["deadLetterErrorCategory"] = "Header schema error"
+		message.RawAttributes["deadLetterErrorReason"] = errMissingHeaderSchema.Error()
+		return false, nil
+	}
+	headerData, err := generateHeaderData(message.RawAttributes)
+	if err != nil {
+		message.RawAttributes["deadLetterErrorCategory"] = "Header schema error"
+		message.RawAttributes["deadLetterErrorReason"] = err.Error()
+		return false, err
+	}
+
+	headerSchemaId, ok := message.RawAttributes[AttributeHeaderID].(string)
+	if !ok {
+		return false, errors.New("header ID is not in a supported format")
+	}
+	headerSchemaVersion, ok := message.RawAttributes[AttributeHeaderVersion].(string)
+	if !ok {
+		return false, errors.New("header version is not in a supported format")
+	}
+
+	isValid, err := validators["json"].Validate(headerData, schema, headerSchemaId, headerSchemaVersion)
+	if err != nil {
+		if errors.Is(err, validator.ErrFailedValidation) {
+			message.RawAttributes["deadLetterErrorCategory"] = "Header validation error"
+			message.RawAttributes["deadLetterErrorReason"] = errors.WithMessage(validator.ErrFailedHeaderValidation, err.Error())
+			return false, nil
+		} else if errors.Is(err, validator.ErrDeadletter) {
+			return false, nil
+		}
+		return false, intoOpErr(message.ID, errcodes.ValidationFailure, err)
+	}
+
+	if isValid {
+		return true, nil
+	}
+	return false, nil
+}
+
+func generateHeaderData(rawAttributes map[string]interface{}) ([]byte, error) {
+	cleanAttributes := make(map[string]interface{})
+	for key, value := range rawAttributes {
+		if key == HeaderValidation || key == AttributeHeaderID || key == AttributeHeaderVersion ||
+			key == AttributeSchemaID || key == AttributeSchemaVersion || key == AttributeFormat {
+			continue
+		} else {
+			cleanAttributes[key] = value
+		}
+	}
+	headerData, err := json.Marshal(cleanAttributes)
+	if err != nil {
+		return nil, err
+	}
+	return headerData, nil
 }
 
 // SchemaGenerators is a convenience type for a map containing schemagen.Generator instances for available message formats.
@@ -182,6 +276,11 @@ func InferDestinationTopic(messageSchemaPair MessageSchemaPair, validators Valid
 		}
 		if errors.Is(err, validator.ErrFailedValidation) {
 			message.RawAttributes["deadLetterErrorCategory"] = "Validation error"
+			message.RawAttributes["deadLetterErrorReason"] = err.Error()
+			return MessageTopicPair{Message: message, Topic: router.Route(Deadletter, message)}, nil
+		}
+		if errors.Is(err, validator.ErrUnsupportedFormat) {
+			message.RawAttributes["deadLetterErrorCategory"] = "Unsupported format"
 			message.RawAttributes["deadLetterErrorReason"] = err.Error()
 			return MessageTopicPair{Message: message, Topic: router.Route(Deadletter, message)}, nil
 		}

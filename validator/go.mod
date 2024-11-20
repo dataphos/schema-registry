@@ -18,6 +18,7 @@ require (
 	github.com/pkg/errors v0.9.1
 	github.com/prometheus/client_golang v1.15.1
 	github.com/santhosh-tekuri/jsonschema/v5 v5.0.2
+	github.com/twmb/franz-go v1.13.3
 	github.com/xeipuuv/gojsonschema v1.2.0
 	go.uber.org/multierr v1.9.0
 	go.uber.org/ratelimit v0.2.0
@@ -88,7 +89,6 @@ require (
 	github.com/prometheus/procfs v0.9.0 // indirect
 	github.com/sirupsen/logrus v1.9.3 // indirect
 	github.com/spaolacci/murmur3 v1.1.0 // indirect
-	github.com/twmb/franz-go v1.13.3 // indirect
 	github.com/twmb/franz-go/pkg/kmsg v1.5.0 // indirect
 	github.com/twmb/franz-go/pkg/sasl/kerberos v1.1.0 // indirect
 	github.com/twmb/franz-go/plugin/kprom v1.0.0 // indirect

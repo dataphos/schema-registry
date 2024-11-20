@@ -22,6 +22,7 @@ import (
 )
 
 var ErrNotFound = errors.New("no schema registered under given id and version")
+var InvalidHeader = errors.New("id and/or version are not in supported format")
 
 // SchemaRegistry models schema registries.
 type SchemaRegistry interface {

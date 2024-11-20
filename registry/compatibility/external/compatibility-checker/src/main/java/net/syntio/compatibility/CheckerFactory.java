@@ -22,6 +22,7 @@ import net.syntio.compatibility.checker.JsonChecker;
 import net.syntio.compatibility.checker.ProtobufChecker;
 
 public class CheckerFactory {
+
     public static CompatibilityChecker createChecker(String format) throws Exception {
         return switch (format) {
             case FileTypes.JSON -> new JsonChecker();

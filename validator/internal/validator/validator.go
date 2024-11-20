@@ -24,13 +24,22 @@ var ErrDeadletter = errors.New("deadletter")
 var ErrBrokenMessage = errors.New("Message is not in valid format")
 
 // ErrWrongCompile is a special error type to help distinguish messages that had fault while compiling.
-var ErrWrongCompile = errors.New("There is an error while compiling.")
+var ErrWrongCompile = errors.New("There is an error while compiling")
 
 // ErrMissingSchema is a special error type to help distinguish messages that are missing schema.
 var ErrMissingSchema = errors.New("Message is missing a schema")
 
+// ErrMissingHeaderSchema is a special error type to help distinguish headers that are missing schema (header validation).
+var ErrMissingHeaderSchema = errors.New("Header is missing a schema")
+
 // ErrFailedValidation is a special error type to help distinguish messages that have failed in validation.
-var ErrFailedValidation = errors.New("An error occured while validating message.")
+var ErrFailedValidation = errors.New("An error occured while validating message")
+
+// ErrFailedHeaderValidation is a special error type to help distinguish messages' headers that have failed in validation.
+var ErrFailedHeaderValidation = errors.New("An error occured while validating message's header")
+
+// ErrUnsupportedFormat is a special error type to help distinguish messages that are in wrong format
+var ErrUnsupportedFormat = errors.New("Message is not in a supported format")
 
 // Validator is the interface used to model message validators.
 type Validator interface {

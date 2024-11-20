@@ -22,5 +22,5 @@ import io.apicurio.registry.rules.compatibility.CompatibilityLevel;
 import java.util.List;
 
 public interface CompatibilityChecker {
-    boolean testCompatibility(CompatibilityLevel level, List<ContentHandle> history, ContentHandle currentSchema);
+    List<String> testCompatibility(CompatibilityLevel level, List<ContentHandle> history, ContentHandle currentSchema);
 }
