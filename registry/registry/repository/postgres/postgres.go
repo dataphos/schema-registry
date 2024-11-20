@@ -42,7 +42,16 @@ func New(db *gorm.DB) *Repository {
 // Returns registry.ErrNotFound in case there's no schema under the given id and version.
 func (r *Repository) GetSchemaVersionByIdAndVersion(id, version string) (registry.VersionDetails, error) {
 	var details VersionDetails
-	if err := r.db.Where("schema_id = ? and version = ? and version_deactivated = ?", id, version, false).Take(&details).Error; err != nil {
+	var err error
+	_, err = strconv.Atoi(id)
+	if err != nil {
+		return registry.VersionDetails{}, registry.ErrInvalidValueHeader
+	}
+	_, err = strconv.Atoi(version)
+	if err != nil {
+		return registry.VersionDetails{}, registry.ErrInvalidValueHeader
+	}
+	if err = r.db.Where("schema_id = ? and version = ? and version_deactivated = ?", id, version, false).Take(&details).Error; err != nil {
 		if errors.Is(err, gorm.ErrRecordNotFound) {
 			return registry.VersionDetails{}, registry.ErrNotFound
 		}

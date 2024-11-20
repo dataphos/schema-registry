@@ -17,6 +17,7 @@
 package net.syntio.compatibility;
 
 public class Message {
+
     private final String id;
     private final String format;
     private final String schema;
@@ -27,12 +28,11 @@ public class Message {
         this.schema = schema;
     }
 
-
     public String getSchema() {
         return schema;
     }
 
-    public String getID() {
+    public String getId() {
         return id;
     }
 

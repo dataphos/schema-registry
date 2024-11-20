@@ -23,7 +23,18 @@ import (
 
 	"github.com/pkg/errors"
 	"github.com/prometheus/client_golang/prometheus"
+	"github.com/twmb/franz-go/pkg/kgo"
 
+	"github.com/dataphos/lib-brokers/pkg/broker"
+	"github.com/dataphos/lib-brokers/pkg/broker/jetstream"
+	"github.com/dataphos/lib-brokers/pkg/broker/kafka"
+	"github.com/dataphos/lib-brokers/pkg/broker/pubsub"
+	"github.com/dataphos/lib-brokers/pkg/broker/pulsar"
+	"github.com/dataphos/lib-brokers/pkg/broker/servicebus"
+	"github.com/dataphos/lib-brokers/pkg/brokerutil"
+	"github.com/dataphos/lib-httputil/pkg/httputil"
+	"github.com/dataphos/lib-logger/logger"
+	"github.com/dataphos/lib-streamproc/pkg/streamproc"
 	"github.com/dataphos/schema-registry-validator/internal/config"
 	"github.com/dataphos/schema-registry-validator/internal/errcodes"
 	"github.com/dataphos/schema-registry-validator/internal/errtemplates"
@@ -40,16 +51,6 @@ import (
 	"github.com/dataphos/schema-registry-validator/internal/validator/json"
 	"github.com/dataphos/schema-registry-validator/internal/validator/protobuf"
 	"github.com/dataphos/schema-registry-validator/internal/validator/xml"
-	"github.com/dataphos/lib-brokers/pkg/broker"
-	"github.com/dataphos/lib-brokers/pkg/broker/jetstream"
-	"github.com/dataphos/lib-brokers/pkg/broker/kafka"
-	"github.com/dataphos/lib-brokers/pkg/broker/pubsub"
-	"github.com/dataphos/lib-brokers/pkg/broker/pulsar"
-	"github.com/dataphos/lib-brokers/pkg/broker/servicebus"
-	"github.com/dataphos/lib-brokers/pkg/brokerutil"
-	"github.com/dataphos/lib-httputil/pkg/httputil"
-	"github.com/dataphos/lib-logger/logger"
-	"github.com/dataphos/lib-streamproc/pkg/streamproc"
 )
 
 // initializeSchemaRegistry gets the janitor implementation of a schema registry, optionally decorating it with an in-memory lru cache
@@ -105,6 +106,7 @@ func initializeSchemaRegistry(ctx context.Context, log logger.Log, cfg *config.R
 func initKafkaPublisher(ctx context.Context, cfg *config.Producer) (broker.Publisher, error) {
 	var tlsConfig *tls.Config
 	var krbConfig *kafka.KerberosConfig
+	var ack kgo.Acks
 	if cfg.Kafka.TlsConfig.Enabled {
 		var err error
 		tlsConfig, err = httputil.NewTLSConfig(cfg.Kafka.TlsConfig.ClientCertFile, cfg.Kafka.TlsConfig.ClientKeyFile, cfg.Kafka.TlsConfig.CaCertFile)
@@ -124,6 +126,17 @@ func initKafkaPublisher(ctx context.Context, cfg *config.Producer) (broker.Publi
 		}
 	}
 
+	switch cfg.Kafka.Settings.Acks {
+	case 0:
+		ack = kgo.NoAck()
+	case 1:
+		ack = kgo.LeaderAck()
+	case -1:
+		ack = kgo.AllISRAcks()
+	default:
+		ack = kgo.LeaderAck()
+	}
+
 	return kafka.NewPublisher(
 		ctx,
 		kafka.ProducerConfig{
@@ -139,6 +152,7 @@ func initKafkaPublisher(ctx context.Context, cfg *config.Producer) (broker.Publi
 			BatchSize:  cfg.Kafka.Settings.BatchSize,
 			BatchBytes: cfg.Kafka.Settings.BatchBytes,
 			Linger:     cfg.Kafka.Settings.Linger,
+			Acks:       ack,
 		},
 	)
 }

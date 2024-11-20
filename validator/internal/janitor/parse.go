@@ -15,8 +15,8 @@
 package janitor
 
 import (
-	"github.com/dataphos/schema-registry-validator/internal/errtemplates"
 	"github.com/dataphos/lib-streamproc/pkg/streamproc"
+	"github.com/dataphos/schema-registry-validator/internal/errtemplates"
 )
 
 // ParseMessage parses a given broker.Message into Message, by setting Message.Payload to the value of the data field of the given
@@ -55,19 +55,21 @@ func ExtractAttributes(raw map[string]interface{}) (Attributes, error) {
 	var schemaIDStr, versionStr, formatStr string
 
 	schemaID, ok := raw[AttributeSchemaID]
-	if ok {
-		schemaIDStr, ok = schemaID.(string)
-		if !ok {
-			return Attributes{}, errtemplates.AttributeNotAString(AttributeSchemaID)
-		}
+	if !ok {
+		return Attributes{}, errtemplates.AttributeNotDefined(AttributeSchemaID)
+	}
+	schemaIDStr, ok = schemaID.(string)
+	if !ok {
+		return Attributes{}, errtemplates.AttributeNotAString(AttributeSchemaID)
 	}
 
 	version, ok := raw[AttributeSchemaVersion]
-	if ok {
-		versionStr, ok = version.(string)
-		if !ok {
-			return Attributes{}, errtemplates.AttributeNotAString(AttributeSchemaVersion)
-		}
+	if !ok {
+		return Attributes{}, errtemplates.AttributeNotDefined(AttributeSchemaVersion)
+	}
+	versionStr, ok = version.(string)
+	if !ok {
+		return Attributes{}, errtemplates.AttributeNotAString(AttributeSchemaVersion)
 	}
 	format, ok := raw[AttributeFormat]
 	if !ok {
