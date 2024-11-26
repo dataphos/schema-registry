@@ -87,11 +87,8 @@ type MessageSchemaPair struct {
 // The returned error is an instance of OpError for improved error handling (so that the source of this error is identifiable
 // even if combined with other errors).
 func CollectSchema(ctx context.Context, id string, version string, schemaRegistry registry.SchemaRegistry) ([]byte, error) {
-	if id == "" {
-		return nil, intoOpErr("_", errcodes.InvalidDataInHeader, errors.New("missing schema ID"))
-	}
-	if version == "" {
-		return nil, intoOpErr("_", errcodes.InvalidDataInHeader, errors.New("missing schema version"))
+	if id == "" || version == "" {
+		return nil, nil
 	}
 
 	schema, err := schemaRegistry.Get(ctx, id, version)
@@ -122,25 +119,55 @@ func (vs Validators) Validate(message Message, schema []byte) (bool, error) {
 	return v.Validate(message.Payload, schema, message.SchemaID, message.Version)
 }
 
+func GetHeaderIdAndVersion(message Message) (string, string, error) {
+	var id string
+	var version string
+	var ok bool
+
+	if id, ok = message.RawAttributes[AttributeHeaderID].(string); !ok {
+		err := errors.New("missing header: ID")
+		message.RawAttributes["deadLetterErrorCategory"] = "Missing header: ID"
+		message.RawAttributes["deadLetterErrorReason"] = err
+		return "", "", intoOpErr(message.ID, errcodes.MissingDataInHeader, err)
+	}
+	if version, ok = message.RawAttributes[AttributeHeaderVersion].(string); !ok {
+		err := errors.New("missing header: version")
+		message.RawAttributes["deadLetterErrorCategory"] = "Missing header: version"
+		message.RawAttributes["deadLetterErrorReason"] = err
+		return "", "", intoOpErr(message.ID, errcodes.MissingDataInHeader, err)
+	}
+	return id, version, nil
+}
+
 func ValidateHeader(message Message, schema []byte, validators Validators) (bool, error) {
 	if len(schema) == 0 {
-		return false, intoOpErr(message.ID, errcodes.SchemaNotRegistered, validator.ErrMissingHeaderSchema)
+		errMissingHeaderSchema := errors.WithMessage(validator.ErrMissingHeaderSchema, "")
+		message.RawAttributes["deadLetterErrorCategory"] = "Header schema error"
+		message.RawAttributes["deadLetterErrorReason"] = errMissingHeaderSchema.Error()
+		return false, nil
 	}
 	headerData, err := generateHeaderData(message.RawAttributes)
 	if err != nil {
-		message.RawAttributes["deadLetterErrorCategory"] = "Marshaling error"
+		message.RawAttributes["deadLetterErrorCategory"] = "Header schema error"
 		message.RawAttributes["deadLetterErrorReason"] = err.Error()
 		return false, err
 	}
 
-	// don't need to check if these are string because we checked already
-	headerSchemaId, _ := message.RawAttributes[AttributeHeaderID].(string)
-	headerSchemaVersion, _ := message.RawAttributes[AttributeHeaderVersion].(string)
+	headerSchemaId, ok := message.RawAttributes[AttributeHeaderID].(string)
+	if !ok {
+		return false, errors.New("header ID is not in a supported format")
+	}
+	headerSchemaVersion, ok := message.RawAttributes[AttributeHeaderVersion].(string)
+	if !ok {
+		return false, errors.New("header version is not in a supported format")
+	}
 
 	isValid, err := validators["json"].Validate(headerData, schema, headerSchemaId, headerSchemaVersion)
 	if err != nil {
 		if errors.Is(err, validator.ErrFailedValidation) {
-			return false, intoOpErr(message.ID, errcodes.DeadletterMessage, err)
+			message.RawAttributes["deadLetterErrorCategory"] = "Header validation error"
+			message.RawAttributes["deadLetterErrorReason"] = errors.WithMessage(validator.ErrFailedHeaderValidation, err.Error())
+			return false, nil
 		} else if errors.Is(err, validator.ErrDeadletter) {
 			return false, nil
 		}
@@ -230,30 +257,34 @@ func InferDestinationTopic(messageSchemaPair MessageSchemaPair, validators Valid
 
 	if len(schema) == 0 {
 		errMissingSchema := errors.WithMessage(validator.ErrMissingSchema, "")
-		setMessageRawAttributes(message, "Schema error", errMissingSchema)
+		message.RawAttributes["deadLetterErrorCategory"] = "Schema error"
+		message.RawAttributes["deadLetterErrorReason"] = errMissingSchema.Error()
 		return MessageTopicPair{Message: message, Topic: router.Route(MissingSchema, message)}, nil
 	}
 
 	isValid, err := validators.Validate(message, schema)
 	if err != nil {
 		if errors.Is(err, validator.ErrBrokenMessage) {
-			setMessageRawAttributes(message, "Broken message", err)
+			message.RawAttributes["deadLetterErrorCategory"] = "Broken message"
+			message.RawAttributes["deadLetterErrorReason"] = err.Error()
 			return MessageTopicPair{Message: message, Topic: router.Route(Deadletter, message)}, nil
 		}
 		if errors.Is(err, validator.ErrWrongCompile) {
-			setMessageRawAttributes(message, "Wrong compile", err)
+			message.RawAttributes["deadLetterErrorCategory"] = "Wrong compile"
+			message.RawAttributes["deadLetterErrorReason"] = err.Error()
 			return MessageTopicPair{Message: message, Topic: router.Route(Deadletter, message)}, nil
 		}
 		if errors.Is(err, validator.ErrFailedValidation) {
-			setMessageRawAttributes(message, "Payload validation error", err)
+			message.RawAttributes["deadLetterErrorCategory"] = "Validation error"
+			message.RawAttributes["deadLetterErrorReason"] = err.Error()
 			return MessageTopicPair{Message: message, Topic: router.Route(Deadletter, message)}, nil
 		}
 		if errors.Is(err, validator.ErrUnsupportedFormat) {
-			setMessageRawAttributes(message, "Unsupported format", err)
+			message.RawAttributes["deadLetterErrorCategory"] = "Unsupported format"
+			message.RawAttributes["deadLetterErrorReason"] = err.Error()
 			return MessageTopicPair{Message: message, Topic: router.Route(Deadletter, message)}, nil
 		}
 		if errors.Is(err, validator.ErrDeadletter) {
-			setMessageRawAttributes(message, "Deadletter error", err)
 			return MessageTopicPair{Message: message, Topic: router.Route(Deadletter, message)}, nil
 		}
 		return MessageTopicPair{}, intoOpErr(message.ID, errcodes.ValidationFailure, err)
@@ -266,11 +297,6 @@ func InferDestinationTopic(messageSchemaPair MessageSchemaPair, validators Valid
 		result = Invalid
 	}
 	return MessageTopicPair{Message: message, Topic: router.Route(result, message)}, nil
-}
-
-func setMessageRawAttributes(message Message, errCategory string, err error) {
-	message.RawAttributes["deadLetterErrorCategory"] = errCategory
-	message.RawAttributes["deadLetterErrorReason"] = err.Error()
 }
 
 // PublishToTopic publishes a Message to a broker.Topic, returning the relevant OpError in case of failure.
