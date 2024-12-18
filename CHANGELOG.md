@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.2.0](https://github.com/dataphos/schema-registry/compare/v1.1.1...v1.2.0) (2024-12-18)
+
+
+### Features
+
+* new branching strategy ([#37](https://github.com/dataphos/schema-registry/issues/37)) ([7ca590d](https://github.com/dataphos/schema-registry/commit/7ca590dfab3ee9ad15a9c4969c96e50dc21b13a2))
+
 ## [1.1.1](https://github.com/dataphos/schema-registry/compare/v1.1.0...v1.1.1) (2024-11-26)
 
 
