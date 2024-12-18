@@ -19,14 +19,17 @@ import (
 	"encoding/json"
 	"strconv"
 
+	"github.com/pkg/errors"
+	"go.uber.org/multierr"
+
 	"github.com/dataphos/lib-brokers/pkg/broker"
 	"github.com/dataphos/lib-logger/logger"
+	"github.com/dataphos/schema-registry-validator/internal/config"
 	"github.com/dataphos/schema-registry-validator/internal/errcodes"
 	"github.com/dataphos/schema-registry-validator/internal/errtemplates"
 	"github.com/dataphos/schema-registry-validator/internal/janitor"
 	"github.com/dataphos/schema-registry-validator/internal/registry"
 	jsoninternal "github.com/dataphos/schema-registry-validator/internal/validator/json"
-	"github.com/pkg/errors"
 )
 
 // Mode is the way Central consumer works; if the mode is Default, one CC will be deployed, and it will validate multiple
@@ -70,19 +73,20 @@ type VersionDetails struct {
 
 // CentralConsumer models the central consumer process.
 type CentralConsumer struct {
-	Registry        registry.SchemaRegistry
-	Validators      janitor.Validators
-	Router          janitor.Router
-	Publisher       broker.Publisher
-	topicIDs        Topics
-	topics          map[string]broker.Topic
-	registrySem     chan struct{}
-	validatorsSem   chan struct{}
-	log             logger.Log
-	mode            Mode
-	schema          Schema
-	encryptionKey   string
-	validateHeaders bool
+	Registry            registry.SchemaRegistry
+	Validators          janitor.Validators
+	Router              janitor.Router
+	Publisher           broker.Publisher
+	topicIDs            Topics
+	topics              map[string]broker.Topic
+	registrySem         chan struct{}
+	validatorsSem       chan struct{}
+	log                 logger.Log
+	mode                Mode
+	schema              Schema
+	encryptionKey       string
+	validateHeaders     bool
+	defaultHeaderSchema config.DefaultHeaderSchema
 }
 
 // Settings holds settings concerning the concurrency limits for various stages of the central consumer pipeline.
@@ -95,6 +99,12 @@ type Settings struct {
 
 	// ValidateHeaders defines if the messages' headers will be validated
 	ValidateHeaders bool
+
+	// DefaultHeaderSchemaId is default ID of the header schema
+	DefaultHeaderSchemaId string
+
+	// DefaultHeaderSchemaVersion is default version of the header schema
+	DefaultHeaderSchemaVersion string
 }
 
 // Topics defines the standard destination topics, based on validation results.
@@ -191,6 +201,10 @@ func New(registry registry.SchemaRegistry, publisher broker.Publisher, validator
 		},
 		encryptionKey:   encryptionKey,
 		validateHeaders: settings.ValidateHeaders,
+		defaultHeaderSchema: config.DefaultHeaderSchema{
+			DefaultHeaderSchemaId:      settings.DefaultHeaderSchemaId,
+			DefaultHeaderSchemaVersion: settings.DefaultHeaderSchemaVersion,
+		},
 	}, nil
 }
 
@@ -329,9 +343,25 @@ func (cc *CentralConsumer) Handle(ctx context.Context, message janitor.Message) 
 		)
 
 		headerId, headerVersion, err = getHeaderSchemaIdAndVersion(message)
-		if err != nil {
-			return janitor.MessageTopicPair{Message: message, Topic: cc.Router.Route(janitor.Deadletter, message)}, nil
+		for _, e := range multierr.Errors(err) {
+			if e.Error() == errtemplates.AttributeNotDefined(janitor.AttributeHeaderID).Error() {
+				if cc.defaultHeaderSchema.DefaultHeaderSchemaId != "" {
+					headerId = cc.defaultHeaderSchema.DefaultHeaderSchemaId
+				} else {
+					setMessageRawAttributes(message, "Header error", err)
+					return janitor.MessageTopicPair{Message: message, Topic: cc.Router.Route(janitor.Deadletter, message)}, nil
+				}
+			}
+			if e.Error() == errtemplates.AttributeNotDefined(janitor.AttributeHeaderVersion).Error() {
+				if cc.defaultHeaderSchema.DefaultHeaderSchemaVersion != "" {
+					headerVersion = cc.defaultHeaderSchema.DefaultHeaderSchemaVersion
+				} else {
+					setMessageRawAttributes(message, "Header error", err)
+					return janitor.MessageTopicPair{Message: message, Topic: cc.Router.Route(janitor.Deadletter, message)}, nil
+				}
+			}
 		}
+
 		acquireIfSet(cc.registrySem)
 		headerSchema, err = janitor.CollectSchema(ctx, headerId, headerVersion, cc.Registry)
 		if err != nil {
@@ -438,33 +468,34 @@ func (cc *CentralConsumer) Handle(ctx context.Context, message janitor.Message) 
 }
 
 func getHeaderSchemaIdAndVersion(message janitor.Message) (string, string, error) {
-	var id string
-	var version string
 	var (
-		ok, isString bool
+		id, version               string
+		okId, okVersion, isString bool
+		errCombined               error
 	)
 
-	if _, ok = message.RawAttributes[janitor.AttributeHeaderID]; !ok {
-		err := errors.Errorf("missing %s from header", janitor.AttributeHeaderID)
-		setMessageRawAttributes(message, "Header error", err)
-		return "", "", err
+	// Check if header ID and header version are present
+	if _, okId = message.RawAttributes[janitor.AttributeHeaderID]; !okId {
+		errCombined = multierr.Append(errCombined, errtemplates.AttributeNotDefined(janitor.AttributeHeaderID))
 	}
-	if _, ok = message.RawAttributes[janitor.AttributeHeaderVersion]; !ok {
-		err := errors.Errorf("missing %s from header", janitor.AttributeHeaderVersion)
-		setMessageRawAttributes(message, "Header error", err)
-		return "", "", err
+	if _, okVersion = message.RawAttributes[janitor.AttributeHeaderVersion]; !okVersion {
+		errCombined = multierr.Append(errCombined, errtemplates.AttributeNotDefined(janitor.AttributeHeaderVersion))
 	}
-	if id, isString = message.RawAttributes[janitor.AttributeHeaderID].(string); !isString {
-		err := errors.Errorf("invalid type %s in header", janitor.AttributeHeaderID)
-		setMessageRawAttributes(message, "Header error", err)
-		return "", "", err
+
+	// For those values that are present, check if they are strings (this should always be true, but check just in case)
+	if okId {
+		if id, isString = message.RawAttributes[janitor.AttributeHeaderID].(string); !isString {
+			errCombined = multierr.Append(errCombined, errtemplates.AttributeNotAString(janitor.AttributeHeaderID))
+		}
 	}
-	if version, isString = message.RawAttributes[janitor.AttributeHeaderVersion].(string); !isString {
-		err := errors.Errorf("invalid type %s in header", janitor.AttributeHeaderVersion)
-		setMessageRawAttributes(message, "Header error", err)
-		return "", "", err
+	if okVersion {
+		if version, isString = message.RawAttributes[janitor.AttributeHeaderVersion].(string); !isString {
+			errCombined = multierr.Append(errCombined, errtemplates.AttributeNotAString(janitor.AttributeHeaderVersion))
+		}
 	}
-	return id, version, nil
+
+	// Values that are set are going to be modified, those that are not will not be and proper error will be returned
+	return id, version, errCombined
 }
 
 func (cc *CentralConsumer) getMessageTopicPair(messageSchemaPair janitor.MessageSchemaPair, encryptedMessageData []byte) (janitor.MessageTopicPair, error) {
