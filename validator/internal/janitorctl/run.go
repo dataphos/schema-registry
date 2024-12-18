@@ -84,9 +84,11 @@ func RunCentralConsumer(configFile string) {
 				Deadletter:  cfg.Topics.DeadLetter,
 			},
 			centralconsumer.Settings{
-				NumSchemaCollectors: cfg.NumSchemaCollectors,
-				NumInferrers:        cfg.NumInferrers,
-				ValidateHeaders:     cfg.ValidateHeaders,
+				NumSchemaCollectors:        cfg.NumSchemaCollectors,
+				NumInferrers:               cfg.NumInferrers,
+				ValidateHeaders:            cfg.ValidateHeaders,
+				DefaultHeaderSchemaId:      cfg.DefaultHeaderSchema.DefaultHeaderSchemaId,
+				DefaultHeaderSchemaVersion: cfg.DefaultHeaderSchema.DefaultHeaderSchemaVersion,
 			},
 			log,
 			centralconsumer.RouterFlags{

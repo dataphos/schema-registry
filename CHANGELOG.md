@@ -1,5 +1,13 @@
 # Changelog
 
+## [1.1.1](https://github.com/dataphos/schema-registry/compare/v1.1.0...v1.1.1) (2024-11-26)
+
+
+### Bug Fixes
+
+* header schema error ([7328844](https://github.com/dataphos/schema-registry/commit/7328844e6e6309e3c99c7c2f9c750aba984a994e))
+* header validation fix ([d5708e2](https://github.com/dataphos/schema-registry/commit/d5708e271d173ff1a697b07bb1c62b7b506db383))
+
 ## [1.1.0](https://github.com/dataphos/schema-registry/compare/v1.0.0...v1.1.0) (2024-11-20)
 
 

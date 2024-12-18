@@ -31,6 +31,7 @@ type CentralConsumer struct {
 	NumSchemaCollectors    int                       `toml:"num_schema_collectors" default:"-1"`
 	NumInferrers           int                       `toml:"num_inferrers" default:"-1"`
 	ValidateHeaders        bool                      `toml:"validate_headers"`
+	DefaultHeaderSchema    DefaultHeaderSchema       `toml:"default_header_schema"`
 	MetricsLoggingInterval time.Duration             `toml:"metrics_logging_interval" default:"5s"`
 	RunOptions             RunOptions                `toml:"run_option"`
 	Mode                   int                       `toml:"mode"`
@@ -69,6 +70,11 @@ type CentralConsumerShouldLog struct {
 	MissingSchema bool `toml:"missing_schema"`
 	Valid         bool `toml:"valid"`
 	DeadLetter    bool `toml:"dead_letter"`
+}
+
+type DefaultHeaderSchema struct {
+	DefaultHeaderSchemaId      string `toml:"id"`
+	DefaultHeaderSchemaVersion string `toml:"version"`
 }
 
 // Read loads parameters from configuration file into CentralConsumer struct.

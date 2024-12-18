@@ -61,7 +61,7 @@ func UnsupportedBrokerType(name string) error {
 	return errors.Errorf(unsupportedBrokerTypeTemplate, name)
 }
 
-// UnsupportedRegistryType returns an error stating that the given broker type is not supported.
+// UnsupportedRegistryType returns an error stating that the given registry type is not supported.
 func UnsupportedRegistryType(name string) error {
 	return errors.Errorf(unsupportedRegistryTypeTemplate, name)
 }
@@ -86,7 +86,7 @@ func MustNotBeEmpty(name string) error {
 	return errors.Errorf(mustNotBeEmptyTemplate, name)
 }
 
-// UnsupportedMessageFormat returns an error stating that the given variable must not be empty.
+// UnsupportedMessageFormat returns an error stating that the message's format is not supported for validation.
 func UnsupportedMessageFormat(format string) error {
 	return errors.Errorf(unsupportedMessageFormatTemplate, format)
 }
