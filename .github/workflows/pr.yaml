@@ -1,8 +1,12 @@
 name: PR CI
 
 on:
-  pull_request:
-    branches: [ develop, main ]
+  pull_request_target:
+    types:
+      - opened
+      - edited
+      - synchronize
+      - reopened
 
 env:
   GO111MODULE: on
@@ -13,29 +17,30 @@ env:
   TEST_ARGS: -v -short -coverprofile=coverage.out
 
 jobs:
-  commitlint:
-    name: Commit Lint Job
+  validate_pr_title_job:
+    if: ${{ ! contains(github.head_ref, 'release-please--branches--main') }}
+    name: Validate PR title
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: amannn/action-semantic-pull-request@v5
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
-          fetch-depth: 0
-
-      - name: Set up Node.js
-        uses: actions/setup-node@v4
-        with:
-          node-version: ${{ env.NODE_VERSION }}
-
-      - name: Install commitlint
-        run: |
-          npm install --save-dev @commitlint/{cli,config-conventional}
-
-      - name: Validate PR commits with commitlint
-        run: npx commitlint --from ${{ github.event.pull_request.head.sha }}~${{ github.event.pull_request.commits }} --to ${{ github.event.pull_request.head.sha }} --verbose
+          requireScope: false
+          # Configure additional validation for the subject based on a regex.
+          # This example ensures the subject doesn't start with an uppercase character.
+          subjectPattern: ^(?![A-Z]).+$
+          # If `subjectPattern` is configured, you can use this property to override
+          # the default error message that is shown when the pattern doesn't match.
+          # The variables `subject` and `title` can be used within the message.
+          subjectPatternError: |
+            The subject "{subject}" found in the pull request title "{title}"
+            didn't match the configured pattern. Please ensure that the subject
+            doesn't start with an uppercase character.
 
   # Linting multiple Dockerfiles to ensure adherence to best practices and coding standards.
   hadolint_job:
-    name: Hadolint Job
+    name: Hadolint
     if: ${{ ! contains(github.head_ref, 'release-please--branches--main') }}
     runs-on: ubuntu-latest
     strategy:
@@ -61,7 +66,7 @@ jobs:
           dockerfile: ${{ matrix.dockerfile }}
 
   editor_config_job:
-    name: Editor Config Job
+    name: Check editor config
     runs-on: ubuntu-latest
     steps:
       - name: Check out repository
@@ -79,7 +84,7 @@ jobs:
 
   # Ensures that the code adheres to the lint checks defined in .golangci.yaml.
   lint_job:
-    name: Go lint job for all components
+    name: Go lint
     if: ${{ ! contains(github.head_ref, 'release-please--branches--main') }}
     runs-on: ubuntu-latest
     strategy:
@@ -125,8 +130,8 @@ jobs:
           skip-save-cache: true
           working-directory: ${{ matrix.component }}
 
-  licenses_check:
-    name: 3rd Party Licenses Check
+  licenses_check_job:
+    name: 3rd party licenses check
     if: ${{ github.event.head_commit.committer.name != 'github-actions[bot]' || ! contains(github.head_ref, 'release-please--branches--main') }}
     runs-on: ubuntu-latest
     permissions:
@@ -233,7 +238,7 @@ jobs:
 
   # Runs unit tests for all components in this repo
   test_job:
-    name: Test Job for all components
+    name: Test job
     if: ${{ github.base_ref == 'main' && ! contains(github.head_ref, 'release-please--branches--main') }}
     runs-on: ubuntu-latest
 
@@ -264,8 +269,8 @@ jobs:
         run: go test ${{env.TEST_ARGS}} ./...
 
   # Builds docker images for all components of the repo to test if they can successfully be built
-  Build_docker:
-    name: Test building docker images
+  test_docker_image_builds_job:
+    name: Test docker image builds
     if: ${{ ! contains(github.head_ref, 'release-please--branches--main') }}
     runs-on: ubuntu-latest
 
