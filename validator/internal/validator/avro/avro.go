@@ -16,6 +16,7 @@ package avro
 
 import (
 	"bytes"
+	"github.com/pkg/errors"
 
 	"github.com/dataphos/schema-registry-validator/internal/validator"
 
@@ -26,17 +27,17 @@ func New() validator.Validator {
 	return validator.Func(func(message, schema []byte, _, _ string) (bool, error) {
 		parsedSchema, err := avro.Parse(string(schema))
 		if err != nil {
-			return false, validator.ErrDeadletter
+			return false, errors.WithMessage(validator.ErrParsingMessage, err.Error())
 		}
 
 		var data interface{}
 		if err = avro.Unmarshal(parsedSchema, message, &data); err != nil {
-			return false, nil
+			return false, errors.WithMessage(validator.ErrUnmarshalAvro, err.Error())
 		}
 
 		reserializedMessage, err := avro.Marshal(parsedSchema, data)
 		if err != nil {
-			return false, nil
+			return false, errors.WithMessage(validator.ErrMarshalAvro, err.Error())
 		}
 
 		return bytes.Equal(reserializedMessage, message), nil
