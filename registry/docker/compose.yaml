@@ -1,0 +1,53 @@
+name: schema-registry
+services:
+  postgres:
+    image: postgres:17
+    ports:
+      - 5432:5432
+    environment:
+      POSTGRES_PASSWORD: password
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready"]
+      interval: 30s
+      timeout: 60s
+      retries: 5
+      start_period: 80s
+  initdb:
+    depends_on:
+      postgres:
+        condition: service_healthy
+    build:
+      context: ../../
+      dockerfile: ./registry/docker/initdb/Dockerfile
+    env_file:
+      - .env
+  compatibility-checker:
+    build:
+      context: ../../
+      dockerfile: ./registry/docker/compatibility-checker/Dockerfile
+    ports:
+      - 8088:8088
+  validity-checker:
+    build:
+      context: ../../
+      dockerfile: ./registry/docker/validity-checker/Dockerfile
+    ports:
+      - 8089:8089
+  schema-registry:
+    depends_on:
+      initdb:
+        condition: service_completed_successfully
+      compatibility-checker:
+        condition: service_started
+      validity-checker:
+        condition: service_started
+    build:
+      context: ../../
+      dockerfile: ./registry/docker/registry/Dockerfile
+    ports:
+      - 8080:8080
+    env_file:
+      - .env
+    environment:
+      COMPATIBILITY_CHECKER_URL: http://host.docker.internal:8088
+      VALIDITY_CHECKER_URL: http://host.docker.internal:8089
