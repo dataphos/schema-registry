@@ -159,9 +159,8 @@ func (h Handler) GetSpecificationByIdAndVersion(w http.ResponseWriter, r *http.R
 		log.Println(err)
 	}
 
-	body, _ := json.Marshal(specification)
 	writeResponse(w, responseBodyAndCode{
-		Body: body,
+		Body: specification,
 		Code: http.StatusOK,
 	})
 }
