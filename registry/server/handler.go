@@ -358,7 +358,7 @@ func (h Handler) GetSchemas(w http.ResponseWriter, _ *http.Request) {
 	if err != nil {
 		if errors.Is(err, registry.ErrNotFound) {
 			writeResponse(w, responseBodyAndCode{
-				Body: serializeErrorMessage(http.StatusText(http.StatusNotFound)),
+				Body: serializeErrorMessage("Schema Registry is empty"),
 				Code: http.StatusNotFound,
 			})
 			return
