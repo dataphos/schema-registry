@@ -5,7 +5,7 @@ services:
     ports:
       - 5432:5432
     environment:
-      POSTGRES_PASSWORD: password
+      POSTGRES_PASSWORD: # Please provide the password. Needs to match SR_PASSWORD in the .env file.
     healthcheck:
       test: ["CMD-SHELL", "pg_isready"]
       interval: 30s
