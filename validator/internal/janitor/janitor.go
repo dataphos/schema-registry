@@ -239,24 +239,32 @@ func InferDestinationTopic(messageSchemaPair MessageSchemaPair, validators Valid
 		if errors.Is(err, validator.ErrBrokenMessage) {
 			setMessageRawAttributes(message, "Broken message", err)
 			return MessageTopicPair{Message: message, Topic: router.Route(Deadletter, message)}, nil
-		}
-		if errors.Is(err, validator.ErrWrongCompile) {
+		} else if errors.Is(err, validator.ErrWrongCompile) {
 			setMessageRawAttributes(message, "Wrong compile", err)
 			return MessageTopicPair{Message: message, Topic: router.Route(Deadletter, message)}, nil
-		}
-		if errors.Is(err, validator.ErrFailedValidation) {
+		} else if errors.Is(err, validator.ErrFailedValidation) {
 			setMessageRawAttributes(message, "Payload validation error", err)
 			return MessageTopicPair{Message: message, Topic: router.Route(Deadletter, message)}, nil
-		}
-		if errors.Is(err, validator.ErrUnsupportedFormat) {
+		} else if errors.Is(err, validator.ErrUnsupportedFormat) {
 			setMessageRawAttributes(message, "Unsupported format", err)
 			return MessageTopicPair{Message: message, Topic: router.Route(Deadletter, message)}, nil
-		}
-		if errors.Is(err, validator.ErrDeadletter) {
+		} else if errors.Is(err, validator.ErrParsingMessage) {
+			setMessageRawAttributes(message, "Parsing error", err)
+			return MessageTopicPair{Message: message, Topic: router.Route(Deadletter, message)}, nil
+		} else if errors.Is(err, validator.ErrMarshalAvro) {
+			setMessageRawAttributes(message, "Avro serialization error", err)
+			return MessageTopicPair{Message: message, Topic: router.Route(Deadletter, message)}, nil
+		} else if errors.Is(err, validator.ErrUnmarshalAvro) {
+			setMessageRawAttributes(message, "Avro deserialization error", err)
+			return MessageTopicPair{Message: message, Topic: router.Route(Deadletter, message)}, nil
+		} else if errors.Is(err, validator.ErrDeadletter) {
 			setMessageRawAttributes(message, "Deadletter error", err)
 			return MessageTopicPair{Message: message, Topic: router.Route(Deadletter, message)}, nil
+		} else {
+			setMessageRawAttributes(message, "Unknown error", err)
+			return MessageTopicPair{Message: message, Topic: router.Route(Deadletter, message)},
+				intoOpErr(message.ID, errcodes.ValidationFailure, err)
 		}
-		return MessageTopicPair{}, intoOpErr(message.ID, errcodes.ValidationFailure, err)
 	}
 
 	var result Result
