@@ -40,8 +40,8 @@ jobs:
 
   # Linting multiple Dockerfiles to ensure adherence to best practices and coding standards.
   hadolint_job:
-    name: Hadolint
     if: ${{ ! contains(github.head_ref, 'release-please--branches--main') }}
+    name: Hadolint
     runs-on: ubuntu-latest
     strategy:
       fail-fast: false
@@ -84,8 +84,8 @@ jobs:
 
   # Ensures that the code adheres to the lint checks defined in .golangci.yaml.
   lint_job:
-    name: Go lint
     if: ${{ ! contains(github.head_ref, 'release-please--branches--main') }}
+    name: Go lint
     runs-on: ubuntu-latest
     strategy:
       fail-fast: false
@@ -131,8 +131,8 @@ jobs:
           working-directory: ${{ matrix.component }}
 
   licenses_check_job:
+    if: ${{ ! contains(github.head_ref, 'release-please--branches--main') }}
     name: 3rd party licenses check
-    if: ${{ github.event.head_commit.committer.name != 'github-actions[bot]' || ! contains(github.head_ref, 'release-please--branches--main') }}
     runs-on: ubuntu-latest
     permissions:
       contents: write
@@ -238,8 +238,8 @@ jobs:
 
   # Runs unit tests for all components in this repo
   test_job:
+    if: ${{ ! contains(github.head_ref, 'release-please--branches--main') }}
     name: Test job
-    if: ${{ github.base_ref == 'main' && ! contains(github.head_ref, 'release-please--branches--main') }}
     runs-on: ubuntu-latest
 
     strategy:
@@ -270,8 +270,8 @@ jobs:
 
   # Builds docker images for all components of the repo to test if they can successfully be built
   test_docker_image_builds_job:
-    name: Test docker image builds
     if: ${{ ! contains(github.head_ref, 'release-please--branches--main') }}
+    name: Test docker image builds
     runs-on: ubuntu-latest
 
     strategy:
