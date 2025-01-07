@@ -2,14 +2,15 @@ name: PUSH CI
 
 on:
   push:
-    branches: [ develop, main ]
+    branches:
+      - main
 
 env:
   GO_VERSION: 1.21
 
 jobs:
-  commitlint:
-    name: Commit Lint Job
+  commitlint_job:
+    name: Commit lint
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
@@ -28,8 +29,8 @@ jobs:
       - name: Validate current commit (last commit) with commitlint
         run: npx commitlint --last --verbose
 
-  license_headers:
-    name: Add License Headers
+  license_headers_job:
+    name: Add license headers
     if: github.event.head_commit.committer.name != 'github-actions[bot]'
     runs-on: ubuntu-latest
     permissions:
@@ -81,9 +82,9 @@ jobs:
         run: |
           gh pr create --base ${{ github.ref_name }} --head "add-license-headers-${{ github.run_id }}" --title "style: add license headers" --body "This PR adds license headers to the affected files. Recommendation: Merge this PR using the rebase-merge method"
 
-  Upload_docker:
-    name: Build, Push and Sign Docker Images
-    if: github.ref_name == 'main'
+  upload_docker_images_job:
+    name: Build, push and sign Docker images
+    if: github.event.head_commit.committer.name == 'github-actions[bot]'
     runs-on: ubuntu-latest
     permissions:
       id-token: write # required to generate JWT token
@@ -152,7 +153,6 @@ jobs:
         run: echo "Docker image syntioinc/dataphos-${{ matrix.component.image-name }}:${{ env.TAG }} already exists. Skipping push."
 
   release-please:
-    if: github.ref_name == 'main'
     runs-on: ubuntu-latest
     permissions:
       contents: write

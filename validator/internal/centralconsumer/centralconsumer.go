@@ -559,34 +559,34 @@ func setMessageRawAttributes(message janitor.Message, errCategory string, err er
 	message.RawAttributes["deadLetterErrorReason"] = err.Error()
 }
 
-func (cc *CentralConsumer) determineError(m janitor.Message, e error, errorLocation string) (janitor.MessageTopicPair, error) {
+func (cc *CentralConsumer) determineError(message janitor.Message, e error, errorLocation string) (janitor.MessageTopicPair, error) {
 	opError := &janitor.OpError{}
 	if errors.As(e, &opError) {
 		if opError.Code == errcodes.RegistryUnresponsive {
-			setMessageRawAttributes(m, "Registry unresponsive", e)
+			setMessageRawAttributes(message, "Registry unresponsive", e)
 			releaseIfSet(cc.registrySem)
-			return janitor.MessageTopicPair{Message: m, Topic: cc.Router.Route(janitor.Deadletter, m)}, e
+			return janitor.MessageTopicPair{Message: message, Topic: cc.Router.Route(janitor.Deadletter, message)}, e
 		} else if opError.Code == errcodes.SchemaNotRegistered {
-			setMessageRawAttributes(m, errorLocation+"schema not registered", e)
+			setMessageRawAttributes(message, errorLocation+"schema not registered", e)
 			releaseIfSet(cc.registrySem)
-			return janitor.MessageTopicPair{Message: m, Topic: cc.Router.Route(janitor.Deadletter, m)}, nil
+			return janitor.MessageTopicPair{Message: message, Topic: cc.Router.Route(janitor.Deadletter, message)}, nil
 		} else if opError.Code == errcodes.MissingDataInHeader {
-			setMessageRawAttributes(m, errorLocation+"schema id/version missing", e)
+			setMessageRawAttributes(message, errorLocation+"schema id/version missing", e)
 			releaseIfSet(cc.registrySem)
-			return janitor.MessageTopicPair{Message: m, Topic: cc.Router.Route(janitor.Deadletter, m)}, nil
+			return janitor.MessageTopicPair{Message: message, Topic: cc.Router.Route(janitor.Deadletter, message)}, nil
 		} else if opError.Code == errcodes.InvalidDataInHeader {
-			setMessageRawAttributes(m, errorLocation+"schema id/version invalid", e)
+			setMessageRawAttributes(message, errorLocation+"schema id/version invalid", e)
 			releaseIfSet(cc.registrySem)
-			return janitor.MessageTopicPair{Message: m, Topic: cc.Router.Route(janitor.Deadletter, m)}, nil
+			return janitor.MessageTopicPair{Message: message, Topic: cc.Router.Route(janitor.Deadletter, message)}, nil
 		} else if opError.Code == errcodes.DeadletterMessage {
-			setMessageRawAttributes(m, errorLocation+"validation failed", e)
+			setMessageRawAttributes(message, errorLocation+"validation failed", e)
 			releaseIfSet(cc.registrySem)
-			return janitor.MessageTopicPair{Message: m, Topic: cc.Router.Route(janitor.Deadletter, m)}, nil
+			return janitor.MessageTopicPair{Message: message, Topic: cc.Router.Route(janitor.Deadletter, message)}, nil
 		}
 	}
-	setMessageRawAttributes(m, "Wrong compile", e)
+	setMessageRawAttributes(message, "Wrong compile", e)
 	releaseIfSet(cc.registrySem)
-	return janitor.MessageTopicPair{Message: m, Topic: cc.Router.Route(janitor.Deadletter, m)}, e
+	return janitor.MessageTopicPair{Message: message, Topic: cc.Router.Route(janitor.Deadletter, message)}, e
 }
 
 func acquireIfSet(sem chan struct{}) {
