@@ -18,6 +18,7 @@ import (
 	"encoding/json"
 	"io"
 	"net/http"
+	"strings"
 
 	"github.com/dataphos/schema-registry/registry"
 )
@@ -47,6 +48,12 @@ func readSchemaRegisterRequest(body io.ReadCloser) (registry.SchemaRegistrationR
 	var schemaRegisterRequest registry.SchemaRegistrationRequest
 	if err = json.Unmarshal(encoded, &schemaRegisterRequest); err != nil {
 		return registry.SchemaRegistrationRequest{}, err
+	}
+
+	// check if format is unknown
+	format := strings.ToLower(schemaRegisterRequest.SchemaType)
+	if format != "json" && format != "avro" && format != "xml" && format != "csv" && format != "protobuf" {
+		return registry.SchemaRegistrationRequest{}, registry.ErrUnknownFormat
 	}
 
 	return schemaRegisterRequest, nil

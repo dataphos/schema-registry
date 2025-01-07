@@ -21,6 +21,7 @@ import (
 var ErrNotFound = errors.New("not found")
 var ErrUnknownComp = errors.New("unknown value for compatibility_mode")
 var ErrUnknownVal = errors.New("unknown value for validity mode")
+var ErrUnknownFormat = errors.New("unknown value for schema format")
 var ErrNotValid = errors.New("schema is not valid")
 var ErrNotComp = errors.New("schemas are not compatible")
 var ErrInvalidValueHeader = errors.New("invalid header value")
