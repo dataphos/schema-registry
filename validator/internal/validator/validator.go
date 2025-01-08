@@ -35,8 +35,14 @@ var ErrMissingHeaderSchema = errors.New("Header is missing a schema")
 // ErrFailedValidation is a special error type to help distinguish messages that have failed in validation.
 var ErrFailedValidation = errors.New("An error occured while validating message")
 
-// ErrFailedHeaderValidation is a special error type to help distinguish messages' headers that have failed in validation.
-var ErrFailedHeaderValidation = errors.New("An error occured while validating message's header")
+// ErrParsingMessage is a special error type to help distinguish messages that failed parsing
+var ErrParsingMessage = errors.New("Message not parsed correctly")
+
+// ErrUnmarshalAvro is a special error type to help distinguish avro messages that weren't successfully deserialized
+var ErrUnmarshalAvro = errors.New("Avro message not deserialized correctly")
+
+// ErrMarshalAvro is a special error type to help distinguish avro messages that weren't successfully serialized
+var ErrMarshalAvro = errors.New("Avro message not serialized correctly")
 
 // ErrUnsupportedFormat is a special error type to help distinguish messages that are in wrong format
 var ErrUnsupportedFormat = errors.New("Message is not in a supported format")
