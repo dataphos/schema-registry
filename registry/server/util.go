@@ -18,6 +18,7 @@ import (
 	"encoding/json"
 	"io"
 	"net/http"
+	"slices"
 	"strings"
 
 	"github.com/dataphos/schema-registry/registry"
@@ -27,6 +28,8 @@ type responseBodyAndCode struct {
 	Body []byte
 	Code int
 }
+
+var SupportedFormats = []string{"json", "avro", "xml", "csv", "protobuf"}
 
 func writeResponse(w http.ResponseWriter, response responseBodyAndCode) {
 	w.Header().Set("Content-Type", "application/json")
@@ -52,7 +55,7 @@ func readSchemaRegisterRequest(body io.ReadCloser) (registry.SchemaRegistrationR
 
 	// check if format is unknown
 	format := strings.ToLower(schemaRegisterRequest.SchemaType)
-	if format != "json" && format != "avro" && format != "xml" && format != "csv" && format != "protobuf" {
+	if !slices.Contains(SupportedFormats, format) {
 		return registry.SchemaRegistrationRequest{}, registry.ErrUnknownFormat
 	}
 
