@@ -56,7 +56,10 @@ func ExtractAttributes(raw map[string]interface{}) (Attributes, error) {
 
 	schemaID, ok := raw[AttributeSchemaID]
 	if !ok {
-		return Attributes{}, errtemplates.AttributeNotDefined(AttributeSchemaID)
+		schemaID, ok = raw[OldAttributeSchemaID]
+		if !ok {
+			return Attributes{}, errtemplates.AttributeNotDefined(AttributeSchemaID)
+		}
 	}
 	schemaIDStr, ok = schemaID.(string)
 	if !ok {
@@ -65,7 +68,10 @@ func ExtractAttributes(raw map[string]interface{}) (Attributes, error) {
 
 	version, ok := raw[AttributeSchemaVersion]
 	if !ok {
-		return Attributes{}, errtemplates.AttributeNotDefined(AttributeSchemaVersion)
+		version, ok = raw[OldAttributeSchemaVersion]
+		if !ok {
+			return Attributes{}, errtemplates.AttributeNotDefined(AttributeSchemaVersion)
+		}
 	}
 	versionStr, ok = version.(string)
 	if !ok {
