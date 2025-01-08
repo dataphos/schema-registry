@@ -48,29 +48,59 @@ type Message struct {
 }
 
 const (
+	// OldAttributeSchemaID is one of the keys expected to be found in the attributes field of the message.
+	// It holds the schema id information concerning the data field of the message
+	// This is planned to be dropped in the future version, but is kept for now to be backwards compatible with
+	// systems that still use this convention
+	OldAttributeSchemaID = "schemaId"
+
 	// AttributeSchemaID is one of the keys expected to be found in the attributes field of the message.
 	// It holds the schema id information concerning the data field of the message
-	AttributeSchemaID = "schemaId"
+	AttributeSchemaID = "schema_id"
+
+	// OldAttributeSchemaVersion is one of the keys expected to be found in the attributes field of the message,
+	// It holds the schema version information concerning the data field of the message.
+	// This is planned to be dropped in the future version, but is kept for now to be backwards compatible with
+	// systems that still use this convention
+	OldAttributeSchemaVersion = "versionId"
 
 	// AttributeSchemaVersion is one of the keys expected to be found in the attributes field of the message,
 	// It holds the schema version information concerning the data field of the message.
-	AttributeSchemaVersion = "versionId"
+	AttributeSchemaVersion = "version"
 
 	// AttributeFormat is one of the keys expected to be found in the attributes field of the message.
 	// It holds the format of the data field of the message.
 	AttributeFormat = "format"
 
+	// OldHeaderValidation is one of the keys that can occur in raw attributes section of header.
+	// It determines if the header will be validated
+	// This is planned to be dropped in the future version, but is kept for now to be backwards compatible with
+	// systems that still use this convention
+	OldHeaderValidation = "headerValidation"
+
 	// HeaderValidation is one of the keys that can occur in raw attributes section of header.
 	// It determines if the header will be validated
-	HeaderValidation = "headerValidation"
+	HeaderValidation = "validate_header"
+
+	// OldAttributeHeaderID is one of the keys expected in raw attributes section of header, but only if HeaderValidation is true.
+	// It holds the header's schema id that is used to check header validity
+	// This is planned to be dropped in the future version, but is kept for now to be backwards compatible with
+	// systems that still use this convention
+	OldAttributeHeaderID = "headerSchemaId"
 
 	// AttributeHeaderID is one of the keys expected in raw attributes section of header, but only if HeaderValidation is true.
 	// It holds the header's schema id that is used to check header validity
-	AttributeHeaderID = "headerSchemaId"
+	AttributeHeaderID = "header_schema_id"
+
+	// OldAttributeHeaderVersion is one of the keys expected in raw attributes section of header, but only if HeaderValidation is true.
+	// It holds the header's schema version that is used to check header validity
+	// This is planned to be dropped in the future version, but is kept for now to be backwards compatible with
+	// systems that still use this convention
+	OldAttributeHeaderVersion = "headerVersionId"
 
 	// AttributeHeaderVersion is one of the keys expected in raw attributes section of header, but only if HeaderValidation is true.
 	// It holds the header's schema version that is used to check header validity
-	AttributeHeaderVersion = "headerVersionId"
+	AttributeHeaderVersion = "header_version"
 )
 
 // MessageSchemaPair wraps a Message with the Schema relating to this Message.
@@ -157,7 +187,9 @@ func generateHeaderData(rawAttributes map[string]interface{}) ([]byte, error) {
 	cleanAttributes := make(map[string]interface{})
 	for key, value := range rawAttributes {
 		if key == HeaderValidation || key == AttributeHeaderID || key == AttributeHeaderVersion ||
-			key == AttributeSchemaID || key == AttributeSchemaVersion || key == AttributeFormat {
+			key == AttributeSchemaID || key == AttributeSchemaVersion || key == AttributeFormat ||
+			key == OldHeaderValidation || key == OldAttributeHeaderID || key == OldAttributeHeaderVersion ||
+			key == OldAttributeSchemaID || key == OldAttributeSchemaVersion {
 			continue
 		} else {
 			cleanAttributes[key] = value
