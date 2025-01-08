@@ -351,8 +351,7 @@ func (cc *CentralConsumer) Handle(ctx context.Context, message janitor.Message) 
 					setMessageRawAttributes(message, "Header error", err)
 					return janitor.MessageTopicPair{Message: message, Topic: cc.Router.Route(janitor.Deadletter, message)}, nil
 				}
-			}
-			if e.Error() == errtemplates.AttributeNotDefined(janitor.AttributeHeaderVersion).Error() {
+			} else if e.Error() == errtemplates.AttributeNotDefined(janitor.AttributeHeaderVersion).Error() {
 				if cc.defaultHeaderSchema.DefaultHeaderSchemaVersion != "" {
 					headerVersion = cc.defaultHeaderSchema.DefaultHeaderSchemaVersion
 				} else {
