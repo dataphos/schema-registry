@@ -48,13 +48,25 @@ type Message struct {
 }
 
 const (
+	// OldAttributeSchemaID is one of the keys expected to be found in the attributes field of the message.
+	// It holds the schema id information concerning the data field of the message
+	// This is planned to be dropped in the future version, but is kept for now to be backwards compatible with
+	// systems that still use this convention
+	OldAttributeSchemaID = "schemaId"
+
 	// AttributeSchemaID is one of the keys expected to be found in the attributes field of the message.
 	// It holds the schema id information concerning the data field of the message
-	AttributeSchemaID = "schemaId"
+	AttributeSchemaID = "schema_id"
+
+	// OldAttributeSchemaVersion is one of the keys expected to be found in the attributes field of the message,
+	// It holds the schema version information concerning the data field of the message.
+	// This is planned to be dropped in the future version, but is kept for now to be backwards compatible with
+	// systems that still use this convention
+	OldAttributeSchemaVersion = "versionId"
 
 	// AttributeSchemaVersion is one of the keys expected to be found in the attributes field of the message,
 	// It holds the schema version information concerning the data field of the message.
-	AttributeSchemaVersion = "versionId"
+	AttributeSchemaVersion = "version"
 
 	// AttributeFormat is one of the keys expected to be found in the attributes field of the message.
 	// It holds the format of the data field of the message.
@@ -62,15 +74,15 @@ const (
 
 	// HeaderValidation is one of the keys that can occur in raw attributes section of header.
 	// It determines if the header will be validated
-	HeaderValidation = "headerValidation"
+	HeaderValidation = "validate_header"
 
 	// AttributeHeaderID is one of the keys expected in raw attributes section of header, but only if HeaderValidation is true.
 	// It holds the header's schema id that is used to check header validity
-	AttributeHeaderID = "headerSchemaId"
+	AttributeHeaderID = "header_schema_id"
 
 	// AttributeHeaderVersion is one of the keys expected in raw attributes section of header, but only if HeaderValidation is true.
 	// It holds the header's schema version that is used to check header validity
-	AttributeHeaderVersion = "headerVersionId"
+	AttributeHeaderVersion = "header_version"
 )
 
 // MessageSchemaPair wraps a Message with the Schema relating to this Message.
@@ -157,7 +169,8 @@ func generateHeaderData(rawAttributes map[string]interface{}) ([]byte, error) {
 	cleanAttributes := make(map[string]interface{})
 	for key, value := range rawAttributes {
 		if key == HeaderValidation || key == AttributeHeaderID || key == AttributeHeaderVersion ||
-			key == AttributeSchemaID || key == AttributeSchemaVersion || key == AttributeFormat {
+			key == AttributeSchemaID || key == AttributeSchemaVersion || key == AttributeFormat ||
+			key == OldAttributeSchemaID || key == OldAttributeSchemaVersion {
 			continue
 		} else {
 			cleanAttributes[key] = value
@@ -239,24 +252,32 @@ func InferDestinationTopic(messageSchemaPair MessageSchemaPair, validators Valid
 		if errors.Is(err, validator.ErrBrokenMessage) {
 			setMessageRawAttributes(message, "Broken message", err)
 			return MessageTopicPair{Message: message, Topic: router.Route(Deadletter, message)}, nil
-		}
-		if errors.Is(err, validator.ErrWrongCompile) {
+		} else if errors.Is(err, validator.ErrWrongCompile) {
 			setMessageRawAttributes(message, "Wrong compile", err)
 			return MessageTopicPair{Message: message, Topic: router.Route(Deadletter, message)}, nil
-		}
-		if errors.Is(err, validator.ErrFailedValidation) {
+		} else if errors.Is(err, validator.ErrFailedValidation) {
 			setMessageRawAttributes(message, "Payload validation error", err)
 			return MessageTopicPair{Message: message, Topic: router.Route(Deadletter, message)}, nil
-		}
-		if errors.Is(err, validator.ErrUnsupportedFormat) {
+		} else if errors.Is(err, validator.ErrUnsupportedFormat) {
 			setMessageRawAttributes(message, "Unsupported format", err)
 			return MessageTopicPair{Message: message, Topic: router.Route(Deadletter, message)}, nil
-		}
-		if errors.Is(err, validator.ErrDeadletter) {
+		} else if errors.Is(err, validator.ErrParsingMessage) {
+			setMessageRawAttributes(message, "Parsing error", err)
+			return MessageTopicPair{Message: message, Topic: router.Route(Deadletter, message)}, nil
+		} else if errors.Is(err, validator.ErrMarshalAvro) {
+			setMessageRawAttributes(message, "Avro serialization error", err)
+			return MessageTopicPair{Message: message, Topic: router.Route(Deadletter, message)}, nil
+		} else if errors.Is(err, validator.ErrUnmarshalAvro) {
+			setMessageRawAttributes(message, "Avro deserialization error", err)
+			return MessageTopicPair{Message: message, Topic: router.Route(Deadletter, message)}, nil
+		} else if errors.Is(err, validator.ErrDeadletter) {
 			setMessageRawAttributes(message, "Deadletter error", err)
 			return MessageTopicPair{Message: message, Topic: router.Route(Deadletter, message)}, nil
+		} else {
+			setMessageRawAttributes(message, "Unknown error", err)
+			return MessageTopicPair{Message: message, Topic: router.Route(Deadletter, message)},
+				intoOpErr(message.ID, errcodes.ValidationFailure, err)
 		}
-		return MessageTopicPair{}, intoOpErr(message.ID, errcodes.ValidationFailure, err)
 	}
 
 	var result Result
