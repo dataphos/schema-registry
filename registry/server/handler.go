@@ -159,9 +159,8 @@ func (h Handler) GetSpecificationByIdAndVersion(w http.ResponseWriter, r *http.R
 		log.Println(err)
 	}
 
-	body, _ := json.Marshal(specification)
 	writeResponse(w, responseBodyAndCode{
-		Body: body,
+		Body: specification,
 		Code: http.StatusOK,
 	})
 }
@@ -359,8 +358,8 @@ func (h Handler) GetSchemas(w http.ResponseWriter, _ *http.Request) {
 	if err != nil {
 		if errors.Is(err, registry.ErrNotFound) {
 			writeResponse(w, responseBodyAndCode{
-				Body: serializeErrorMessage(http.StatusText(http.StatusNotFound)),
-				Code: http.StatusNotFound,
+				Body: serializeErrorMessage("No active schemas registered in the Registry"),
+				Code: http.StatusNoContent,
 			})
 			return
 		}
