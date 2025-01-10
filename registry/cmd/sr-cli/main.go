@@ -100,7 +100,7 @@ func registerSchema(registerCommand *flag.FlagSet) {
 	if !added {
 		log.Print("schema already exists")
 	} else {
-		log.Print("created schema under the id ", details.VersionID)
+		log.Printf("created schema under the id %s and version %s", details.SchemaID, details.Version)
 	}
 }
 

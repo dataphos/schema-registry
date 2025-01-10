@@ -70,7 +70,6 @@ func intoRegistrySchema(schema Schema) registry.Schema {
 // intoRegistryVersionDetails maps VersionDetails from repository to service layer.
 func intoRegistryVersionDetails(VersionDetails VersionDetails) registry.VersionDetails {
 	return registry.VersionDetails{
-		VersionID:          strconv.Itoa(int(VersionDetails.VersionID)),
 		Version:            VersionDetails.Version,
 		SchemaID:           strconv.Itoa(int(VersionDetails.SchemaID)),
 		Specification:      VersionDetails.Specification,
