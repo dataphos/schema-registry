@@ -159,9 +159,8 @@ func (h Handler) GetSpecificationByIdAndVersion(w http.ResponseWriter, r *http.R
 		log.Println(err)
 	}
 
-	body, _ := json.Marshal(specification)
 	writeResponse(w, responseBodyAndCode{
-		Body: body,
+		Body: specification,
 		Code: http.StatusOK,
 	})
 }
@@ -359,8 +358,8 @@ func (h Handler) GetSchemas(w http.ResponseWriter, _ *http.Request) {
 	if err != nil {
 		if errors.Is(err, registry.ErrNotFound) {
 			writeResponse(w, responseBodyAndCode{
-				Body: serializeErrorMessage(http.StatusText(http.StatusNotFound)),
-				Code: http.StatusNotFound,
+				Body: serializeErrorMessage("No active schemas registered in the Registry"),
+				Code: http.StatusNoContent,
 			})
 			return
 		}
@@ -535,8 +534,19 @@ func (h Handler) SearchSchemas(w http.ResponseWriter, r *http.Request) {
 // @Failure      500
 // @Router       /schemas [post]
 func (h Handler) PostSchema(w http.ResponseWriter, r *http.Request) {
+
 	registerRequest, err := readSchemaRegisterRequest(r.Body)
 	if err != nil {
+		if errors.Is(err, registry.ErrUnknownFormat) {
+			body, _ := json.Marshal(report{
+				Message: "Bad request: unknown format value",
+			})
+			writeResponse(w, responseBodyAndCode{
+				Body: body,
+				Code: http.StatusBadRequest,
+			})
+			return
+		}
 		writeResponse(w, responseBodyAndCode{
 			Body: serializeErrorMessage(http.StatusText(http.StatusBadRequest)),
 			Code: http.StatusBadRequest,
@@ -548,7 +558,7 @@ func (h Handler) PostSchema(w http.ResponseWriter, r *http.Request) {
 	if err != nil {
 		if errors.Is(err, registry.ErrUnknownComp) {
 			body, _ := json.Marshal(report{
-				Message: "Bad request: unknown value for compatibility_mode",
+				Message: "Bad request: unknown compatibility_mode value",
 			})
 			writeResponse(w, responseBodyAndCode{
 				Body: body,
@@ -559,7 +569,7 @@ func (h Handler) PostSchema(w http.ResponseWriter, r *http.Request) {
 
 		if errors.Is(err, registry.ErrUnknownVal) {
 			body, _ := json.Marshal(report{
-				Message: "Bad request: unknown value for validity_mode",
+				Message: "Bad request: unknown validity_mode value",
 			})
 			writeResponse(w, responseBodyAndCode{
 				Body: body,
