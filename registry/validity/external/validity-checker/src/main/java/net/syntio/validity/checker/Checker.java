@@ -32,7 +32,7 @@ public class Checker {
             case "full" -> ValidityLevel.FULL;
             default -> ValidityLevel.NONE;
         };
-        ContentValidator validator = ValidatorFactory.createValidator(schemaType.toLowerCase());
+        ContentValidator validator = ValidatorFactory.createValidator(schemaType);
         if (validator == null) { // in case ValidatorFactory returns null
           return false;
         }

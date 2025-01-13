@@ -77,7 +77,7 @@ func CheckOverHTTP(ctx context.Context, schemaType, schema, mode, url string) (b
 
 	var parsedBody checkResponse
 	if err = json.Unmarshal(body, &parsedBody); err != nil {
-		return false, "error unmarshalling validity check body", err
+		return false, "error unmarshalling compatibility check body", err
 	}
 
 	valid := parsedBody.Result
