@@ -32,7 +32,7 @@ public class Checker {
             ContentHandle ps = ContentHandle.create(s);
             schemaHistory.add(ps);
         }
-        CompatibilityChecker cc = CheckerFactory.createChecker(msg.getFormat());
+        CompatibilityChecker cc = CheckerFactory.createChecker(msg.getFormat().toLowerCase());
         return cc.testCompatibility(mode, schemaHistory, schema);
     }
 }
