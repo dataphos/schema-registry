@@ -357,9 +357,10 @@ func (h Handler) GetSchemas(w http.ResponseWriter, _ *http.Request) {
 	schemas, err := h.Service.GetSchemas()
 	if err != nil {
 		if errors.Is(err, registry.ErrNotFound) {
+			body, _ := json.Marshal(report{Message: "No active schemas registered in the Registry"})
 			writeResponse(w, responseBodyAndCode{
-				Body: serializeErrorMessage("No active schemas registered in the Registry"),
-				Code: http.StatusNoContent,
+				Body: body,
+				Code: http.StatusOK,
 			})
 			return
 		}
