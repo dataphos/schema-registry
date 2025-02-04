@@ -97,8 +97,8 @@ type Settings struct {
 	// NumInferrers defines the maximum amount of inflight destination topic inference jobs (validation and routing).
 	NumInferrers int
 
-	// ValidateHeader defines if the messages' headers will be validated
-	ValidateHeader bool
+	// ValidateHeaders defines if the messages' headers will be validated
+	ValidateHeaders bool
 
 	// DefaultHeaderSchemaId is default ID of the header schema
 	DefaultHeaderSchemaId string
@@ -143,7 +143,7 @@ func New(registry registry.SchemaRegistry, publisher broker.Publisher, validator
 	if settings.NumInferrers > 0 {
 		validatorsSem = make(chan struct{}, settings.NumInferrers)
 	}
-	if settings.ValidateHeader {
+	if settings.ValidateHeaders {
 		_, ok := validators["json"]
 		if !ok {
 			// if json validation is turned off, this version of json validator is used by default for validating message header
@@ -200,7 +200,7 @@ func New(registry registry.SchemaRegistry, publisher broker.Publisher, validator
 			Specification: schemaVersion.Specification,
 		},
 		encryptionKey:   encryptionKey,
-		validateHeaders: settings.ValidateHeader,
+		validateHeaders: settings.ValidateHeaders,
 		defaultHeaderSchema: config.DefaultHeaderSchema{
 			DefaultHeaderSchemaId:      settings.DefaultHeaderSchemaId,
 			DefaultHeaderSchemaVersion: settings.DefaultHeaderSchemaVersion,
