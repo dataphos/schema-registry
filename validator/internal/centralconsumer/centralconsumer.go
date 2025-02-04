@@ -85,7 +85,7 @@ type CentralConsumer struct {
 	mode                Mode
 	schema              Schema
 	encryptionKey       string
-	validateHeaders     bool
+	validateHeader      bool
 	defaultHeaderSchema config.DefaultHeaderSchema
 }
 
@@ -199,8 +199,8 @@ func New(registry registry.SchemaRegistry, publisher broker.Publisher, validator
 			},
 			Specification: schemaVersion.Specification,
 		},
-		encryptionKey:   encryptionKey,
-		validateHeaders: settings.ValidateHeader,
+		encryptionKey:  encryptionKey,
+		validateHeader: settings.ValidateHeader,
 		defaultHeaderSchema: config.DefaultHeaderSchema{
 			DefaultHeaderSchemaId:      settings.DefaultHeaderSchemaId,
 			DefaultHeaderSchemaVersion: settings.DefaultHeaderSchemaVersion,
@@ -327,10 +327,10 @@ func (cc *CentralConsumer) Handle(ctx context.Context, message janitor.Message) 
 		encryptedMessageData  []byte
 	)
 
-	// header validation is turned on if a message specifies so in the header OR if validateHeaders flag is set
+	// header validation is turned on if a message specifies so in the header OR if validateHeader flag is set
 	// on the Validator level
 	if message.RawAttributes[janitor.HeaderValidation] == "true" ||
-		(cc.validateHeaders && message.RawAttributes[janitor.HeaderValidation] != "false") {
+		(cc.validateHeader && message.RawAttributes[janitor.HeaderValidation] != "false") {
 		_, ok := cc.Validators["json"]
 		// it is possible json validator isn't initialized by this point so we are checking it just in case
 		if !ok {

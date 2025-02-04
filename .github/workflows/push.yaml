@@ -83,7 +83,7 @@ jobs:
           gh pr create --base ${{ github.ref_name }} --head "add-license-headers-${{ github.run_id }}" --title "style: add license headers" --body "This PR adds license headers to the affected files. Recommendation: Merge this PR using the rebase-merge method"
 
   upload_docker_images_job:
-    if: github.event.head_commit.committer.name == 'github-actions[bot]' || startsWith(github.event.head_commit.message.name, 'feat') || startsWith(github.event.head_commit.message.name, 'fix')
+    if: github.event.head_commit.committer.name == 'github-actions[bot]' || startsWith(github.event.head_commit.message, 'feat') || startsWith(github.event.head_commit.message, 'fix')
     name: Build, push and sign Docker images
     runs-on: ubuntu-latest
     permissions:
