@@ -20,7 +20,7 @@ import (
 )
 
 func main() {
-	configFile := flag.String("f", "", "toml file containing configuration of working environment")
+	configFile := flag.String("f", "./config/validator.toml", "toml file containing configuration of working environment")
 	flag.Parse()
 
 	janitorctl.RunCentralConsumer(*configFile)
