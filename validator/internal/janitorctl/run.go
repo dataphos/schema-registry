@@ -86,7 +86,7 @@ func RunCentralConsumer(configFile string) {
 			centralconsumer.Settings{
 				NumSchemaCollectors:        cfg.NumSchemaCollectors,
 				NumInferrers:               cfg.NumInferrers,
-				ValidateHeaders:            cfg.ValidateHeaders,
+				ValidateHeader:             cfg.ValidateHeader,
 				DefaultHeaderSchemaId:      cfg.DefaultHeaderSchema.DefaultHeaderSchemaId,
 				DefaultHeaderSchemaVersion: cfg.DefaultHeaderSchema.DefaultHeaderSchemaVersion,
 			},
