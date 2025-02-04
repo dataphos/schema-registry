@@ -18,19 +18,14 @@ schema_id = ""
 schema_version = ""
 schema_type = ""
 
-validate_header = "true"
-
-#default_header_schema_id = "5"
-#default_header_schema_version = "1"
-
 [consumer]
-type = "kafka" # insert "kafka", "pubsub", "servicebus" or "jetstream"
+type = "" # insert "kafka", "pubsub", "servicebus" or "jetstream"
 encryption_key = ""
 
 [consumer.kafka]
-address = "34.116.158.107:9094" # insert
-topic = "input-topic" # insert
-group_id = "Group" # insert
+address = "" # insert
+topic = "" # insert
+group_id = "" # insert
 
 [consumer.pubsub]
 project_id = "" # insert
@@ -47,13 +42,10 @@ subject = "" # insert
 consumer_name = "" # insert
 
 [producer]
-type = "kafka" # insert "kafka", "eventhubs", "pubsub", "servicebus" or "jetstream"
+type = "" # insert "kafka", "eventhubs", "pubsub", "servicebus" or "jetstream"
 
 [producer.kafka]
-address = "34.116.158.107:9094" # insert
-
-[producer.kafka.settings]
-kafka_acks = "1"
+address = "" # insert
 
 [producer.pubsub]
 project_id = "" # insert
@@ -65,31 +57,18 @@ connection_string = "" # insert
 url = "" # insert
 
 [topics]
-valid = "valid-topic" # insert
-dead_letter = "dead-letter-topic" # insert
+valid = "" # insert
+dead_letter = "" # insert
 
 [registry]
-url = "http://34.118.10.21:8080"
+url = ""
 type = "janitor" # insert "janitor" or "apicurio"
-groupID = "group"
+groupID = "default"
 
 [validators]
 enable_json = "true"
-enable_avro = "true"
 enable_csv = "false"
 enable_xml = "false"
 enable_protobuf = "false"
-csv_url = "http://localhost:8081"
+csv_url = "http://csv-validator-svc:8080"
 xml_url = "http://xml-validator-svc:8081"
-
-[should_log]
-missing_schema = "true"
-valid = "true"
-dead_letter = "true"
-
-[default_header_schema]
-id = "9"
-version = "1"
-
-[run_option]
-err_threshold = 100
