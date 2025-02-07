@@ -85,7 +85,7 @@ type CentralConsumer struct {
 	mode                Mode
 	schema              Schema
 	encryptionKey       string
-	validateHeaders     bool
+	validateHeader      bool
 	defaultHeaderSchema config.DefaultHeaderSchema
 }
 
@@ -97,8 +97,8 @@ type Settings struct {
 	// NumInferrers defines the maximum amount of inflight destination topic inference jobs (validation and routing).
 	NumInferrers int
 
-	// ValidateHeaders defines if the messages' headers will be validated
-	ValidateHeaders bool
+	// ValidateHeader defines if the messages' headers will be validated
+	ValidateHeader bool
 
 	// DefaultHeaderSchemaId is default ID of the header schema
 	DefaultHeaderSchemaId string
@@ -143,7 +143,7 @@ func New(registry registry.SchemaRegistry, publisher broker.Publisher, validator
 	if settings.NumInferrers > 0 {
 		validatorsSem = make(chan struct{}, settings.NumInferrers)
 	}
-	if settings.ValidateHeaders {
+	if settings.ValidateHeader {
 		_, ok := validators["json"]
 		if !ok {
 			// if json validation is turned off, this version of json validator is used by default for validating message header
@@ -199,8 +199,8 @@ func New(registry registry.SchemaRegistry, publisher broker.Publisher, validator
 			},
 			Specification: schemaVersion.Specification,
 		},
-		encryptionKey:   encryptionKey,
-		validateHeaders: settings.ValidateHeaders,
+		encryptionKey:  encryptionKey,
+		validateHeader: settings.ValidateHeader,
 		defaultHeaderSchema: config.DefaultHeaderSchema{
 			DefaultHeaderSchemaId:      settings.DefaultHeaderSchemaId,
 			DefaultHeaderSchemaVersion: settings.DefaultHeaderSchemaVersion,
@@ -327,10 +327,10 @@ func (cc *CentralConsumer) Handle(ctx context.Context, message janitor.Message) 
 		encryptedMessageData  []byte
 	)
 
-	// header validation is turned on if a message specifies so in the header OR if validateHeaders flag is set
+	// header validation is turned on if a message specifies so in the header OR if validateHeader flag is set
 	// on the Validator level
 	if message.RawAttributes[janitor.HeaderValidation] == "true" ||
-		(cc.validateHeaders && message.RawAttributes[janitor.HeaderValidation] != "false") {
+		(cc.validateHeader && message.RawAttributes[janitor.HeaderValidation] != "false") {
 		_, ok := cc.Validators["json"]
 		// it is possible json validator isn't initialized by this point so we are checking it just in case
 		if !ok {
