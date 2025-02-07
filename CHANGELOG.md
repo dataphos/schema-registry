@@ -1,5 +1,25 @@
 # Changelog
 
+## [1.2.0](https://github.com/dataphos/schema-registry/compare/v1.1.1...v1.2.0) (2025-02-07)
+
+
+### Features
+
+* default header schema ([#39](https://github.com/dataphos/schema-registry/issues/39)) ([ac43f28](https://github.com/dataphos/schema-registry/commit/ac43f28d719c5e07e525e77aca56ae28b7ac02fe))
+* new branching strategy ([#37](https://github.com/dataphos/schema-registry/issues/37)) ([7ca590d](https://github.com/dataphos/schema-registry/commit/7ca590dfab3ee9ad15a9c4969c96e50dc21b13a2))
+* new features ([#51](https://github.com/dataphos/schema-registry/issues/51)) ([ac43f28](https://github.com/dataphos/schema-registry/commit/ac43f28d719c5e07e525e77aca56ae28b7ac02fe))
+* schema registry docker compose ([#42](https://github.com/dataphos/schema-registry/issues/42)) ([69d47e7](https://github.com/dataphos/schema-registry/commit/69d47e7de965ab0349216b66d1ee12cfa825085e))
+
+
+### Bug Fixes
+
+* added avro error reason to message header ([#41](https://github.com/dataphos/schema-registry/issues/41)) ([ac43f28](https://github.com/dataphos/schema-registry/commit/ac43f28d719c5e07e525e77aca56ae28b7ac02fe))
+* added avro error reason to message header ([#41](https://github.com/dataphos/schema-registry/issues/41)) 4b191b2 @Simun17 feat: default header schema ([#39](https://github.com/dataphos/schema-registry/issues/39)) 8d51574 @Simun17 refactor: change message when empty ([#44](https://github.com/dataphos/schema-registry/issues/44)) ef8f07f @Simun17 fix: require schema format ([#45](https://github.com/dataphos/schema-registry/issues/45)) ([2320978](https://github.com/dataphos/schema-registry/commit/23209783a2146cdcdacb4a9aac1bf7e3e7944ac1))
+* change message when empty ([#55](https://github.com/dataphos/schema-registry/issues/55)) ([6401f66](https://github.com/dataphos/schema-registry/commit/6401f66870042a71f3df3511154228f295ab945c))
+* format to lower case ([#54](https://github.com/dataphos/schema-registry/issues/54)) ([2613fbd](https://github.com/dataphos/schema-registry/commit/2613fbd87f5b1e8d96cea65e03096748ce7683f0))
+* require schema format ([#45](https://github.com/dataphos/schema-registry/issues/45)) ([ac43f28](https://github.com/dataphos/schema-registry/commit/ac43f28d719c5e07e525e77aca56ae28b7ac02fe))
+* revert ([#50](https://github.com/dataphos/schema-registry/issues/50)) ([e845a60](https://github.com/dataphos/schema-registry/commit/e845a60bbf8c8df5758ca6316c45e14de0578f36))
+
 ## [1.1.1](https://github.com/dataphos/schema-registry/compare/v1.1.0...v1.1.1) (2024-11-26)
 
 
