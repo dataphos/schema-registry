@@ -7,7 +7,6 @@
 
 * default header schema ([#39](https://github.com/dataphos/schema-registry/issues/39)) ([ac43f28](https://github.com/dataphos/schema-registry/commit/ac43f28d719c5e07e525e77aca56ae28b7ac02fe))
 * new branching strategy ([#37](https://github.com/dataphos/schema-registry/issues/37)) ([7ca590d](https://github.com/dataphos/schema-registry/commit/7ca590dfab3ee9ad15a9c4969c96e50dc21b13a2))
-* new features ([#51](https://github.com/dataphos/schema-registry/issues/51)) ([ac43f28](https://github.com/dataphos/schema-registry/commit/ac43f28d719c5e07e525e77aca56ae28b7ac02fe))
 * schema registry docker compose ([#42](https://github.com/dataphos/schema-registry/issues/42)) ([69d47e7](https://github.com/dataphos/schema-registry/commit/69d47e7de965ab0349216b66d1ee12cfa825085e))
 
 
