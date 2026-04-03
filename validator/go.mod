@@ -4,7 +4,7 @@ go 1.21
 
 require (
 	github.com/dataphos/lib-batchproc v1.0.0
-	github.com/dataphos/lib-brokers v1.0.0
+	github.com/dataphos/lib-brokers v1.3.1
 	github.com/dataphos/lib-httputil v1.0.0
 	github.com/dataphos/lib-logger v1.0.0
 	github.com/dataphos/lib-retry v1.0.0
