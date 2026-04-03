@@ -42,13 +42,22 @@ subject = "" # insert
 consumer_name = "" # insert
 
 [producer]
-type = "" # insert "kafka", "eventhubs", "pubsub", "servicebus" or "jetstream"
+type = "" # insert "kafka", "eventhubs", "pubsub", "servicebus", "jetstream", "pulsar" or "gcs"
 
 [producer.kafka]
 address = "" # insert
 
 [producer.pubsub]
 project_id = "" # insert
+
+# When producer.type = "gcs", [topics].valid and [topics].dead_letter are GCS bucket names (not Pub/Sub topics).
+# Uses application default credentials. Each validated message is stored as one object.
+[producer.gcs]
+# project_id = "" # optional; passed through to the GCS client config
+# credentials_file = "" # optional path to service account JSON; default ADC
+# endpoint = "" # optional, e.g. fake GCS emulator
+object_prefix = "messages"
+# content_type = "application/octet-stream"
 
 [producer.servicebus]
 connection_string = "" # insert
@@ -57,6 +66,8 @@ connection_string = "" # insert
 url = "" # insert
 
 [topics]
+# For broker producers (kafka, pubsub, ...): topic or subscription target names.
+# For producer.type = "gcs": names of the buckets for valid vs invalid (dead-letter) payloads.
 valid = "" # insert
 dead_letter = "" # insert
 
