@@ -297,8 +297,6 @@ jobs:
     steps:
       - name: Check out code
         uses: actions/checkout@v4
-        with:
-          ref: ${{ github.head_ref || github.ref }}
 
       - name: Set Tag
         run: |
@@ -307,4 +305,4 @@ jobs:
 
       - name: Build Docker image
         run: |
-          docker build -no-cache --pull -t ${{ matrix.component.image-name }}:${{ env.TAG }} -f ${{ matrix.component.dockerfile-path }} .
+          docker build -t ${{ matrix.component.image-name }}:${{ env.TAG }} -f ${{ matrix.component.dockerfile-path }} .
