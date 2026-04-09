@@ -1,6 +1,20 @@
 # Changelog
 
 
+## [1.3.0](https://github.com/dataphos/schema-registry/compare/v1.2.0...v1.3.0) (2026-04-09)
+
+
+### Features
+
+* gcs consumer ([59758c4](https://github.com/dataphos/schema-registry/commit/59758c43fc94e32bfd553a7a44625050bf8b6b2d))
+* gcs publisher ([#67](https://github.com/dataphos/schema-registry/issues/67)) ([56ed81c](https://github.com/dataphos/schema-registry/commit/56ed81c6c1f5a57d0a32ec67c2968f0a4de0b725))
+* gcs-publisher ([#65](https://github.com/dataphos/schema-registry/issues/65)) ([1561409](https://github.com/dataphos/schema-registry/commit/15614093967c390dee53a6a6143a526122d39eea))
+
+
+### Bug Fixes
+
+* update legacy java images ([34bae76](https://github.com/dataphos/schema-registry/commit/34bae768e969fa1d42146138bd2b16ec43f88323))
+
 ## [1.2.1](https://github.com/dataphos/schema-registry/compare/v1.2.0...v1.2.1) (2026-04-09)
 
 
