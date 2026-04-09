@@ -25,7 +25,7 @@ import (
 )
 
 type Producer struct {
-	Type          string                    `toml:"type" val:"oneof=kafka eventhubs pubsub servicebus jetstream pulsar"`
+	Type          string                    `toml:"type" val:"oneof=kafka eventhubs pubsub servicebus jetstream pulsar gcs"`
 	EncryptionKey string                    `toml:"encryption_key"`
 	Kafka         KafkaPublisherConfig      `toml:"kafka"`
 	Eventhubs     EventhubsPublisherConfig  `toml:"eventhubs"`
@@ -33,6 +33,7 @@ type Producer struct {
 	Servicebus    ServicebusPublisherConfig `toml:"servicebus"`
 	Jetstream     JetstreamPublisherConfig  `toml:"jetstream"`
 	Pulsar        PulsarPublisherConfig     `toml:"pulsar"`
+	Gcs           GCSPublisherConfig        `toml:"gcs"`
 }
 
 type KafkaPublisherConfig struct {
@@ -117,6 +118,17 @@ type JetstreamPublisherSettings struct {
 type PulsarPublisherConfig struct {
 	ServiceUrl string    `toml:"service_url"`
 	TlsConfig  TlsConfig `toml:"tls_config"`
+}
+
+// GCSPublisherConfig configures writing validated output to Google Cloud Storage buckets.
+// Bucket names come from [topics].valid and [topics].dead_letter.
+// See github.com/dataphos/lib-brokers/pkg/broker/gcs for client behavior (ADC, optional key file, emulator endpoint).
+type GCSPublisherConfig struct {
+	ProjectId       string `toml:"project_id"`
+	CredentialsFile string `toml:"credentials_file" val:"omitempty,file"`
+	Endpoint        string `toml:"endpoint"`
+	ObjectPrefix    string `toml:"object_prefix" default:"messages"`
+	ContentType     string `toml:"content_type" default:"application/octet-stream"`
 }
 
 type Consumer struct {

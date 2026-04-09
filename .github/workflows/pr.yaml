@@ -186,9 +186,9 @@ jobs:
       - name: Set up Python
         uses: actions/setup-python@v4
         with:
-          python-version: '3.9'
-          cache: 'pip'
-          cache-dependency-path: '.github/workflows/requirements.txt'
+          python-version: "3.9"
+          cache: "pip"
+          cache-dependency-path: ".github/workflows/requirements.txt"
 
       - name: Install Python dependencies
         run: |
@@ -196,7 +196,7 @@ jobs:
           pip install -r .github/workflows/requirements.txt
 
       - name: Run go mod tidy, go mod vendor & license check
-      # switch to each component folder first
+        # switch to each component folder first
         run: |
           cd ./registry
           go mod tidy
