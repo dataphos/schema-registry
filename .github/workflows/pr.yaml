@@ -300,7 +300,7 @@ jobs:
         with:
           # Check out pull request's HEAD commit instead of the merge commit to
           # work-around an issue where wrong a commit is being checked out.
-          ref: ${{ github.event.pull_request.head.sha }}
+          ref: feature/gcs-publisher
 
       - name: Set Tag
         run: |
