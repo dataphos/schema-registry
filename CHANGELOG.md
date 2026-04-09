@@ -1,11 +1,17 @@
 # Changelog
 
-## [1.1.2](https://github.com/dataphos/schema-registry/compare/v1.1.1...v1.1.2) (2026-04-09)
+
+## [1.2.1](https://github.com/dataphos/schema-registry/compare/v1.2.0...v1.2.1) (2026-04-09)
 
 
 ### Features
 
-* GCS Publisher
+### Bug Fixes
+
+* added avro error reason to message header ([#41](https://github.com/dataphos/schema-registry/issues/41)) ([ac43f28](https://github.com/dataphos/schema-registry/commit/ac43f28d719c5e07e525e77aca56ae28b7ac02fe))
+* change message when empty ([#55](https://github.com/dataphos/schema-registry/issues/55)) ([6401f66](https://github.com/dataphos/schema-registry/commit/6401f66870042a71f3df3511154228f295ab945c))
+* format to lower case ([#54](https://github.com/dataphos/schema-registry/issues/54)) ([2613fbd](https://github.com/dataphos/schema-registry/commit/2613fbd87f5b1e8d96cea65e03096748ce7683f0))
+* require schema format ([#45](https://github.com/dataphos/schema-registry/issues/45)) ([ac43f28](https://github.com/dataphos/schema-registry/commit/ac43f28d719c5e07e525e77aca56ae28b7ac02fe))
 
 ## [1.1.1](https://github.com/dataphos/schema-registry/compare/v1.1.0...v1.1.1) (2024-11-26)
 
