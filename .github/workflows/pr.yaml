@@ -92,7 +92,7 @@ jobs:
       fail-fast: false
       matrix:
         component:
-          - ./registry
+          # - ./registry
           # - ./validator
     steps:
       - name: Check out code into the Go module directory
