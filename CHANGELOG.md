@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.1.2](https://github.com/dataphos/schema-registry/compare/v1.1.1...v1.1.2) (2026-04-09)
+
+
+### Features
+
+* GCS Publisher
+
 ## [1.1.1](https://github.com/dataphos/schema-registry/compare/v1.1.0...v1.1.1) (2024-11-26)
 
 
