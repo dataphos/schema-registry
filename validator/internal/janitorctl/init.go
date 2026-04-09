@@ -26,6 +26,7 @@ import (
 	"github.com/twmb/franz-go/pkg/kgo"
 
 	"github.com/dataphos/lib-brokers/pkg/broker"
+	"github.com/dataphos/lib-brokers/pkg/broker/gcs"
 	"github.com/dataphos/lib-brokers/pkg/broker/jetstream"
 	"github.com/dataphos/lib-brokers/pkg/broker/kafka"
 	"github.com/dataphos/lib-brokers/pkg/broker/pubsub"
@@ -234,6 +235,20 @@ func initJetStreamPublisher(ctx context.Context, cfg *config.Producer) (broker.P
 	)
 }
 
+// initGCSPublisher initializes a Publisher that writes each message as an object in a GCS bucket.
+func initGCSPublisher(ctx context.Context, cfg *config.Producer) (broker.Publisher, error) {
+	settings := gcs.DefaultPublishSettings
+	settings.ObjectPrefix = cfg.Gcs.ObjectPrefix
+	if cfg.Gcs.ContentType != "" {
+		settings.ContentType = cfg.Gcs.ContentType
+	}
+	return gcs.NewPublisher(ctx, gcs.PublisherConfig{
+		ProjectID:       cfg.Gcs.ProjectId,
+		CredentialsFile: cfg.Gcs.CredentialsFile,
+		Endpoint:        cfg.Gcs.Endpoint,
+	}, settings)
+}
+
 // initPulsarPublisher initializes an instance of Pulsar Publisher
 func initPulsarPublisher(cfg *config.Producer) (broker.Publisher, error) {
 	var tlsConfig *tls.Config
@@ -270,6 +285,8 @@ func initializePublisher(ctx context.Context, cfg *config.Producer) (broker.Publ
 		return initJetStreamPublisher(ctx, cfg)
 	case "pulsar":
 		return initPulsarPublisher(cfg)
+	case "gcs":
+		return initGCSPublisher(ctx, cfg)
 
 	default:
 		return nil, errtemplates.UnsupportedBrokerType(cfg.Type)
