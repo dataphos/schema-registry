@@ -31,7 +31,7 @@ COPY LICENSE /home/app/licenses/LICENSE
 RUN mvn -f /home/app/pom.xml clean package
 
 # References base image for Java 18 runtime
-FROM openjdk:18-jdk-slim
+FROM eclipse-temurin:18-jdk
 
 # Copy the binaries in a new working directory
 COPY --from=build /home/app/target/compatibility-checker.jar /home/checker/compatibility-checker.jar
