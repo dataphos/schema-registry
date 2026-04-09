@@ -297,10 +297,6 @@ jobs:
     steps:
       - name: Check out code
         uses: actions/checkout@v4
-        with:
-          # Check out pull request's HEAD commit instead of the merge commit to
-          # work-around an issue where wrong a commit is being checked out.
-          ref: feature/gcs-publisher
 
       - name: Set Tag
         run: |
