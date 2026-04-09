@@ -305,4 +305,4 @@ jobs:
 
       - name: Build Docker image
         run: |
-          docker build -t ${{ matrix.component.image-name }}:${{ env.TAG }} -f ${{ matrix.component.dockerfile-path }} .
+          docker build -no-cache --pull -t ${{ matrix.component.image-name }}:${{ env.TAG }} -f ${{ matrix.component.dockerfile-path }} .
