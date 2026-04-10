@@ -78,7 +78,7 @@ jobs:
     name: Build, push and sign Docker images
     runs-on: ubuntu-latest
     permissions:
-      id-token: write # required to generate JWT token
+      id-token: write #required to generate JWT token
 
     strategy:
       matrix:
