@@ -75,8 +75,10 @@ type KrbConfig struct {
 }
 
 type SaslConfig struct {
-	User     string `toml:"user"`
-	Password string `toml:"password"`
+	// Mechanism set to "scram-sha-512" enables SASL_SSL with SCRAM-SHA-512. Leave empty for no SASL.
+	Mechanism string `toml:"mechanism"`
+	User      string `toml:"user"`
+	Password  string `toml:"password"`
 }
 
 type KafkaPublisherSettings struct {
@@ -200,6 +202,25 @@ func publisherStructLevelValidation(sl validator.StructLevel) {
 		if source.Type == "kafka" {
 			if err := validate.Var(producer.Address, "hostname_port"); err != nil {
 				sl.ReportValidationErrors("address", "", err.(validator.ValidationErrors))
+			}
+			m := strings.ToLower(strings.TrimSpace(producer.SaslConfig.Mechanism))
+			switch m {
+			case "":
+			case "scram-sha-512":
+				if producer.KrbConfig.Enabled {
+					sl.ReportError(producer.SaslConfig, "mechanism", "Mechanism", "exclusive_kerberos", "")
+				}
+				if !producer.TlsConfig.Enabled {
+					sl.ReportError(producer.SaslConfig, "mechanism", "Mechanism", "required_tls", "")
+				}
+				if err := validate.Var(producer.SaslConfig.User, "required"); err != nil {
+					sl.ReportValidationErrors("sasl_config.user", "", err.(validator.ValidationErrors))
+				}
+				if err := validate.Var(producer.SaslConfig.Password, "required"); err != nil {
+					sl.ReportValidationErrors("sasl_config.password", "", err.(validator.ValidationErrors))
+				}
+			default:
+				sl.ReportError(producer.SaslConfig, "mechanism", "Mechanism", "oneof", "scram-sha-512")
 			}
 		}
 	case EventhubsConfig:

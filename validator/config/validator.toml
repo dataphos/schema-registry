@@ -26,6 +26,11 @@ encryption_key = ""
 address = "" # insert
 topic = "" # insert
 group_id = "" # insert
+# Optional SCRAM-SHA-512 (requires tls_config.enabled; mutually exclusive with krb_config):
+# [consumer.kafka.sasl_config]
+# mechanism = "scram-sha-512"
+# user = ""
+# password = ""
 
 [consumer.pubsub]
 project_id = "" # insert
@@ -46,6 +51,11 @@ type = "" # insert "kafka", "eventhubs", "pubsub", "servicebus", "jetstream", "p
 
 [producer.kafka]
 address = "" # insert
+# Optional SASL_SSL with SCRAM-SHA-512 (requires tls_config.enabled = true; mutually exclusive with krb_config):
+# [producer.kafka.sasl_config]
+# mechanism = "scram-sha-512"
+# user = ""
+# password = ""
 
 [producer.pubsub]
 project_id = "" # insert

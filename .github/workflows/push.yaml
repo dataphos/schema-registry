@@ -2,36 +2,21 @@ name: PUSH CI
 
 on:
   push:
-    branches:
-      - main
+     branches: [main, feat/kafka-scram-ssl]
+  workflow_dispatch:
+    inputs:
+      image_tag:
+        description: 'Docker Hub tag (leave empty to use first 7 chars of the checked-out commit SHA)'
+        required: false
+        default: ''
 
 env:
-  GO_VERSION: 1.21
+  GO_VERSION: 1.25.0
 
 jobs:
-  commitlint_job:
-    name: Commit lint
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v4
-        with:
-          fetch-depth: 0
-
-      - name: Set up Node.js
-        uses: actions/setup-node@v4
-        with:
-          node-version: '22'
-
-      - name: Install commitlint
-        run: |
-          npm install --save-dev @commitlint/{cli,config-conventional}
-
-      - name: Validate current commit (last commit) with commitlint
-        run: npx commitlint --last --verbose
-
   license_headers_job:
     name: Add license headers
-    if: github.event.head_commit.committer.name != 'github-actions[bot]'
+    if: github.event_name == 'push' && github.event.head_commit.committer.name != 'github-actions[bot]'
     runs-on: ubuntu-latest
     permissions:
       contents: write
@@ -83,11 +68,17 @@ jobs:
           gh pr create --base ${{ github.ref_name }} --head "add-license-headers-${{ github.run_id }}" --title "style: add license headers" --body "This PR adds license headers to the affected files. Recommendation: Merge this PR using the rebase-merge method"
 
   upload_docker_images_job:
-    if: github.event.head_commit.committer.name == 'github-actions[bot]' || startsWith(github.event.head_commit.message, 'feat') || startsWith(github.event.head_commit.message, 'fix')
+    if: >-
+      github.event_name == 'workflow_dispatch'
+      || (github.event_name == 'push' && (
+        github.event.head_commit.committer.name == 'github-actions[bot]'
+        || startsWith(github.event.head_commit.message, 'feat')
+        || startsWith(github.event.head_commit.message, 'fix')
+      ))
     name: Build, push and sign Docker images
     runs-on: ubuntu-latest
     permissions:
-      id-token: write # required to generate JWT token
+      id-token: write #required to generate JWT token
 
     strategy:
       matrix:
@@ -113,10 +104,16 @@ jobs:
 
       - name: Set image tag
         run: |
-          if [ ${{ github.event.head_commit.committer.name }} == 'github-actions[bot]' ]; then
+          if [ "${{ github.event_name }}" = "workflow_dispatch" ]; then
+            if [ -n "${{ inputs.image_tag }}" ]; then
+              TAG="${{ inputs.image_tag }}"
+            else
+              TAG=$(echo "$GITHUB_SHA" | cut -c 1-7)
+            fi
+          elif [ "${{ github.event.head_commit.committer.name }}" = "github-actions[bot]" ]; then
             TAG=$(cat version.txt)
           else
-            TAG=$(echo $GITHUB_SHA | cut -c 1-7)
+            TAG=$(echo "$GITHUB_SHA" | cut -c 1-7)
           fi
           echo "TAG=$TAG" >> $GITHUB_ENV
 
@@ -143,11 +140,11 @@ jobs:
           docker push syntioinc/dataphos-${{ matrix.component.image-name }}:${{ env.TAG }}
 
       - name: Install cosign
-        if: ${{ github.event.head_commit.committer.name == 'github-actions[bot]' && env.TAG_EXISTS == 'false' }}
+        if: ${{ github.event_name == 'push' && github.event.head_commit.committer.name == 'github-actions[bot]' && env.TAG_EXISTS == 'false' }}
         uses: sigstore/cosign-installer@v3.6.0
 
       - name: Sign the Docker image
-        if: ${{ github.event.head_commit.committer.name == 'github-actions[bot]' && env.TAG_EXISTS == 'false' }}
+        if: ${{ github.event_name == 'push' && github.event.head_commit.committer.name == 'github-actions[bot]' && env.TAG_EXISTS == 'false' }}
         run: |
           digest=$(docker inspect --format='{{index .RepoDigests 0}}' syntioinc/dataphos-${{ matrix.component.image-name }}:${{ env.TAG }})
           cosign sign --yes "$digest"
@@ -155,14 +152,3 @@ jobs:
       - name: Image already exists
         if: ${{ env.TAG_EXISTS == 'true' }}
         run: echo "Docker image syntioinc/dataphos-${{ matrix.component.image-name }}:${{ env.TAG }} already exists. Skipping push."
-
-  release-please:
-    runs-on: ubuntu-latest
-    permissions:
-      contents: write
-      pull-requests: write
-    steps:
-      - uses: googleapis/release-please-action@v4
-        with:
-          token: ${{ secrets.RELEASE_PLEASE_TOKEN }}
-          release-type: simple
