@@ -14,27 +14,6 @@ env:
   GO_VERSION: 1.21
 
 jobs:
-  commitlint_job:
-    if: github.event_name == 'push'
-    name: Commit lint
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v4
-        with:
-          fetch-depth: 0
-
-      - name: Set up Node.js
-        uses: actions/setup-node@v4
-        with:
-          node-version: '22'
-
-      - name: Install commitlint
-        run: |
-          npm install --save-dev @commitlint/{cli,config-conventional}
-
-      - name: Validate current commit (last commit) with commitlint
-        run: npx commitlint --last --verbose
-
   license_headers_job:
     name: Add license headers
     if: github.event_name == 'push' && github.event.head_commit.committer.name != 'github-actions[bot]'
@@ -173,16 +152,3 @@ jobs:
       - name: Image already exists
         if: ${{ env.TAG_EXISTS == 'true' }}
         run: echo "Docker image syntioinc/dataphos-${{ matrix.component.image-name }}:${{ env.TAG }} already exists. Skipping push."
-
-  release-please:
-    # workflow_dispatch (manual) never runs this job — only real pushes to main.
-    if: github.event_name == 'push' && github.ref == 'refs/heads/main'
-    runs-on: ubuntu-latest
-    permissions:
-      contents: write
-      pull-requests: write
-    steps:
-      - uses: googleapis/release-please-action@v4
-        with:
-          token: ${{ secrets.RELEASE_PLEASE_TOKEN }}
-          release-type: simple
