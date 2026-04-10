@@ -2,8 +2,7 @@ name: PUSH CI
 
 on:
   push:
-    branches:
-      - main
+     branches: [main, feat/kafka-scram-ssl]
   workflow_dispatch:
     inputs:
       image_tag:
