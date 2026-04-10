@@ -19,6 +19,7 @@ import (
 	"crypto/tls"
 	"net/http"
 	"runtime"
+	"strings"
 	"time"
 
 	"github.com/pkg/errors"
@@ -107,6 +108,7 @@ func initializeSchemaRegistry(ctx context.Context, log logger.Log, cfg *config.R
 func initKafkaPublisher(ctx context.Context, cfg *config.Producer) (broker.Publisher, error) {
 	var tlsConfig *tls.Config
 	var krbConfig *kafka.KerberosConfig
+	var scramConfig *kafka.ScramSASLConfig
 	var ack kgo.Acks
 	if cfg.Kafka.TlsConfig.Enabled {
 		var err error
@@ -127,6 +129,13 @@ func initKafkaPublisher(ctx context.Context, cfg *config.Producer) (broker.Publi
 		}
 	}
 
+	if strings.EqualFold(strings.TrimSpace(cfg.Kafka.SaslConfig.Mechanism), "scram-sha-512") {
+		scramConfig = &kafka.ScramSASLConfig{
+			User: cfg.Kafka.SaslConfig.User,
+			Pass: cfg.Kafka.SaslConfig.Password,
+		}
+	}
+
 	switch cfg.Kafka.Settings.Acks {
 	case 0:
 		ack = kgo.NoAck()
@@ -141,9 +150,11 @@ func initKafkaPublisher(ctx context.Context, cfg *config.Producer) (broker.Publi
 	return kafka.NewPublisher(
 		ctx,
 		kafka.ProducerConfig{
-			BrokerAddr: cfg.Kafka.Address,
-			TLS:        tlsConfig,
-			Kerberos:   krbConfig,
+			BrokerAddr:         cfg.Kafka.Address,
+			TLS:                tlsConfig,
+			Kerberos:           krbConfig,
+			ScramSASL:          scramConfig,
+			InsecureSkipVerify: cfg.Kafka.TlsConfig.InsecureSkipVerify,
 			Prometheus: &kafka.PrometheusConfig{
 				Namespace:  "publisher",
 				Registerer: prometheus.DefaultRegisterer,
@@ -400,6 +411,7 @@ func initKafkaConsumer(ctx context.Context, processor *janitor.Processor, log lo
 	var srv *http.Server
 	var tlsConfig *tls.Config
 	var krbConfig *kafka.KerberosConfig
+	var scramConfig *kafka.ScramSASLConfig
 	if cfg.Kafka.TlsConfig.Enabled {
 		var err error
 		tlsConfig, err = httputil.NewTLSConfig(cfg.Kafka.TlsConfig.ClientCertFile, cfg.Kafka.TlsConfig.ClientKeyFile, cfg.Kafka.TlsConfig.CaCertFile)
@@ -407,6 +419,7 @@ func initKafkaConsumer(ctx context.Context, processor *janitor.Processor, log lo
 			log.Error(err.Error(), errcodes.TLSInitialization)
 			return
 		}
+		tlsConfig.InsecureSkipVerify = cfg.Kafka.TlsConfig.InsecureSkipVerify
 	}
 
 	if cfg.Kafka.KrbConfig.Enabled {
@@ -419,14 +432,23 @@ func initKafkaConsumer(ctx context.Context, processor *janitor.Processor, log lo
 		}
 	}
 
+	if strings.EqualFold(strings.TrimSpace(cfg.Kafka.SaslConfig.Mechanism), "scram-sha-512") {
+		scramConfig = &kafka.ScramSASLConfig{
+			User: cfg.Kafka.SaslConfig.User,
+			Pass: cfg.Kafka.SaslConfig.Password,
+		}
+	}
+
 	iterator, err := kafka.NewBatchIterator(
 		ctx,
 		kafka.ConsumerConfig{
-			BrokerAddr: cfg.Kafka.Address,
-			GroupID:    cfg.Kafka.GroupId,
-			Topic:      cfg.Kafka.Topic,
-			TLS:        tlsConfig,
-			Kerberos:   krbConfig,
+			BrokerAddr:         cfg.Kafka.Address,
+			GroupID:            cfg.Kafka.GroupId,
+			Topic:              cfg.Kafka.Topic,
+			TLS:                tlsConfig,
+			Kerberos:           krbConfig,
+			ScramSASL:          scramConfig,
+			InsecureSkipVerify: cfg.Kafka.TlsConfig.InsecureSkipVerify,
 			Prometheus: &kafka.PrometheusConfig{
 				Namespace:  "consumer",
 				Registerer: prometheus.DefaultRegisterer,

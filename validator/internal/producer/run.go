@@ -18,6 +18,8 @@ import (
 	"context"
 	"crypto/tls"
 	"errors"
+	"strings"
+
 	"github.com/dataphos/schema-registry-validator/internal/errtemplates"
 	"github.com/dataphos/schema-registry-validator/internal/registry"
 	"github.com/dataphos/schema-registry-validator/internal/registry/apicuriosr"
@@ -115,6 +117,7 @@ func selectPublisher(ctx context.Context, cfg *Config) (broker.Publisher, error)
 	case "kafka":
 		var tlsConfig *tls.Config
 		var krbConfig *kafka.KerberosConfig
+		var scramConfig *kafka.ScramSASLConfig
 		if cfg.Kafka.TlsConfig.Enabled {
 			var err error
 			tlsConfig, err = httputil.NewTLSConfig(cfg.Kafka.TlsConfig.ClientCertFile, cfg.Kafka.TlsConfig.ClientKeyFile, cfg.Kafka.TlsConfig.CaCertFile)
@@ -131,12 +134,19 @@ func selectPublisher(ctx context.Context, cfg *Config) (broker.Publisher, error)
 				Username:   cfg.Kafka.KrbConfig.KrbUsername,
 			}
 		}
+		if strings.EqualFold(strings.TrimSpace(cfg.Kafka.SaslConfig.Mechanism), "scram-sha-512") {
+			scramConfig = &kafka.ScramSASLConfig{
+				User: cfg.Kafka.SaslConfig.User,
+				Pass: cfg.Kafka.SaslConfig.Password,
+			}
+		}
 		return kafka.NewPublisher(
 			ctx,
 			kafka.ProducerConfig{
 				BrokerAddr: cfg.Kafka.Address,
 				TLS:        tlsConfig,
 				Kerberos:   krbConfig,
+				ScramSASL:  scramConfig,
 			},
 			kafka.ProducerSettings{
 				BatchSize:  cfg.Kafka.Settings.BatchSize,
