@@ -439,10 +439,10 @@ func validateKafkaSCRAMSASL(validate *validator.Validate, sl validator.StructLev
 		return
 	case "scram-sha-512":
 		if krb.Enabled {
-			sl.ReportError(sasl, "mechanism", "Mechanism", "exclusive_kerberos", "", sasl.Mechanism)
+			sl.ReportError(sasl, "mechanism", "Mechanism", "exclusive_kerberos", "")
 		}
 		if !tls.Enabled {
-			sl.ReportError(sasl, "mechanism", "Mechanism", "required_tls", "", sasl.Mechanism)
+			sl.ReportError(sasl, "mechanism", "Mechanism", "required_tls", "")
 		}
 		if err := validate.Var(sasl.User, "required"); err != nil {
 			sl.ReportValidationErrors("sasl_config.user", "", err.(validator.ValidationErrors))
@@ -451,7 +451,7 @@ func validateKafkaSCRAMSASL(validate *validator.Validate, sl validator.StructLev
 			sl.ReportValidationErrors("sasl_config.password", "", err.(validator.ValidationErrors))
 		}
 	default:
-		sl.ReportError(sasl, "mechanism", "Mechanism", "oneof", "scram-sha-512", sasl.Mechanism)
+		sl.ReportError(sasl, "mechanism", "Mechanism", "oneof", "scram-sha-512")
 	}
 }
 

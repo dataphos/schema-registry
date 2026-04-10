@@ -208,10 +208,10 @@ func publisherStructLevelValidation(sl validator.StructLevel) {
 			case "":
 			case "scram-sha-512":
 				if producer.KrbConfig.Enabled {
-					sl.ReportError(producer.SaslConfig, "mechanism", "Mechanism", "exclusive_kerberos", "", producer.SaslConfig.Mechanism)
+					sl.ReportError(producer.SaslConfig, "mechanism", "Mechanism", "exclusive_kerberos", "")
 				}
 				if !producer.TlsConfig.Enabled {
-					sl.ReportError(producer.SaslConfig, "mechanism", "Mechanism", "required_tls", "", producer.SaslConfig.Mechanism)
+					sl.ReportError(producer.SaslConfig, "mechanism", "Mechanism", "required_tls", "")
 				}
 				if err := validate.Var(producer.SaslConfig.User, "required"); err != nil {
 					sl.ReportValidationErrors("sasl_config.user", "", err.(validator.ValidationErrors))
@@ -220,7 +220,7 @@ func publisherStructLevelValidation(sl validator.StructLevel) {
 					sl.ReportValidationErrors("sasl_config.password", "", err.(validator.ValidationErrors))
 				}
 			default:
-				sl.ReportError(producer.SaslConfig, "mechanism", "Mechanism", "oneof", "scram-sha-512", producer.SaslConfig.Mechanism)
+				sl.ReportError(producer.SaslConfig, "mechanism", "Mechanism", "oneof", "scram-sha-512")
 			}
 		}
 	case EventhubsConfig:
