@@ -60,14 +60,10 @@ address = "" # insert
 [producer.pubsub]
 project_id = "" # insert
 
-# When producer.type = "gcs", [topics].valid and [topics].dead_letter are GCS bucket names (not Pub/Sub topics).
-# Uses application default credentials. Each validated message is stored as one object.
 [producer.gcs]
 # project_id = "" # optional; passed through to the GCS client config
-# credentials_file = "" # optional path to service account JSON; default ADC
-# endpoint = "" # optional, e.g. fake GCS emulator
-object_prefix = "messages"
-# content_type = "application/octet-stream"
+object_prefix = "" # insert
+content_type = "" # insert
 
 [producer.servicebus]
 connection_string = "" # insert

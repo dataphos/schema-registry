@@ -130,7 +130,7 @@ type GCSPublisherConfig struct {
 	ProjectId       string `toml:"project_id"`
 	CredentialsFile string `toml:"credentials_file" val:"omitempty,file"`
 	Endpoint        string `toml:"endpoint"`
-	ObjectPrefix    string `toml:"object_prefix" default:"messages"`
+	ObjectPrefix    string `toml:"object_prefix"`
 	ContentType     string `toml:"content_type" default:"application/octet-stream"`
 }
 
