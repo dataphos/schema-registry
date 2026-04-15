@@ -17,7 +17,10 @@ package janitorctl
 import (
 	"context"
 	"crypto/tls"
+	"crypto/x509"
 	"net/http"
+	"os"
+	"path/filepath"
 	"runtime"
 	"strings"
 	"time"
@@ -104,6 +107,32 @@ func initializeSchemaRegistry(ctx context.Context, log logger.Log, cfg *config.R
 	return sr, err
 }
 
+// buildTLSConfig constructs a *tls.Config from a TlsConfig.
+// When ClientAuth is true, a client certificate and key are loaded for mTLS.
+// Otherwise only the CA certificate is loaded, providing server-side verification only.
+func buildTLSConfig(cfg config.TlsConfig) (*tls.Config, error) {
+	if cfg.ClientAuth {
+		tlsConfig, err := httputil.NewTLSConfig(cfg.ClientCertFile, cfg.ClientKeyFile, cfg.CaCertFile)
+		if err != nil {
+			return nil, err
+		}
+		tlsConfig.InsecureSkipVerify = cfg.InsecureSkipVerify
+		return tlsConfig, nil
+	}
+
+	caCert, err := os.ReadFile(filepath.Clean(cfg.CaCertFile))
+	if err != nil {
+		return nil, err
+	}
+	pool := x509.NewCertPool()
+	pool.AppendCertsFromPEM(caCert)
+	return &tls.Config{
+		MinVersion:         tls.VersionTLS12,
+		RootCAs:            pool,
+		InsecureSkipVerify: cfg.InsecureSkipVerify,
+	}, nil
+}
+
 // initKafkaPublisher initializes an instance of Kafka Publisher
 func initKafkaPublisher(ctx context.Context, cfg *config.Producer) (broker.Publisher, error) {
 	var tlsConfig *tls.Config
@@ -112,8 +141,7 @@ func initKafkaPublisher(ctx context.Context, cfg *config.Producer) (broker.Publi
 	var ack kgo.Acks
 	if cfg.Kafka.TlsConfig.Enabled {
 		var err error
-		tlsConfig, err = httputil.NewTLSConfig(cfg.Kafka.TlsConfig.ClientCertFile, cfg.Kafka.TlsConfig.ClientKeyFile, cfg.Kafka.TlsConfig.CaCertFile)
-		tlsConfig.InsecureSkipVerify = cfg.Kafka.TlsConfig.InsecureSkipVerify
+		tlsConfig, err = buildTLSConfig(cfg.Kafka.TlsConfig)
 		if err != nil {
 			return nil, err
 		}
@@ -179,8 +207,7 @@ func initEventHubsPublisher(ctx context.Context, cfg *config.Producer) (broker.P
 
 	if cfg.Eventhubs.TlsConfig.Enabled {
 		var err error
-		tlsConfig, err = httputil.NewTLSConfig(cfg.Eventhubs.TlsConfig.ClientCertFile, cfg.Eventhubs.TlsConfig.ClientKeyFile, cfg.Eventhubs.TlsConfig.CaCertFile)
-		tlsConfig.InsecureSkipVerify = cfg.Eventhubs.TlsConfig.InsecureSkipVerify
+		tlsConfig, err = buildTLSConfig(cfg.Eventhubs.TlsConfig)
 		if err != nil {
 			return nil, err
 		}
@@ -263,9 +290,9 @@ func initGCSPublisher(ctx context.Context, cfg *config.Producer) (broker.Publish
 // initPulsarPublisher initializes an instance of Pulsar Publisher
 func initPulsarPublisher(cfg *config.Producer) (broker.Publisher, error) {
 	var tlsConfig *tls.Config
-	if cfg.Kafka.TlsConfig.Enabled {
+	if cfg.Pulsar.TlsConfig.Enabled {
 		var err error
-		tlsConfig, err = httputil.NewTLSConfig(cfg.Pulsar.TlsConfig.ClientCertFile, cfg.Pulsar.TlsConfig.ClientKeyFile, cfg.Pulsar.TlsConfig.CaCertFile)
+		tlsConfig, err = buildTLSConfig(cfg.Pulsar.TlsConfig)
 		if err != nil {
 			return nil, err
 		}
@@ -414,12 +441,11 @@ func initKafkaConsumer(ctx context.Context, processor *janitor.Processor, log lo
 	var scramConfig *kafka.ScramSASLConfig
 	if cfg.Kafka.TlsConfig.Enabled {
 		var err error
-		tlsConfig, err = httputil.NewTLSConfig(cfg.Kafka.TlsConfig.ClientCertFile, cfg.Kafka.TlsConfig.ClientKeyFile, cfg.Kafka.TlsConfig.CaCertFile)
+		tlsConfig, err = buildTLSConfig(cfg.Kafka.TlsConfig)
 		if err != nil {
 			log.Error(err.Error(), errcodes.TLSInitialization)
 			return
 		}
-		tlsConfig.InsecureSkipVerify = cfg.Kafka.TlsConfig.InsecureSkipVerify
 	}
 
 	if cfg.Kafka.KrbConfig.Enabled {
@@ -505,7 +531,7 @@ func initEventHubsConsumer(ctx context.Context, processor *janitor.Processor, lo
 	}
 	if cfg.Eventhubs.TlsConfig.Enabled {
 		var err error
-		tlsConfig, err = httputil.NewTLSConfig(cfg.Eventhubs.TlsConfig.ClientCertFile, cfg.Eventhubs.TlsConfig.ClientKeyFile, cfg.Eventhubs.TlsConfig.CaCertFile)
+		tlsConfig, err = buildTLSConfig(cfg.Eventhubs.TlsConfig)
 		if err != nil {
 			log.Error(err.Error(), errcodes.TLSInitialization)
 			return
@@ -721,9 +747,9 @@ func initJetStreamConsumer(ctx context.Context, processor *janitor.Processor, lo
 func initPulsarConsumer(ctx context.Context, processor *janitor.Processor, log logger.Log, cfg *config.Consumer, opts []streamproc.RunOption) {
 	var srv *http.Server
 	var tlsConfig *tls.Config
-	if cfg.Kafka.TlsConfig.Enabled {
+	if cfg.Pulsar.TlsConfig.Enabled {
 		var err error
-		tlsConfig, err = httputil.NewTLSConfig(cfg.Pulsar.TlsConfig.ClientCertFile, cfg.Pulsar.TlsConfig.ClientKeyFile, cfg.Pulsar.TlsConfig.CaCertFile)
+		tlsConfig, err = buildTLSConfig(cfg.Pulsar.TlsConfig)
 		if err != nil {
 			log.Error(err.Error(), errcodes.TLSInitialization)
 			return

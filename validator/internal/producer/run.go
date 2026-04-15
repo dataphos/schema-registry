@@ -17,7 +17,10 @@ package producer
 import (
 	"context"
 	"crypto/tls"
+	"crypto/x509"
 	"errors"
+	"os"
+	"path/filepath"
 	"strings"
 
 	"github.com/dataphos/schema-registry-validator/internal/errtemplates"
@@ -95,6 +98,26 @@ func Run(configFile string) {
 	log.Println("done")
 }
 
+// buildTLSConfig constructs a *tls.Config from a TlsConfig.
+// When ClientAuth is true, a client certificate and key are loaded for mTLS.
+// Otherwise only the CA certificate is loaded, providing server-side verification only.
+func buildTLSConfig(cfg TlsConfig) (*tls.Config, error) {
+	if cfg.ClientAuth {
+		return httputil.NewTLSConfig(cfg.ClientCertFile, cfg.ClientKeyFile, cfg.CaCertFile)
+	}
+
+	caCert, err := os.ReadFile(filepath.Clean(cfg.CaCertFile))
+	if err != nil {
+		return nil, err
+	}
+	pool := x509.NewCertPool()
+	pool.AppendCertsFromPEM(caCert)
+	return &tls.Config{
+		MinVersion: tls.VersionTLS12,
+		RootCAs:    pool,
+	}, nil
+}
+
 func selectPublisher(ctx context.Context, cfg *Config) (broker.Publisher, error) {
 	switch cfg.Type {
 	case "pubsub":
@@ -120,7 +143,7 @@ func selectPublisher(ctx context.Context, cfg *Config) (broker.Publisher, error)
 		var scramConfig *kafka.ScramSASLConfig
 		if cfg.Kafka.TlsConfig.Enabled {
 			var err error
-			tlsConfig, err = httputil.NewTLSConfig(cfg.Kafka.TlsConfig.ClientCertFile, cfg.Kafka.TlsConfig.ClientKeyFile, cfg.Kafka.TlsConfig.CaCertFile)
+			tlsConfig, err = buildTLSConfig(cfg.Kafka.TlsConfig)
 			if err != nil {
 				return nil, err
 			}
@@ -159,7 +182,7 @@ func selectPublisher(ctx context.Context, cfg *Config) (broker.Publisher, error)
 		var saslConfig *kafka.PlainSASLConfig
 		if cfg.Eventhubs.TlsConfig.Enabled {
 			var err error
-			tlsConfig, err = httputil.NewTLSConfig(cfg.Eventhubs.TlsConfig.ClientCertFile, cfg.Eventhubs.TlsConfig.ClientKeyFile, cfg.Eventhubs.TlsConfig.CaCertFile)
+			tlsConfig, err = buildTLSConfig(cfg.Eventhubs.TlsConfig)
 			if err != nil {
 				return nil, err
 			}

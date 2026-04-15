@@ -60,8 +60,9 @@ type EventhubsConfig struct {
 
 type TlsConfig struct {
 	Enabled        bool   `toml:"enabled"`
-	ClientCertFile string `toml:"client_cert_file" val:"required_if=Enabled true,omitempty,file"`
-	ClientKeyFile  string `toml:"client_key_file" val:"required_if=Enabled true,omitempty,file"`
+	ClientAuth     bool   `toml:"client_auth"`
+	ClientCertFile string `toml:"client_cert_file" val:"required_if=ClientAuth true,omitempty,file"`
+	ClientKeyFile  string `toml:"client_key_file" val:"required_if=ClientAuth true,omitempty,file"`
 	CaCertFile     string `toml:"ca_cert_file" val:"required_if=Enabled true,omitempty,file"`
 }
 
