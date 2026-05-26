@@ -210,7 +210,8 @@ With schema search, users can swiftly locate relevant data schemas using a GET r
 |                                                  id                                                  | search by id 5 <br>URL: http://schema-registry-svc/schemas/search?id=5                                    |
 |                                               version                                                | search by id 5 and version 2<br>URL: http://schema-registry-svc/schemas/search?id=5&version=2             |
 |                                                 type                                                 | search by type JSON <br>URL: http://schema-registry-svc/schemas/search?type=json                          |
-|                                                 name                                                 | search by name "json_schema_name"<br>URL: http://schema-registry-svc/schemas/search?name=json_schema_name |
+|                                                 name                                                 | search by exact name match<br>URL: http://schema-registry-svc/schemas/search?name=good-schema |
+|                                            nameContains                                             | search by name substring<br>URL: http://schema-registry-svc/schemas/search?nameContains=good |
 | orderBy name, type, id or version (if sort value is given but orderBy isn’t the default value is id) |
 |         sort asc or desc (if orderBy value is given but sort isn’t the default value is asc)         |
 |                                                limit                                                 |
