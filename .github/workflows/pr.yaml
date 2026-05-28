@@ -92,8 +92,8 @@ jobs:
       fail-fast: false
       matrix:
         component:
-          # - ./registry
-          # - ./validator
+          - ./registry
+          - ./validator
     steps:
       - name: Check out code into the Go module directory
         uses: actions/checkout@v4
