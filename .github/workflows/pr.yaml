@@ -1,12 +1,8 @@
 name: PR CI
 
 on:
-  pull_request_target:
-    types:
-      - opened
-      - edited
-      - synchronize
-      - reopened
+  pull_request:
+    - main
 
 env:
   GO111MODULE: on
