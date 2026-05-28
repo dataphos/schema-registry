@@ -10,14 +10,13 @@ run:
 
 linters:
   enable:
-    - megacheck
+    - staticcheck
     - govet
     - gosec
     - gocritic
     - goconst
   disable:
     - asciicheck
-    - maligned
     - prealloc
     - unused
 
