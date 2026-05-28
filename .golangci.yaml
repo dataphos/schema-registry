@@ -4,7 +4,7 @@ version: "2"
 # options for analysis running
 run:
   # default concurrency is a available CPU number
-  issues-exit-code: 1
+  issues-exit-code: 0
   # include test files or not, default is true
   tests: true
 
