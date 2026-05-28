@@ -1,6 +1,17 @@
 # Changelog
 
 
+## [2.0.0](https://github.com/dataphos/schema-registry/compare/v1.3.0...v2.0.0) (2026-05-28)
+
+
+### ⚠ BREAKING CHANGES
+
+* schema search api supports exact and substring matches ([#70](https://github.com/dataphos/schema-registry/issues/70))
+
+### Features
+
+* schema search api supports exact and substring matches ([#70](https://github.com/dataphos/schema-registry/issues/70)) ([7927697](https://github.com/dataphos/schema-registry/commit/792769796b511848cfb90c6a301c1f030157d3c6))
+
 ## [1.3.0](https://github.com/dataphos/schema-registry/compare/v1.2.0...v1.3.0) (2026-04-09)
 
 
