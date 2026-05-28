@@ -9,12 +9,12 @@ run:
 
 # output configuration options
 output:
-  # colored-line-number|line-number|json|tab|checkstyle|code-climate, default is "colored-line-number"
-  format: colored-line-number
-  # print lines of code with issue, default is true
-  print-issued-lines: true
-  # print linter name in the end of issue text, default is true
-  print-linter-name: true
+  formats:
+    text:
+      path: stdout
+      print-linter-name: true
+      print-issued-lines: true
+      colors: true
   # make issues output unique by line, default is true
   uniq-by-line: true
   # add a prefix to the output file references; default is no prefix
@@ -22,13 +22,15 @@ output:
 # all available settings of specific linters
 linters-settings:
   depguard:
-    list-type: blacklist
-    include-go-root: false
-    packages:
-      - github.com/sirupsen/logrus
-    packages-with-error-message:
-      # specify an error message to output when a blacklisted package is used
-      - github.com/sirupsen/logrus: "logging is allowed only by logutils.Log"
+    rules:
+      main:
+        list-mode: lax
+        files:
+          - $all
+          - "!$test"
+        deny:
+          - pkg: github.com/sirupsen/logrus
+            desc: "logging is allowed only by logutils.Log"
   dogsled:
     # checks assignments with too many blank identifiers; default is 2
     max-blank-identifiers: 2
@@ -85,37 +87,18 @@ linters-settings:
   gofmt:
     # simplify code: gofmt with `-s` option, true by default
     simplify: true
-  golint:
-    # minimal confidence for issues, default is 0.8
-    min-confidence: 0.8
-  gomnd:
-    settings:
-      mnd:
-        # the list of enabled checks, see https://github.com/tommy-muehle/go-mnd/#checks for description.
-        checks:
-          - argument
-          - case
-          - condition
-          - operation
-          - return
-          - assign
   lll:
     # max line length, lines longer will be reported. Default is 120.
     # '\t' is counted as 1 character by default, and can be changed with the tab-width option
     line-length: 120
     # tab width in spaces. Default to 1.
     tab-width: 2
-  maligned:
-    # print struct with more effective memory layout or not, false by default
-    suggest-new: true
   nestif:
     # minimal complexity of if statements to report, 5 by default
     min-complexity: 4
   nolintlint:
     # Enable to ensure that nolint directives are all used. Default is true.
     allow-unused: true
-    # Disable to ensure that nolint directives don't have a leading space. Default is true.
-    allow-leading-space: true
     # Exclude following linters from requiring an explanation.  Default is [].
     allow-no-explanation: [ ]
     # Enable to require an explanation of nonzero length after each nolint directive. Default is false.
@@ -153,11 +136,7 @@ linters-settings:
   errorlint:
     # Report non-wrapping error creation using fmt.Errorf
     errorf: true
-  # The custom section can be used to define linter plugins to be loaded at runtime. See README doc
-  #  for more info.
-(io:
-  ReadCloser):
-    Close:linters:
+linters:
   enable:
     - megacheck
     - govet
