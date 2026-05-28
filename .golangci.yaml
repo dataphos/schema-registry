@@ -28,15 +28,15 @@ linters:
 
   settings:
     depguard:
-    rules:
-      main:
-        list-mode: lax
-        files:
-          - $all
-          - "!$test"
-        deny:
-          - pkg: github.com/sirupsen/logrus
-            desc: "logging is allowed only by logutils.Log"
+      rules:
+        main:
+          list-mode: lax
+          files:
+            - $all
+            - "!$test"
+          deny:
+            - pkg: github.com/sirupsen/logrus
+              desc: "logging is allowed only by logutils.Log"
     dogsled:
       # checks assignments with too many blank identifiers; default is 2
       max-blank-identifiers: 2
