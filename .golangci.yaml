@@ -1,5 +1,6 @@
 # This file contains all available configuration options
 # with their default values.
+version: 2
 # options for analysis running
 run:
   # default concurrency is a available CPU number
