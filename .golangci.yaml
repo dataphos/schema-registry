@@ -20,11 +20,6 @@ linters:
     - maligned
     - prealloc
     - unused
-  disable-all: false
-  presets:
-    - bugs
-    # - unused
-  fast: false
 
   settings:
     depguard:
@@ -60,8 +55,6 @@ linters:
         - io.Copy(os.Stdout)
         - (io.ReadCloser).Close
     exhaustive:
-      # check switch statements in generated files also
-      check-generated: false
       # indicates that switch statements are to be considered exhaustive if a
       # 'default' case is present, even if all enum members aren't listed in the
       # switch
@@ -90,9 +83,6 @@ linters:
         - NOTE
         - OPTIMIZE # marks code that should be optimized before merging
         - HACK # marks hack-arounds that should be removed before merging
-    gofmt:
-      # simplify code: gofmt with `-s` option, true by default
-      simplify: true
     lll:
       # max line length, lines longer will be reported. Default is 120.
       # '\t' is counted as 1 character by default, and can be changed with the tab-width option
@@ -184,9 +174,6 @@ severity:
   # -   Checkstyle: https://checkstyle.sourceforge.io/property_types.html#severity
   # -       Github: https://help.github.com/en/actions/reference/workflow-commands-for-github-actions#setting-an-error-message
   default: error
-  # The default value is false.
-  # If set to true severity-rules regular expressions become case sensitive.
-  case-sensitive: false
   # Default value is empty list.
   # When a list of severity rules are provided, severity information will be added to lint
   # issues. Severity rules have the same filtering capability as exclude rules except you
@@ -196,3 +183,7 @@ severity:
     - linters:
         - dupl
       severity: info
+
+formatters:
+  enable:
+    - gofmt
