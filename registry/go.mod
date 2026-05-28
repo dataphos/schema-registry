@@ -1,6 +1,6 @@
 module github.com/dataphos/schema-registry
 
-go 1.23.0
+go 1.25.0
 
 require (
 	github.com/DATA-DOG/go-sqlmock v1.5.0
