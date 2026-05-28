@@ -9,8 +9,8 @@ env:
   GO111MODULE: on
   GO_VERSION: 1.25.0
   NODE_VERSION: 22
-  LINT_ARGS: -v --skip-files .*_test.go --timeout 5m0s --out-format colored-line-number
-  GOLANGCI_LINT_VERSION: v1.50
+  LINT_ARGS: -v --timeout 5m0s
+  GOLANGCI_LINT_VERSION: v2.12.1
   TEST_ARGS: -v -short -coverprofile=coverage.out
 
 jobs:
@@ -120,9 +120,9 @@ jobs:
 
       - name: Run Go Lint for ${{ matrix.component }}
         if: steps.check_changed_files.outputs.any_changed == 'true'
-        uses: golangci/golangci-lint-action@v6
+        uses: golangci/golangci-lint-action@v8
         with:
-          version: v1.61.0
+          version: ${{ env.GOLANGCI_LINT_VERSION }}
           args: ${{env.LINT_ARGS}}
           skip-cache: true
           skip-save-cache: true
