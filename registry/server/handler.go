@@ -378,8 +378,8 @@ func (h Handler) GetSchemas(w http.ResponseWriter, _ *http.Request) {
 	})
 }
 
-// SearchSchemas  is a GET method that expects one of the following parameters: id, version, type, name, orderBy,
-// sort, limit and gets schemas that match given filter criteria
+// SearchSchemas  is a GET method that expects one of the following parameters: id, version, type, name, nameContains,
+// orderBy, sort, limit and gets schemas that match given filter criteria
 //
 // It currently writes back either:
 //   - status 200 with filtered schemas in JSON format
@@ -393,7 +393,8 @@ func (h Handler) GetSchemas(w http.ResponseWriter, _ *http.Request) {
 // @Param        id query string false "schema id"
 // @Param        version query string false "schema version"
 // @Param        type query string false "schema type"
-// @Param        name query string false "schema name"
+// @Param        name query string false "schema name (exact match)"
+// @Param        nameContains query string false "schema name substring match"
 // @Param        orderBy query string false "order by name, type, id or version"
 // @Param        sort query string false "sort schemas either asc or desc"
 // @Param        limit query string false "maximum number of retrieved schemas matching the criteria"
@@ -408,6 +409,7 @@ func (h Handler) SearchSchemas(w http.ResponseWriter, r *http.Request) {
 	version := r.URL.Query().Get("version")
 	schemaType := r.URL.Query().Get("type")
 	name := r.URL.Query().Get("name")
+	nameContains := r.URL.Query().Get("nameContains")
 	orderBy := r.URL.Query().Get("orderBy")
 	sort := r.URL.Query().Get("sort")
 
@@ -460,14 +462,15 @@ func (h Handler) SearchSchemas(w http.ResponseWriter, r *http.Request) {
 	}
 
 	queryParams := registry.QueryParams{
-		Id:         id,
-		Version:    version,
-		SchemaType: schemaType,
-		Name:       name,
-		OrderBy:    orderBy,
-		Sort:       sort,
-		Limit:      limit,
-		Attributes: attributes,
+		Id:           id,
+		Version:      version,
+		SchemaType:   schemaType,
+		Name:         name,
+		NameContains: nameContains,
+		OrderBy:      orderBy,
+		Sort:         sort,
+		Limit:        limit,
+		Attributes:   attributes,
 	}
 
 	schemas, err := h.Service.SearchSchemas(queryParams)

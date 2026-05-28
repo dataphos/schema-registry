@@ -46,14 +46,15 @@ const cacheSizeEnv = "CACHE_SIZE"
 const defaultCacheSizeEnv = 0
 
 type QueryParams struct {
-	Id         string
-	Version    string
-	SchemaType string
-	Name       string
-	OrderBy    string
-	Sort       string
-	Limit      int
-	Attributes []string
+	Id           string
+	Version      string
+	SchemaType   string
+	Name         string
+	NameContains string
+	OrderBy      string
+	Sort         string
+	Limit        int
+	Attributes   []string
 }
 
 func New(Repository Repository, CompChecker compatibility.Checker, ValChecker validity.Checker, GlobalCompMode, GlobalValMode string) *Service {
@@ -130,7 +131,10 @@ func (service *Service) SearchSchemas(params QueryParams) ([]Schema, error) {
 		if params.Id != "" && schema.SchemaID != params.Id {
 			continue
 		}
-		if params.Name != "" && !strings.Contains(schema.Name, params.Name) {
+		if params.Name != "" && schema.Name != params.Name {
+			continue
+		}
+		if params.NameContains != "" && !strings.Contains(schema.Name, params.NameContains) {
 			continue
 		}
 		if params.SchemaType != "" && schema.SchemaType != params.SchemaType {

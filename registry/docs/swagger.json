@@ -104,8 +104,14 @@
                     },
                     {
                         "type": "string",
-                        "description": "schema name",
+                        "description": "schema name (exact match)",
                         "name": "name",
+                        "in": "query"
+                    },
+                    {
+                        "type": "string",
+                        "description": "schema name substring match",
+                        "name": "nameContains",
                         "in": "query"
                     },
                     {
