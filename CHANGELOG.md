@@ -1,6 +1,13 @@
 # Changelog
 
 
+## [2.0.3](https://github.com/dataphos/schema-registry/compare/v2.0.2...v2.0.3) (2026-05-29)
+
+
+### Bug Fixes
+
+* docker push tagging logic ([#79](https://github.com/dataphos/schema-registry/issues/79)) ([8e0ea7c](https://github.com/dataphos/schema-registry/commit/8e0ea7c323834f1eeda773411e67b1b55e6caba4))
+
 ## [2.0.2](https://github.com/dataphos/schema-registry/compare/v2.0.1...v2.0.2) (2026-05-29)
 
 
