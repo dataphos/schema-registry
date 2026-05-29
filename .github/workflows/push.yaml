@@ -84,7 +84,6 @@ jobs:
 
   upload_docker_images_job:
     if: |
-      github.event.head_commit.committer.name == 'github-actions[bot]' ||
       startsWith(github.event.head_commit.message, 'feat') ||
       startsWith(github.event.head_commit.message, 'feat!') ||
       startsWith(github.event.head_commit.message, 'fix') ||
@@ -118,10 +117,9 @@ jobs:
 
       - name: Set image tag
         run: |
-          if [ ${{ github.event.head_commit.committer.name }} == 'github-actions[bot]' ]; then
+          TAG=$(echo $GITHUB_SHA | cut -c 1-7)
+          if [[ "${{ contains(github.event.pull_request.labels.*.name, 'autorelease: tagged') }}" == "true" ]]; then
             TAG=$(cat version.txt)
-          else
-            TAG=$(echo $GITHUB_SHA | cut -c 1-7)
           fi
           echo "TAG=$TAG" >> $GITHUB_ENV
 
