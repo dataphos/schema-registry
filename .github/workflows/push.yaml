@@ -118,7 +118,7 @@ jobs:
       - name: Set image tag
         run: |
           TAG=$(echo $GITHUB_SHA | cut -c 1-7)
-          if [[ "${{ contains(github.event.pull_request.labels.*.name, 'autorelease: tagged') }}" == "true" ]]; then
+          if [[ "${{ github.event.head_commit.message }}" =~ ^chore\([^)]+\): release \d+\.\d+\.\d+$ ]]; then
             TAG=$(cat version.txt)
           fi
           echo "TAG=$TAG" >> $GITHUB_ENV
