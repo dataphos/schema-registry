@@ -1,6 +1,13 @@
 # Changelog
 
 
+## [2.0.1](https://github.com/dataphos/schema-registry/compare/v2.0.0...v2.0.1) (2026-05-29)
+
+
+### Bug Fixes
+
+* releases support breaking changes  ([#73](https://github.com/dataphos/schema-registry/issues/73)) ([8eb807e](https://github.com/dataphos/schema-registry/commit/8eb807e9d852384ded0a6da22682ea0720020fa5))
+
 ## [2.0.0](https://github.com/dataphos/schema-registry/compare/v1.3.0...v2.0.0) (2026-05-28)
 
 
