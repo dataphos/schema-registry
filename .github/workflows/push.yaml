@@ -87,7 +87,9 @@ jobs:
       startsWith(github.event.head_commit.message, 'feat') ||
       startsWith(github.event.head_commit.message, 'feat!') ||
       startsWith(github.event.head_commit.message, 'fix') ||
-      startsWith(github.event.head_commit.message, 'fix!')
+      startsWith(github.event.head_commit.message, 'fix!') ||
+      startsWith(github.event.head_commit.message, 'chore') &&
+      contains(github.event.head_commit.message, 'release')
     name: Build, push and sign Docker images
     runs-on: ubuntu-latest
     permissions:
@@ -118,7 +120,7 @@ jobs:
       - name: Set image tag
         run: |
           TAG=$(echo $GITHUB_SHA | cut -c 1-7)
-          if [[ "${{ github.event.head_commit.message }}" =~ ^chore\([^)]+\): release \d+\.\d+\.\d+ ]]; then
+          if [ "${{ startsWith(github.event.head_commit.message, 'chore') && contains(github.event.head_commit.message, 'release') }}" == "true" ]; then
             TAG=$(cat version.txt)
           fi
           echo "TAG=$TAG" >> $GITHUB_ENV
