@@ -1,6 +1,13 @@
 # Changelog
 
 
+## [2.0.2](https://github.com/dataphos/schema-registry/compare/v2.0.1...v2.0.2) (2026-05-29)
+
+
+### Bug Fixes
+
+* push ci properly tags images ([#75](https://github.com/dataphos/schema-registry/issues/75)) ([0b0a2d4](https://github.com/dataphos/schema-registry/commit/0b0a2d47d24f1c623b9ce1de7912c9e5c3f2e283))
+
 ## [2.0.1](https://github.com/dataphos/schema-registry/compare/v2.0.0...v2.0.1) (2026-05-29)
 
 
